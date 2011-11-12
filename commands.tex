@@ -1,0 +1,35 @@
+\newcommand{\vect}[1]{\boldsymbol{#1}}
+\newcommand{\lonenorm}[1]{\left|\left|#1\right|\right|_1}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{procedure}{Procedure}
+\newtheorem{construction}{Construction}
+\newtheorem{example}{Example}
+\newtheorem{remark}{Remark}
+\newtheorem{claim}{Claim}
+
+\newcommand{\Rea}{{\mathbb R}}
+\newcommand{\Int}{{\mathbb Z}}
+\newcommand{\Rat}{{\mathbb Q}}
+\newcommand{\Cmp}{{\mathbb C}}
+\newcommand{\Nat}{{\mathbb N}}
+
+\NewDocumentCommand\sbtext{mm}{#1_{\text{#2}}}
+\NewDocumentCommand\opProblem{mmmm}{\begin{equation*}\begin{aligned}& \underset{#1}{\text{#2}}& & #3 \\ & \text{subject to} & #4 \end{aligned} \end{equation*}}
+\NewDocumentCommand\opMin{mmm}{\opProblem{#1}{minimize}{#2}{#3}}
+\NewDocumentCommand\opMax{mmm}{\opProblem{#1}{maximize}{#2}{#3}}
+\NewDocumentCommand\dotT{mm}{\vect {#1^{\mathrm{T}}} \vect {#2} }
+
+%\usepackage{graphicx,ifthen}
+\newlength{\testwd}
+\newcommand{\fitpic}[1]{%
+	\settowidth{\testwd}{\includegraphics{#1}}%
+	\message{#1 width=\the\testwd, page=\the\textwidth}%
+	\ifthenelse{\lengthtest{\testwd>\textwidth}}{%
+	\noindent\includegraphics[width=\textwidth]{#1}}{%
+	\centering\includegraphics{#1}\par}%
+}

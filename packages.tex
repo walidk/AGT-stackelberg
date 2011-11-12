@@ -1,0 +1,80 @@
+\documentclass[8pt]{article}
+
+
+%\usepackage{multirow}
+\usepackage{color}
+\usepackage[textwidth=6.5in,textheight=9in]{geometry}
+\usepackage{hyperref}
+
+
+% Use utf-8 encoding for foreign characters
+\usepackage[utf8]{inputenc}
+
+% Setup for fullpage use
+\usepackage{fullpage}
+\usepackage{booktabs}
+
+% Running Headers and footers
+%\usepackage{fancyhdr}
+
+% Multipart figures
+%\usepackage{subfigure}
+
+% Surround parts of graphics with box
+\usepackage{boxedminipage}
+
+% Package for including code in the document
+\usepackage{listings}
+
+% If you want to generate a toc for each chapter (use with book)
+%\usepackage{minitoc}
+
+% This is now the recommended way for checking for PDFLaTeX:
+%\usepackage{ifpdf}
+
+
+%\newif\ifpdf
+%\ifx\pdfoutput\undefined
+%\pdffalse % we are not running PDFLaTeX
+%\else
+%\pdfoutput=1 % we are running PDFLaTeX
+%\pdftrue
+%\fi
+
+\usepackage{graphicx}
+
+%\numberwithin{equation}{section}
+%\ifpdf
+%\usepackage[pdftex]{graphicx}
+%\else
+%\usepackage{graphicx}
+%\fi
+
+\usepackage{cleveref}
+
+\ifpdf
+\DeclareGraphicsExtensions{.pdf, .jpg, .tif, .png}
+\else
+\DeclareGraphicsExtensions{.eps, .jpg, .png}
+\fi
+
+
+% More symbols
+\usepackage{amsmath, amssymb, amsthm, amsfonts}
+%\usepackage{amssymb,amsmath}
+\usepackage{xparse}
+%\usepackage{latexsym}
+\usepackage{amsfonts}
+
+\setlength{\oddsidemargin}{.25in}
+\setlength{\evensidemargin}{.25in}
+\setlength{\textwidth}{6.25in}
+\setlength{\topmargin}{-0.0in}
+\setlength{\textheight}{8.9in}
+
+\renewenvironment{proof}{\noindent{\bf Proof:} \hspace*{1mm}}{
+  \hspace*{\fill} $\Box$ }
+\newenvironment{proof_of}[1]{\noindent {\bf Proof of #1:}
+  \hspace*{1mm}}{\hspace*{\fill} $\Box$ }
+%\newenvironment{proof_claim}{\begin{quotation} \noindent}{
+%\hspace*{\fill} $\diamond$ \end{quotation}}​
