@@ -5,10 +5,13 @@
 \usepackage{color}
 \usepackage[textwidth=6.5in,textheight=9in]{geometry}
 \usepackage{hyperref}
+\hypersetup{bookmarks=false, pdfborder={0 0 0}, colorlinks=true, linktoc=all}
 
 
 % Use utf-8 encoding for foreign characters
 \usepackage[utf8]{inputenc}
+%\usepackage[french]{babel}
+
 
 % Setup for fullpage use
 \usepackage{fullpage}
@@ -21,7 +24,7 @@
 %\usepackage{subfigure}
 
 % Surround parts of graphics with box
-\usepackage{boxedminipage}
+%\usepackage{boxedminipage}
 
 % Package for including code in the document
 \usepackage{listings}
@@ -30,7 +33,7 @@
 %\usepackage{minitoc}
 
 % This is now the recommended way for checking for PDFLaTeX:
-%\usepackage{ifpdf}
+\usepackage{ifpdf}
 
 
 %\newif\ifpdf
@@ -58,11 +61,9 @@
 \DeclareGraphicsExtensions{.eps, .jpg, .png}
 \fi
 
-
 % More symbols
 \usepackage{amsmath, amssymb, amsthm, amsfonts}
-%\usepackage{amssymb,amsmath}
-\usepackage{xparse}
+%\usepackage{xparse}
 %\usepackage{latexsym}
 \usepackage{amsfonts}
 
@@ -72,9 +73,4 @@
 \setlength{\topmargin}{-0.0in}
 \setlength{\textheight}{8.9in}
 
-\renewenvironment{proof}{\noindent{\bf Proof:} \hspace*{1mm}}{
-  \hspace*{\fill} $\Box$ }
-\newenvironment{proof_of}[1]{\noindent {\bf Proof of #1:}
-  \hspace*{1mm}}{\hspace*{\fill} $\Box$ }
-%\newenvironment{proof_claim}{\begin{quotation} \noindent}{
-%\hspace*{\fill} $\diamond$ \end{quotation}}​
+\renewenvironment{proof}{\noindent{\bf Proof:} \hspace*{1mm}}{\hspace*{\fill} $\Box$}
