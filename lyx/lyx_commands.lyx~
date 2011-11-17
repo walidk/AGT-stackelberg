@@ -220,7 +220,7 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\flow}[1][]{q_{#1}}
+\newcommand{\flow}[1][]{x_{#1}}
 \end_inset
 
  
@@ -370,7 +370,73 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\degradeRatio}{\\beta}
+\renewcommand{\degradeRatio}{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+stackelberg commands
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\Network}{N}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\Mode}[1][]{m_{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\latency}[1][]{l_{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\link}{n}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\Length}[1][]{\lenCell[#1]}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\cFlow}[1][]{s_{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\renewcommand{\ncFlow}[1][]{t_{#1}}
 \end_inset
 
 
