@@ -81,22 +81,22 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\mass}[1][]{\rho_{#1}}
+\newcommand{\mass}[1][]{\rho_{#1}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\massmax}[1][]{\mass[#1]^{\max}}
+\newcommand{\massmax}[1][]{\mass[#1]^{\max}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\masscrit}[1][]{\mass[#1]^{\text{crit}}}
+\newcommand{\masscrit}[1][]{\mass[#1]^{\text{crit}}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\vmass}{\vect{\mass}}
+\newcommand{\vmass}{\vect{\mass}}
 \end_inset
 
 
@@ -104,17 +104,17 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\Junctions}{V}
+\newcommand{\Junctions}{V}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\Cells}{E}
+\newcommand{\Cells}{E}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\Graph}{(\Junctions,\Cells)}
+\newcommand{\Graph}{(\Junctions,\Cells)}
 \end_inset
 
 
@@ -122,12 +122,12 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\junction}[1][]{v_{#1}}
+\newcommand{\junction}[1][]{v_{#1}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\jcn}[1][]{\junction[#1]}
+\newcommand{\jcn}[1][]{\junction[#1]}
 \end_inset
 
 
@@ -135,12 +135,12 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\cell}[1][]{e_{#1}}
+\newcommand{\cell}[1][]{e_{#1}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\vcell}[1][]{\vect{\cell[#1]}}
+\newcommand{\vcell}[1][]{\vect{\cell[#1]}}
 \end_inset
 
 
@@ -148,12 +148,12 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\Incoming}{I}
+\newcommand{\Incoming}{I}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\inCells}[1][]{\Incoming_{#1}}
+\newcommand{\inCells}[1][]{\Incoming_{#1}}
 \end_inset
 
 
@@ -161,12 +161,12 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\Outgoing}{O}
+\newcommand{\Outgoing}{O}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\outCells}[1][]{\Outgoing_{#1}}
+\newcommand{\outCells}[1][]{\Outgoing_{#1}}
 \end_inset
 
 
@@ -174,22 +174,22 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\speedFF}[1][]{v_{#1}}
+\newcommand{\speedFF}[1][]{v_{#1}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\vff}{\speedFF}
+\newcommand{\vff}{\speedFF}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\freeflow}[1]{\speedFF[#1]}
+\newcommand{\freeflow}[1]{\speedFF[#1]}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\speedCong}[1][]{w_{#1}}
+\newcommand{\speedCong}[1][]{w_{#1}}
 \end_inset
 
 
@@ -357,12 +357,12 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\cellRoute}[2]{\gamma_{#1.#2}}
+\renewcommand{\cellRoute}[2]{\gamma_{#1.#2}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\odRoute}[2]{\psi_{#1.#2}}
+\renewcommand{\odRoute}[2]{\psi_{#1.#2}}
 \end_inset
 
 
@@ -370,7 +370,7 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\degradeRatio}{}
+\renewcommand{\degradeRatio}{}
 \end_inset
 
 
@@ -391,7 +391,7 @@ stackelberg commands
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\Network}{N}
+\renewcommand{\Network}{N}
 \end_inset
 
 
@@ -399,7 +399,7 @@ stackelberg commands
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\Mode}[1][]{m_{#1}}
+\renewcommand{\Mode}[1][]{m_{#1}}
 \end_inset
 
 
@@ -407,7 +407,12 @@ stackelberg commands
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\latency}[1][]{l_{#1}}
+\renewcommand{\latency}[1][]{l_{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\renewcommand{\Latency}{C}
 \end_inset
 
 
@@ -415,7 +420,7 @@ stackelberg commands
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\link}{n}
+\renewcommand{\link}{n}
 \end_inset
 
 
@@ -423,7 +428,7 @@ stackelberg commands
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\Length}[1][]{\lenCell[#1]}
+\renewcommand{\Length}[1][]{\lenCell[#1]}
 \end_inset
 
 
@@ -437,6 +442,24 @@ stackelberg commands
 
 \begin_inset FormulaMacro
 \newcommand{\ncFlow}[1][]{t_{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\parA}[1][]{a_{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\parB}[1][]{b_{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\parC}[1][]{c_{#1}}
 \end_inset
 
 

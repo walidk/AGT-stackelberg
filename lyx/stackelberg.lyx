@@ -505,6 +505,68 @@ As a consequence, some of the known results on congestion networks do not
  multiple pure Nash equilibria.
 \end_layout
 
+\begin_layout Subsection
+Reparameterizing Latency
+\end_layout
+
+\begin_layout Standard
+Since the rest of the report needs only the latency properties of links,
+ we will reparameterize the latency function to simplify to three parameter:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\parA[\link]$
+\end_inset
+
+: free-flow latency on link 
+\begin_inset Formula $\link$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\parB[\link]$
+\end_inset
+
+: congestion rate on link 
+\begin_inset Formula $\link$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\parC[\link]$
+\end_inset
+
+: max flow on link 
+\begin_inset Formula $\link$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using these parameters, we may now express the latency on link 
+\begin_inset Formula $\link$
+\end_inset
+
+ as follows:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\latency[\link]\left(\flow[\link],0\right) & = & \parA[\link]\\
+\latency[\link]\left(\flow[\link],1\right) & = & \parB[\link]\left(\frac{1}{\flow[\link]}-\frac{1}{\parC[\link]}\right)+\parA[\link]
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Nash Equilibria
 \end_layout
@@ -588,11 +650,11 @@ name "lemma:nash_eq"
 \end_inset
 
  If 
-\begin_inset Formula $(q,m)$
+\begin_inset Formula $(\flow,\Mode)$
 \end_inset
 
  is an assignment for instance 
-\begin_inset Formula $(N,r)$
+\begin_inset Formula $(\Network,\qdemand)$
 \end_inset
 
  at Nash equilibrium, then 
@@ -605,7 +667,7 @@ name "lemma:nash_eq"
 \end_inset
 
  and the total latency incurred by the network is 
-\begin_inset Formula $C(q,m)=r\latency[0]$
+\begin_inset Formula $\Latency(\flow,\Mode)=\qdemand\latency[0]$
 \end_inset
 
 .
@@ -631,15 +693,15 @@ Assuming the latency functions
 
  are increasing, one can show that all Nash equilibria have the same cost.
  Let 
-\begin_inset Formula $q$
+\begin_inset Formula $\flow$
 \end_inset
 
  and 
-\begin_inset Formula $q'$
+\begin_inset Formula $\flow'$
 \end_inset
 
  be two assignments for 
-\begin_inset Formula $(N,r)$
+\begin_inset Formula $(\Network,\qdemand)$
 \end_inset
 
  at Nash equilibrium.
@@ -648,24 +710,24 @@ Assuming the latency functions
 \end_inset
 
 , respectively 
-\begin_inset Formula $l'_{0}$
+\begin_inset Formula $\latency[0]'$
 \end_inset
 
  denote the common latency of all links in the support of 
-\begin_inset Formula $q$
+\begin_inset Formula $\flow$
 \end_inset
 
 , respectively 
-\begin_inset Formula $q'$
+\begin_inset Formula $\flow'$
 \end_inset
 
 .
  The cost of the Nash equilibria are respectively 
-\begin_inset Formula $r\latency[0]$
+\begin_inset Formula $\qdemand\latency[0]$
 \end_inset
 
  and 
-\begin_inset Formula $rl'_{0}$
+\begin_inset Formula $\qdemand\latency[0]'$
 \end_inset
 
 .
@@ -673,18 +735,18 @@ Assuming the latency functions
 
 \begin_layout Standard
 Assume 
-\begin_inset Formula $q\neq q'$
+\begin_inset Formula $\flow\neq\flow'$
 \end_inset
 
 .
  Then 
-\begin_inset Formula $\exists n[1],n_{2}$
+\begin_inset Formula $\exists\link_{1},\link_{2}$
 \end_inset
 
  such that 
 \begin_inset Formula 
 \begin{align*}
-\flow_{n[1]}>q'_{n[1]}\geq0 &  & q'_{n_{2}}>\flow_{n_{2}}\geq0
+\flow[\link_{1}]>q\flow[\link_{1}]'\geq0 &  & \flow[\link_{2}]'>\flow[\link_{2}]\geq0
 \end{align*}
 
 \end_inset
@@ -698,43 +760,43 @@ Since
 \end_inset
 
  is at Nash equilibrium and 
-\begin_inset Formula $n_{1}\in Supp(q)$
+\begin_inset Formula $\link_{1}\in Supp(\flow)$
 \end_inset
 
 , 
-\begin_inset Formula $\latency_{n_{1}}(\flow_{n_{1}})\leq\latency_{n_{2}}(\flow_{n_{2}})$
+\begin_inset Formula $\latency[\link_{1}](\flow[\link_{1}])\leq\latency[\link_{2}](\flow[\link_{2}])$
 \end_inset
 
 .
  And since 
-\begin_inset Formula $\latency_{n_{2}}$
+\begin_inset Formula $\latency[\link_{2}]$
 \end_inset
 
  is increasing 
-\begin_inset Formula $\latency_{n_{2}}(\flow_{n_{2}})\leq\latency_{n_{2}}(q'_{n_{2}})$
+\begin_inset Formula $\latency[\link_{2}](\flow[\link_{2}])\leq\latency[\link_{2}](\flow[\link_{2}]')$
 \end_inset
 
 .
  Thus 
-\begin_inset Formula $\latency[0]=\latency_{n_{1}}(\flow_{n_{1}})\leq\latency_{n_{2}}(\flow_{n_{2}})\leq\latency_{n_{2}}(q'_{n_{2}})=l'_{0}$
+\begin_inset Formula $\latency[0]=\latency[\link_{1}](\flow[\link_{1}])\leq\latency[\link_{2}](\flow[\link_{2}])\leq\latency[\link_{2}](\flow[\link_{2}]')=\latency[0]'$
 \end_inset
 
 .
  Exchanging the roles of 
-\begin_inset Formula $q$
+\begin_inset Formula $\flow$
 \end_inset
 
  and 
-\begin_inset Formula $q'$
+\begin_inset Formula $\flow'$
 \end_inset
 
  we have 
-\begin_inset Formula $l'_{0}\leq\latency[0]$
+\begin_inset Formula $\latency[0]'\leq\latency[0]$
 \end_inset
 
 .
  Therefore 
-\begin_inset Formula $\latency[0]=l'_{0}$
+\begin_inset Formula $\latency[0]=\latency[0]'$
 \end_inset
 
  and both equilibria have the same cost.
@@ -749,12 +811,141 @@ To simplify our discussion, we further assume, without loss of generality,
  that the links are ordered by increasing free-flow latencies 
 \begin_inset Formula 
 \[
-\frac{\Length_{1}}{v_{1}}\leq\frac{\Length_{2}}{v_{2}}\leq\dots\leq\frac{\Length[\link]}{\speedFF[\link]}
+\parA[1]\le\parA[2]\le\ldots\le\parA[\Network]
 \]
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+In Nash equilibrium, it is clear that a link will not be utilized until
+ all links with a lower travel time are in congestion.
+ We demonstrate this with the following lemma.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:filluplower"
+
+\end_inset
+
+For any NE solution 
+\begin_inset Formula $\left(\flow,\Mode\right)$
+\end_inset
+
+,
+\begin_inset Formula $\flow[j]>0\implies\Mode[i]=1\forall j\in\left\{ 1,\ldots,\Network\right\} ,i\in\left\{ 1,\ldots,j-1\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Take 
+\begin_inset Formula $i\in\left\{ 1,\ldots,j-1\right\} $
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\Mode[i]=0\implies\latency[i]=\parA[i]<a_{j}\le\latency[j]$
+\end_inset
+
+, which violates 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lemma:nash_eq"
+
+\end_inset
+
+.
+ Therefore, 
+\begin_inset Formula $m_{i}=1\forall i\in\left\{ 1,\ldots,j-1\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:filluplower"
+
+\end_inset
+
+motivates the following definition.
+\end_layout
+
+\begin_layout Definition*
+\begin_inset Formula $\hat{\flow}_{i,j}=\left\{ \flow\in\left[0,\parC[i]\right]:\latency[i]\left(x,1\right)=\parA[j]\right\} \forall i\in\left\{ 1,\ldots,\Network\right\} ,j\in\left\{ i+1,\ldots,\Network\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition*
+What 
+\begin_inset Formula $\hat{\flow}_{i,j}$
+\end_inset
+
+represents is the flow on link 
+\begin_inset Formula $i$
+\end_inset
+
+ while under congestion, such that the latency on link 
+\begin_inset Formula $i$
+\end_inset
+
+ is equal to the free flow speed on link 
+\begin_inset Formula $j$
+\end_inset
+
+, 
+\begin_inset Formula $\parA[j]$
+\end_inset
+
+.
+ In other words, 
+\begin_inset Formula $\hat{\flow}_{i,j}$
+\end_inset
+
+ is the flow on link 
+\begin_inset Formula $i$
+\end_inset
+
+ that enables link 
+\begin_inset Formula $j$
+\end_inset
+
+ to begin to be utilized in a Nash equilibrium.
+ Algebraically, we can solve for 
+\begin_inset Formula $\hat{\flow}_{i,j}=\frac{\parB[i]\parC[i]}{\parC[i]\left(\parA[j]-\parA[i]\right)+\parB[i]}$
+\end_inset
+
+.
+ Intuitively, we note that 
+\begin_inset Formula $\hat{\flow}_{i,j}$
+\end_inset
+
+ approaches the maximum flow on link 
+\begin_inset Formula $i$
+\end_inset
+
+, 
+\begin_inset Formula $\parC[i]$
+\end_inset
+
+, as 
+\begin_inset Formula $\parA[j]$
+\end_inset
+
+ approaches 
+\begin_inset Formula $\parA[i]$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -872,25 +1063,6 @@ y in free-flow (
 
 ), thus the social optimum can be computed by solving an equivalent linear
  program.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%-------------------------------------------------------------------------------
------------------------------------------------------
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
