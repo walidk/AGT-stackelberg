@@ -3,6 +3,9 @@
 \begin_document
 \begin_header
 \textclass article
+\begin_preamble
+\usepackage{fullpage}
+\end_preamble
 \use_default_options false
 \begin_modules
 theorems-ams
@@ -265,7 +268,7 @@ We denote by
 
 \begin_layout Definition
 A flow assignment 
-\begin_inset Formula $q\in\mathbb{R}_{+}^{N}$
+\begin_inset Formula $\flow\in\mathbb{R}_{+}^{N}$
 \end_inset
 
  is feasible for instance 
@@ -281,7 +284,7 @@ A flow assignment
 \end_inset
 
  and 
-\begin_inset Formula $\sum_{\link}\flow[\link]=r$
+\begin_inset Formula $\sum_{\link}\flow[\link]=r\qdemand$
 \end_inset
 
  
@@ -289,25 +292,25 @@ A flow assignment
 
 \begin_layout Standard
 If 
-\begin_inset Formula $q$
+\begin_inset Formula $\flow$
 \end_inset
 
  is a feasible flow assignment for 
-\begin_inset Formula $(N,r)$
+\begin_inset Formula $(\Network,\qdemand)$
 \end_inset
 
 , we denote by 
-\begin_inset Formula $Supp(q)$
+\begin_inset Formula $Supp(\flow)$
 \end_inset
 
  the support of 
-\begin_inset Formula $q$
+\begin_inset Formula $\flow$
 \end_inset
 
 , that is the set of links that are used by the flow assignment 
 \begin_inset Formula 
 \[
-Supp(q)=\{n|\flow[\link]>0\}
+Supp(\flow)=\{\link|\flow[\link]>0\}
 \]
 
 \end_inset
@@ -808,10 +811,11 @@ Traffic networks have multiple Nash equilibria
 
 \begin_layout Standard
 To simplify our discussion, we further assume, without loss of generality,
- that the links are ordered by increasing free-flow latencies 
+ that the links are ordered by increasing free-flow latencies, where no
+ two links have the same free flow travel time: 
 \begin_inset Formula 
 \[
-\parA[1]\le\parA[2]\le\ldots\le\parA[\Network]
+\parA[1]<\parA[2]<\ldots<\parA[\Network]
 \]
 
 \end_inset
@@ -832,12 +836,12 @@ name "lem:filluplower"
 
 \end_inset
 
-For any NE solution 
-\begin_inset Formula $\left(\flow,\Mode\right)$
+For 
+\begin_inset Formula $\left(\flow,\Mode\right)\in NE\left(\Network,\qdemand\right),j\in Supp\left(\flow\right)$
 \end_inset
 
-,
-\begin_inset Formula $\flow[j]>0\implies\Mode[i]=1\forall j\in\left\{ 1,\ldots,\Network\right\} ,i\in\left\{ 1,\ldots,j-1\right\} $
+
+\begin_inset Formula $\implies\Mode[i]=1\forall i\in\left\{ 1,\ldots,j-1\right\} $
 \end_inset
 
 
@@ -869,6 +873,191 @@ reference "lemma:nash_eq"
 \end_layout
 
 \begin_layout Proof
+A corollary of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:filluplower"
+
+\end_inset
+
+says that there does not exist a Nash equilibrium where more than one link
+ is in free flow.
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:atmost1ff"
+
+\end_inset
+
+Let 
+\begin_inset Formula $S=\left\{ \link:\flow[\link]\in Supp\left(\flow\right)\right\} $
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\left(\flow,\Mode\right)\in NE\left(\Network,\qdemand\right)\implies\sum_{\link\in S}\left(1-\Mode[\link]\right)<2$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:uniquemode"
+
+\end_inset
+
+For a given mode 
+\begin_inset Formula $\Mode$
+\end_inset
+
+, and a flow 
+\begin_inset Formula $\qdemand$
+\end_inset
+
+, 
+\begin_inset Formula $\exists$
+\end_inset
+
+ at most 1 
+\begin_inset Formula $\flow:\left(\flow,\Mode\right)\in NE\left(\Network,\qdemand\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+In the case where 
+\begin_inset Formula $\left|Supp\left(\flow\right)\right|<2$
+\end_inset
+
+, the result is trivial, so we assume 
+\begin_inset Formula $\left|Supp\left(\flow\right)\right|\ge2$
+\end_inset
+
+.
+ Assume 
+\begin_inset Formula $\exists\flow,\flow',\flow\neq\flow'$
+\end_inset
+
+ such that 
+\begin_inset Formula $\left(\flow,\Mode\right),\left(\flow',\Mode\right)\in NE\left(\Network,\qdemand\right)$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\exists i,j\in Supp\left(\flow\right):\flow[i]<\flow[i]',\flow[j]>\flow[j]'$
+\end_inset
+
+.
+ From 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:atmost1ff"
+
+\end_inset
+
+, we know that 
+\begin_inset Formula $\Mode[i]+\Mode[j]>0$
+\end_inset
+
+, and without loss of generality, we assume that 
+\begin_inset Formula $\Mode[i]=1$
+\end_inset
+
+.
+ With this assumption, we have that 
+\begin_inset Formula $\latency[i]>\latency[i]'$
+\end_inset
+
+.
+ For the 
+\begin_inset Formula $j$
+\end_inset
+
+ case, we need to consider 
+\begin_inset Formula $\Mode[j]=\left\{ 0,1\right\} $
+\end_inset
+
+.
+ If 
+\begin_inset Formula $\Mode[j]=0$
+\end_inset
+
+, then 
+\begin_inset Formula $\latency[j]=\latency[j]'$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $\Mode[j]=1$
+\end_inset
+
+, then 
+\begin_inset Formula $ $
+\end_inset
+
+
+\begin_inset Formula $\latency[j]'>\latency[j]$
+\end_inset
+
+.
+ Therefore, 
+\begin_inset Formula $\latency[j]'\ge\latency[j]$
+\end_inset
+
+.
+ From 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lemma:nash_eq"
+
+\end_inset
+
+, 
+\begin_inset Formula $\latency[i]'=\latency[j]'$
+\end_inset
+
+, and
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{equation}
+\latency[i]>\latency[i]'=\latency[j]'\ge\latency[j]\label{eq:contradiction}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+, yet from 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lemma:nash_eq"
+
+\end_inset
+
+, we also have 
+\begin_inset Formula $\latency[i]=\latency[j]$
+\end_inset
+
+, which a contradiction of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:contradiction"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lem:filluplower"
@@ -878,8 +1067,43 @@ reference "lem:filluplower"
 motivates the following definition.
 \end_layout
 
+\begin_layout Standard
+What we have shown so far is that for a network 
+\begin_inset Formula $\Network$
+\end_inset
+
+, there are at most 
+\begin_inset Formula $\Network$
+\end_inset
+
++1 Nash equilibria (
+\begin_inset Formula $\Network$
+\end_inset
+
+combinations such that 
+\begin_inset Formula $\sum_{\link=1}^{\Network}\left(1-\Mode[\link]\right)=1,$
+\end_inset
+
+ and 1 such that 
+\begin_inset Formula $\sum_{\link=1}^{\Network}\left(1-\Mode[\link]\right)=0$
+\end_inset
+
+).
+ We now show that all of these Nash equilibria may be analytically computed
+ for a network 
+\begin_inset Formula $\Network$
+\end_inset
+
+ and demand 
+\begin_inset Formula $\qdemand$
+\end_inset
+
+.
+ We introduce a definition first.
+\end_layout
+
 \begin_layout Definition*
-\begin_inset Formula $\hat{\flow}_{i,j}=\left\{ \flow\in\left[0,\parC[i]\right]:\latency[i]\left(x,1\right)=\parA[j]\right\} \forall i\in\left\{ 1,\ldots,\Network\right\} ,j\in\left\{ i+1,\ldots,\Network\right\} $
+\begin_inset Formula $\hat{\flow}_{i,j}\coloneqq\left\{ \flow\in\left[0,\parC[i]\right]:\latency[i]\left(x,1\right)=\parA[j]\right\} \forall i\in\left\{ 1,\ldots,\Network\right\} ,j\in\left\{ i+1,\ldots,\Network\right\} $
 \end_inset
 
 
@@ -948,6 +1172,36 @@ represents is the flow on link
 .
 \end_layout
 
+\begin_layout Definition
+\begin_inset Formula $ $
+\end_inset
+
+
+\begin_inset Formula $\bar{\Mode[i]}^{j}\coloneqq\begin{cases}
+1 & i<j\\
+0 & \text{otherwise}
+\end{cases}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\bar{\flow[i]}^{r,j}\coloneqq\begin{cases}
+\hat{x}_{i,j} & i<j\\
+r-\sum_{\link=1}^{j-1}\hat{\flow}_{\link,j} & i=j\\
+0 & i>j
+\end{cases}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset Formula $\bar{\flow}_{j}^{j,r}\in\left[0,\parC[j]\right]\implies\left(\bar{\flow}^{j,r},\bar{\Mode}^{j}\right)\in NE\left(\Network,\qdemand\right)$
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Subsection
 Nash equilibria for 2-parallel link networks
 \end_layout
@@ -992,7 +1246,7 @@ We consider a
 e cases where the set of Nash equilibria is infinite 
 \begin_inset Formula 
 \[
-\frac{\Length_{1}}{v_{1}}<\frac{\Length_{2}}{v_{2}}<\dots<\frac{\Length_{N}}{v_{N}}
+\parA[1]\le\parA[2]\le\ldots\le\parA[\Network]
 \]
 
 \end_inset
@@ -1219,7 +1473,7 @@ As an immediate corollary of the previous Lemma, the social optimum can
 
 \begin_layout Standard
 Then assuming the links are ordered by increasing free-flow latency 
-\begin_inset Formula $\frac{\Length_{1}}{v_{1}}\leq\dots\leq\frac{\Length_{N}}{\speedFF[\Network]}$
+\begin_inset Formula $\frac{\Length[1]}{v_{1}}\leq\dots\leq\frac{\Length[N]}{\speedFF[\Network]}$
 \end_inset
 
  the social optimum is simply given by the assignment that saturates most
@@ -1238,7 +1492,7 @@ Then assuming the links are ordered by increasing free-flow latency
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align}
-q^{*}=(\flow_{1}^{\max},\dots,\flow_{k_{0}}^{\max},r-\sum_{n=1}^{k_{0}}\flow[\link]^{\max},0,\dots,0)
+q^{*}=(\flow[1]^{\max},\dots,\flow_{k_{0}}^{\max},r-\sum_{n=1}^{k_{0}}\flow[\link]^{\max},0,\dots,0)
 \end{align}
 
 \end_inset
@@ -1440,7 +1694,7 @@ Note that a feasible flow assignment
 \begin_layout Standard
 To see this, consider the following 2-link network where links have the
  same length 
-\begin_inset Formula $\Length_{1}=\Length_{2}=1$
+\begin_inset Formula $\Length[1]=\Length[2]=1$
 \end_inset
 
 , link 1 has greater free-flow speed and capacity than link 
@@ -1452,7 +1706,7 @@ To see this, consider the following 2-link network where links have the
 \end_inset
 
 , 
-\begin_inset Formula $\flow_{1}^{\max}>\flow_{2}^{\max}$
+\begin_inset Formula $\flow[1]^{\max}>\flow[2]^{\max}$
 \end_inset
 
 , and both links have same congestion wave speed 
@@ -1461,16 +1715,16 @@ To see this, consider the following 2-link network where links have the
 
 .
  Now assume that the network is subject to flow demand 
-\begin_inset Formula $r=\flow_{1}^{\max}+\epsilon$
+\begin_inset Formula $r=\flow[1]^{\max}+\epsilon$
 \end_inset
 
  and most of the flow is compliant 
-\begin_inset Formula $\beta r=\flow_{1}^{\max}$
+\begin_inset Formula $\beta r=\flow[1]^{\max}$
 \end_inset
 
 .
  Consider the following Stackelberg strategy: 
-\begin_inset Formula $s=(\flow_{1}^{\max},0)$
+\begin_inset Formula $s=(\flow[1]^{\max},0)$
 \end_inset
 
 .
@@ -1500,7 +1754,7 @@ Assuming that the assignment of compliant users is not affected by introducing
 \end_inset
 
  and 
-\begin_inset Formula $\latency_{2}(s_{2}+t_{2},\Mode_{2})>\latency_{1}(s_{1},0)$
+\begin_inset Formula $\latency[2](s_{2}+t_{2},\Mode[2])>\latency[1](s_{1},0)$
 \end_inset
 
  (non compliant users are forced to use less efficient link 2).
@@ -1522,12 +1776,12 @@ In practice, strategy
 \end_inset
 
  is more faster 
-\begin_inset Formula $\latency_{1}(\flow_{1}(^{\max},0)<\latency_{2}(0,0)$
+\begin_inset Formula $\latency[1](\flow[1](^{\max},0)<\latency[2](0,0)$
 \end_inset
 
 .
  This will result in congesting the link 
-\begin_inset Formula $\mass_{1}>\mass_{1}^{c}$
+\begin_inset Formula $\mass[1]>\mass[1]^{c}$
 \end_inset
 
  and the flow on link 1 will 
@@ -1544,7 +1798,7 @@ decrease
 \end_inset
 
  such that 
-\begin_inset Formula $\latency_{1}(s'_{1},1)=\latency_{2}(s_{2}'+\epsilon,0)$
+\begin_inset Formula $\latency[1](s'_{1},1)=\latency[2](s_{2}'+\epsilon,0)$
 \end_inset
 
 , link 1 will be congested in the final equilibrium, and link 2 in free
