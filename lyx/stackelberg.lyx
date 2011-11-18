@@ -1492,7 +1492,7 @@ Then assuming the links are ordered by increasing free-flow latency
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align}
-q^{*}=(\flow[1]^{\max},\dots,\flow_{k_{0}}^{\max},r-\sum_{n=1}^{k_{0}}\flow[\link]^{\max},0,\dots,0)
+q^{*}=(\flow[1]^{\max},\dots,\flow[k_{0}]^{\max},\qdemand-\sum_{n=1}^{k_{0}}\flow[\link]^{\max},0,\dots,0)
 \end{align}
 
 \end_inset
