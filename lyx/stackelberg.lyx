@@ -598,6 +598,12 @@ Characterization of Nash equilibria
 \end_layout
 
 \begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:ne"
+
+\end_inset
+
 An assignment 
 \begin_inset Formula $(q,m)\in\mathbb{R}_{+}^{N}\times\{0,1\}^{N}$
 \end_inset
@@ -859,7 +865,7 @@ Take
 
 , which violates 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "lemma:nash_eq"
 
 \end_inset
@@ -875,12 +881,12 @@ reference "lemma:nash_eq"
 \begin_layout Proof
 A corollary of 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "lem:filluplower"
 
 \end_inset
 
-says that there does not exist a Nash equilibrium where more than one link
+ says that there does not exist a Nash equilibrium where more than one link
  is in free flow.
 \end_layout
 
@@ -914,7 +920,7 @@ For a given mode
 \begin_inset Formula $\Mode$
 \end_inset
 
-, and a flow 
+, and a demand 
 \begin_inset Formula $\qdemand$
 \end_inset
 
@@ -955,7 +961,7 @@ In the case where
 .
  From 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "cor:atmost1ff"
 
 \end_inset
@@ -1012,7 +1018,7 @@ reference "cor:atmost1ff"
 .
  From 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "lemma:nash_eq"
 
 \end_inset
@@ -1038,7 +1044,7 @@ reference "lemma:nash_eq"
 \begin_layout Proof
 , yet from 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "lemma:nash_eq"
 
 \end_inset
@@ -1049,7 +1055,7 @@ reference "lemma:nash_eq"
 
 , which a contradiction of 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:contradiction"
 
 \end_inset
@@ -1059,12 +1065,12 @@ reference "eq:contradiction"
 
 \begin_layout Proof
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "lem:filluplower"
 
 \end_inset
 
-motivates the following definition.
+ motivates the following definition.
 \end_layout
 
 \begin_layout Standard
@@ -1102,7 +1108,14 @@ combinations such that
  We introduce a definition first.
 \end_layout
 
-\begin_layout Definition*
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:hat"
+
+\end_inset
+
+
 \begin_inset Formula $\hat{\flow}_{i,j}\coloneqq\left\{ \flow\in\left[0,\parC[i]\right]:\latency[i]\left(x,1\right)=\parA[j]\right\} \forall i\in\left\{ 1,\ldots,\Network\right\} ,j\in\left\{ i+1,\ldots,\Network\right\} $
 \end_inset
 
@@ -1177,6 +1190,13 @@ represents is the flow on link
 \end_inset
 
 
+\begin_inset CommandInset label
+LatexCommand label
+name "def:bar"
+
+\end_inset
+
+
 \begin_inset Formula $\bar{\Mode[i]}^{j}\coloneqq\begin{cases}
 1 & i<j\\
 0 & \text{otherwise}
@@ -1196,7 +1216,969 @@ r-\sum_{\link=1}^{j-1}\hat{\flow}_{\link,j} & i=j\\
 \end_layout
 
 \begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:xhat"
+
+\end_inset
+
+
 \begin_inset Formula $\bar{\flow}_{j}^{j,r}\in\left[0,\parC[j]\right]\implies\left(\bar{\flow}^{j,r},\bar{\Mode}^{j}\right)\in NE\left(\Network,\qdemand\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+From 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "def:bar"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "def:hat"
+
+\end_inset
+
+, we have that 
+\begin_inset Formula $\latency[i]=\parA[j]\forall i<j,$
+\end_inset
+
+
+\begin_inset Formula $\bar{\flow}_{i}^{j,\qdemand}\in\left[0,\parC[i]\right]\forall i\in\left\{ 1,\ldots,\Network\right\} $
+\end_inset
+
+.
+ By the assumption that 
+\begin_inset Formula $\bar{\Mode}_{j}^{j}=0$
+\end_inset
+
+, we also have 
+\begin_inset Formula $\latency[j]=\parA[j]$
+\end_inset
+
+.
+ All links 
+\begin_inset Formula $\link>j$
+\end_inset
+
+ are not in 
+\begin_inset Formula $Supp\left(\bar{\flow}^{j,\qdemand}\right),$
+\end_inset
+
+ and have a latency 
+\begin_inset Formula $>\parA[j]$
+\end_inset
+
+.
+ Therefore, we have that 
+\begin_inset Formula $\forall\link\in Supp\left(\bar{\flow}^{j,\qdemand}\right),\latency[\link]=\parA[j]<\parA[\link']\forall\link'\notin Supp\left(\bar{\flow}^{j,\qdemand}\right)$
+\end_inset
+
+ , which satisfies 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "def:ne"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+What we have arrived at in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "lem:xhat"
+
+\end_inset
+
+ is an analytical representation of the Nash equilibria, given one link
+ is in free flow.
+ Since we have already shown in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "cor:atmost1ff"
+
+\end_inset
+
+ that the only Nash Equilibria that exist for a demand 
+\begin_inset Formula $\qdemand,$
+\end_inset
+
+ are those with either one or zero links in free flow.
+ What we now show is that a Nash equilibrium for a demand 
+\begin_inset Formula $\qdemand$
+\end_inset
+
+ in which every link is in congestion (
+\begin_inset Formula $\sum_{i\in Supp\left(\flow\right)}(1-\Mode[i])=0$
+\end_inset
+
+) is not the only Nash equilibrium for 
+\begin_inset Formula $\qdemand$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:demrange"
+
+\end_inset
+
+
+\begin_inset Formula $\demRange[j]\coloneqq\left\{ \qdemand:\left(\bar{\flow}^{j,\qdemand},\bar{\Mode}^{j}\right)\in NE\left(\Network,\qdemand\right)\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "def:demrange"
+
+\end_inset
+
+ represents the range of demands that can achieve Nash Equilibrium when
+ link 
+\begin_inset Formula $j$
+\end_inset
+
+ is in free flow.
+ We now show some properties of these ranges.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset Formula $\forall i\in\left\{ 1,\ldots,\Network\right\} ,\min\left\{ \qdemand\in\demRange[i]\right\} <\max\left\{ r\in\demRange[i-1]\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+The maximum value for 
+\begin_inset Formula $\demRange[i-1]$
+\end_inset
+
+ occurs when link 
+\begin_inset Formula $i-1$
+\end_inset
+
+ is at capacity (
+\begin_inset Formula $\flow[i-1]=\parC[i-1]$
+\end_inset
+
+), and the minimum value for 
+\begin_inset Formula $\demRange[i]$
+\end_inset
+
+ occurs when link 
+\begin_inset Formula $i$
+\end_inset
+
+ is empty (
+\begin_inset Formula $\left(\flow[i]=0\right)$
+\end_inset
+
+.
+ Therefore we have 
+\begin_inset Formula $\demRange[i-1]_{\max}=\sum_{j=1}^{i-2}\hat{\flow}_{j,i-1}+\parC[i-1]$
+\end_inset
+
+ and 
+\begin_inset Formula $\demRange[i]_{\min}=\sum_{j=1}^{i-1}\hat{\flow}_{j,i}$
+\end_inset
+
+.
+ For 
+\begin_inset Formula $j<i-1,\hat{\flow}_{j,i}<\hat{\flow}_{j,i-1}$
+\end_inset
+
+.
+ Therefore, 
+\begin_inset Formula $\sum_{j=1}^{i-2}\hat{\flow}_{j,i}<\sum_{j=1}^{i-2}\hat{\flow}_{j,i-1}$
+\end_inset
+
+.
+ As well, 
+\begin_inset Formula $\hat{\flow}_{i-1,i}<\parC[i-1]$
+\end_inset
+
+.
+ If we sum these two inequalities, we have the desired result.
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:existsmaller"
+
+\end_inset
+
+
+\begin_inset Formula $\forall j\in\left\{ 2,\ldots,\Network\right\} ,\exists\qdemand\in\demRange[j]$
+\end_inset
+
+ such that 
+\begin_inset Formula $\qdemand<\max\left\{ \bigcup_{i=1}^{j-1}\demRange[i]\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:conset"
+
+\end_inset
+
+
+\begin_inset Formula $\bigcup_{i=1}^{\Network}\demRange[i]$
+\end_inset
+
+ is a connected set.
+\end_layout
+
+\begin_layout Proof
+Assume 
+\begin_inset Formula $\exists\hat{\qdemand}\in\left[0,\max\left\{ \bigcup_{i=1}^{\Network}\demRange[i]\right\} \right]$
+\end_inset
+
+ , and 
+\begin_inset Formula $\hat{\qdemand}\notin\bigcup_{i=1}^{\Network}\demRange[i]$
+\end_inset
+
+.
+ Then as we sequentially take the union of all 
+\begin_inset Formula $\demRange[i],i\in\left\{ 1,\ldots,\Network\right\} $
+\end_inset
+
+, then there must exist 
+\begin_inset Formula $i^{*}>1$
+\end_inset
+
+ where adding the set 
+\begin_inset Formula $\demRange[i^{*}]$
+\end_inset
+
+ in union makes the total set disjoint.
+ Since all demands must be 
+\begin_inset Formula $\ge0$
+\end_inset
+
+, 
+\begin_inset Formula $ $
+\end_inset
+
+
+\begin_inset Formula $0\in\demRange[1]$
+\end_inset
+
+, and all 
+\begin_inset Formula $\demRange[i]$
+\end_inset
+
+ are obviously connected, then this statement is equivalent to saying that
+ 
+\begin_inset Formula $\min\left\{ \qdemand\in\demRange[i^{*}]\right\} >\max\left\{ \qdemand\in\bigcup_{i=1}^{i^{*}-1}\demRange[i]\right\} $
+\end_inset
+
+.
+ But this is a direct contradiction of 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "cor:existsmaller"
+
+\end_inset
+
+, and therefore no such 
+\begin_inset Formula $\hat{\qdemand}$
+\end_inset
+
+ and conclude the proof.
+\end_layout
+
+\begin_layout Standard
+Next we show that the set of all demands with an achievable Nash equilibrium
+ with one link in free flow is the entire set of demands with an achievable
+ Nash Equilibrium.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:ldemrange"
+
+\end_inset
+
+
+\begin_inset Formula $\ldemRange[\latency]\coloneqq\left\{ \qdemand:\exists\flow\text{ s.t. }\left(\flow,\bar{\Mode}^{\Network+1}\right)\in NE\left(\Network,\qdemand\right),\latency[i]=\latency\forall i\in\left\{ 1,\ldots,\Network\right\} \right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark
+\begin_inset Formula $\bigcup_{\latency\in\Rea_{+}}\ldemRange[\latency]$
+\end_inset
+
+ is the set of all demands with a Nash equilibrium where all links are congested.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:atmost1rl"
+
+\end_inset
+
+
+\begin_inset Formula $\forall\latency\in\Rea_{+},\exists$
+\end_inset
+
+ at most 1 
+\begin_inset Formula $\qdemand\in\ldemRange[\latency]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+This follows immediately from the definition of Nash Equilibrium (
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "def:ne"
+
+\end_inset
+
+) and the fact that 
+\begin_inset Formula $\latency[i]\left(\cdot,1\right)$
+\end_inset
+
+ is an injective function 
+\begin_inset Formula $\forall i\in\left\{ 1,\ldots,\Network\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We will denote this unique 
+\begin_inset Formula $\qdemand\in\ldemRange[\latency]$
+\end_inset
+
+ with 
+\begin_inset Formula $\lDem[\latency]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:lflow"
+
+\end_inset
+
+
+\begin_inset Formula $\lFlow[\latency]\coloneqq\left\{ \flow:\left(\flow,\bar{\Mode}^{\Network+1}\right)\in NE\left(\Network,\qdemand\right),\qdemand\in\ldemRange[\latency]\right\} $
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Remark
+\begin_inset CommandInset label
+LatexCommand label
+name "rem:uniquex"
+
+\end_inset
+
+From 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "lem:atmost1rl"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "lem:uniquemode"
+
+\end_inset
+
+, that for each 
+\begin_inset Formula $\ldemRange[\latency]$
+\end_inset
+
+, there exists at most 1 
+\begin_inset Formula $\flow$
+\end_inset
+
+ such that 
+\begin_inset Formula $\left(\flow,\bar{\Mode}^{\Network+1}\right)\in NE\left(\Network,\qdemand\right)\forall r\in\ldemRange[\latency]$
+\end_inset
+
+.
+ In other words, a Nash equilibrium is unique for every equilibrium latency
+ above 
+\begin_inset Formula $\parA[\Network]$
+\end_inset
+
+.
+ We denote this unique 
+\begin_inset Formula $\flow$
+\end_inset
+
+ as the 
+\begin_inset Formula $\lFlow[\latency]$
+\end_inset
+
+ in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "def:lflow"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+Take 
+\begin_inset Formula $\latency,\latency'$
+\end_inset
+
+ such that 
+\begin_inset Formula $\ldemRange[\latency],\ldemRange[\latency']\neq\emptyset$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\latency<\latency'\implies\lDem[\latency]>\lDem[\latency']$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+From 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "rem:uniquex"
+
+\end_inset
+
+, there is a unique flow, 
+\begin_inset Formula $\lFlow[\latency]$
+\end_inset
+
+, such that 
+\begin_inset Formula $ $
+\end_inset
+
+
+\begin_inset Formula $\left(\lFlow[\latency],\bar{\Mode}^{\Network+1}\right)\in NE\left(\Network,\lDem[\latency]\right)$
+\end_inset
+
+.
+ The flow on each link, 
+\begin_inset Formula $\link$
+\end_inset
+
+, is 
+\begin_inset Formula $\lFlow[\latency][\link]=\frac{\parC[\link]\parB[\link]}{\parC[\link]\left(\latency-\parA[\link]\right)}$
+\end_inset
+
+, which is a decreasing function with 
+\begin_inset Formula $\latency$
+\end_inset
+
+.
+ The same analysis holds for 
+\begin_inset Formula $\latency'$
+\end_inset
+
+.
+ The assumption that 
+\begin_inset Formula $\latency<\latency'$
+\end_inset
+
+ implies that 
+\begin_inset Formula $\forall\link\in\left\{ 1,\ldots,\Network\right\} ,\lFlow[\latency][\link]>\lFlow[\latency'][\link]$
+\end_inset
+
+.
+ Finally, we have 
+\begin_inset Formula $\lDem[\latency]=\sum_{\link=1}^{\Network}\lFlow[\latency][\link]>\sum_{\link=1}^{\Network}\lFlow[\latency'][\link]=\lDem[\latency']$
+\end_inset
+
+, which concludes the proof.
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:maxminl"
+
+\end_inset
+
+
+\begin_inset Formula $\max\left\{ \qdemand\in\bigcup_{\latency\in\Rea_{+}}\ldemRange[\latency]\right\} =\underset{\ldemRange[\latency]\neq\emptyset}{\arg\min}\left\{ \latency\right\} =\lDem[\parA]\in\demRange[\Network]$
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+it should be a_
+\backslash
+Network, but it's not letting me put that.
+ but we need to fix this!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:subset"
+
+\end_inset
+
+
+\begin_inset Formula $\bigcup_{l\in\Rea_{+}}\ldemRange[l]\subseteq\bigcup_{i=1}^{\Network}\demRange[i]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Since 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "lem:conset"
+
+\end_inset
+
+ tells that 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\bigcup_{i=1}^{\Network}\demRange[i]$
+\end_inset
+
+ is a connected set, then we only need to show 
+\begin_inset Formula $\max\left\{ \qdemand\in\bigcup_{\latency\in\Rea_{+}}\ldemRange[\latency]\right\} \in\bigcup_{i=1}^{\Network}\demRange[i]$
+\end_inset
+
+ (the minimum value, 0, is obviously
+\begin_inset Formula $\in\bigcup_{i=1}^{\Network}\demRange[i]$
+\end_inset
+
+ ).
+ Using 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "cor:maxminl"
+
+\end_inset
+
+ , 
+\begin_inset Formula $\max\left\{ \qdemand\in\bigcup_{\latency\in\Rea_{+}}\ldemRange[\latency]\right\} \in\demRange[\Network]\subseteq\bigcup_{i=1}^{\Network}\demRange[i]$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+From 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "lem:filluplower"
+
+\end_inset
+
+, it is clear that the entire set of demands that can achieve a Nash equilibrium
+ is the union of Nash equilibrium demands with either one link in free flow
+ or zero links in free flow, or 
+\begin_inset Formula $\left\{ \qdemand:\exists\left(\flow,\Mode\right)\in NE\left(\Network,\qdemand\right)\right\} =\bigcup_{l\in\Rea_{+}}\ldemRange[l]\cup\bigcup_{i=1}^{\Network}\demRange[i]$
+\end_inset
+
+.
+ Then, using 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "lem:subset"
+
+\end_inset
+
+, we have the desired result:
+\end_layout
+
+\begin_layout Lemma
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:all1lff"
+
+\end_inset
+
+
+\begin_inset Formula $\left\{ \qdemand:\exists\left(\flow,\Mode\right)\in NE\left(\Network,\qdemand\right)\right\} =\bigcup_{i=1}^{\Network}\demRange[i]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now that there is a complete detailing of the range of demands that have
+ a Nash equilibrium, and the flows that will achieve Nash equilibrium for
+ a given demand, we next show which Nash equilibrium will have the minimum
+ total latency for a given demand.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:conworseff"
+
+\end_inset
+
+For a given demand, 
+\begin_inset Formula $\qdemand$
+\end_inset
+
+, if 
+\begin_inset Formula $\exists\left(\lFlow,\bar{\Mode}^{\Network+1}\right)\in NE\left(\Network,\qdemand\right)$
+\end_inset
+
+, then 
+\begin_inset Formula $\exists\flow',j$
+\end_inset
+
+ such that 
+\begin_inset Formula $\left(\flow',\bar{\Mode}^{j}\right)\in NE\left(\Network,\qdemand\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\Latency\left(\flow',\bar{\Mode}^{j}\right)\le\Latency\left(\flow,\bar{\Mode}^{\Network+1}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "lem:all1lff"
+
+\end_inset
+
+ gives us the existence of such a 
+\begin_inset Formula $\flow'$
+\end_inset
+
+.
+ Then let 
+\begin_inset Formula $\latency,\latency'$
+\end_inset
+
+ be the latencies for 
+\begin_inset Formula $\flow,\flow'$
+\end_inset
+
+ respectively.
+ Since 
+\begin_inset Formula $\flow$
+\end_inset
+
+ has all links in congestion, 
+\begin_inset Formula $\latency\ge\parA[\Network]$
+\end_inset
+
+, and since 
+\begin_inset Formula $\flow'$
+\end_inset
+
+ has at least 1 link in free flow, then 
+\begin_inset Formula $\latency'\le\parA[\Network]$
+\end_inset
+
+ From 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "lemma:nash_eq"
+
+\end_inset
+
+, we have 
+\begin_inset Formula $\Latency\left(\flow',\bar{\Mode}^{j}\right)=\qdemand\latency'\le\qdemand\parA[\Network]\le\qdemand\latency=\Latency\left(\flow,\bar{\Mode}^{\Network+1}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:smalleri"
+
+\end_inset
+
+For a given demand, 
+\begin_inset Formula $\qdemand,$
+\end_inset
+
+and 
+\begin_inset Formula $i<j$
+\end_inset
+
+ such that 
+\begin_inset Formula $\left(\bar{\flow}^{\qdemand,i},\bar{\Mode}^{i}\right),\left(\bar{\flow}^{\qdemand,j},\bar{\Mode}^{j}\right)\in NE\left(\Network,\qdemand\right)$
+\end_inset
+
+, 
+\begin_inset Formula $\Latency\left(\bar{\flow}^{\qdemand,i},\bar{\Mode}^{i}\right)<\Latency\left(\bar{\flow}^{\qdemand,j},\bar{\Mode}^{j}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+The proof follows the same arguments as the proof for 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "lem:conworseff"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+To conclude this section, we show that the optimal Nash equilibrium (Nash
+ equilibrium with the minimum total latency) for a given demand is the Nash
+ equilibrium with fastest link in free flow.
+\end_layout
+
+\begin_layout Theorem
+For a given demand, 
+\begin_inset Formula $\qdemand,$
+\end_inset
+
+ 
+\begin_inset Formula $\underset{\left(\flow,\Mode\right)\in NE\left(\Network,\qdemand\right)}{\arg\min}\left\{ \Latency\left(\flow,\Mode\right)\right\} =\underset{\left(\bar{\flow}^{\qdemand,j},\bar{\Mode}^{j}\right)\in NE\left(\Network,\qdemand\right)}{\arg\min}\left\{ j\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+From 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "cor:atmost1ff"
+
+\end_inset
+
+, the complete set of candidate Nash equilibria with demand, 
+\begin_inset Formula $\qdemand,$
+\end_inset
+
+are the flows with one link in free flow (
+\begin_inset Formula $\left\{ \bar{\flow}^{\qdemand,i}:i\in\left\{ 1,\ldots,\Network\right\} \right\} $
+\end_inset
+
+) and the flow with all links in congestion (
+\begin_inset Formula $\flow'$
+\end_inset
+
+ such that 
+\begin_inset Formula $\left(\flow',\bar{\Mode}^{\Network+1}\right)\in NE\left(\Network,\qdemand\right)$
+\end_inset
+
+).
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "lem:conworseff"
+
+\end_inset
+
+ says that 
+\begin_inset Formula $\flow'$
+\end_inset
+
+ cannot be the unique minimum, and therefore a minimizing flow must exist
+ in the set of flows with one link in free flow.
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "lem:smalleri"
+
+\end_inset
+
+ then says that the total latencies will decrease with decreasing free flow
+ link index, and therefore the minimizing flow must be the Nash equilibrium
+ flow that minimizes the index of the free flow link.
+\end_layout
+
+\begin_layout Subsection
+Computational complexity of finding optimal Nash equilibria
+\end_layout
+
+\begin_layout Standard
+In this section, we present a very simple algorithm for finding the optimal
+ Nash equilibrium of a network, 
+\begin_inset Formula $\Network$
+\end_inset
+
+, and a demand, 
+\begin_inset Formula $\qdemand,$
+\end_inset
+
+and then show the running time to be in 
+\begin_inset Formula $O\left(\Network^{2}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/jackdreilly/School/nbt/repo_stuff/papers/walid/AGT-stackelberg/algo.raw"
+lstparams "mathescape"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Optimal Nash Equilibrium
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:opNE"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We first note from Algorithm 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "alg:opNE"
+
+\end_inset
+
+ that from the definition of 
+\begin_inset Formula $\hat{\flow}_{i,j}$
+\end_inset
+
+ in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "def:hat"
+
+\end_inset
+
+, we can precompute 
+\begin_inset Formula $\hat{\flow}_{i,j}\forall i,j\in\Network\times\Network$
+\end_inset
+
+ in 
+\begin_inset Formula $O\left(\Network^{2}\right)$
+\end_inset
+
+.
+ The subroutine 
+\begin_inset Formula $ $
+\end_inset
+
+
+\begin_inset Formula $freeFlowConfig$
+\end_inset
+
+ runs in 
+\begin_inset Formula $O\left(\Network\right)$
+\end_inset
+
+ time.
+ Finally, for each loop of the 
+\begin_inset Formula $optimalNE$
+\end_inset
+
+ outer routine (with 
+\begin_inset Formula $\Network$
+\end_inset
+
+ iterations), the running time is a constant plus the running time of 
+\begin_inset Formula $freeFlowConfig$
+\end_inset
+
+.
+ Therefore, the overall running time of the algorithm is 
+\begin_inset Formula $O(\Network^{2})+\Network O(\Network)=O(\Network^{2})$
 \end_inset
 
 .
@@ -1218,6 +2200,7 @@ We consider a
 \end_inset
 
 .
+ 
 \end_layout
 
 \begin_layout Subsubsection
