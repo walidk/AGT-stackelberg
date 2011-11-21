@@ -135,12 +135,12 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\cell}[1][]{e_{#1}}
+\newcommand{\cell}[1][]{e_{#1}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\vcell}[1][]{\vect{\cell[#1]}}
+\newcommand{\vcell}[1][]{\vect{\cell[#1]}}
 \end_inset
 
 
@@ -148,12 +148,12 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\Incoming}{I}
+\newcommand{\Incoming}{I}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\inCells}[1][]{\Incoming_{#1}}
+\newcommand{\inCells}[1][]{\Incoming_{#1}}
 \end_inset
 
 
@@ -161,12 +161,12 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\Outgoing}{O}
+\newcommand{\Outgoing}{O}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\outCells}[1][]{\Outgoing_{#1}}
+\newcommand{\outCells}[1][]{\Outgoing_{#1}}
 \end_inset
 
 
@@ -174,22 +174,22 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\speedFF}[1][]{v_{#1}}
+\newcommand{\speedFF}[1][]{v_{#1}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\vff}{\speedFF}
+\newcommand{\vff}{\speedFF}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\freeflow}[1]{\speedFF[#1]}
+\newcommand{\freeflow}[1]{\speedFF[#1]}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\speedCong}[1][]{w_{#1}}
+\newcommand{\speedCong}[1][]{w_{#1}}
 \end_inset
 
 
@@ -197,22 +197,22 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\minify}[1]{#1^{\text{min}}}
+\newcommand{\minify}[1]{#1^{\text{min}}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\maxify}[1]{#1^{\text{max}}}
+\newcommand{\maxify}[1]{#1^{\text{max}}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\inify}[1]{#1^{\text{in}}}
+\newcommand{\inify}[1]{#1^{\text{in}}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\outify}[1]{#1^{\text{out}}}
+\newcommand{\outify}[1]{#1^{\text{out}}}
 \end_inset
 
 
@@ -220,22 +220,22 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\flow}[1][]{x_{#1}}
+\newcommand{\flow}[1][]{x_{#1}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\flowMax}[1][]{\maxify{\flow[#1]}}
+\newcommand{\flowMax}[1][]{\maxify{\flow[#1]}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\flowIn}[1][]{\inify{\flow[#1]}}
+\newcommand{\flowIn}[1][]{\inify{\flow[#1]}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\flowOut}[1][]{\outify{\flow[#1]}}
+\newcommand{\flowOut}[1][]{\outify{\flow[#1]}}
 \end_inset
 
 
@@ -243,22 +243,22 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\vflow}{\vect q}
+\newcommand{\vflow}{\vect q}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\vflowMax}{\maxify{\vect{\flow}}}
+\newcommand{\vflowMax}{\maxify{\vect{\flow}}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\vflowIn}{\inify{\vect{\flow}}}
+\newcommand{\vflowIn}{\inify{\vect{\flow}}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\vflowOut}{\outify{\vect{\flow}}}
+\newcommand{\vflowOut}{\outify{\vect{\flow}}}
 \end_inset
 
 
@@ -266,22 +266,22 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\demand}[1][]{\Delta_{#1}}
+\newcommand{\demand}[1][]{\Delta_{#1}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\dem}[1][]{\demand[#1]}
+\newcommand{\dem}[1][]{\demand[#1]}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\supply}[1][]{\Sigma_{#1}}
+\newcommand{\supply}[1][]{\Sigma_{#1}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\supp}[1][]{\supply[#1]}
+\newcommand{\supp}[1][]{\supply[#1]}
 \end_inset
 
 
@@ -289,13 +289,13 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\fa}[1]{\forall\,#1}
+\newcommand{\fa}[1]{\forall\,#1}
 {\forall#1}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\fain}[2]{\fa{#1\,\in\,#2}}
+\newcommand{\fain}[2]{\fa{#1\,\in\,#2}}
 {\fa{#1\in#2}}
 \end_inset
 
@@ -304,12 +304,12 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\totaltraveltime}[1][]{TTT_{#1}}
+\newcommand{\totaltraveltime}[1][]{TTT_{#1}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\ttt}[1][]{\totaltraveltime[#1]}
+\newcommand{\ttt}[1][]{\totaltraveltime[#1]}
 \end_inset
 
 
@@ -317,7 +317,7 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\qdemand}[1][]{r_{#1}}
+\newcommand{\qdemand}[1][]{r_{#1}}
 \end_inset
 
 
@@ -325,7 +325,7 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\delay}[1][]{D_{#1}}
+\newcommand{\delay}[1][]{D_{#1}}
 \end_inset
 
 
@@ -333,7 +333,7 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\lenCell}[1][]{L_{#1}}
+\newcommand{\lenCell}[1][]{L_{#1}}
 \end_inset
 
 
@@ -341,7 +341,7 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\Rea}[1][]{\mathbb{R}^{#1}}
+\newcommand{\Rea}[1][]{\mathbb{R}^{#1}}
 \end_inset
 
 
@@ -349,7 +349,7 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\Routes}[1][]{R_{#1}}
+\newcommand{\Routes}[1][]{R_{#1}}
 \end_inset
 
 
@@ -357,12 +357,12 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\cellRoute}[2]{\gamma_{#1.#2}}
+\newcommand{\cellRoute}[2]{\gamma_{#1.#2}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\odRoute}[2]{\psi_{#1.#2}}
+\newcommand{\odRoute}[2]{\psi_{#1.#2}}
 \end_inset
 
 
@@ -370,7 +370,7 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\degradeRatio}{}
+\newcommand{\degradeRatio}{}
 \end_inset
 
 
@@ -503,17 +503,17 @@ stackelberg commands
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\parA}[1][]{a_{#1}}
+\renewcommand{\parA}[1][]{a_{#1}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\parB}[1][]{b_{#1}}
+\renewcommand{\parB}[1][]{b_{#1}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\parC}[1][]{c_{#1}}
+\renewcommand{\parC}[1][]{c_{#1}}
 \end_inset
 
 
@@ -521,7 +521,30 @@ stackelberg commands
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\coloneqq}{:=}
+\renewcommand{\coloneqq}{:=}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\demRange}[1][]{r^{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\renewcommand{\ldemRange}[1][]{\bar{r}^{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\renewcommand{\lDem}[1][]{\qdemand^{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\renewcommand{\lFlow}[2][][]{\flow[#2]^{#1}}
 \end_inset
 
 
