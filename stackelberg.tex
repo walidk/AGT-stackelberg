@@ -312,7 +312,7 @@ We define an optimal Stackelberg strategy $s^*$ to be a solution to the optimiza
 \begin{align*}
 s^* = \arg \min_s C\left( s + t(s), m(s) \right)
 \end{align*}
-and a Stackelberg equilibrium to be the Nash assignment $(t(s^*), m(s^*))$ induced by optimal strategy $s*$.
+and a Stackelberg equilibrium to be the assignment $(s^* + t(s^*), m(s^*))$ where $(t(s^*), m(s^*))$ is the Nash equilibrium induced by optimal strategy $s*$.
 
 
 \bigskip
@@ -324,21 +324,177 @@ We first study the 2 link case and solve analytically for the optimal Stackelber
 
 %------------------------------------------------------------------------------------------------------------------------------------
 \subsection{General case}
+In this section we show the following result: the optimal Stackelberg strategy can be computed in polynomial time for parallel networks with $N$ links. This result contrasts with the case of increasing latency functions where the optimal Stackelberg strategy is shown to be NP-hard to compute, see~\cite{rou01}.
+
+\bigskip
+Roughly speaking, the optimal Stackelberg strategy in our case corresponds to assigning the compliant flow in a socially optimal way \emph{after} assigning the non-compliant flow in a selfish way. Next we detail this rough idea by defining a candidate Stackelberg strategy $\bar{s}$ that will later be shown to be optimal.
+
+\subsubsection{A candidate Stackelberg strategy: Non-Compliant First}
+Let $(\bar{t}, \bar{m})$ denote the best Nash equilibrium for the instance $(N, (1-\beta)r)$. Let $k = \max Supp(\bar{t})$. We have
+
+\[
+\bar{m} = (1, \dots, 1, \stackrel{k}{0}, \dots, 0)
+\]
+and
+\[
+\bar{t} = \left( 
+\hat{q}_1(k), \dots, \hat{q}_{k - 1}(k), 
+(1 - \beta)r - \sum_{n = 1}^{k - 1} \hat{q}_n(k), 
+0, \dots, 0 \right)
+\]
+
+i.e. links $\{1, \dots, k-1 \}$ are $k$-congested, and link $k$ is in free flow.
+
+Now define Stackelberg strategy $\bar{s}$ as the optimal assignment of compliant flow $\beta r$ that induces equilibrium $(\bar{t}, \bar{m})$. It is easy to see that $\bar{s}$ is simply given by assigning the compliant flow to remaining links $\{k, k + 1, \dots, N\}$ successively, each up to maximum capacity. 
+The strategy $\bar{s}$ will assign $q^{\max}_{k} - t_{k}$ on link $k$, then $q_{k + 1}^{\max}$ on link $k + 1$, $q_{k+2}^{\max}$ on link $k+2$ and so on.
+Let $l = \min \{n | \beta r - (\sum_{n = k}^{l-1}q^{\max}_n - t_{k}) \geq 0 \}$ be the least efficient link used by the Stackelberg assignment. Then $\bar{s}$ is given by
+
+\[
+\bar{s} = \left(0, \dots, \stackrel{k-1}{0}, 
+q_{k}^{\max} - \bar{t}_{k}, 
+q_{k+1}^{\max}, \dots,  q_{l-1}^{\max}, 
+\beta r - (\sum_{n = k}^{l-1}q^{\max}_n - t_{k}), 
+\stackrel{l+1}{0}, \dots, 0 \right)
+\]
+
+Equivalently, the total assignment $\bar{x} = \bar{s} + \bar{t}$ is given by
+
+\[
+\bar{x} = \left(
+\hat{q}_1(k), \dots, \hat{q}_{k - 1}(k), 
+q_{k}^{\max}, 
+q_{k+1}^{\max}, \dots,  q_{l-1}^{\max}, 
+r - \sum_{n = 1}^{k-1}\hat{q}_n(k) - \sum_{n = k}^{l-1}q_n^{\max}, 
+\stackrel{l+1}{0}, \dots, 0 \right)
+\]
+
+Next we show that strategy $\bar{s}$ is indeed the optimal Stackelberg strategy.
 
 
-%#########################################################################################################################
-%\section{Approximate strategies}
+\subsubsection{The Non-Compliant First strategy is optimal}
+
+\begin{theorem}
+$\bar{s}$ is the optimal Stackelberg strategy.
+\end{theorem}
+
+\begin{proof}
+Let $s$ be a valid Stackelberg strategy and $(t, m)$ be the induced Nash equilibrium for the non-compliant flow. We will show that
+
+\[
+C(x, m) \geq C(\bar{x}, \bar{m})
+\]
+where $x = s+t$ and $\bar{x} = \bar{s} + \bar{t}$.
+
+\noindent The proof proceeds as follows: we first show that links $\{1, \dots, l-1\}$ are more congested under assignment $(x, m)$ than under $(\bar{x}, \bar{m})$, in the following sense: these links have worse latency
+\[
+l_n(x_n, m_n) \geq l_n(\bar{x}_n, \bar{m}_n)
+\]
+and hold less flow
+\[
+x_n \leq \bar{x}_n
+\]
+Then we conclude by lower bounding the cost $C(x, m)$.
+
+\bigskip
+
+Let $k' = \max Supp(t)$ be the link with largest free-flow latency used by the non-compliant flow. We begin by proving the following Lemma
+
+\begin{lemma}
+Link $k'$ is in free-flow.
+\end{lemma}
+
+
+
+\begin{lemma}
+$k' \geq k$
+\end{lemma}
+
+\begin{proof}
+First note that $s+t$ restricted to $Supp(t)$ is an assignment at Nash equilibrium. Then since link $k'$ is in free-flow and $k' \in Supp(t)$, the cost of this Nash equilibrium is simply $r'a_{k'}$ where $r' = \sum_{n\in Supp(t)} s_n + t_n$ is the total flow restricted to $Supp(t)$.
+Let $C'$ be the cost of the best Nash equilibrium of flow $r'$. Then we have by definition
+\[
+r'a_{k'} \geq C'
+\]
+We have $\bar{t}$ is the best Nash equilibrium of flow $(1-\beta)r$ with cost $r a_k$, and $(1 - \beta)r = \sum_{n\in Supp(t)} t_n \leq \sum_{n\in Supp(t)} s_n + t_n = r'$. Then since the average cost of the best Nash equilibrium is increasing in the total flow, we have
+\[
+\frac{C'}{r'} \geq \frac{r a_k}{r}
+\]
+
+Therefore we must have $a_{k'} \geq a_k$, i.e. $k' \geq k$.
+\end{proof}
+
+
+\bigskip
+Using the lemma, we can now show that links $\{1, \dots, l-1\}$ are more congested under assignment $(x, m)$ than candidate assignment $(\bar{x}, \bar{m})$.
+
+We have $\forall n \in \{1, \dots, k-1\}$, all links are at least $k'$-congested under assignment $(x, m)$, and exactly $k$-congested under assignment $(\bar{x}, \bar{m})$. Thus using the fact that $k' \geq k$
+\begin{align*}
+l_n(x_n, m_n) &\geq a_{k'} \geq a_k = l_n(\bar{x}_n, \bar{m}_n)\\
+x_n &\leq \hat{q}_n(k') \leq \hat{q}_n(k) = \bar{x}_n
+\end{align*}
+
+and we have $\forall n \in \{ k, \dots, l-1\}$, $n$ is in free flow and at maximum capacity under assignment $(\bar{x}, \bar{m})$ (i.e. $\bar{x}_n = q^{\max}_n$ and $l_n(\bar{x}_n) = a_n$). Thus
+\begin{align*}
+l_n(x_n, m_n) &\geq a_n = l_n(\bar{x}_n, \bar{m}_n)\\
+x_n &\leq q^{\max}_n = \bar{x}_n
+\end{align*}
+
+Therefore we have
+
+\begin{align}
+\label{eq:cong_latency}
+l_n(x_n, m_n) &\geq l_n(\bar{x}_n, \bar{m}_n) & \forall n \in \{ 1, \dots, l-1\}\\
+\label{eq:cong_flow}
+x_n &\leq \bar{x}_n &\forall n \in \{ 1, \dots, l-1\}\\
+\label{eq:cong_latencybar}
+l_n(\bar{x}_n, \bar{m}_n) &\leq a_l &\forall n \in \{ 1, \dots, l-1\}
+\end{align}
+
+Note that $\forall n \in \{1, \dots, k\}$ $l_n(\bar{x}_n, \bar{m}_n) = a_k \leq a_l$, and $\forall n \in \{k, \dots, l-1\}$ $l_n(\bar{x}_n, \bar{m}_n) = a_n \leq a_l$, thus we have
+\begin{align}
+\label{eq:_latency}
+l_n(\bar{x}_n, \bar{m}_n) &\leq a_l & \forall n \in \{ 1, \dots, l-1\}
+\end{align}
+
+
+Also note that links $n \in \{ l, \dots, N\}$ have latency at least $a_n$ (free-flow latency) and $a_n \geq a_l$, thus
+
+\begin{align}
+\label{eq:ff_latency}
+l_n(x_n, m_n) & \geq a_l & \forall n \in \{ l, \dots, N\}
+\end{align}
+
+
+We can now lower-bound the cost of the assignment $(x, m)$ where $x = s+t$ and $(t, m)$ is the Nash equilibrium induced by $s$.
+
+\begin{align*}
+C(x, m) 
+&= \sum_{n = 1}^{l-1} x_n l_n(x_n, m_n) + \sum_{n = l}^{N} x_n l_n(x_n, m_n)\\
+&\geq \sum_{n = 1}^{l-1} x_n l_n(\bar{x}_n, \bar{m}_n) + \sum_{n = l}^{N} x_n a_{l} 
+&\text{ using \ref{eq:cong_latency} and \ref{eq:ff_latency}} \\
+&\geq \sum_{n = 1}^{l-1} \bar{x}_n l_n(\bar{x}_n, \bar{m}_n) + \sum_{n = 1}^{l-1} (x_n - \bar{x}_n) l_n(\bar{x}_n, \bar{m}_n) + \sum_{n = l}^{N} x_n a_{l} 
+&\text{ using \ref{eq:cong_flow}}\\
+&\geq \sum_{n = 1}^{l-1} \bar{x}_n l_n(\bar{x}_n, \bar{m}_n) + \sum_{n = 1}^{l-1} (x_n - \bar{x}_n) a_{l} + \sum_{n = l}^{N} x_n a_{l}
+&\text{ using \ref{eq:cong_flow} and \ref{eq:cong_latencybar}} \\
+&\geq \sum_{n = 1}^{l-1} \bar{x}_n l_n(\bar{x}_n, \bar{m}_n) + 
+\left( \sum_{n = 1}^{N} x_n - \sum_{n = 1}^{l-1}\bar{x}_n \right) a_{l}\\
+&= \sum_{n = 1}^{l-1} \bar{x}_n l_n(\bar{x}_n, \bar{m}_n) + 
+\left( r - \sum_{n = 1}^{l-1}\bar{x}_n \right) a_{l}\\
+&= \sum_{n = 1}^{l-1} \bar{x}_n l_n(\bar{x}_n, \bar{m}_n) + \bar{x}_l a_{l} 
+&\text{ using } r = \sum_{n = 1}^l \bar{x}_n \text{ since } Supp(\bar{x}) = \{ 1, \dots, l\}\\
+&= C(\bar{x}, \bar{m})
+\end{align*}
+
+\end{proof}
+
 
 
 %#########################################################################################################################
 \begin{thebibliography}{8}
 
-\bibitem{pap10}
-  C. Papadimitriou and G. Valiant. A new Look at Selfish Routing. In
-  \emph{Innovations in Computer Science, 2010}.
+%\bibitem{pap10} C. Papadimitriou and G. Valiant. A new Look at Selfish Routing. In \emph{Innovations in Computer Science, 2010}.
 
-\bibitem{rou01}
-	T. Roughgarden. Stackelberg Scheduling Strategies. In \emph{Proceedings of the 33rd Annual ACM Symposium on the Theory of Computing, 2001}
+\bibitem{rou01} T. Roughgarden. Stackelberg Scheduling Strategies. In \emph{Proceedings of the 33rd Annual ACM Symposium on the Theory of Computing, 2001}
 
 \end{thebibliography}
 
