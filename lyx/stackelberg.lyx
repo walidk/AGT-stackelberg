@@ -2065,6 +2065,125 @@ reference "lem:smalleri"
 Computational complexity of finding optimal Nash equilibria
 \end_layout
 
+\begin_layout Standard
+In this section, we present a very simple algorithm for finding the optimal
+ Nash equilibrium of a network, 
+\begin_inset Formula $\Network$
+\end_inset
+
+, and a demand, 
+\begin_inset Formula $\qdemand,$
+\end_inset
+
+and then show the running time to be in 
+\begin_inset Formula $O\left(\Network^{2}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/jackdreilly/School/nbt/repo_stuff/papers/walid/AGT-stackelberg/algo.raw"
+lstparams "mathescape"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Optimal Nash Equilibrium
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:opNE"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We first note from Algorithm 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "alg:opNE"
+
+\end_inset
+
+ that from the definition of 
+\begin_inset Formula $\hat{\flow}_{i,j}$
+\end_inset
+
+ in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "def:hat"
+
+\end_inset
+
+, we can precompute 
+\begin_inset Formula $\hat{\flow}_{i,j}\forall i,j\in\Network\times\Network$
+\end_inset
+
+ in 
+\begin_inset Formula $O\left(\Network^{2}\right)$
+\end_inset
+
+.
+ The subroutine 
+\begin_inset Formula $ $
+\end_inset
+
+
+\begin_inset Formula $freeFlowConfig$
+\end_inset
+
+ runs in 
+\begin_inset Formula $O\left(\Network\right)$
+\end_inset
+
+ time.
+ Finally, for each loop of the 
+\begin_inset Formula $optimalNE$
+\end_inset
+
+ outer routine (with 
+\begin_inset Formula $\Network$
+\end_inset
+
+ iterations), the running time is a constant plus the running time of 
+\begin_inset Formula $freeFlowConfig$
+\end_inset
+
+.
+ Therefore, the overall running time of the algorithm is 
+\begin_inset Formula $O(\Network^{2})+\Network O(\Network)=O(\Network^{2})$
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Subsection
 Nash equilibria for 2-parallel link networks
 \end_layout
@@ -2081,6 +2200,7 @@ We consider a
 \end_inset
 
 .
+ 
 \end_layout
 
 \begin_layout Subsubsection
