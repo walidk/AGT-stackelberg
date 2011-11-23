@@ -445,7 +445,12 @@ stackelberg commands
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\Network}{N}
+\newcommand{\Network}{\mathscr{N}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\NLinks}{N}
 \end_inset
 
 
@@ -453,7 +458,7 @@ stackelberg commands
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\Mode}[1][]{m_{#1}}
+\newcommand{\Mode}[1][]{m_{#1}}
 \end_inset
 
 
@@ -461,12 +466,12 @@ stackelberg commands
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\latency}[1][]{l_{#1}}
+\newcommand{\latency}[1][]{l_{#1}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\Latency}{C}
+\newcommand{\Latency}{C}
 \end_inset
 
 
@@ -474,7 +479,7 @@ stackelberg commands
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\link}{n}
+\newcommand{\link}{n}
 \end_inset
 
 
@@ -545,6 +550,90 @@ stackelberg commands
 
 \begin_inset FormulaMacro
 \renewcommand{\lFlow}[2][][]{\flow[#2]^{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nash eq
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\NashEq}[2]{NE\left(#1,#2\right)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+congestion matches free flow flow
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\cffFlow}[2][][]{\hat{\flow}_{#1,#2}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+optimal NE flow
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\opneFlow}[3][]{\bar{\flow}_{#1}^{#2,#3}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+super script j = (1 through j-1 in congestion) and j in free flow (if exists)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\cffMode}[2][]{\bar{\Mode}_{#1}^{#2}}
 \end_inset
 
 
