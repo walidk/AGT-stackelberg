@@ -606,7 +606,7 @@ name "def:ne"
 \end_inset
 
 An assignment 
-\begin_inset Formula $(q,m)\in\mathbb{R}_{+}^{N}\times\{0,1\}^{N}$
+\begin_inset Formula $(\flow,\Mode)\in\mathbb{R}_{+}^{N}\times\{0,1\}^{N}$
 \end_inset
 
  for instance 
@@ -690,6 +690,18 @@ Note that links that have zero flow are necessarily in free-flow
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+We introduce the following definition to denote the set of achievable Nash
+ equilibria.
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula $\NashEq{\Network}{\qdemand}\coloneqq\left\{ \left(\flow,\Mode\right):\text{ flows }\flow\mbox{\text{ in modes }\Mode\text{ are at Nash Equilibrium for Network }\Network}\text{ with demand }\qdemand\right\} $
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -844,7 +856,7 @@ name "lem:filluplower"
 \end_inset
 
 For 
-\begin_inset Formula $\left(\flow,\Mode\right)\in\NashEq{\Network,\qdemand}){j\in Supp}$
+\begin_inset Formula $\left(\flow,\Mode\right)\in\NashEq{\Network}{\qdemand}){j\in Supp}$
 \end_inset
 
 
