@@ -1223,7 +1223,7 @@ name "lem:xhat"
 \end_inset
 
 
-\begin_inset Formula $\bar{\flow}_{j}^{j,r}\in\left[0,\parC[j]\right]\implies\left(\bar{\flow}^{j,r},\bar{\Mode}^{j}\right)\in \NashEq{\Network}{\qdemand}$
+\begin_inset Formula $\bar{\flow}_{j}^{j,r}\in\left[0,\parC[j]\right]\implies\left(\opneFlow{j,r}}{\bar{\Mode}^{j}\right)\in \NashEq{\Network}{\qdemand}$
 \end_inset
 
 .
@@ -1267,7 +1267,7 @@ reference "def:hat"
 \end_inset
 
  are not in 
-\begin_inset Formula $Supp\left(\bar{\flow}^{j,\qdemand}\right),$
+\begin_inset Formula $Supp\left(\opneFlow{j}{\qdemand}\right),$
 \end_inset
 
  and have a latency 
@@ -1276,7 +1276,7 @@ reference "def:hat"
 
 .
  Therefore, we have that 
-\begin_inset Formula $\forall\link\in Supp\left(\bar{\flow}^{j,\qdemand}\right),\latency[\link]=\parA[j]<\parA[\link']\forall\link'\notin Supp\left(\bar{\flow}^{j,\qdemand}\right)$
+\begin_inset Formula $\forall\link\in Supp\left(\opneFlow{j,\qdemand}\right),\latency[\link]=\parA[j]<\parA[\link']\forall\link'\notin Supp\left(\bar{\flow}^{j}{\qdemand}\right)$
 \end_inset
 
  , which satisfies 
@@ -1334,7 +1334,7 @@ name "def:demrange"
 \end_inset
 
 
-\begin_inset Formula $\demRange[j]\coloneqq\left\{ \qdemand:\left(\bar{\flow}^{j,\qdemand},\bar{\Mode}^{j}\right)\in \NashEq{\Network}{\qdemand}\right\} $
+\begin_inset Formula $\demRange[j]\coloneqq\left\{ \qdemand:\left(\opneFlow{j,\qdemand}}{\bar{\Mode}^{j}\right)\in \NashEq{\Network}{\qdemand}\right\} $
 \end_inset
 
 
@@ -1972,11 +1972,11 @@ and
 \end_inset
 
  such that 
-\begin_inset Formula $\left(\bar{\flow}^{\qdemand,i},\bar{\Mode}^{i}\right),\left(\bar{\flow}^{\qdemand,j},\bar{\Mode}^{j}\right)\in \NashEq{\Network}{\qdemand}$
+\begin_inset Formula $\left(\opneFlow{\qdemand,i},\bar{\Mode}^{i}\right),\left(\bar{\flow}^{\qdemand,j}}{\bar{\Mode}^{j}\right)\in \NashEq{\Network}{\qdemand}$
 \end_inset
 
 , 
-\begin_inset Formula $\Latency\left(\bar{\flow}^{\qdemand,i},\bar{\Mode}^{i}\right)<\Latency\left(\bar{\flow}^{\qdemand,j},\bar{\Mode}^{j}\right)$
+\begin_inset Formula $\Latency\left(\opneFlow{\qdemand,i},\bar{\Mode}^{i}\right)<\Latency\left(\bar{\flow}^{\qdemand,j}}{\bar{\Mode}^{j}\right)$
 \end_inset
 
 .
@@ -2005,7 +2005,7 @@ For a given demand,
 \end_inset
 
  
-\begin_inset Formula $\underset{\left(\flow,\Mode\right)\in \NashEq{\Network,\qdemand\right)}{\arg\min}\left\{ \Latency\left(\flow,\Mode\right)\right\} =\underset{\left(\bar{\flow}^{\qdemand,j},\bar{\Mode}^{j}\right)\in NE\left(\Network}{\qdemand}}{\arg\min}\left\{ j\right\} $
+\begin_inset Formula $\underset{\left(\flow,\Mode\right)\in \NashEq{\Network,\qdemand\right)}{\arg\min}\left\{ \Latency\left(\flow,\Mode\right)\right\} =\underset{\left(\opneFlow{\qdemand,j}}{\bar{\Mode}^{j}\right)\in NE\left(\Network}{\qdemand}}{\arg\min}\left\{ j\right\} $
 \end_inset
 
 .
@@ -2024,7 +2024,7 @@ reference "cor:atmost1ff"
 \end_inset
 
 are the flows with one link in free flow (
-\begin_inset Formula $\left\{ \bar{\flow}^{\qdemand,i}:i\in\left\{ 1,\ldots,\NLinks\right\} \right\} $
+\begin_inset Formula $\left\{ \opneFlow{\qdemand,i}:i\in\left\{ 1,\ldots}{\NLinks\right\} \right\} $
 \end_inset
 
 ) and the flow with all links in congestion (
