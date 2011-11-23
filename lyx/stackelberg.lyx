@@ -5,6 +5,7 @@
 \textclass article
 \begin_preamble
 \usepackage{fullpage}
+\usepackage{mathrsfs}
 \end_preamble
 \use_default_options false
 \begin_modules
@@ -843,7 +844,7 @@ name "lem:filluplower"
 \end_inset
 
 For 
-\begin_inset Formula $\left(\flow,\Mode\right)\in \NashEq{\Network,\qdemand\right)}{j\in Supp\left(\flow}$
+\begin_inset Formula $\left(\flow,\Mode\right)\in\NashEq{\Network,\qdemand}){j\in Supp}$
 \end_inset
 
 
@@ -903,7 +904,7 @@ Let
 
 .
  Then 
-\begin_inset Formula $\left(\flow,\Mode\right)\in \NashEq{\Network}{\qdemand\right)\implies\sum_{\link\in S}\left(1-\Mode[\link]}<2$
+\begin_inset Formula $\left(\flow,\Mode\right)\in\NashEq{\Network}{\qdemand})\implies\sum_{\link\in S}$
 \end_inset
 
 
@@ -929,7 +930,7 @@ For a given mode
 \end_inset
 
  at most 1 
-\begin_inset Formula $\flow:\left(\flow,\Mode\right)\in \NashEq{\Network}{\qdemand}$
+\begin_inset Formula $\flow:\left(\flow,\Mode\right)\in\NashEq{\Network}{\qdemand}$
 \end_inset
 
 
@@ -950,7 +951,7 @@ In the case where
 \end_inset
 
  such that 
-\begin_inset Formula $\left(\flow,\Mode\right),\left(\flow',\Mode\right)\in \NashEq{\Network}{\qdemand}$
+\begin_inset Formula $\left(\flow,\Mode\right),\left(\flow',\Mode\right)\in\NashEq{\Network}{\qdemand}$
 \end_inset
 
 .
@@ -1116,7 +1117,7 @@ name "def:hat"
 \end_inset
 
 
-\begin_inset Formula $\hat{\flow}_{i,j}\coloneqq\left\{ \flow\in\left[0,\parC[i]\right]:\latency[i]\left(x,1\right)=\parA[j]\right\} \forall i\in\left\{ 1,\ldots,\NLinks\right\} ,j\in\left\{ i+1,\ldots,\NLinks\right\} $
+\begin_inset Formula $\cffFlow ij\coloneqq\left\{ \flow\in\left[0,\parC[i]\right]:\latency[i]\left(x,1\right)=\parA[j]\right\} \forall i\in\left\{ 1,\ldots,\NLinks\right\} ,j\in\left\{ i+1,\ldots,\NLinks\right\} $
 \end_inset
 
 
@@ -1124,7 +1125,7 @@ name "def:hat"
 
 \begin_layout Definition*
 What 
-\begin_inset Formula $\hat{\flow}_{i,j}$
+\begin_inset Formula $\cffFlow ij$
 \end_inset
 
 represents is the flow on link 
@@ -1145,7 +1146,7 @@ represents is the flow on link
 
 .
  In other words, 
-\begin_inset Formula $\hat{\flow}_{i,j}$
+\begin_inset Formula $\cffFlow ij$
 \end_inset
 
  is the flow on link 
@@ -1158,12 +1159,12 @@ represents is the flow on link
 
  to begin to be utilized in a Nash equilibrium.
  Algebraically, we can solve for 
-\begin_inset Formula $\hat{\flow}_{i,j}=\frac{\parB[i]\parC[i]}{\parC[i]\left(\parA[j]-\parA[i]\right)+\parB[i]}$
+\begin_inset Formula $\cffFlow ij=\frac{\parB[i]\parC[i]}{\parC[i]\left(\parA[j]-\parA[i]\right)+\parB[i]}$
 \end_inset
 
 .
  Intuitively, we note that 
-\begin_inset Formula $\hat{\flow}_{i,j}$
+\begin_inset Formula $\cffFlow ij$
 \end_inset
 
  approaches the maximum flow on link 
@@ -1207,7 +1208,7 @@ name "def:bar"
  
 \begin_inset Formula $\bar{\flow[i]}^{r,j}\coloneqq\begin{cases}
 \hat{x}_{i,j} & i<j\\
-r-\sum_{\link=1}^{j-1}\hat{\flow}_{\link,j} & i=j\\
+r-\sum_{\link=1}^{j-1}\cffFlow{\link}j & i=j\\
 0 & i>j
 \end{cases}$
 \end_inset
@@ -1223,7 +1224,7 @@ name "lem:xhat"
 \end_inset
 
 
-\begin_inset Formula $\bar{\flow}_{j}^{j,r}\in\left[0,\parC[j]\right]\implies\left(\opneFlow{j,r}}{\bar{\Mode}^{j}\right)\in \NashEq{\Network}{\qdemand}$
+\begin_inset Formula $\opneFlow[j]jr\in\left[0,\parC[j]\right]\implies\left(\opneFlow jr,\cffMode j\right)\in\NashEq{\Network}{\qdemand}$
 \end_inset
 
 .
@@ -1249,12 +1250,12 @@ reference "def:hat"
 \end_inset
 
 
-\begin_inset Formula $\bar{\flow}_{i}^{j,\qdemand}\in\left[0,\parC[i]\right]\forall i\in\left\{ 1,\ldots,\NLinks\right\} $
+\begin_inset Formula $\opneFlow[i]j{\qdemand}\in\left[0,\parC[i]\right]\forall i\in\left\{ 1,\ldots,\NLinks\right\} $
 \end_inset
 
 .
  By the assumption that 
-\begin_inset Formula $\bar{\Mode}_{j}^{j}=0$
+\begin_inset Formula $\cffMode[j]j=0$
 \end_inset
 
 , we also have 
@@ -1267,7 +1268,7 @@ reference "def:hat"
 \end_inset
 
  are not in 
-\begin_inset Formula $Supp\left(\opneFlow{j}{\qdemand}\right),$
+\begin_inset Formula $Supp\left(\opneFlow j{\qdemand}\right),$
 \end_inset
 
  and have a latency 
@@ -1276,7 +1277,7 @@ reference "def:hat"
 
 .
  Therefore, we have that 
-\begin_inset Formula $\forall\link\in Supp\left(\opneFlow{j,\qdemand}\right),\latency[\link]=\parA[j]<\parA[\link']\forall\link'\notin Supp\left(\bar{\flow}^{j}{\qdemand}\right)$
+\begin_inset Formula $\forall\link\in Supp\left(\opneFlow j{\qdemand}\right),\latency[\link]=\parA[j]<\parA[\link']\forall\link'\notin Supp\left(\opneFlow j{\qdemand}\right)$
 \end_inset
 
  , which satisfies 
@@ -1334,7 +1335,7 @@ name "def:demrange"
 \end_inset
 
 
-\begin_inset Formula $\demRange[j]\coloneqq\left\{ \qdemand:\left(\opneFlow{j,\qdemand}}{\bar{\Mode}^{j}\right)\in \NashEq{\Network}{\qdemand}\right\} $
+\begin_inset Formula $\demRange[j]\coloneqq\left\{ \qdemand:\left(\opneFlow j{\qdemand},\cffMode j\right)\in\NashEq{\Network}{\qdemand}\right\} $
 \end_inset
 
 
@@ -1390,26 +1391,26 @@ The maximum value for
 
 .
  Therefore we have 
-\begin_inset Formula $\demRange[i-1]_{\max}=\sum_{j=1}^{i-2}\hat{\flow}_{j,i-1}+\parC[i-1]$
+\begin_inset Formula $\demRange[i-1]_{\max}=\sum_{j=1}^{i-2}\cffFlow j{i-1}+\parC[i-1]$
 \end_inset
 
  and 
-\begin_inset Formula $\demRange[i]_{\min}=\sum_{j=1}^{i-1}\hat{\flow}_{j,i}$
+\begin_inset Formula $\demRange[i]_{\min}=\sum_{j=1}^{i-1}\cffFlow ji$
 \end_inset
 
 .
  For 
-\begin_inset Formula $j<i-1,\hat{\flow}_{j,i}<\hat{\flow}_{j,i-1}$
+\begin_inset Formula $j<i-1,\cffFlow ji<\cffFlow j{i-1}$
 \end_inset
 
 .
  Therefore, 
-\begin_inset Formula $\sum_{j=1}^{i-2}\hat{\flow}_{j,i}<\sum_{j=1}^{i-2}\hat{\flow}_{j,i-1}$
+\begin_inset Formula $\sum_{j=1}^{i-2}\cffFlow ji<\sum_{j=1}^{i-2}\cffFlow j{i-1}$
 \end_inset
 
 .
  As well, 
-\begin_inset Formula $\hat{\flow}_{i-1,i}<\parC[i-1]$
+\begin_inset Formula $\cffFlow{i-1}i<\parC[i-1]$
 \end_inset
 
 .
@@ -1521,7 +1522,7 @@ name "def:ldemrange"
 \end_inset
 
 
-\begin_inset Formula $\ldemRange[\latency]\coloneqq\left\{ \qdemand:\exists\flow\text{ s.t. }\left(\flow,\bar{\Mode}^{\NLinks+1}\right)\in \NashEq{\Network}{\qdemand},\latency[i]=\latency\forall i\in\left\{ 1,\ldots,\NLinks\right\} \right\} $
+\begin_inset Formula $\ldemRange[\latency]\coloneqq\left\{ \qdemand:\exists\flow\text{ s.t. }\left(\flow,\cffMode{\NLinks+1}\right)\in\NashEq{\Network}{\qdemand},\latency[i]=\latency\forall i\in\left\{ 1,\ldots,\NLinks\right\} \right\} $
 \end_inset
 
 
@@ -1591,7 +1592,7 @@ name "def:lflow"
 \end_inset
 
 
-\begin_inset Formula $\lFlow[\latency]\coloneqq\left\{ \flow:\left(\flow,\bar{\Mode}^{\NLinks+1}\right)\in \NashEq{\Network}{\qdemand},\qdemand\in\ldemRange[\latency]\right\} $
+\begin_inset Formula $\lFlow[\latency]\coloneqq\left\{ \flow:\left(\flow,\cffMode{\NLinks+1}\right)\in\NashEq{\Network}{\qdemand},\qdemand\in\ldemRange[\latency]\right\} $
 \end_inset
 
 .
@@ -1628,7 +1629,7 @@ reference "lem:uniquemode"
 \end_inset
 
  such that 
-\begin_inset Formula $\left(\flow,\bar{\Mode}^{\NLinks+1}\right)\in \NashEq{\Network}{\qdemand}\forall r\in\ldemRange[\latency]$
+\begin_inset Formula $\left(\flow,\cffMode{\NLinks+1}\right)\in\NashEq{\Network}{\qdemand}\forall r\in\ldemRange[\latency]$
 \end_inset
 
 .
@@ -1690,7 +1691,7 @@ reference "rem:uniquex"
 \end_inset
 
 
-\begin_inset Formula $\left(\lFlow[\latency],\bar{\Mode}^{\NLinks+1}\right)\in \NashEq{\Network}{\lDem[\latency]}$
+\begin_inset Formula $\left(\lFlow[\latency],\cffMode{\NLinks+1}\right)\in\NashEq{\Network}{\lDem[\latency]}$
 \end_inset
 
 .
@@ -1736,7 +1737,7 @@ name "cor:maxminl"
 \end_inset
 
 
-\begin_inset Formula $\max\left\{ \qdemand\in\bigcup_{\latency\in\Rea_{+}}\ldemRange[\latency]\right\} =\underset{\ldemRange[\latency]\neq\emptyset}{\arg\min}\left\{ \latency\right\} =\lDem[\parA]\in\demRange[\NLinks]$
+\begin_inset Formula $\max\left\{ \qdemand\in\bigcup_{\latency\in\Rea_{+}}\ldemRange[\latency]\right\} =\underset{\ldemRange[\latency]\neq\emptyset}{\arg\min}\left\{ \latency\right\} =\lDem[a_{\Network}]\in\demRange[\NLinks]$
 \end_inset
 
 
@@ -1744,10 +1745,17 @@ name "cor:maxminl"
 status open
 
 \begin_layout Plain Layout
-it should be a_
+raw 
+\begin_inset Quotes eld
+\end_inset
+
+a
+\begin_inset Quotes erd
+\end_inset
+
+ rather than 
 \backslash
-Network, but it's not letting me put that.
- but we need to fix this!
+parA weird lyx stuff
 \end_layout
 
 \end_inset
@@ -1828,7 +1836,7 @@ reference "lem:filluplower"
 , it is clear that the entire set of demands that can achieve a Nash equilibrium
  is the union of Nash equilibrium demands with either one link in free flow
  or zero links in free flow, or 
-\begin_inset Formula $\left\{ \qdemand:\exists\left(\flow,\Mode\right)\in \NashEq{\Network}{\qdemand}\right\} =\bigcup_{l\in\Rea_{+}}\ldemRange[l]\cup\bigcup_{i=1}^{\NLinks}\demRange[i]$
+\begin_inset Formula $\left\{ \qdemand:\exists\left(\flow,\Mode\right)\in\NashEq{\Network}{\qdemand}\right\} =\bigcup_{l\in\Rea_{+}}\ldemRange[l]\cup\bigcup_{i=1}^{\NLinks}\demRange[i]$
 \end_inset
 
 .
@@ -1862,7 +1870,7 @@ name "lem:all1lff"
 \end_inset
 
 
-\begin_inset Formula $\left\{ \qdemand:\exists\left(\flow,\Mode\right)\in \NashEq{\Network}{\qdemand}\right\} =\bigcup_{i=1}^{\NLinks}\demRange[i]$
+\begin_inset Formula $\left\{ \qdemand:\exists\left(\flow,\Mode\right)\in\NashEq{\Network}{\qdemand}\right\} =\bigcup_{i=1}^{\NLinks}\demRange[i]$
 \end_inset
 
 
@@ -1887,7 +1895,7 @@ For a given demand,
 \end_inset
 
 , if 
-\begin_inset Formula $\exists\left(\lFlow,\bar{\Mode}^{\NLinks+1}\right)\in \NashEq{\Network}{\qdemand}$
+\begin_inset Formula $\exists\left(\lFlow,\cffMode{\NLinks+1}\right)\in\NashEq{\Network}{\qdemand}$
 \end_inset
 
 , then 
@@ -1895,11 +1903,11 @@ For a given demand,
 \end_inset
 
  such that 
-\begin_inset Formula $\left(\flow',\bar{\Mode}^{j}\right)\in \NashEq{\Network}{\qdemand}$
+\begin_inset Formula $\left(\flow',\cffMode j\right)\in\NashEq{\Network}{\qdemand}$
 \end_inset
 
  and 
-\begin_inset Formula $\Latency\left(\flow',\bar{\Mode}^{j}\right)\le\Latency\left(\flow,\bar{\Mode}^{\NLinks+1}\right)$
+\begin_inset Formula $\Latency\left(\flow',\cffMode j\right)\le\Latency\left(\flow,\cffMode{\NLinks+1}\right)$
 \end_inset
 
 .
@@ -1950,7 +1958,7 @@ reference "lemma:nash_eq"
 \end_inset
 
 , we have 
-\begin_inset Formula $\Latency\left(\flow',\bar{\Mode}^{j}\right)=\qdemand\latency'\le\qdemand\parA[\NLinks]\le\qdemand\latency=\Latency\left(\flow,\bar{\Mode}^{\NLinks+1}\right)$
+\begin_inset Formula $\Latency\left(\flow',\cffMode j\right)=\qdemand\latency'\le\qdemand\parA[\NLinks]\le\qdemand\latency=\Latency\left(\flow,\cffMode{\NLinks+1}\right)$
 \end_inset
 
 .
@@ -1972,11 +1980,11 @@ and
 \end_inset
 
  such that 
-\begin_inset Formula $\left(\opneFlow{\qdemand,i},\bar{\Mode}^{i}\right),\left(\bar{\flow}^{\qdemand,j}}{\bar{\Mode}^{j}\right)\in \NashEq{\Network}{\qdemand}$
+\begin_inset Formula $\left(\opneFlow{\qdemand}i,\cffMode i\right),\left(\opneFlow{\qdemand}j,\cffMode j\right)\in\NashEq{\Network}{\qdemand}$
 \end_inset
 
 , 
-\begin_inset Formula $\Latency\left(\opneFlow{\qdemand,i},\bar{\Mode}^{i}\right)<\Latency\left(\bar{\flow}^{\qdemand,j}}{\bar{\Mode}^{j}\right)$
+\begin_inset Formula $\Latency\left(\opneFlow{\qdemand}i,\cffMode i\right)<\Latency\left(\opneFlow{\qdemand}j,\cffMode j\right)$
 \end_inset
 
 .
@@ -2005,7 +2013,7 @@ For a given demand,
 \end_inset
 
  
-\begin_inset Formula $\underset{\left(\flow,\Mode\right)\in \NashEq{\Network,\qdemand\right)}{\arg\min}\left\{ \Latency\left(\flow,\Mode\right)\right\} =\underset{\left(\opneFlow{\qdemand,j}}{\bar{\Mode}^{j}\right)\in NE\left(\Network}{\qdemand}}{\arg\min}\left\{ j\right\} $
+\begin_inset Formula $\underset{\left(\flow,\Mode\right)\in\NashEq{\Network,\qdemand})}{\arg\min}\left\{ \Latency\left(\flow,\Mode\right)\right\} =\underset{\left(\opneFlow{\qdemand}j,\cffMode j\right)\in\NashEq{\Network}{\qdemand}}{\arg\min}\left\{ j\right\} $
 \end_inset
 
 .
@@ -2024,7 +2032,7 @@ reference "cor:atmost1ff"
 \end_inset
 
 are the flows with one link in free flow (
-\begin_inset Formula $\left\{ \opneFlow{\qdemand,i}:i\in\left\{ 1,\ldots}{\NLinks\right\} \right\} $
+\begin_inset Formula $\left\{ \opneFlow{\qdemand}i:i\in\left\{ 1,\ldots,\NLinks\right\} \right\} $
 \end_inset
 
 ) and the flow with all links in congestion (
@@ -2032,7 +2040,7 @@ are the flows with one link in free flow (
 \end_inset
 
  such that 
-\begin_inset Formula $\left(\flow',\bar{\Mode}^{\NLinks+1}\right)\in \NashEq{\Network}{\qdemand}$
+\begin_inset Formula $\left(\flow',\cffMode{\NLinks+1}\right)\in\NashEq{\Network}{\qdemand}$
 \end_inset
 
 ).
@@ -2132,7 +2140,7 @@ reference "alg:opNE"
 \end_inset
 
  that from the definition of 
-\begin_inset Formula $\hat{\flow}_{i,j}$
+\begin_inset Formula $\cffFlow ij$
 \end_inset
 
  in 
@@ -2143,7 +2151,7 @@ reference "def:hat"
 \end_inset
 
 , we can precompute 
-\begin_inset Formula $\hat{\flow}_{i,j}\forall i,j\in\NLinks\times\NLinks$
+\begin_inset Formula $\cffFlow ij\forall i,j\in\NLinks\times\NLinks$
 \end_inset
 
  in 

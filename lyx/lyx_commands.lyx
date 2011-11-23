@@ -445,20 +445,12 @@ stackelberg commands
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\Network}{\mathscr{N}}
+\renewcommand{\Network}{\mathscr{N}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\NLinks}{N}
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset FormulaMacro
-\newcommand{\Mode}[1][]{m_{#1}}
+\renewcommand{\NLinks}{N}
 \end_inset
 
 
@@ -466,12 +458,7 @@ stackelberg commands
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\latency}[1][]{l_{#1}}
-\end_inset
-
-
-\begin_inset FormulaMacro
-\newcommand{\Latency}{C}
+\renewcommand{\Mode}[1][]{m_{#1}}
 \end_inset
 
 
@@ -479,7 +466,20 @@ stackelberg commands
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\link}{n}
+\renewcommand{\latency}[1][]{l_{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\renewcommand{\Latency}{C}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\link}{n}
 \end_inset
 
 
@@ -591,7 +591,7 @@ congestion matches free flow flow
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\cffFlow}[2][][]{\hat{\flow}_{#1,#2}}
+\renewcommand{\cffFlow}[2]{\hat{\flow}_{#1,#2}}
 \end_inset
 
 
@@ -612,7 +612,7 @@ optimal NE flow
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\opneFlow}[3][]{\bar{\flow}_{#1}^{#2,#3}}
+\newcommand{\opneFlow}[3][]{\bar{\flow}_{#1}^{#2,#3}}
 \end_inset
 
 
@@ -633,7 +633,7 @@ super script j = (1 through j-1 in congestion) and j in free flow (if exists)
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\cffMode}[2][]{\bar{\Mode}_{#1}^{#2}}
+\newcommand{\cffMode}[2][]{\bar{\Mode}_{#1}^{#2}}
 \end_inset
 
 
