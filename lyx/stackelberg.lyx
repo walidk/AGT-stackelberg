@@ -9,7 +9,7 @@
 \end_preamble
 \use_default_options false
 \begin_modules
-theorems-ams
+theorems-ams-bytype
 \end_modules
 \maintain_unincluded_children false
 \language english
@@ -693,15 +693,19 @@ Note that links that have zero flow are necessarily in free-flow
 \end_layout
 
 \begin_layout Standard
-We introduce the following definition to denote the set of achievable Nash
- equilibria.
-\end_layout
-
-\begin_layout Definition
-\begin_inset Formula $\NashEq{\Network}{\qdemand}\coloneqq\left\{ \left(\flow,\Mode\right):\text{ flows }\flow\mbox{\text{ in modes }\Mode\text{ are at Nash Equilibrium for Network }\Network}\text{ with demand }\qdemand\right\} $
+We denote the set of Nash Equilibria for a network, 
+\begin_inset Formula $\Network$
 \end_inset
 
+, with a demand, 
+\begin_inset Formula $\qdemand,$
+\end_inset
 
+as 
+\begin_inset Formula $\NashEq{\Network}{\qdemand}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -856,7 +860,7 @@ name "lem:filluplower"
 \end_inset
 
 For 
-\begin_inset Formula $\left(\flow,\Mode\right)\in\NashEq{\Network}{\qdemand}){j\in Supp}$
+\begin_inset Formula $\left(\flow,\Mode\right)\in\NashEq{\Network}{\qdemand},j\in Supp\left(\flow\right)$
 \end_inset
 
 
@@ -899,8 +903,7 @@ reference "lem:filluplower"
 
 \end_inset
 
- says that there does not exist a Nash equilibrium where more than one link
- is in free flow.
+ says that there is at most one free-flow link in the support.
 \end_layout
 
 \begin_layout Corollary
@@ -916,7 +919,7 @@ Let
 
 .
  Then 
-\begin_inset Formula $\left(\flow,\Mode\right)\in\NashEq{\Network}{\qdemand})\implies\sum_{\link\in S}$
+\begin_inset Formula $\left(\flow,\Mode\right)\in\NashEq{\Network}{\qdemand}\implies\sum_{\link\in S}\left(1-\Mode[\link]\right)\le1$
 \end_inset
 
 
@@ -1135,7 +1138,7 @@ name "def:hat"
 
 \end_layout
 
-\begin_layout Definition*
+\begin_layout Standard
 What 
 \begin_inset Formula $\cffFlow ij$
 \end_inset
@@ -1219,7 +1222,7 @@ name "def:bar"
 .
  
 \begin_inset Formula $\bar{\flow[i]}^{r,j}\coloneqq\begin{cases}
-\hat{x}_{i,j} & i<j\\
+\cffFlow ij & i<j\\
 r-\sum_{\link=1}^{j-1}\cffFlow{\link}j & i=j\\
 0 & i>j
 \end{cases}$
@@ -1370,7 +1373,14 @@ reference "def:demrange"
 \end_layout
 
 \begin_layout Lemma
-\begin_inset Formula $\forall i\in\left\{ 1,\ldots,\NLinks\right\} ,\min\left\{ \qdemand\in\demRange[i]\right\} <\max\left\{ r\in\demRange[i-1]\right\} $
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:minmaxr"
+
+\end_inset
+
+
+\begin_inset Formula $\forall i\in\left\{ 1,\ldots,\NLinks\right\} ,\min\left\{ \demRange[i]\right\} <\max\left\{ \demRange[i-1]\right\} $
 \end_inset
 
 .
@@ -1432,25 +1442,7 @@ The maximum value for
 \begin_layout Corollary
 \begin_inset CommandInset label
 LatexCommand label
-name "cor:existsmaller"
-
-\end_inset
-
-
-\begin_inset Formula $\forall j\in\left\{ 2,\ldots,\NLinks\right\} ,\exists\qdemand\in\demRange[j]$
-\end_inset
-
- such that 
-\begin_inset Formula $\qdemand<\max\left\{ \bigcup_{i=1}^{j-1}\demRange[i]\right\} $
-\end_inset
-
-
-\end_layout
-
-\begin_layout Lemma
-\begin_inset CommandInset label
-LatexCommand label
-name "lem:conset"
+name "cor:conset"
 
 \end_inset
 
@@ -1506,10 +1498,10 @@ Assume
 \end_inset
 
 .
- But this is a direct contradiction of 
+ But this is a direct contradiction of Lemma 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "cor:existsmaller"
+reference "lem:minmaxr"
 
 \end_inset
 
@@ -1517,7 +1509,7 @@ reference "cor:existsmaller"
 \begin_inset Formula $\hat{\qdemand}$
 \end_inset
 
- and conclude the proof.
+ exists and we conclude the proof.
 \end_layout
 
 \begin_layout Standard
@@ -1793,7 +1785,7 @@ name "lem:subset"
 Since 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "lem:conset"
+reference "cor:conset"
 
 \end_inset
 
