@@ -138,6 +138,59 @@ Traffic flows
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../figures/nparlink.pdf
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Network, 
+\begin_inset Formula $\Network$
+\end_inset
+
+, with 
+\begin_inset Formula $\NLinks$
+\end_inset
+
+ parallel links and demand, 
+\begin_inset Formula $\qdemand$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:nparlink"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 We consider a network of 
 \begin_inset Formula $\Network$
 \end_inset
@@ -151,6 +204,14 @@ We consider a network of
 \end_inset
 
 .
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:nparlink"
+
+\end_inset
+
+ shows an example of the type of networks considered in this report.
  The flow 
 \begin_inset Formula $\flow[\link]$
 \end_inset
@@ -163,8 +224,7 @@ We consider a network of
 \begin_inset Formula $\mass[\link]$
 \end_inset
 
-, given by a triangular fundamental diagram with the following parameters
- 
+, given by a triangular fundamental diagram with the following parameters:
 \end_layout
 
 \begin_layout Itemize
@@ -189,7 +249,8 @@ We consider a network of
 \end_layout
 
 \begin_layout Standard
-In the free flow regime (when the density on the link is less than a critical
+.
+ In the free flow regime (when the density on the link is less than a critical
  density 
 \begin_inset Formula $\masscrit[\link]$
 \end_inset
@@ -248,11 +309,11 @@ Note that the flow can aso be written succinctly as
 
 \begin_layout Standard
 We denote by 
-\begin_inset Formula $(N,r)$
+\begin_inset Formula $(\Network,\qdemand)$
 \end_inset
 
  a network instance with 
-\begin_inset Formula $N$
+\begin_inset Formula $\NLinks$
 \end_inset
 
  links, rate 
@@ -261,7 +322,7 @@ We denote by
 
 , and no compliant flow.
  We next define feasible flow assignments for network instance 
-\begin_inset Formula $(N,r)$
+\begin_inset Formula $(\Network,\qdemand)$
 \end_inset
 
 .
@@ -269,11 +330,11 @@ We denote by
 
 \begin_layout Definition
 A flow assignment 
-\begin_inset Formula $\flow\in\mathbb{R}_{+}^{N}$
+\begin_inset Formula $\flow\in\mathbb{R}_{+}^{\NLinks}$
 \end_inset
 
  is feasible for instance 
-\begin_inset Formula $(N,r)$
+\begin_inset Formula $(\Network,\qdemand)$
 \end_inset
 
  if 
@@ -584,18 +645,18 @@ In this section we characterize pure Nash equilibria of the network, which
  Then we show that latency functions consistent with the fundamental diagram
  of traffic induce multiple Nash equilibria with different costs, and we
  analytically solve for Nash equilibria for 
-\begin_inset Formula $(N=2,r)$
+\begin_inset Formula $(\NLinks=2,\qdemand)$
 \end_inset
 
  instances, and give some results for 
-\begin_inset Formula $(N>2,r)$
+\begin_inset Formula $(\NLinks>2,\qdemand)$
 \end_inset
 
  instances.
 \end_layout
 
 \begin_layout Subsection
-Characterization of Nash equilibria
+Characterization of Nash Equilibria
 \end_layout
 
 \begin_layout Definition
@@ -606,11 +667,11 @@ name "def:ne"
 \end_inset
 
 An assignment 
-\begin_inset Formula $(\flow,\Mode)\in\mathbb{R}_{+}^{N}\times\{0,1\}^{N}$
+\begin_inset Formula $(\flow,\Mode)\in\mathbb{R}_{+}^{\NLinks}\times\{0,1\}^{\NLinks}$
 \end_inset
 
  for instance 
-\begin_inset Formula $(N,r)$
+\begin_inset Formula $(\Network,\qdemand)$
 \end_inset
 
  is at Nash equilibrium, if 
@@ -709,7 +770,7 @@ as
 \end_layout
 
 \begin_layout Subsection
-Nash equilibria for increasing latency functions
+Nash Equilibria for Increasing Latency Functions
 \end_layout
 
 \begin_layout Standard
@@ -772,7 +833,7 @@ Assume
  such that 
 \begin_inset Formula 
 \begin{align*}
-\flow[\link_{1}]>q\flow[\link_{1}]'\geq0 &  & \flow[\link_{2}]'>\flow[\link_{2}]\geq0
+\flow[\link_{1}]>\flow[\link_{1}]'\geq0 &  & \flow[\link_{2}]'>\flow[\link_{2}]\geq0
 \end{align*}
 
 \end_inset
@@ -829,7 +890,7 @@ Since
 \end_layout
 
 \begin_layout Subsection
-Traffic networks have multiple Nash equilibria
+Traffic Networks Have Multiple Nash Equilibria
 \end_layout
 
 \begin_layout Standard
@@ -844,6 +905,10 @@ To simplify our discussion, we further assume, without loss of generality,
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection
+Nash Equilibria and Congestion States
 \end_layout
 
 \begin_layout Standard
@@ -1305,6 +1370,10 @@ reference "def:ne"
 .
 \end_layout
 
+\begin_layout Subsubsection
+Feasible Demand Range for Nash Equilibria
+\end_layout
+
 \begin_layout Standard
 What we have arrived at in 
 \begin_inset CommandInset ref
@@ -1510,6 +1579,24 @@ reference "lem:minmaxr"
 \end_inset
 
  exists and we conclude the proof.
+\end_layout
+
+\begin_layout Subsubsection
+Non-uniqueness of Nash Equilibria in Full Congestion
+\end_layout
+
+\begin_layout Standard
+When trying to find the optimal Nash equilibrium (
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sub:Optimal-Nash-Equilibria"
+
+\end_inset
+
+), it becomes necessary to guarantee the existence of at least one Nash
+ equlibrium where there is a link in free flow.
+ In this section, we demonstrate that a fully congested Nash equilibrium
+ is never the only such equilibrium for a given network/demand pair.
 \end_layout
 
 \begin_layout Standard
@@ -1880,6 +1967,17 @@ name "lem:all1lff"
 
 \end_layout
 
+\begin_layout Subsection
+Optimal Nash Equilibria
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Optimal-Nash-Equilibria"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 Now that there is a complete detailing of the range of demands that have
  a Nash equilibrium, and the flows that will achieve Nash equilibrium for
@@ -2202,7 +2300,7 @@ Nash equilibria for 2-parallel link networks
 
 \begin_layout Standard
 We consider a 
-\begin_inset Formula $(2,r)$
+\begin_inset Formula $(2,\qdemand)$
 \end_inset
 
  instance.
@@ -2229,7 +2327,7 @@ Nash equilibria for general parallel link networks
 
 \begin_layout Standard
 We consider a 
-\begin_inset Formula $(N,r)$
+\begin_inset Formula $(N,\qdemand)$
 \end_inset
 
  instance where 
@@ -2269,7 +2367,7 @@ Social Optimal equilibria
 
 \begin_layout Standard
 Consider an instance 
-\begin_inset Formula $(N,r)$
+\begin_inset Formula $(N,\qdemand)$
 \end_inset
 
  where the flow demand 
@@ -2532,7 +2630,7 @@ We consider the following problem: given a network under constant flow demand
 \end_inset
 
  that is a feasible flow assignment for instance 
-\begin_inset Formula $(N,\beta r)$
+\begin_inset Formula $(N,\beta\qdemand)$
 \end_inset
 
 , i.e.
@@ -2647,7 +2745,7 @@ A valid Stackelberg strategy is an assignment
 \end_inset
 
  that is feasible for the instance 
-\begin_inset Formula $(N,\beta r)$
+\begin_inset Formula $(N,\beta\qdemand)$
 \end_inset
 
 , and which induces a Nash assignment 
