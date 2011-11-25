@@ -10,8 +10,10 @@
 
 
 \title{Stackelberg strategies for transportation networks}
-%\author{Walid Krichene}
-\date{\today}
+\author{Walid Krichene \and Jack Reilly}
+\date{
+%\today
+}
 
 
 \begin{document}
@@ -30,37 +32,37 @@ We first describe the problem in the specific setting of transportation networks
 
 %------------------------------------------------------------------------------------------------------------------------------------
 \subsection{Traffic flows}
-We consider a network of $N$ parallel links indexed by $n \in \{1, \dots, N \}$, under constant positive flow demand, or rate $r$. The flow $q_n$ on link $n$ is a function of the density $\rho_n$, given by a triangular fundamental diagram with the following parameters
+We consider a network of $N$ parallel links indexed by $n \in \{1, \dots, N \}$, under constant positive flow demand, or rate $r$. The flow $x_n$ on link $n$ is a function of the density $\rho_n$, given by a triangular fundamental diagram with the following parameters
 \begin{itemize}
 \item $v_n$ the free-flow speed on the link
 \item $w_n$ the congestion wave speed
-\item $q_n^{\max}$ the maximum capacity of the link
+\item $x_n^{\max}$ the maximum capacity of the link
 \end{itemize}
-In the free flow regime (when the density on the link is less than a critical density $\rho_n^c$ that is given by $v_n\rho_n^c = q_n^{\max}$) the velocity is constant and the flow increases linearly in the density $q_n = v_n \rho_n$. In the congested regime ($\rho_n^c < \rho_n \leq \rho_n^{\max}$ the density on the link is greater than the critical density and less than a maximum density given by $q_n^{\max} - w_n(\rho_n^{\max} - \rho_n^c) = 0$), the flow decreases linearly in the density $q_n = q_n^{\max} - w_n(\rho_n - \rho_n^c) = - w_n(\rho_n - \rho_n^{\max})$ and the velocity is decreasing.
+In the free flow regime (when the density on the link is less than a critical density $\rho_n^c$ that is given by $v_n\rho_n^c = x_n^{\max}$) the velocity is constant and the flow increases linearly in the density $x_n = v_n \rho_n$. In the congested regime ($\rho_n^c < \rho_n \leq \rho_n^{\max}$ the density on the link is greater than the critical density and less than a maximum density given by $x_n^{\max} - w_n(\rho_n^{\max} - \rho_n^c) = 0$), the flow decreases linearly in the density $x_n = x_n^{\max} - w_n(\rho_n - \rho_n^c) = - w_n(\rho_n - \rho_n^{\max})$ and the velocity is decreasing.
 
 \begin{align}
-\label{eq:flow} q_n = 
+\label{eq:flow} x_n = 
 \begin{cases}
 v_n \rho_n & \rho_n \leq \rho_n^c\\
-q_n^{\max} - w_n(\rho_n - \rho_n^c) = - w_n(\rho_n - \rho_n^{\max})  & \rho_n^c < \rho_n \leq \rho_n^{\max}
+x_n^{\max} - w_n(\rho_n - \rho_n^c) = - w_n(\rho_n - \rho_n^{\max})  & \rho_n^c < \rho_n \leq \rho_n^{\max}
 \end{cases}
 \end{align}
 
-Note that the flow can aso be written succinctly as
+Note that the flow can also be written succinctly as
 \begin{align}
 \label{eq:flow_min}
-q_n = \min \{ v_n \rho_n, - w_n(\rho_n - \rho_n^{max})\}
+x_n = \min \{ v_n \rho_n, - w_n(\rho_n - \rho_n^{max})\}
 \end{align}
 
 We denote by $(N, r)$ a network instance with $N$ links, rate $r$, and no compliant flow. We next define feasible flow assignments for network instance $(N, r)$.
 
 \begin{definition}
-A flow assignment $q \in \mathbb{R}_+^N$ is feasible for instance $(N, r)$ if $\forall n$ $q_n \leq q_n^{\max}$ and $\sum_n q_n = r$
+A flow assignment $x \in \mathbb{R}_+^N$ is feasible for instance $(N, r)$ if $\forall n$ $x_n \leq x_n^{\max}$ and $\sum_n x_n = r$
 \end{definition}
 
-If $q$ is a feasible flow assignment for $(N, r)$, we denote by $Supp(q)$ the support of $q$, that is the set of links that are used by the flow assignment
+If $x$ is a feasible flow assignment for $(N, r)$, we denote by $Supp(x)$ the support of $x$, that is the set of links that are used by the flow assignment
 \[
-Supp(q) = \{ n | q_n >0 \}
+Supp(x) = \{ n | x_n >0 \}
 \]
 
 %------------------------------------------------------------------------------------------------------------------------------------
@@ -70,9 +72,9 @@ We are interested in the steady state equilibria of the network under constant p
 
 %------------------------------------------------------------------------------------------------------------------------------------
 \subsection{Latency function}
-The velocity on link $n$ is given by $q_n/\rho_n$, and the individual latency function is
+The velocity on link $n$ is given by $x_n/\rho_n$, and the individual latency function is
 \[
-l_n(\rho_n, q_n) = \frac{L_n\rho_n}{q_n} 
+l_n(\rho_n, x_n) = \frac{L_n\rho_n}{x_n} 
 \]
 
 where $L_n$ is the length of link $n$.
@@ -87,29 +89,49 @@ l_n(\rho_n) =
 \end{cases}
 \end{align*}
 
-Note that $l_n$ is an increasing function of density, but not of flow. We can express the latency as a function of flow by introducing an integer $m_n \in \{0, 1\}$ that specifies whether link $n$ is congested ($m_n = 1$ if $n$ is congested and $m_n = 0$ if $n$ is in free-flow)
-\[
-\rho_n(q_n, m_n) = m_n \left( \rho_n^{\max} - \frac{q_n}{w_n} \right) + (1-m_n)\frac{q_n}{v_n}
-\]
-this corresponds to inverting the fundamental diagram that gives the flow as a function of density. The latency is then given by
-\begin{align}
-\label{eq:latency}
-l_n(q_n, m_n) = \frac{L_n}{q_n} \left( m_n \left( \rho_n^{\max} - \frac{q_n}{w_n} \right)  + (1-m_n)\frac{q_n}{v_n} \right)
-\end{align}
-
-The total latency incurred by all users on a link is $q_n l_n(\rho_n) = L_n \rho_n$, and the total latency incurred by all users on the network is
+The total latency incurred by all users on a link is $x_n l_n(\rho_n) = L_n \rho_n$, and the total latency incurred by all users on the network is
 \begin{equation}
 \label{eq:cost_function}
-C(\rho) = \sum_n L_n \rho_n = L^T\rho
+C(\rho) = \sum_n L_n \rho_n
 \end{equation}
 
-\paragraph{Note} The latency function does not satisfy properties usually assumed in the Stackelberg scheduling literature. In particular, the latency $l_n(q_n)$ is not an increasing function of flow: it is a constant function if the link is in free-flow, and a \emph{decreasing} function when the link is congested.
+
+%------------------------------------------------------------------------------------------------------------------------------------
+\subsubsection{Latency as a function of flow}
+
+We can express the latency as a function of flow by introducing an integer $m_n \in \{0, 1\}$ that specifies whether link $n$ is congested ($m_n = 1$ if $n$ is congested and $m_n = 0$ if $n$ is in free-flow)
+\[
+\rho_n(x_n, m_n) = \begin{cases}
+\frac{x_n}{v_n} & m_n = 0 \\
+\frac{1}{w_n}(x_n^{\max} - x_n) + \rho_n^c & m_n = 1
+\end{cases}
+\]
+
+this corresponds to inverting the fundamental diagram that gives the flow as a function of density. The latency is then given by
 \begin{align*}
-l_n(q_n, 0) &= \frac{L_n}{v_n}\\
-l_n(q_n, 1) &= L_n \left( \frac{\rho_n^{\max}}{q_n} - \frac{1}{w_n} \right)
+l_n(x_n, m_n) =  \frac{L_n\rho_n}{x_n} = \begin{cases}
+\frac{L_n}{v_n} & m_n = 0\\
+L_n \left( \frac{\rho_n^{\max}}{x_n} - \frac{1}{w_n} \right) & m_n = 1
+\end{cases}
 \end{align*}
 
-And for a given flow $q_n$, there are up to two possible latencies, one corresponding to the free-flow regime (few cars on the link moving fast) and one to the congested regime (many cars on the link moving slowly).
+For convenience of notation, we introduce constants $a_n$ and $b_n$ such that
+
+\begin{align}
+\label{eq:latency}
+l_n(x_n, m_n) = \begin{cases}
+a_n & m_n = 0\\
+b_n \left( \frac{1}{x_n} - \frac{1}{x^{\max}_n} \right) + a_n & m_n = 1
+\end{cases}
+\end{align}
+
+where $a_n = \frac{L_n}{v_n}$ is the free-flow latency and $b_n = L_n\rho_n^{\max}$.
+
+%------------------------------------------------------------------------------------------------------------------------------------
+\subsubsection{Properties of the latency function}
+The latency function does not satisfy properties usually assumed in the Stackelberg scheduling literature. In particular, the latency is not an increasing function of flow: it is a constant function if the link is in free-flow, and a \emph{decreasing} function when the link is congested.
+
+And for a given flow $x_n$, there are up to two possible latencies, one corresponding to the free-flow regime (few cars on the link moving fast) and one to the congested regime (many cars on the link moving slowly).
 
 As a consequence, some of the known results on congestion networks do not apply to our setting: for instance, the network has multiple Nash equilibria that have different costs. In the next section we specify this result and address the issue of having multiple pure Nash equilibria.
 
@@ -117,6 +139,7 @@ As a consequence, some of the known results on congestion networks do not apply 
 
 %#########################################################################################################################
 \section{Nash Equilibria}
+\label{sec:nash_equilibria}
 In this section we characterize pure Nash equilibria of the network, which we simply refer to as Nash equilibria. We first review the essential uniqueness of Nash equilibria in the case of increasing latency functions (in the sense that all Nash equilibria have the same cost). Then we show that latency functions consistent with the fundamental diagram of traffic induce multiple Nash equilibria with different costs, and we analytically solve for Nash equilibria for $(N = 2, r)$ instances, and give some results for $(N>2, r)$ instances.
 
 %------------------------------------------------------------------------------------------------------------------------------------
@@ -125,7 +148,7 @@ In this section we characterize pure Nash equilibria of the network, which we si
 \begin{definition}
 An assignment $(q, m) \in \mathbb{R}_+^N \times \{0, 1\}^N$ for instance $(N, r)$ is at Nash equilibrium, if $\forall n$
 \[
-q_n > 0 \Rightarrow \forall k, l_n(q_n, m_n) \leq l_k(q_k, m_k)
+x_n > 0 \Rightarrow \forall k, l_n(x_n, m_n) \leq l_k(q_k, m_k)
 \]
 \end{definition}
 
@@ -135,30 +158,30 @@ In particular, every (non-atomic) user cannot improve her latency by switching t
 \label{lemma:nash_eq}
 If $(q, m)$ is an assignment for instance $(N, r)$ at Nash equilibrium, then
 \begin{align*}
-q_n >0 &\Rightarrow l_n(q_n, m_n) = l_0\\
-q_n = 0 &\Rightarrow l_n(0, 0) \geq l_0
+x_n >0 &\Rightarrow l_n(x_n, m_n) = l_0\\
+x_n = 0 &\Rightarrow l_n(0, 0) \geq l_0
 \end{align*}
 and the total latency incurred by the network is $C(q, m) = r l_0$.
 \end{lemma}
 
-Note that links that have zero flow are necessarily in free-flow $q_n = 0 \Rightarrow m_n = 0$.
+Note that links that have zero flow are necessarily in free-flow $x_n = 0 \Rightarrow m_n = 0$.
 
 %------------------------------------------------------------------------------------------------------------------------------------
 \subsection{Nash equilibria for increasing latency functions}
-Assuming the latency functions $q_n \rightarrow l_n(q_n)$ are increasing, one can show that all Nash equilibria have the same cost. Let $q$ and $q'$ be two assignments for $(N, r)$ at Nash equilibrium.  Let $l_0$, respectively $l'_0$ denote the common latency of all links in the support of $q$, respectively $q'$. The cost of the Nash equilibria are respectively $rl_0$ and $rl'_0$.
+Assuming the latency functions $x_n \rightarrow l_n(x_n)$ are increasing, one can show that all Nash equilibria have the same cost. Let $x$ and $x'$ be two assignments for $(N, r)$ at Nash equilibrium.  Let $l_0$, respectively $l'_0$ denote the common latency of all links in the support of $x$, respectively $x'$. The cost of the Nash equilibria are respectively $rl_0$ and $rl'_0$.
 
-Assume $q \neq q'$. Then $\exists n_1, n_2$ such that
+Assume $x \neq x'$. Then $\exists n_1, n_2$ such that
 \begin{align*}
-q_{n_1} > q'_{n_1} \geq 0 && q'_{n_2} > q_{n_2} \geq 0
+x_{n_1} > x'_{n_1} \geq 0 && x'_{n_2} > x_{n_2} \geq 0
 \end{align*}
 
-Since $q$ is at Nash equilibrium and $n_1 \in Supp(q)$, $l_{n_1}(q_{n_1}) \leq l_{n_2}(q_{n_2})$. And since $l_{n_2}$ is increasing $l_{n_2}(q_{n_2}) \leq l_{n_2}(q'_{n_2})$. Thus $l_0 = l_{n_1}(q_{n_1}) \leq l_{n_2}(q_{n_2}) \leq l_{n_2}(q'_{n_2}) = l'_0$. Exchanging the roles of $q$ and $q'$ we have $l'_0 \leq l_0$. Therefore $l_0 = l'_0$ and both equilibria have the same cost.
+Since $q$ is at Nash equilibrium and $n_1 \in Supp(x)$, $l_{n_1}(x_{n_1}) \leq l_{n_2}(x_{n_2})$. And since $l_{n_2}$ is increasing $l_{n_2}(x_{n_2}) \leq l_{n_2}(x'_{n_2})$. Thus $l_0 = l_{n_1}(x_{n_1}) \leq l_{n_2}(x_{n_2}) \leq l_{n_2}(x'_{n_2}) = l'_0$. Exchanging the roles of $x$ and $x'$ we have $l'_0 \leq l_0$. Therefore $l_0 = l'_0$ and both equilibria have the same cost.
 
 %------------------------------------------------------------------------------------------------------------------------------------
 \subsection{Traffic networks have multiple Nash equilibria}
-To simplify our discussion, we further assume, without loss of generality, that the links are ordered by increasing free-flow latencies
+To simplify our discussion, we assume, without loss of generality, that the links are ordered by increasing free-flow latencies
 \[
-\frac{L_1}{v_1} \leq \frac{L_2}{v_2} \leq \dots \leq \frac{L_N}{v_N}
+a_1 \leq a_2 \leq \dots \leq a_N
 \]
 
 
@@ -177,56 +200,56 @@ We consider a $(2, r)$ instance. We characterize the Nash equilibria of the netw
 \subsection{Nash equilibria for general parallel link networks}
 We consider a $(N, r)$ instance where $N \geq 2$. We further assume that the free-flow latencies are different to avoid degenerate cases where the set of Nash equilibria is infinite
 \[
-\frac{L_1}{v_1} < \frac{L_2}{v_2} < \dots < \frac{L_N}{v_N}
+a_1 < a_2 < \dots < a_N
 \]
 
 Under this assumption, we show that there are a least 2 Nash equilibria, one purely congested, and one where there is a single link in free flow, and show that there are at most $N$ equilibria.
 
 
 %------------------------------------------------------------------------------------------------------------------------------------
-\subsection{Computing the best Nash Equilibrium}
+%\subsection{Computing the best Nash Equilibrium}
 
 
 
 %#########################################################################################################################
 \section{Social Optimal equilibria}
-Consider an instance $(N, r)$ where the flow demand $r$ does not exceed the maximum capacity of the network $r \leq \sum_n q_n^{\max}$. The social optimal steady state equilibrium of the network is a solution to the following optimization problem $(SO)$
+Consider an instance $(N, r)$ where the flow demand $r$ does not exceed the maximum capacity of the network $r \leq \sum_n x_n^{\max}$. The social optimal steady state equilibrium of the network is a solution to the following optimization problem $(SO)$
 \begin{align*}
 \min_{\rho, q}  &\sum_n L_n \rho_n\\
 \text{subject to }
-& \sum_n q_n = r\\
-& q_n = \min \{ v_n \rho_n, w_n(\rho_n^{\max} - \rho_n )\}
+& \sum_n x_n = r\\
+& x_n = \min \{ v_n \rho_n, w_n(\rho_n^{\max} - \rho_n )\}
 \end{align*}
 
-This problem is non convex due to the second flow constraint $q_n = f(\rho_n) = \min \{ v_n \rho_n, q_n^{\max} - w_n(\rho_n - \rho_n^c)\}$
-which corresponds to the fundamental diagram of traffic. However, we show that the solutions to this optimization problem are necessarily in free-flow ($q_n = v_n \rho_n$), thus the social optimum can be computed by solving an equivalent linear program.
+This problem is non convex due to the second flow constraint $x_n = f(\rho_n) = \min \{ v_n \rho_n, x_n^{\max} - w_n(\rho_n - \rho_n^c)\}$
+which corresponds to the fundamental diagram of traffic. However, we show that the solutions to this optimization problem are necessarily in free-flow ($x_n = v_n \rho_n$ $\forall n$, or equivalently, $m = 0$), thus the social optimum can be computed by solving an equivalent linear program.
 
 
 %------------------------------------------------------------------------------------------------------------------------------------
 \subsection{Social Optima are in free-flow}
 \begin{lemma}
 \label{lemma:relaxedTTT_is_ff}
-$(\rho^*, q^*)$ is optimal for $(SO)$ only if $q^*_n = v_n \rho^*_n \forall n$
+$(\rho^*, x^*)$ is optimal for $(SO)$ only if $x^*_n = v_n \rho^*_n$ $\forall n$
 \end{lemma}
 
 
 \begin{proof}
-Let $( \rho,  q)$ be a feasible point for $(SO)$, and suppose that $\exists k$ such that $q_k < v_k \rho_k$. We show that $\exists$ feasible point $(\bar{ \rho}, \bar{ q})$ such that $C(\bar{ \rho}) < C( \rho)$.
+Let $( \rho,  q)$ be a feasible point for $(SO)$, and suppose that $\exists k$ such that $x_k < v_k \rho_k$. We show that $\exists$ feasible point $(\bar{ \rho}, \bar{ x})$ such that $C(\bar{ \rho}) < C( \rho)$.
 Let
 \begin{align*}
-\bar{q} &= q\\
-\bar{\rho}_k &= \frac{q_k}{v_k}\\
+\bar{x} &= x\\
+\bar{\rho}_k &= \frac{x_k}{v_k}\\
 \bar{\rho_n} &= \rho_n \forall n \neq k
 \end{align*}
-Then we have $C(\bar{ \rho}) < C( \rho)$ since $\bar{\rho}_k = \frac{q_k}{v_k} < \rho_k$ and $\bar{\rho}_n = \rho_n \forall n \neq k$.
+Then we have $C(\bar{ \rho}) < C( \rho)$ since $\bar{\rho}_k = \frac{x_k}{v_k} < \rho_k$ and $\bar{\rho}_n = \rho_n \forall n \neq k$.
 
-And since $\bar{q}_k = \bar{\rho}_k v_k$, and $\bar{q}_k = q_k \leq w_k(\rho_k^{\max} - \rho_k ) \leq w_k(\rho_k^{\max} - \bar{\rho}_k )$, then
+And since $\bar{x}_k = \bar{\rho}_k v_k$, and $\bar{x}_k = x_k \leq w_k(\rho_k^{\max} - \rho_k ) \leq w_k(\rho_k^{\max} - \bar{\rho}_k )$, then
 \[
-\bar{q}_k = \min \{ \bar{\rho}_k v_k,  w_k(\rho_k^{\max} - \bar{\rho}_k ) \}
+\bar{x}_k = \min \{ \bar{\rho}_k v_k,  w_k(\rho_k^{\max} - \bar{\rho}_k ) \}
 \]
 and the constraint $\bar{q}_k = f(\bar{\rho}_k)$ is satisfied. All other constraints trivially hold.
 
-Therefore, $(\bar{ \rho}, \bar{ q})$ is feasible for $(SO)$, and $( \rho,  q)$ is non optimal. This shows that $( \rho^*,  q^*)$ is optimal only if $q^*_n = v_n \rho^*_n$ which completes the proof.
+Therefore, $(\bar{ \rho}, \bar{ x})$ is feasible for $(SO)$, and $( \rho,  x)$ is non optimal. This shows that $( \rho^*,  x^*)$ is optimal only if $x^*_n = v_n \rho^*_n$ which completes the proof.
 \end{proof}
 
 \bigskip
@@ -235,21 +258,24 @@ Therefore, $(\bar{ \rho}, \bar{ q})$ is feasible for $(SO)$, and $( \rho,  q)$ i
 \subsection{Simple characterization of social optima}
 As an immediate corollary of the previous Lemma, the social optimum can be computed by solving the following equivalent linear program
 \begin{align*}
-\min_{\rho, q}  &\sum_n L_n \rho_n\\
+\min_{\rho, x}  &\sum_n L_n \rho_n\\
 \text{subject to } & 
-\sum_n q_n = r\\
-& q_n \leq v_n \rho_n\\
-& q_n \leq q_n^{\max}
+\sum_n x_n = r\\
+& x_n \leq v_n \rho_n\\
+& x_n \leq x_n^{\max}
 \end{align*}
 
-Then assuming the links are ordered by increasing free-flow latency $\frac{L_1}{v_1} \leq \dots \leq \frac{L_N}{v_N}$ the social optimum is simply given by the assignment that saturates most efficient links first. Formally, if $k_0 = max \{ k | r > \sum_{n = 1}^k q_n^{\max}\}$
-then the social optimal assignment $q^*$ is given by
+Then assuming the links are ordered by increasing free-flow latency $a_1 \leq \dots \leq a_N$ the social optimum is simply given by the assignment that saturates most efficient links first. Formally, if $k_0 = \max \{ k | r > \sum_{n = 1}^k x_n^{\max}\}$
+then the social optimal assignment $x^*$ is given by
 
 \begin{align}
-q^* = (q_1^{\max}, \dots, q_{k_0}^{\max}, r - \sum_{n = 1}^{k_0} q_n^{\max}, 0, \dots, 0)
+x^* = (x_1^{\max}, \dots, x_{k_0}^{\max}, r - \sum_{n = 1}^{k_0} x_n^{\max}, 0, \dots, 0)
 \end{align}
 
+
+
 %#########################################################################################################################
+\newpage
 \section{Stackelberg assignment}
 In order to reduce the inefficiency of the network, we assume that a fraction of the flow is centrally controlled, and we investigate possible strategies for improving the equilibria of the network. 
 
@@ -258,10 +284,10 @@ In order to reduce the inefficiency of the network, we assume that a fraction of
 \subsection{Valid Stackelberg strategy}
 We consider the following problem: given a network under constant flow demand $r$, assume a coordinator (a central authority) has control over a fraction $\beta$ of the flow: the corresponding users are compliant and willing to change their routes according to the instructions thy are given. The coordinator (who plays the role of the leader in the Stackelberg game) assigns the compliant flow $\beta r$ according to a Stackelberg strategy $s$ that is a feasible flow assignment for instance $(N, \beta r)$, i.e. $s$ satisfies
 \begin{align*}
-s_n \leq q_n^{\max} \forall n && \sum_n s_n = \beta r
+s_n \leq x_n^{\max} \forall n && \sum_n s_n = \beta r
 \end{align*}
 
-We assume that the non compliant users (who play the role of followers in the Stackelberg game), with corresponding flow $(1-\beta)r$, choose their routes selfishly after the Stackelberg assignment $s$ of compliant users is revealed. This induces an assignment $(t(s), m(s))$ of the selfish flow at Nash equilibrium, and we assume that the assignment $s$ of compliant users \emph{is not affected} after introducing the non-compliant flow on the network. Note that the Nash assignment (t, m) depends on the Stackelberg strategy $s$.
+We assume that the non compliant users (who play the role of followers in the Stackelberg game), with corresponding flow $(1-\beta)r$, choose their routes selfishly after the Stackelberg assignment $s$ of compliant users is revealed. This induces an assignment $(t(s), m(s))$ of the selfish flow at Nash equilibrium, and we assume that this is the best such Nash equilibrium (as discussed in section~\ref{sec:nash_equilibria}, there may be multiple such equilibria, but we only consider the most efficient equilibrium). We also assume that the assignment $s$ of compliant users \emph{is not affected} after introducing the non-compliant flow on the network. Note that the Nash assignment (t, m) depends on the Stackelberg strategy $s$.
 
 To characterize the final Nash equilibrium, which we refer to as the \emph{induced equilibrium} by strategy $s$, we note that the flow on link $n$ is simply $s_n + t_n(s)$, and we have $\forall n$
 \[
@@ -285,11 +311,11 @@ A valid Stackelberg strategy is an assignment $s$ of the compliant flow $\beta r
 \subsection{Example of an invalid Stackelberg strategy} Note that a feasible flow assignment $s$ of compliant flow may fail to induce a Nash assignment $t$ that does not affect the initial compliant assignment $s$.
 
 To see this, consider the following 2-link network where links have the same length $L_1 = L_2 = 1$, link 1 has greater free-flow speed and capacity than link $2$ $v_1 > v_2$, $q_1^{\max} > q_2^{\max}$, and both links have same congestion wave speed $w_1 = w_2$.
-Now assume that the network is subject to flow demand $r = q_1^{\max} + \epsilon$ and most of the flow is compliant $\beta r = q_1^{\max}$. Consider the following Stackelberg strategy: $s = (q_1^{\max}, 0)$.
+Now assume that the network is subject to flow demand $r = x_1^{\max} + \epsilon$ and most of the flow is compliant $\beta r = q_1^{\max}$. Consider the following Stackelberg strategy: $s = (x_1^{\max}, 0)$.
 
 Assuming that the assignment of compliant users is not affected by introducing the non-compliant flow, we have for any assignment $t$ of non-compliant flow, $t_1 = 0$ and $t_2 > 0$. Therefore $t$ is not a Nash assignment since $Supp(t) = \{ 2 \}$ and $l_2(s_2 + t_2, m_2) > l_1(s_1, 0)$ (non compliant users are forced to use less efficient link 2).
 
-In practice, strategy $s$ may induce a steady state equilibrium in which the compliant flow is some assignment $s' \neq s$: when non-compliant flow is introduced on the network, drivers will choose link 1 even though it is at maximum flow, since link $1$ is more faster $l_1(q_1(^{\max}, 0) < l_2(0, 0)$. This will result in congesting the link $\rho_1 > \rho_1^c$ and the flow on link 1 will \emph{decrease} due to congestion. Now a fraction of the compliant flow will not be able to use link 1, and will be forced to use link 2. This corresponds to a capacity drop on link 1 when non-compliant flow is introduced. Therefore, in the final equilibrium, the compliant flow will be $s' = (s'_1, s'_2)$ such that $l_1(s'_1, 1) = l_2(s_2' + \epsilon, 0)$, link 1 will be congested in the final equilibrium, and link 2 in free flow. Note that such a strategy $s$ is not considered as a valid Stackelberg assignment in our definition, we only consider strategies that induce assignment $s + t$ where $t$ is a Nash assignment as described above.
+In practice, strategy $s$ may induce a steady state equilibrium in which the compliant flow is some assignment $s' \neq s$: when non-compliant flow is introduced on the network, drivers will choose link 1 even though it is at maximum flow, since link $1$ is faster $l_1(q_1(^{\max}, 0) < l_2(0, 0)$. This will result in congesting the link $\rho_1 > \rho_1^c$ and the flow on link 1 will \emph{decrease} due to congestion. Now a fraction of the compliant flow will not be able to use link 1, and will be forced to use link 2. This corresponds to a capacity drop on link 1 when non-compliant flow is introduced. Therefore, in the final equilibrium, the compliant flow will be $s' = (s'_1, s'_2)$ such that $l_1(s'_1, 1) = l_2(s_2' + \epsilon, 0)$, link 1 will be congested in the final equilibrium, and link 2 in free flow. Note that such a strategy $s$ is not considered as a valid Stackelberg assignment in our definition, we only consider strategies that induce assignment $s + t$ where $t$ is a Nash assignment as described above.
 
 
 
@@ -338,22 +364,22 @@ Let $(\bar{t}, \bar{m})$ denote the best Nash equilibrium for the instance $(N, 
 and
 \[
 \bar{t} = \left( 
-\hat{q}_1(k), \dots, \hat{q}_{k - 1}(k), 
-(1 - \beta)r - \sum_{n = 1}^{k - 1} \hat{q}_n(k), 
+\hat{x}_1(k), \dots, \hat{x}_{k - 1}(k), 
+(1 - \beta)r - \sum_{n = 1}^{k - 1} \hat{x}_n(k), 
 0, \dots, 0 \right)
 \]
 
 i.e. links $\{1, \dots, k-1 \}$ are $k$-congested, and link $k$ is in free flow.
 
 Now define Stackelberg strategy $\bar{s}$ as the optimal assignment of compliant flow $\beta r$ that induces equilibrium $(\bar{t}, \bar{m})$. It is easy to see that $\bar{s}$ is simply given by assigning the compliant flow to remaining links $\{k, k + 1, \dots, N\}$ successively, each up to maximum capacity. 
-The strategy $\bar{s}$ will assign $q^{\max}_{k} - t_{k}$ on link $k$, then $q_{k + 1}^{\max}$ on link $k + 1$, $q_{k+2}^{\max}$ on link $k+2$ and so on.
-Let $l = \min \{n | \beta r - (\sum_{n = k}^{l-1}q^{\max}_n - t_{k}) \geq 0 \}$ be the least efficient link used by the Stackelberg assignment. Then $\bar{s}$ is given by
+The strategy $\bar{s}$ will assign $x^{\max}_{k} - t_{k}$ on link $k$, then $x_{k + 1}^{\max}$ on link $k + 1$, $x_{k+2}^{\max}$ on link $k+2$ and so on.
+Let $l = \min \{n | \beta r - (\sum_{n = k}^{l-1}x^{\max}_n - t_{k}) \geq 0 \}$ be the least efficient link used by the Stackelberg assignment. Then $\bar{s}$ is given by
 
 \[
 \bar{s} = \left(0, \dots, \stackrel{k-1}{0}, 
-q_{k}^{\max} - \bar{t}_{k}, 
-q_{k+1}^{\max}, \dots,  q_{l-1}^{\max}, 
-\beta r - (\sum_{n = k}^{l-1}q^{\max}_n - t_{k}), 
+x_{k}^{\max} - \bar{t}_{k}, 
+x_{k+1}^{\max}, \dots,  x_{l-1}^{\max}, 
+\beta r - (\sum_{n = k}^{l-1}x_n^{\max} - t_{k}), 
 \stackrel{l+1}{0}, \dots, 0 \right)
 \]
 
@@ -361,24 +387,41 @@ Equivalently, the total assignment $\bar{x} = \bar{s} + \bar{t}$ is given by
 
 \[
 \bar{x} = \left(
-\hat{q}_1(k), \dots, \hat{q}_{k - 1}(k), 
-q_{k}^{\max}, 
-q_{k+1}^{\max}, \dots,  q_{l-1}^{\max}, 
-r - \sum_{n = 1}^{k-1}\hat{q}_n(k) - \sum_{n = k}^{l-1}q_n^{\max}, 
+\hat{x}_1(k), \dots, \hat{x}_{k - 1}(k), 
+x_{k}^{\max}, 
+x_{k+1}^{\max}, \dots,  x_{l-1}^{\max}, 
+r - \sum_{n = 1}^{k-1}\hat{x}_n(k) - \sum_{n = k}^{l-1}x_n^{\max}, 
 \stackrel{l+1}{0}, \dots, 0 \right)
 \]
 
-Next we show that strategy $\bar{s}$ is indeed the optimal Stackelberg strategy.
+Next we show that strategy $\bar{s}$ is indeed an optimal Stackelberg strategy.
 
 
 \subsubsection{The Non-Compliant First strategy is optimal}
+We first introduce a definition that will be useful in proving the main result. Consider a network under feasible flow assignment $(x, m)$. A link $n$ is said to be $i$-congested ($i \geq n+1$) if $n$ is congested $(m_n = 1)$ and its latency is at least $a_i$.
+
+\begin{definition}
+Link $n$ is $i$-congested ($i \geq n+1$) under assignment $(x, m)$ if
+\begin{align*}
+m_n &= 1 \\
+l_n(x_n, m_n) &\geq a_i
+\end{align*}
+which is equivalent to 
+\begin{align*}
+m_n &= 1 \\
+x_n &\leq \hat{x}_n(i)
+\end{align*}
+\end{definition}
+
+Note that in a network under Nash assignment $(t, m)$, if $i = \max Supp(t)$, then all links $n \in \{1, \dots, i-1\}$ are $i$-congested.
+
 
 \begin{theorem}
-$\bar{s}$ is the optimal Stackelberg strategy.
+$\bar{s}$ is an optimal Stackelberg strategy.
 \end{theorem}
 
 \begin{proof}
-Let $s$ be a valid Stackelberg strategy and $(t, m)$ be the induced Nash equilibrium for the non-compliant flow. We will show that
+Let $s$ be a valid Stackelberg strategy and $(t, m)$ be the best induced Nash equilibrium for the non-compliant flow. We will show that
 
 \[
 C(x, m) \geq C(\bar{x}, \bar{m})
@@ -397,7 +440,7 @@ Then we conclude by lower bounding the cost $C(x, m)$.
 
 \bigskip
 
-Let $k' = \max Supp(t)$ be the link with largest free-flow latency used by the non-compliant flow. We begin by proving the following Lemma
+Let $k' = \max Supp(t)$ be the link with largest free-flow latency used by the non-compliant flow $t$. We begin by proving the following Lemma
 
 \begin{lemma}
 Link $k'$ is in free-flow.
@@ -411,13 +454,10 @@ $k' \geq k$
 
 \begin{proof}
 First note that $s+t$ restricted to $Supp(t)$ is an assignment at Nash equilibrium. Then since link $k'$ is in free-flow and $k' \in Supp(t)$, the cost of this Nash equilibrium is simply $r'a_{k'}$ where $r' = \sum_{n\in Supp(t)} s_n + t_n$ is the total flow restricted to $Supp(t)$.
-Let $C'$ be the cost of the best Nash equilibrium of flow $r'$. Then we have by definition
+
+We have $\bar{t}$ is the best Nash equilibrium of flow $(1-\beta)r$ with cost $(1 - \beta)r a_k$, and $(1 - \beta)r = \sum_{n\in Supp(t)} t_n \leq \sum_{n\in Supp(t)} s_n + t_n = r'$. Then since the average cost of the best Nash equilibrium is increasing in the total flow, we have
 \[
-r'a_{k'} \geq C'
-\]
-We have $\bar{t}$ is the best Nash equilibrium of flow $(1-\beta)r$ with cost $r a_k$, and $(1 - \beta)r = \sum_{n\in Supp(t)} t_n \leq \sum_{n\in Supp(t)} s_n + t_n = r'$. Then since the average cost of the best Nash equilibrium is increasing in the total flow, we have
-\[
-\frac{C'}{r'} \geq \frac{r a_k}{r}
+a_{k'} \geq\frac{r'a_{k'}}{r'} \geq \frac{(1-\beta)r a_k}{(1-\beta)r}
 \]
 
 Therefore we must have $a_{k'} \geq a_k$, i.e. $k' \geq k$.
@@ -427,16 +467,16 @@ Therefore we must have $a_{k'} \geq a_k$, i.e. $k' \geq k$.
 \bigskip
 Using the lemma, we can now show that links $\{1, \dots, l-1\}$ are more congested under assignment $(x, m)$ than candidate assignment $(\bar{x}, \bar{m})$.
 
-We have $\forall n \in \{1, \dots, k-1\}$, all links are at least $k'$-congested under assignment $(x, m)$, and exactly $k$-congested under assignment $(\bar{x}, \bar{m})$. Thus using the fact that $k' \geq k$
+We have $\forall n \in \{1, \dots, k'-1\}$, $n$ is $k'$-congested under assignment $(x, m)$, and $\forall n \in \{1, \dots, k-1\}$, $n$ is $k$-congested under assignment $(\bar{x}, \bar{m})$. Thus using the fact that $k' \geq k$
 \begin{align*}
-l_n(x_n, m_n) &\geq a_{k'} \geq a_k = l_n(\bar{x}_n, \bar{m}_n)\\
-x_n &\leq \hat{q}_n(k') \leq \hat{q}_n(k) = \bar{x}_n
+l_n(x_n, m_n) &\geq a_{k'} \geq a_k = l_n(\bar{x}_n, \bar{m}_n) & \forall n \in \{1, \dots, k-1\}\\
+x_n &\leq \hat{x}_n(k') \leq \hat{x}_n(k) = \bar{x}_n & \forall n \in \{1, \dots, k-1\}
 \end{align*}
 
-and we have $\forall n \in \{ k, \dots, l-1\}$, $n$ is in free flow and at maximum capacity under assignment $(\bar{x}, \bar{m})$ (i.e. $\bar{x}_n = q^{\max}_n$ and $l_n(\bar{x}_n) = a_n$). Thus
+and we have $\forall n \in \{ k, \dots, l-1\}$, $n$ is in free flow and at maximum capacity under assignment $(\bar{x}, \bar{m})$ (i.e. $\bar{x}_n = q_n^{\max}$ and $l_n(\bar{x}_n) = a_n$). Thus
 \begin{align*}
-l_n(x_n, m_n) &\geq a_n = l_n(\bar{x}_n, \bar{m}_n)\\
-x_n &\leq q^{\max}_n = \bar{x}_n
+l_n(x_n, m_n) &\geq a_n = l_n(\bar{x}_n, \bar{m}_n) & \forall n \in \{ k, \dots, l-1\}\\
+x_n &\leq x^{\max}_n = \bar{x}_n & \forall n \in \{ k, \dots, l-1\}
 \end{align*}
 
 Therefore we have
@@ -445,19 +485,17 @@ Therefore we have
 \label{eq:cong_latency}
 l_n(x_n, m_n) &\geq l_n(\bar{x}_n, \bar{m}_n) & \forall n \in \{ 1, \dots, l-1\}\\
 \label{eq:cong_flow}
-x_n &\leq \bar{x}_n &\forall n \in \{ 1, \dots, l-1\}\\
-\label{eq:cong_latencybar}
-l_n(\bar{x}_n, \bar{m}_n) &\leq a_l &\forall n \in \{ 1, \dots, l-1\}
+x_n &\leq \bar{x}_n &\forall n \in \{ 1, \dots, l-1\}
 \end{align}
 
 Note that $\forall n \in \{1, \dots, k\}$ $l_n(\bar{x}_n, \bar{m}_n) = a_k \leq a_l$, and $\forall n \in \{k, \dots, l-1\}$ $l_n(\bar{x}_n, \bar{m}_n) = a_n \leq a_l$, thus we have
 \begin{align}
-\label{eq:_latency}
+\label{eq:cong_latencybar}
 l_n(\bar{x}_n, \bar{m}_n) &\leq a_l & \forall n \in \{ 1, \dots, l-1\}
 \end{align}
 
 
-Also note that links $n \in \{ l, \dots, N\}$ have latency at least $a_n$ (free-flow latency) and $a_n \geq a_l$, thus
+Also note that links $n \in \{ l, \dots, N\}$ have latency at least $a_n$ (the latency on a link is always greater than the free-flow latency) and $a_n \geq a_l$, thus
 
 \begin{align}
 \label{eq:ff_latency}
@@ -465,19 +503,17 @@ l_n(x_n, m_n) & \geq a_l & \forall n \in \{ l, \dots, N\}
 \end{align}
 
 
-We can now lower-bound the cost of the assignment $(x, m)$ where $x = s+t$ and $(t, m)$ is the Nash equilibrium induced by $s$.
+We can now lower-bound the cost of the assignment $(x, m)$ where $x = s+t$ and $(t, m)$ is the best Nash equilibrium induced by $s$.
 
 \begin{align*}
 C(x, m) 
 &= \sum_{n = 1}^{l-1} x_n l_n(x_n, m_n) + \sum_{n = l}^{N} x_n l_n(x_n, m_n)\\
 &\geq \sum_{n = 1}^{l-1} x_n l_n(\bar{x}_n, \bar{m}_n) + \sum_{n = l}^{N} x_n a_{l} 
 &\text{ using \ref{eq:cong_latency} and \ref{eq:ff_latency}} \\
-&\geq \sum_{n = 1}^{l-1} \bar{x}_n l_n(\bar{x}_n, \bar{m}_n) + \sum_{n = 1}^{l-1} (x_n - \bar{x}_n) l_n(\bar{x}_n, \bar{m}_n) + \sum_{n = l}^{N} x_n a_{l} 
-&\text{ using \ref{eq:cong_flow}}\\
+&= \sum_{n = 1}^{l-1} \bar{x}_n l_n(\bar{x}_n, \bar{m}_n) + \sum_{n = 1}^{l-1} (x_n - \bar{x}_n) l_n(\bar{x}_n, \bar{m}_n) + \sum_{n = l}^{N} x_n a_{l} \\
 &\geq \sum_{n = 1}^{l-1} \bar{x}_n l_n(\bar{x}_n, \bar{m}_n) + \sum_{n = 1}^{l-1} (x_n - \bar{x}_n) a_{l} + \sum_{n = l}^{N} x_n a_{l}
 &\text{ using \ref{eq:cong_flow} and \ref{eq:cong_latencybar}} \\
-&\geq \sum_{n = 1}^{l-1} \bar{x}_n l_n(\bar{x}_n, \bar{m}_n) + 
-\left( \sum_{n = 1}^{N} x_n - \sum_{n = 1}^{l-1}\bar{x}_n \right) a_{l}\\
+%&= \sum_{n = 1}^{l-1} \bar{x}_n l_n(\bar{x}_n, \bar{m}_n) + \left( \sum_{n = 1}^{N} x_n - \sum_{n = 1}^{l-1}\bar{x}_n \right) a_{l}\\
 &= \sum_{n = 1}^{l-1} \bar{x}_n l_n(\bar{x}_n, \bar{m}_n) + 
 \left( r - \sum_{n = 1}^{l-1}\bar{x}_n \right) a_{l}\\
 &= \sum_{n = 1}^{l-1} \bar{x}_n l_n(\bar{x}_n, \bar{m}_n) + \bar{x}_l a_{l} 
