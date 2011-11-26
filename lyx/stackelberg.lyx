@@ -81,6 +81,10 @@ filename "lyx_commands.lyx"
 Stackelberg strategies for transportation networks
 \end_layout
 
+\begin_layout Abstract
+\begin_inset Note Comment
+status open
+
 \begin_layout Author
 Walid Krichene 
 \begin_inset ERT
@@ -96,6 +100,11 @@ and
 \end_inset
 
  Jack Reilly
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Abstract
@@ -145,19 +154,9 @@ status open
 
 \begin_layout Plain Layout
 \align center
-\begin_inset Note Comment
-status open
-
-\begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename ../figures/nparlink.pdf
 	scale 40
-
-\end_inset
-
-
-\end_layout
 
 \end_inset
 
@@ -265,7 +264,7 @@ In the free flow regime (when the density on the link is less than a critical
 \end_inset
 
  that is given by 
-\begin_inset Formula $\speedFF[\link]\mass[\link]^{c}=\flowMax[\link]$
+\begin_inset Formula $\speedFF[\link]\masscrit[\link]=\flowMax[\link]$
 \end_inset
 
 ) the velocity is constant and the flow increases linearly in the density
@@ -275,16 +274,16 @@ In the free flow regime (when the density on the link is less than a critical
 
 .
  In the congested regime (
-\begin_inset Formula $\mass[\link]^{c}<\mass[\link]\leq\mass[\link]^{\max}$
+\begin_inset Formula $\masscrit[\link]<\mass[\link]\leq\mass[\link]^{\max}$
 \end_inset
 
  the density on the link is greater than the critical density and less than
  a maximum density given by 
-\begin_inset Formula $\flow[\link]^{\max}-\speedCong[\link](\mass[\link]^{\max}-\mass[\link]^{c})=0$
+\begin_inset Formula $\flow[\link]^{\max}-\speedCong[\link](\mass[\link]^{\max}-\masscrit[\link])=0$
 \end_inset
 
 ), the flow decreases linearly in the density 
-\begin_inset Formula $\flow[\link]=\flow[\link]^{\max}-\speedCong[\link](\mass[\link]-\mass[\link]^{c})=-\speedCong[\link](\mass[\link]-\mass[\link]^{\max})$
+\begin_inset Formula $\flow[\link]=\flow[\link]^{\max}-\speedCong[\link](\mass[\link]-\masscrit[\link])=-\speedCong[\link](\mass[\link]-\mass[\link]^{\max})$
 \end_inset
 
  and the velocity is decreasing.
@@ -294,8 +293,8 @@ In the free flow regime (when the density on the link is less than a critical
 \begin_inset Formula 
 \begin{align}
 \flow[\link]=\begin{cases}
-\speedFF[\link]\mass[\link] & \mass[\link]\leq\mass[\link]^{c}\\
-\flow[\link]^{\max}-\speedCong[\link](\mass[\link]-\mass[\link]^{c})=-\speedCong[\link](\mass[\link]-\mass[\link]^{\max}) & \mass[\link]^{c}<\mass[\link]\leq\mass[\link]^{\max}
+\speedFF[\link]\mass[\link] & \mass[\link]\leq\masscrit[\link]\\
+\flow[\link]^{\max}-\speedCong[\link](\mass[\link]-\masscrit[\link])=-\speedCong[\link](\mass[\link]-\mass[\link]^{\max}) & \masscrit[\link]<\mass[\link]\leq\mass[\link]^{\max}
 \end{cases}\label{eq:flow}
 \end{align}
 
@@ -550,7 +549,7 @@ For convenience of notation, we introduce constants
 \begin_inset Formula $\parC[n]$
 \end_inset
 
-such that
+ such that
 \end_layout
 
 \begin_layout Standard
@@ -674,7 +673,7 @@ An assignment
 In particular, every (non-atomic) user cannot improve her latency by switching
  to another link.
  As a consequence, all links that are in the support of 
-\begin_inset Formula $q$
+\begin_inset Formula $\flow$
 \end_inset
 
  have the same latency 
@@ -729,22 +728,6 @@ name "lemma:nash_eq"
 \begin_layout Standard
 Note that links that have zero flow are necessarily in free-flow 
 \begin_inset Formula $\flow[\link]=0\Rightarrow\Mode[\link]=0$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-We denote the set of Nash Equilibria for a network, 
-\begin_inset Formula $\Network$
-\end_inset
-
-, with a demand, 
-\begin_inset Formula $\qdemand,$
-\end_inset
-
-as 
-\begin_inset Formula $\NashEq{\Network}{\qdemand}$
 \end_inset
 
 .
@@ -824,7 +807,7 @@ Assume
 
 \begin_layout Standard
 Since 
-\begin_inset Formula $q$
+\begin_inset Formula $\flow$
 \end_inset
 
  is at Nash equilibrium and 
@@ -875,7 +858,20 @@ Traffic Networks Have Multiple Nash Equilibria
 \end_layout
 
 \begin_layout Standard
-To simplify our discussion, we assume, without loss of generality, that
+Let 
+\begin_inset Formula $\NashEq{\Network}{\qdemand}$
+\end_inset
+
+ denote the set of Nash Equilibria for a network 
+\begin_inset Formula $\Network$
+\end_inset
+
+ under flow demand 
+\begin_inset Formula $\qdemand$
+\end_inset
+
+.
+ To simplify our discussion, we assume without loss of generality, that
  the links are ordered by increasing free-flow latencies, and that free-flow
  latencies are different to avoid cases where the set of Nash equilibria
  is infinite
@@ -2312,7 +2308,7 @@ Consider an instance
 
 \begin_layout Standard
 This problem is non convex due to the second flow constraint 
-\begin_inset Formula $\flow[\link]=f(\mass[\link])=\min\{\speedFF[\link]\mass[\link],\flow[\link]^{\max}-\speedCong[\link](\mass[\link]-\mass[\link]^{c})\}$
+\begin_inset Formula $\flow[\link]=f(\mass[\link])=\min\{\speedFF[\link]\mass[\link],\flow[\link]^{\max}-\speedCong[\link](\mass[\link]^{\max}-\mass[\link])\}$
 \end_inset
 
  which corresponds to the fundamental diagram of traffic.
@@ -2793,13 +2789,13 @@ In practice, strategy
 \begin_inset Formula $1$
 \end_inset
 
- is more faster 
-\begin_inset Formula $\latency[1](\flow[1](^{\max},0)<\latency[2](0,0)$
+ is faster 
+\begin_inset Formula $\latency[1](\flowMax[1],0)<\latency[2](0,0)$
 \end_inset
 
 .
  This will result in congesting the link 
-\begin_inset Formula $\mass[1]>\mass[1]^{c}$
+\begin_inset Formula $\mass[1]>\masscrit[1]$
 \end_inset
 
  and the flow on link 1 will 
@@ -2923,7 +2919,7 @@ In this section we show the following result: the optimal Stackelberg strategy
 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "rou01"
+key "roughgarden2001stackelberg"
 
 \end_inset
 
@@ -2946,6 +2942,197 @@ after
 \end_inset
 
  that will later be shown to be optimal.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We first introduce a definition that will be useful in proving the main
+ result.
+ Consider a network under feasible flow assignment 
+\begin_inset Formula $(\flow,\Mode)$
+\end_inset
+
+.
+ A link 
+\begin_inset Formula $n$
+\end_inset
+
+ is said to be 
+\emph on
+at least 
+\emph default
+
+\begin_inset Formula $i$
+\end_inset
+
+
+\emph on
+-congested
+\emph default
+ (
+\begin_inset Formula $i\geq n+1$
+\end_inset
+
+) if 
+\begin_inset Formula $n$
+\end_inset
+
+ is congested 
+\begin_inset Formula $(\Mode[n]=1)$
+\end_inset
+
+ and its latency is at least 
+\begin_inset Formula $\parA[i]$
+\end_inset
+
+.
+ It is said to be 
+\emph on
+exactly
+\emph default
+ 
+\begin_inset Formula $i$
+\end_inset
+
+
+\emph on
+-congested
+\emph default
+ if it is congested and its latency is exactly 
+\begin_inset Formula $\parA[i]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Link 
+\begin_inset Formula $n$
+\end_inset
+
+ is at least 
+\begin_inset Formula $i$
+\end_inset
+
+-congested (
+\begin_inset Formula $i\geq n+1$
+\end_inset
+
+) under assignment 
+\begin_inset Formula $(\flow,\Mode)$
+\end_inset
+
+ if 
+\begin_inset Formula 
+\begin{align*}
+\Mode[n] & =1\\
+l_{n}(\flow[n],\Mode[n]) & \geq\parA[i]
+\end{align*}
+
+\end_inset
+
+ which is equivalent to 
+\begin_inset Formula 
+\begin{align*}
+\Mode[n] & =1\\
+\flow[n] & \leq\cffFlow ni
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that if 
+\begin_inset Formula $j\geq i\geq n+1$
+\end_inset
+
+, then if link 
+\begin_inset Formula $n$
+\end_inset
+
+ is at least 
+\begin_inset Formula $j$
+\end_inset
+
+-congested under 
+\begin_inset Formula $(x,m)$
+\end_inset
+
+, then it is also at least 
+\begin_inset Formula $i$
+\end_inset
+
+-congested under 
+\begin_inset Formula $(x,\Mode)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Link 
+\begin_inset Formula $n$
+\end_inset
+
+ is exactly 
+\begin_inset Formula $i$
+\end_inset
+
+-congested (
+\begin_inset Formula $i\geq n+1$
+\end_inset
+
+) under assignment 
+\begin_inset Formula $(\flow,\Mode)$
+\end_inset
+
+ if 
+\begin_inset Formula 
+\begin{align*}
+\Mode[n] & =1\\
+l_{n}(\flow[n],\Mode[n]) & =\parA[i]
+\end{align*}
+
+\end_inset
+
+ which is equivalent to 
+\begin_inset Formula 
+\begin{align*}
+\Mode[n] & =1\\
+\flow[n] & =\cffFlow ni
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that in a network under best Nash assignment 
+\begin_inset Formula $(t,\Mode)$
+\end_inset
+
+, if 
+\begin_inset Formula $i=\max Supp(t)$
+\end_inset
+
+, then all links 
+\begin_inset Formula $n\in\{1,\dots,i-1\}$
+\end_inset
+
+ are exactly 
+\begin_inset Formula $i$
+\end_inset
+
+-congested.
 \end_layout
 
 \begin_layout Subsubsection
@@ -2981,7 +3168,7 @@ Let
  and 
 \begin_inset Formula 
 \[
-\bar{t}=\left(\cffFlow 1k,\dots,\cffFlow{k-1}k(1-\beta)\qdemand-\sum_{n=1}^{k-1}\cffFlow nk,0,\dots,0\right)
+\bar{t}=\left(\cffFlow 1k,\dots,\cffFlow{k-1}k,(1-\beta)\qdemand-\sum_{n=1}^{k-1}\cffFlow nk,0,\dots,0\right)
 \]
 
 \end_inset
@@ -3112,99 +3299,6 @@ Next we show that strategy
 The Non-Compliant First strategy is optimal
 \end_layout
 
-\begin_layout Standard
-We first introduce a definition that will be useful in proving the main
- result.
- Consider a network under feasible flow assignment 
-\begin_inset Formula $(\flow,\Mode)$
-\end_inset
-
-.
- A link 
-\begin_inset Formula $n$
-\end_inset
-
- is said to be 
-\begin_inset Formula $i$
-\end_inset
-
--congested (
-\begin_inset Formula $i\geq n+1$
-\end_inset
-
-) if 
-\begin_inset Formula $n$
-\end_inset
-
- is congested 
-\begin_inset Formula $(\Mode[n]=1)$
-\end_inset
-
- and its latency is at least 
-\begin_inset Formula $\parA[i]$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Definition
-Link 
-\begin_inset Formula $n$
-\end_inset
-
- is 
-\begin_inset Formula $i$
-\end_inset
-
--congested (
-\begin_inset Formula $i\geq n+1$
-\end_inset
-
-) under assignment 
-\begin_inset Formula $(\flow,\Mode)$
-\end_inset
-
- if 
-\begin_inset Formula 
-\begin{align*}
-\Mode[n] & =1\\
-l_{n}(\flow[n],\Mode[n]) & \geq\parA[i]
-\end{align*}
-
-\end_inset
-
- which is equivalent to 
-\begin_inset Formula 
-\begin{align*}
-\Mode[n] & =1\\
-\flow[n] & \leq\cffFlow ni
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Note that in a network under Nash assignment 
-\begin_inset Formula $(t,\Mode)$
-\end_inset
-
-, if 
-\begin_inset Formula $i=\max Supp(t)$
-\end_inset
-
-, then all links 
-\begin_inset Formula $n\in\{1,\dots,i-1\}$
-\end_inset
-
- are 
-\begin_inset Formula $i$
-\end_inset
-
--congested.
-\end_layout
-
 \begin_layout Theorem
 \begin_inset Formula $\bar{s}$
 \end_inset
@@ -3306,7 +3400,19 @@ Let
 \end_inset
 
  be the link with largest free-flow latency used by the non-compliant flow.
- We begin by proving the following Lemma
+ We begin by proving that link 
+\begin_inset Formula $k'$
+\end_inset
+
+ is in free-flow under assignment 
+\begin_inset Formula $(x,\Mode)$
+\end_inset
+
+, and that 
+\begin_inset Formula $k'\geq k$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Lemma
@@ -3314,7 +3420,27 @@ Link
 \begin_inset Formula $k'$
 \end_inset
 
- is in free-flow.
+ is in free-flow under assignment 
+\begin_inset Formula $(x,\Mode)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Intuitively, this is a consequence of the fact 
+\begin_inset Formula $t$
+\end_inset
+
+ is the 
+\emph on
+best 
+\emph default
+Nash equilibrium induced by Stackelberg strategy 
+\begin_inset Formula $s$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Proof
@@ -3328,6 +3454,29 @@ TBD
  
 \end_layout
 
+\begin_layout Standard
+Intuitively, since 
+\begin_inset Formula $\bar{t}$
+\end_inset
+
+ is the best Nash equilibrium of the non-compliant flow when they are not
+ sharing the network with any other flow, the assignment 
+\begin_inset Formula $(\bar{t},\bar{\Mode})$
+\end_inset
+
+ will use more efficient links than any Nash assignment 
+\begin_inset Formula $(t,\Mode)$
+\end_inset
+
+ of non-compliant flow when they are sharing the network with additional
+ flow 
+\begin_inset Formula $s$
+\end_inset
+
+.
+ The proof makes this argument more precise.
+\end_layout
+
 \begin_layout Proof
 First note that 
 \begin_inset Formula $s+t$
@@ -3337,7 +3486,8 @@ First note that
 \begin_inset Formula $Supp(t)$
 \end_inset
 
- is an assignment at Nash equilibrium (and it the best such Nash equilibrium).
+ is an assignment at Nash equilibrium, and it is by definition the best
+ such Nash assignment.
  Then since link 
 \begin_inset Formula $k'$
 \end_inset
@@ -3428,7 +3578,7 @@ We have
 \begin_inset Formula $n$
 \end_inset
 
- is 
+ is at least 
 \begin_inset Formula $k'$
 \end_inset
 
@@ -3444,7 +3594,7 @@ We have
 \begin_inset Formula $n$
 \end_inset
 
- is 
+ is exactly 
 \begin_inset Formula $k$
 \end_inset
 
@@ -3461,7 +3611,7 @@ We have
 \begin_inset Formula 
 \begin{align*}
 l_{n}(x_{n},m_{n}) & \geq a_{k'}\geq a_{k}=l_{n}(\bar{x}_{n},\bar{m}_{n}) & \forall n\in\{1,\dots,k-1\}\\
-x_{n} & \leq\hat{q}_{n}(k')\leq\hat{q}_{n}(k)=\bar{x}_{n} & \forall n\in\{1,\dots,k-1\}
+x_{n} & \leq\cffFlow n{k'}\leq\cffFlow nk=\bar{x}_{n} & \forall n\in\{1,\dots,k-1\}
 \end{align*}
 
 \end_inset
@@ -3484,7 +3634,7 @@ and we have
 
  (i.e.
  
-\begin_inset Formula $\bar{x}_{n}=q_{n}^{\max}$
+\begin_inset Formula $\bar{x}_{n}=\flowMax[n]$
 \end_inset
 
  and 
@@ -3496,7 +3646,7 @@ and we have
 \begin_inset Formula 
 \begin{align*}
 l_{n}(x_{n},m_{n}) & \geq a_{n}=l_{n}(\bar{x}_{n},\bar{m}_{n}) & \forall n\in\{k,\dots,l-1\}\\
-x_{n} & \leq q_{n}^{\max}=\bar{x}_{n} & \forall n\in\{k,\dots,l-1\}
+x_{n} & \leq\flowMax[n]=\bar{x}_{n} & \forall n\in\{k,\dots,l-1\}
 \end{align*}
 
 \end_inset
