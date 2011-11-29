@@ -208,6 +208,15 @@ or few cars moving fast, in which case the latency is small
 \begin_layout Standard
 this means that the latency is not uniquely determined by the flow, and
  depends on how congested the link is.
+ This concept is part of the foundation of macroscopic traffic flow models
+ developed by Lighthill and Whitham, and Richards
+\begin_inset CommandInset citation
+LatexCommand cite
+key "lighthill1955kinematic,richards1956shock"
+
+\end_inset
+
+.
  One simple way of modeling this is to have an additional binary argument
  
 \begin_inset Formula $m$
@@ -271,6 +280,13 @@ We show that the optimal Stackelberg strategy can be computed in polynomial
 
 \begin_layout Section
 The Model
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:The-Model"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -431,7 +447,14 @@ In the free flow regime (when the density on the link is less than a critical
 \begin_inset Formula $\flow[\link]=\flow[\link]^{\max}-\speedCong[\link](\mass[\link]-\masscrit[\link])=-\speedCong[\link](\mass[\link]-\mass[\link]^{\max})$
 \end_inset
 
- and the velocity is decreasing.
+ and the velocity is decreasing
+\begin_inset CommandInset citation
+LatexCommand cite
+key "daganzo1995cell,daganzo1994cell,harker1988multiple"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -2371,7 +2394,7 @@ Then assuming the links are ordered by increasing free-flow latency
 \end_layout
 
 \begin_layout Section
-Price of Anarchy on Two-Link Network
+Price of Stability on Two-Link Network
 \end_layout
 
 \begin_layout Standard
@@ -2395,6 +2418,26 @@ Let us consider a network
 .
  What we now wish to characterize is the differences in efficiency between
  social optimum and Nash equilibrium on this simple network.
+ Such analysis has been done with various metrics including Price of Anarchy
+\begin_inset CommandInset citation
+LatexCommand cite
+key "roughgarden2004bounding,roughgarden2002bad"
+
+\end_inset
+
+ and Price of Stability
+\begin_inset CommandInset citation
+LatexCommand cite
+key "koutsoupias1999worst"
+
+\end_inset
+
+.
+ The Price of Anarchy considers the largest ratio between a Nash equilibrium
+ of a network and the social optimum, while the Price of Stability considers
+ the most efficient Nash equilibrium.
+ For the case of increasing latency functions, the Price of Anarchy and
+ the Price of Stability are equivalent (since the Nash equilibrium is unique).
  When describing Nash equilibria on this network, we will only consider
  the best Nash equilibrium, 
 \begin_inset Formula $\BestNashEq{\Network}{\qdemand}=\left(\flow[NE],\Mode[NE]\right)$
@@ -2404,7 +2447,7 @@ Let us consider a network
 \begin_inset Formula $\qdemand$
 \end_inset
 
-.
+, and therefore will be analyzing the Price of Stability.
  Then define 
 \begin_inset Formula $\left(x_{SO},\cffMode 1\right)$
 \end_inset
@@ -2418,13 +2461,13 @@ reference "eq:so"
 \end_inset
 
 .
- Therefore, we will define the price of anarchy to be:
+ Therefore, we will define the Price of Stability to be:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-POA(\Network,\qdemand)=\frac{\Latency\left(\flow[NE],\Mode[NE]\right)}{\Latency\left(\flow[SO],\cffMode 1\right)}
+POS(\Network,\qdemand)=\frac{\Latency\left(\flow[NE],\Mode[NE]\right)}{\Latency\left(\flow[SO],\cffMode 1\right)}
 \]
 
 \end_inset
@@ -2505,8 +2548,8 @@ reference "fig:ff"
 \end_inset
 
 .
- In this case, the Price of Anarchy is equal to 1, or there is no drop in
- efficiency due to selfish routing.
+ In this case, the Price of Stability is equal to 1, or there is no drop
+ in efficiency due to selfish routing.
 \end_layout
 
 \begin_layout Standard
@@ -2527,13 +2570,6 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:ff"
-
-\end_inset
-
-
 \begin_inset Caption
 
 \begin_layout Plain Layout
@@ -2546,6 +2582,12 @@ Flow configuration when demand is under the capacity of the fastest link
 \end_layout
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ff"
+
+\end_inset
+
 
 \end_layout
 
@@ -2728,7 +2770,7 @@ name "fig:sone"
 \end_layout
 
 \begin_layout Standard
-Computing the Price of Anarchy when 
+Computing the Price of Stability when 
 \begin_inset Formula $\qdemand>\flowMax[1]$
 \end_inset
 
@@ -2738,7 +2780,7 @@ Computing the Price of Anarchy when
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray*}
-POA\left(\Network,\qdemand\right) & = & \frac{\parA[2]\cffFlow 12+\parA[2]\left(\qdemand-\cffFlow 12\right)}{\parA[1]\flowMax[1]+\parA[2]\left(\qdemand-\flowMax[1]\right)}\\
+POS\left(\Network,\qdemand\right) & = & \frac{\parA[2]\cffFlow 12+\parA[2]\left(\qdemand-\cffFlow 12\right)}{\parA[1]\flowMax[1]+\parA[2]\left(\qdemand-\flowMax[1]\right)}\\
  & = & \frac{\parA[2]\qdemand}{\qdemand\parA[2]-\flowMax[1]\left(\parA[2]-\parA[1]\right)}\\
  & = & \frac{1}{1-\frac{\flowMax[1]}{\qdemand}\left(1-\frac{\parA[1]}{\parA[2]}\right)}
 \end{eqnarray*}
@@ -2753,12 +2795,12 @@ First, we note that as
 \begin_inset Formula $\parA[2]\rightarrow\parA[1]$
 \end_inset
 
-, the Price of Anarchy goes to 1.
+, the Price of Stability goes to 1.
  Intuitively, what this says is that inefficiencies in Nash equilibrium
  can be directly attributed to the differences in free flow travel time
  between the links.
- As the differences in free flow speed increases, so will the Price of Anarchy.
- Additionally, as the demand increases, the Price of Anarchy will decrease.
+ As the differences in free flow speed increases, so will the Price of Stability.
+ Additionally, as the demand increases, the Price of Stability will decrease.
  This occurs because the absolute difference in total latency between social
  optimum and Nash equilibrium is constant as demand increases.
  The discontinuity in total latency for Nash equilibrium occurs when demand
@@ -2770,7 +2812,7 @@ First, we note that as
 \end_layout
 
 \begin_layout Standard
-What we can conclude from the Price of Anarchy analysis of the two link
+What we can conclude from the Price of Stability analysis of the two link
  case is that selfish routing is most costly in the demand region where
  a free flow link is near capacity.
  If a controller were to anticipate a scenario where demand was slightly
@@ -2786,6 +2828,32 @@ Stackelberg routing
 In order to reduce the inefficiency of the network, we assume that a fraction
  of the flow is centrally controlled, and we investigate possible strategies
  for improving the equilibria of the network.
+ Leader-follower routing games have been considered in the transportation
+ literature 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "harker1988multiple,haurie1985relationship"
+
+\end_inset
+
+ and more recently 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "aswani2011game,joksimovicdifferent"
+
+\end_inset
+
+.
+ The previous literature does not consider a decrease in flow on a link
+ as a result of density buildup, while the work presented here considers
+ the more-realistic modeling assumptions made in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:The-Model"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
