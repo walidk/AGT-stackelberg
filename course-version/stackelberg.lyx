@@ -1771,8 +1771,7 @@ reference "lem:filluplower"
 
 \end_inset
 
-.
- From 
+From 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "lem:xhat"
@@ -1816,8 +1815,7 @@ reference "lem:xhat"
 
 \end_inset
 
-.
- Then we have:
+Then we have:
 \end_layout
 
 \begin_layout Standard
@@ -2193,7 +2191,7 @@ reference "def:hat"
 \end_inset
 
 , we can precompute 
-\begin_inset Formula $\cffFlow ij\forall i,j\in\NLinks\times\NLinks$
+\begin_inset Formula $\cffFlow ij\forall(i,j)\in\NLinks\times\NLinks$
 \end_inset
 
  in 
@@ -2240,7 +2238,7 @@ Social Optima
 
 \begin_layout Standard
 Consider an instance 
-\begin_inset Formula $(\Network,\qdemand)$
+\begin_inset Formula $(N,\qdemand)$
 \end_inset
 
  where the flow demand 
@@ -2516,12 +2514,12 @@ reference "fig:ff"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /Users/jackdreilly/School/nbt/repo_stuff/papers/walid/AGT-stackelberg/figures/freeflow.pdf
+	filename ../figures/freeflow.pdf
 	height 3in
 
 \end_inset
@@ -3148,7 +3146,7 @@ In this section we solve for optimal Stackelberg strategies, i.e.
  This is described by the following optimization problem 
 \begin_inset Formula 
 \begin{align*}
-\min_{s}C\left(s+\ncFlow(\cFlow),m(\cFlow)\right)
+\min_{s\in S}C\left(s+\ncFlow(\cFlow),m(\cFlow)\right)
 \end{align*}
 
 \end_inset
@@ -3176,7 +3174,7 @@ We define an optimal Stackelberg strategy
  to be a solution to the optimization problem 
 \begin_inset Formula 
 \begin{align*}
-s^{*}=\arg\min_{s}C\left(s+\ncFlow(\cFlow),m(\cFlow)\right)
+s^{*}=\arg\min_{s\in S}C\left(s+\ncFlow(\cFlow),m(\cFlow)\right)
 \end{align*}
 
 \end_inset
@@ -3232,8 +3230,33 @@ Roughly speaking, the optimal Stackelberg strategy in our case corresponds
 after
 \emph default
  assigning the non-compliant flow in a selfish way.
- Next we detail this rough idea by defining a candidate Stackelberg strategy
- 
+ Intuitively, the optimal induced Nash equilibrium 
+\begin_inset Formula $t(s)$
+\end_inset
+
+ of any Stackelberg strategy 
+\begin_inset Formula $s$
+\end_inset
+
+ will be more congested than the best Nash equilibrium 
+\begin_inset Formula $(\bar{t},\bar{\Mode})$
+\end_inset
+
+ of instance 
+\begin_inset Formula $(\NLinks,(1-\beta r))$
+\end_inset
+
+ (when the non-compliant flow is is the only flow on the network).
+ So if we can find a strategy 
+\begin_inset Formula $\bar{s}$
+\end_inset
+
+ that induces equilibrium 
+\begin_inset Formula $(\bar{t},\bar{\Mode})$
+\end_inset
+
+ and that has minimal cost, then one expects this strategy to be optimal.
+ Next we detail this idea by defining a candidate Stackelberg strategy 
 \begin_inset Formula $\bar{s}$
 \end_inset
 
@@ -3254,6 +3277,27 @@ We first introduce a definition that will be useful in proving the main
 
  is said to be 
 \emph on
+exactly
+\emph default
+ 
+\begin_inset Formula $i$
+\end_inset
+
+
+\emph on
+-congested
+\emph default
+ if it is congested 
+\begin_inset Formula $(\Mode[n]=1)$
+\end_inset
+
+ and its latency is exactly 
+\begin_inset Formula $\parA[i]$
+\end_inset
+
+.
+ It is said to be 
+\emph on
 at least 
 \emph default
 
@@ -3272,32 +3316,69 @@ at least
 \begin_inset Formula $n$
 \end_inset
 
- is congested 
-\begin_inset Formula $(\Mode[n]=1)$
-\end_inset
-
- and its latency is at least 
+ is congested and its latency is at least 
 \begin_inset Formula $\parA[i]$
 \end_inset
 
 .
- It is said to be 
-\emph on
-exactly
-\emph default
- 
+\end_layout
+
+\begin_layout Definition
+Link 
+\begin_inset Formula $n$
+\end_inset
+
+ is exactly 
 \begin_inset Formula $i$
 \end_inset
 
-
-\emph on
--congested
-\emph default
- if it is congested and its latency is exactly 
-\begin_inset Formula $\parA[i]$
+-congested (
+\begin_inset Formula $i\geq n+1$
 \end_inset
 
-.
+) under assignment 
+\begin_inset Formula $(\flow,\Mode)$
+\end_inset
+
+ if 
+\begin_inset Formula 
+\begin{align*}
+\Mode[n] & =1\\
+l_{n}(\flow[n],\Mode[n]) & =\parA[i]
+\end{align*}
+
+\end_inset
+
+ which is equivalent to 
+\begin_inset Formula 
+\begin{align*}
+\Mode[n] & =1\\
+\flow[n] & =\cffFlow ni
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that in a network under best Nash assignment 
+\begin_inset Formula $(t,\Mode)$
+\end_inset
+
+, if 
+\begin_inset Formula $i=\max Supp(t)$
+\end_inset
+
+, then all links 
+\begin_inset Formula $n\in\{1,\dots,i-1\}$
+\end_inset
+
+ are exactly 
+\begin_inset Formula $i$
+\end_inset
+
+-congested.
 \end_layout
 
 \begin_layout Definition
@@ -3364,64 +3445,6 @@ Note that if
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Definition
-Link 
-\begin_inset Formula $n$
-\end_inset
-
- is exactly 
-\begin_inset Formula $i$
-\end_inset
-
--congested (
-\begin_inset Formula $i\geq n+1$
-\end_inset
-
-) under assignment 
-\begin_inset Formula $(\flow,\Mode)$
-\end_inset
-
- if 
-\begin_inset Formula 
-\begin{align*}
-\Mode[n] & =1\\
-l_{n}(\flow[n],\Mode[n]) & =\parA[i]
-\end{align*}
-
-\end_inset
-
- which is equivalent to 
-\begin_inset Formula 
-\begin{align*}
-\Mode[n] & =1\\
-\flow[n] & =\cffFlow ni
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Note that in a network under best Nash assignment 
-\begin_inset Formula $(t,\Mode)$
-\end_inset
-
-, if 
-\begin_inset Formula $i=\max Supp(t)$
-\end_inset
-
-, then all links 
-\begin_inset Formula $n\in\{1,\dots,i-1\}$
-\end_inset
-
- are exactly 
-\begin_inset Formula $i$
-\end_inset
-
--congested.
 \end_layout
 
 \begin_layout Subsection
@@ -3763,7 +3786,7 @@ The Non-Compliant First strategy is optimal
 
 \begin_layout Standard
 Let 
-\begin_inset Formula $s$
+\begin_inset Formula $s\in S$
 \end_inset
 
  be a Stackelberg strategy for instance 
@@ -3834,7 +3857,7 @@ Let
 
  be the link with largest free-flow latency, in the support of the non-compliant
  flow.
- By 
+ By Lemma 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "lemma:inducedNCeq"
