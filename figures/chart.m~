@@ -1,0 +1,36 @@
+a1 = 2;
+a2 = 4;
+c1 = 5;
+c2 = 3;
+
+b1 = 2;
+b2 = 1;
+
+n_points = 100;
+
+fn1 = latency(a1,b1,c1);
+fn2 = latency(a2,b2,c2);
+
+flows1 = [linspace(0,c1,n_points),linspace(c,n_points)
+flows2 = linspace(0,c2,n_points);
+
+lats1 = zeros(n_points*2,1);
+lats2 = zeros(n_points*2,1);
+
+mode = 0;
+for i = 1:n_points
+    flow1 = flows1(i);
+    flow2 = flows2(i);
+    lats1(i) = fn1(flow1,mode);
+    lats2(i) = fn2(flow2,mode);
+end
+mode = 1;
+for i = 1:n_points
+    flow1 = flows1(end + 1 - i);
+    flow2 = flows2(end + 1 - i);
+    lats1(i + n_points) = fn1(flow1,mode);
+    lats2(i + n_points) = fn2(flow2,mode);
+end
+
+
+    
