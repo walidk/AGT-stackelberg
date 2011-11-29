@@ -1060,6 +1060,12 @@ Since
 \end_layout
 
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Traffic-Networks-Have"
+
+\end_inset
+
 Traffic Networks Have Multiple Nash Equilibria
 \end_layout
 
@@ -1603,6 +1609,12 @@ reference "sub:Optimal-Nash-Equilibria"
 \end_layout
 
 \begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lemma:slff"
+
+\end_inset
+
 For a demand, 
 \begin_inset Formula $\qdemand$
 \end_inset
@@ -1616,6 +1628,111 @@ For a demand,
 
 \begin_layout Proof
 By induction.
+ We first note, if the Nash equilibrium is in complete congestion, then
+ the latency must be 
+\begin_inset Formula $>\parA[\NLinks]$
+\end_inset
+
+, and the maximum demand that can have such an equilibrium is 
+\begin_inset Formula $\sum_{\link=1}^{\NLinks-1}\cffFlow{\link}{\NLinks}+\parC[\NLinks]$
+\end_inset
+
+.
+ Therefore, from Lemma 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "lem:filluplower"
+
+\end_inset
+
+, a sufficient condition to show is for all demands between 0 and 
+\begin_inset Formula $\sum_{\link=1}^{\NLinks-1}\cffFlow{\link}{\NLinks}+\parC[\NLinks]$
+\end_inset
+
+, there exists a single-link free Nash equilibrium.
+ Take a demand 
+\begin_inset Formula $\qdemand$
+\end_inset
+
+.
+ For the base step, it is obvious that if 
+\begin_inset Formula $0\le\qdemand\le\parC[1]$
+\end_inset
+
+, there is a single-link free flow Nash equilibrium solution (all flow is
+ in free flow on link 1).
+ Next, assume that if 
+\begin_inset Formula $0\le\qdemand\le\sum_{\link=1}^{j-1}\cffFlow{\link}j+\parC[j]$
+\end_inset
+
+, then there exists a single-link free flow Nash equilibrium.
+ Now, assume 
+\begin_inset Formula $0\le\qdemand\le\sum_{\link=1}^{j}\cffFlow{\link}{j+1}+\parC[j+1]$
+\end_inset
+
+.
+ From the previous inductive step, if 
+\begin_inset Formula $0\le\qdemand\le\sum_{\link=1}^{j-1}\cffFlow{\link}j+\parC[j]$
+\end_inset
+
+, then there exists such a Nash equilibrium.
+ Now, assume 
+\begin_inset Formula $\sum_{\link=1}^{j-1}\cffFlow{\link}j+\parC[j]\le\qdemand\le\sum_{\link=1}^{j}\cffFlow{\link}{j+1}+\parC[j+1]$
+\end_inset
+
+ (*).
+ From Lemma 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "lem:xhat"
+
+\end_inset
+
+, we need only to show that if 
+\begin_inset Formula $\parC[j+1]\ge\qdemand-\sum_{\link=1}^{j}\cffFlow{\link}{j+1}\ge0$
+\end_inset
+
+, then 
+\begin_inset Formula $\left(\opneFlow{j+1}{\qdemand},\cffMode{j+1}\right)\in\NashEq{\Network}{\qdemand}$
+\end_inset
+
+.
+ First,
+\begin_inset Formula $ $
+\end_inset
+
+ note for any link 
+\begin_inset Formula $\link$
+\end_inset
+
+, 
+\begin_inset Formula $\cffFlow{\link}i$
+\end_inset
+
+ is a decreasing function of 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ Clearly, 
+\begin_inset Formula $\sum_{\link=1}^{j-2}\cffFlow{\link}j+\cffFlow{j-1}j\le\sum_{\link=1}^{j-2}\cffFlow{\link}{j-1}+\parC[j-1]$
+\end_inset
+
+ (**).
+ Then we have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{eqnarray*}
+\parC[j+1] & \ge\qdemand-\sum_{\link=1}^{j}\cffFlow{\link}{j+1} & (*)\\
+ & \ge\qdemand-\sum_{\link=1}^{j-1}\cffFlow{\link}j-\parC[j] & (**)\\
+ & \ge0 & (*)
+\end{eqnarray*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1630,12 +1747,122 @@ name "sub:Optimal-Nash-Equilibria"
 \end_layout
 
 \begin_layout Standard
-Now that there is a complete detailing of the range of demands that have
- a Nash equilibrium, and the flows that will achieve Nash equilibrium for
- a given demand, we next show which Nash equilibrium will have the minimum
- total latency for a given demand.
+In Section 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sub:Traffic-Networks-Have"
+
+\end_inset
+
+, we showed that a Nash equilibrium only exists if there is at most one
+ link in free flow.
+ We also showed that if a demand has a Nash equilibrium, then there is also
+ a single-link free flow Nash equilibrium for that demand.
+ From this non-uniqueness of Nash equilibria, one may wonder which of the
+ equilibria would result in the best traffic conditions.
+ This motivates defining a 
+\begin_inset Quotes eld
+\end_inset
+
+best
+\begin_inset Quotes erd
+\end_inset
+
+ Nash equilibrium.
 \end_layout
 
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:bne"
+
+\end_inset
+
+
+\begin_inset Formula $\BestNashEq{\Network}{\qdemand}=\underset{\left(\flow,\Mode\right)\in\NashEq{\Network}{\qdemand}}{\arg\min}\left\{ \Latency\left(\flow,\Mode\right)\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For a demand 
+\begin_inset Formula $\qdemand$
+\end_inset
+
+, the best Nash equilibrium, 
+\begin_inset Formula $\BestNashEq{\Network}{\qdemand}$
+\end_inset
+
+ is the Nash equilibrium that has the least total travel time.
+ We now show some interesting properties of this best Nash equilibrium:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\BestNashEq{\Network}{\qdemand}$
+\end_inset
+
+ is unique
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\BestNashEq{\Network}{\qdemand}$
+\end_inset
+
+ must have a link in free flow
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\BestNashEq{\Network}{\qdemand}$
+\end_inset
+
+ has the smallest support of all Nash Equilibria for demand 
+\begin_inset Formula $\qdemand$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Since the first two statements above fall immediately from the last, we
+ will only show this last statement.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "theorem:minsupport"
+
+\end_inset
+
+ For a given demand, 
+\begin_inset Formula $\qdemand,$
+\end_inset
+
+ 
+\begin_inset Formula $\BestNashEq{\Network}{\qdemand}=\underset{\left(\flow,\Mode\right)\in\NashEq{\Network}{\qdemand}}{\arg\min}\left\{ \max\left[Supp\left(\flow\right)\right]\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+To demonstrate Theorem 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "theorem:minsupport"
+
+\end_inset
+
+, we use two intermediate results.
+ The first result says that a fully congested Nash equilibrium will never
+ be the best Nash equilibria (because there always exists a single-link
+ free flow equilibrium, and it is better).
+ The second result says that the better of two single-link free flow Nash
+ equilibria will be the one with the smaller-index free flow link.
+\end_layout
+
+\begin_deeper
 \begin_layout Lemma
 \begin_inset CommandInset label
 LatexCommand label
@@ -1666,55 +1893,8 @@ For a given demand,
 .
 \end_layout
 
-\begin_layout Proof
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "lem:all1lff"
+\begin_layout --Separator--
 
-\end_inset
-
- gives us the existence of such a 
-\begin_inset Formula $\flow'$
-\end_inset
-
-.
- Then let 
-\begin_inset Formula $\latency,\latency'$
-\end_inset
-
- be the latencies for 
-\begin_inset Formula $\flow,\flow'$
-\end_inset
-
- respectively.
- Since 
-\begin_inset Formula $\flow$
-\end_inset
-
- has all links in congestion, 
-\begin_inset Formula $\latency\ge\parA[\NLinks]$
-\end_inset
-
-, and since 
-\begin_inset Formula $\flow'$
-\end_inset
-
- has at least 1 link in free flow, then 
-\begin_inset Formula $\latency'\le\parA[\NLinks]$
-\end_inset
-
- From 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "lemma:nash_eq"
-
-\end_inset
-
-, we have 
-\begin_inset Formula $\Latency\left(\flow',\cffMode j\right)=\qdemand\latency'\le\qdemand\parA[\NLinks]\le\qdemand\latency=\Latency\left(\flow,\cffMode{\NLinks+1}\right)$
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Lemma
@@ -1736,40 +1916,16 @@ and
 \begin_inset Formula $\left(\opneFlow{\qdemand}i,\cffMode i\right),\left(\opneFlow{\qdemand}j,\cffMode j\right)\in\NashEq{\Network}{\qdemand}$
 \end_inset
 
-, 
+: 
 \begin_inset Formula $\Latency\left(\opneFlow{\qdemand}i,\cffMode i\right)<\Latency\left(\opneFlow{\qdemand}j,\cffMode j\right)$
 \end_inset
 
 .
 \end_layout
 
+\end_deeper
 \begin_layout Proof
-The proof follows the same arguments as the proof for 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "lem:conworseff"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-To conclude this section, we show that the optimal Nash equilibrium (Nash
- equilibrium with the minimum total latency) for a given demand is the Nash
- equilibrium with fastest link in free flow.
-\end_layout
-
-\begin_layout Theorem
-For a given demand, 
-\begin_inset Formula $\qdemand,$
-\end_inset
-
- 
-\begin_inset Formula $\underset{\left(\flow,\Mode\right)\in\NashEq{\Network}{\qdemand}}{\arg\min}\left\{ \Latency\left(\flow,\Mode\right)\right\} =\underset{\left(\opneFlow{\qdemand}j,\cffMode j\right)\in\NashEq{\Network}{\qdemand}}{\arg\min}\left\{ j\right\} $
-\end_inset
-
-.
+The proofs for the lemmas above are omitted for brevity.
 \end_layout
 
 \begin_layout Proof
@@ -1820,6 +1976,38 @@ reference "lem:smalleri"
  then says that the total latencies will decrease with decreasing free flow
  link index, and therefore the minimizing flow must be the Nash equilibrium
  flow that minimizes the index of the free flow link.
+\end_layout
+
+\begin_layout Proof
+What Theorem 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "theorem:minsupport"
+
+\end_inset
+
+ gives us is a simple characterization of the best Nash equilibrium for
+ any network 
+\begin_inset Formula $\Network$
+\end_inset
+
+ of parallel links, and any demand 
+\begin_inset Formula $\qdemand$
+\end_inset
+
+.
+ While the results are interesting and useful in their own rights, they
+ become even more powerful when describing Stackelberg equilibria in Section
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Optimal-Stackelberg-strategies"
+
+\end_inset
+
+.
+ Once the best Nash equilibrium can be found efficiently, there is a straight
+ forward method for computing the Stackelberg equilibrium.
 \end_layout
 
 \begin_layout Subsection
@@ -1945,6 +2133,27 @@ reference "def:hat"
 .
 \end_layout
 
+<<<<<<< HEAD
+=======
+\begin_layout Subsection
+Nash equilibria for 2-parallel link networks
+\end_layout
+
+\begin_layout Standard
+We consider a 
+\begin_inset Formula $(2,\qdemand)$
+\end_inset
+
+ instance.
+ We characterize the Nash equilibria of the network depending on the flow
+ demand 
+\begin_inset Formula $r$
+\end_inset
+
+.
+\end_layout
+
+>>>>>>> 50b59443c28d132b005bbefa5538504e0c6ea0ef
 \begin_layout Section
 Social Optima
 \end_layout
@@ -2346,6 +2555,13 @@ Assuming that the assignment of compliant users is not affected by introducing
 
 \begin_layout Subsection
 Optimal Stackelberg strategies
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Optimal-Stackelberg-strategies"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2429,9 +2645,6 @@ key "roughgarden2001stackelberg"
 \end_layout
 
 \begin_layout Standard
-\begin_inset VSpace bigskip
-\end_inset
-
 Roughly speaking, the optimal Stackelberg strategy in our case corresponds
  to assigning the compliant flow in a socially optimal way 
 \emph on
@@ -2444,13 +2657,6 @@ after
 \end_inset
 
  that will later be shown to be optimal.
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace bigskip
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2824,19 +3030,11 @@ The Non-Compliant First strategy is optimal
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
 
-\begin_layout Plain Layout
-
-
-\backslash
-begin{proof}
 \end_layout
 
-\end_inset
-
- Let 
+\begin_layout Proof
+Let 
 \begin_inset Formula $s$
 \end_inset
 
@@ -2848,7 +3046,7 @@ begin{proof}
  We will show that
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 \begin_inset Formula 
 \[
 C(x,\Mode)\geq C(\bar{x},\bar{\Mode})
@@ -2856,7 +3054,7 @@ C(x,\Mode)\geq C(\bar{x},\bar{\Mode})
 
 \end_inset
 
- where 
+, where 
 \begin_inset Formula $x=s+t$
 \end_inset
 
@@ -2867,7 +3065,7 @@ C(x,\Mode)\geq C(\bar{x},\bar{\Mode})
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 \noindent
 The proof proceeds as follows: we first show that links 
 \begin_inset Formula $\{1,\dots,l-1\}$
@@ -2904,14 +3102,7 @@ x_{n}\leq\bar{x}_{n}
 .
 \end_layout
 
-\begin_layout Standard
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
+\begin_layout Proof
 Let 
 \begin_inset Formula $k'=\max Supp(t)$
 \end_inset
@@ -2932,6 +3123,7 @@ Let
 .
 \end_layout
 
+\begin_deeper
 \begin_layout Lemma
 Link 
 \begin_inset Formula $k'$
@@ -2960,10 +3152,12 @@ Nash equilibrium induced by Stackelberg strategy
 .
 \end_layout
 
+\end_deeper
 \begin_layout Proof
 TBD
 \end_layout
 
+\begin_deeper
 \begin_layout Lemma
 \begin_inset Formula $k'\geq k$
 \end_inset
@@ -2971,7 +3165,7 @@ TBD
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 Intuitively, since 
 \begin_inset Formula $\bar{t}$
 \end_inset
@@ -3067,10 +3261,8 @@ Therefore we must have
 .
 \end_layout
 
-\begin_layout Standard
-\begin_inset VSpace bigskip
-\end_inset
-
+\end_deeper
+\begin_layout Proof
 Using the lemma, we can now show that links 
 \begin_inset Formula $\{1,\dots,l-1\}$
 \end_inset
@@ -3086,7 +3278,7 @@ Using the lemma, we can now show that links
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 We have 
 \begin_inset Formula $\forall n\in\{1,\dots,k'-1\}$
 \end_inset
@@ -3136,7 +3328,7 @@ x_{n} & \leq\cffFlow n{k'}\leq\cffFlow nk=\bar{x}_{n} & \forall n\in\{1,\dots,k-
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 and we have 
 \begin_inset Formula $\forall n\in\{k,\dots,l-1\}$
 \end_inset
@@ -3171,11 +3363,11 @@ x_{n} & \leq\flowMax[n]=\bar{x}_{n} & \forall n\in\{k,\dots,l-1\}
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 Therefore we have
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 \begin_inset Formula 
 \begin{align}
 l_{n}(x_{n},m_{n}) & \geq l_{n}(\bar{x}_{n},\bar{m}_{n}) & \forall n\in\{1,\dots,l-1\}\label{eq:cong_latency}\\
@@ -3187,7 +3379,7 @@ x_{n} & \leq\bar{x}_{n} & \forall n\in\{1,\dots,l-1\}\label{eq:cong_flow}
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 Note that 
 \begin_inset Formula $\forall n\in\{1,\dots,k\}$
 \end_inset
@@ -3215,7 +3407,7 @@ l_{n}(\bar{x}_{n},\bar{m}_{n}) & \leq a_{l} & \forall n\in\{1,\dots,l-1\}\label{
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 Also note that links 
 \begin_inset Formula $n\in\{l,\dots,N\}$
 \end_inset
@@ -3232,7 +3424,7 @@ Also note that links
 , thus
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 \begin_inset Formula 
 \begin{align}
 l_{n}(x_{n},m_{n}) & \geq a_{l} & \forall n\in\{l,\dots,N\}\label{eq:ff_latency}
@@ -3243,7 +3435,7 @@ l_{n}(x_{n},m_{n}) & \geq a_{l} & \forall n\in\{l,\dots,N\}\label{eq:ff_latency}
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 We can now lower-bound the cost of the assignment 
 \begin_inset Formula $(x,m)$
 \end_inset
@@ -3293,6 +3485,7 @@ C(x,m)-C(\bar{x},\bar{m}) & =\sum_{n=1}^{N}x_{n}l_{n}-\sum_{n=1}^{l}\bar{x}_{n}\
 \end_inset
 
 
+<<<<<<< HEAD
 \end_layout
 
 \begin_layout Standard
@@ -3351,6 +3544,8 @@ end{proof}
 \end_inset
 
 
+=======
+>>>>>>> 50b59443c28d132b005bbefa5538504e0c6ea0ef
 \end_layout
 
 \begin_layout Standard
