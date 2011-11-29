@@ -965,7 +965,7 @@ Then assuming the links are ordered by increasing free-flow latency
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align}
-\flow^{*}=(\flowMax[1],\dots,\flowMax[k_{0}],\qdemand-\sum_{n=1}^{k_{0}}\flowMax[n],0,\dots,0)
+\flow^{*}=(\flowMax[1],\dots,\flowMax[k_{0}],\qdemand-\sum_{n=1}^{k_{0}}\flowMax[n],0,\dots,0)\label{eq:so}
 \end{align}
 
 \end_inset
@@ -2167,8 +2167,11 @@ Computational complexity of finding optimal Nash equilibria
 \end_layout
 
 \begin_layout Standard
-In this section, we present a very simple algorithm for finding the best
- Nash equilibrium of a network 
+In this section, we present a very simple algorithm for finding 
+\begin_inset Formula $\BestNashEq{\Network}{\qdemand}$
+\end_inset
+
+, the best Nash equilibrium of a network 
 \begin_inset Formula $\Network$
 \end_inset
 
@@ -2308,7 +2311,242 @@ Let us consider a network
 \end_inset
 
 .
+ What we now wish to characterize is the differences in efficiency between
+ social optimum and Nash equilibrium on this simple network.
+ When describing Nash equilibria on this network, we will only consider
+ the best Nash equilibrium, 
+\begin_inset Formula $\BestNashEq{\Network}{\qdemand}=\left(\flow[NE],\Mode[NE]\right)$
+\end_inset
+
+, for a given demand 
+\begin_inset Formula $\qdemand$
+\end_inset
+
+.
+ Then define 
+\begin_inset Formula $\left(x_{SO},\cffMode 1\right)$
+\end_inset
+
+ (where every link is in free flow) to be the social optimum for the same
+ network and demand, as defined in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:so"
+
+\end_inset
+
+.
+ Therefore, we will define the price of anarchy to be:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+POA(\Network,\qdemand)=\frac{\Latency\left(\flow[NE],\Mode[NE]\right)}{\Latency\left(\flow[SO],\cffMode 1\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From the analysis of 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:so"
+
+\end_inset
+
+ and Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:opNE"
+
+\end_inset
+
+, we need only to consider two cases: the demand is above the capacity of
+ link 1, or the demand is above the capacity of link 1.
+ More precisely, we have the following cases:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $0\le\qdemand\le\flowMax[1]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\qdemand>\flowMax[1]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For the first case, using 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:so"
+
+\end_inset
+
+, we have 
+\begin_inset Formula $k_{0}=0$
+\end_inset
+
+, and all the demand will be on link 1 in free flow.
+ Similarly, 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "theorem:minsupport"
+
+\end_inset
+
+ tells us that since link 1 can accomodate 
+\begin_inset Formula $\qdemand$
+\end_inset
+
+ in free flow and the support cannot be smaller than a single link, then
  
+\begin_inset Formula $\BestNashEq{\Network}{\qdemand}$
+\end_inset
+
+ is has all demand on link 1 in free flow, and is equivalent to the social
+ optimum solution.
+ This is depicted in Figure 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:ff"
+
+\end_inset
+
+.
+ In this case, the Price of Anarchy is equal to 1, or there is no drop in
+ efficiency due to selfish routing.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /Users/jackdreilly/School/nbt/repo_stuff/papers/walid/AGT-stackelberg/figures/freeflow.pdf
+	height 3in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ff"
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Flow configuration when demand is under the capacity of the fastest link
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If we now consider the case where 
+\begin_inset Formula $\qdemand>\flowMax[1]$
+\end_inset
+
+, we know that all demand cannot be accomodated by link 1, and the results
+ become more interesting.
+ From 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:so"
+
+\end_inset
+
+, the social optimum flow will assign as much flow to link 1 as it can fit
+ (
+\begin_inset Formula $\flowMax[1]$
+\end_inset
+
+), and the rest of the flow is assigned to link 2 (
+\begin_inset Formula $\qdemand-\flowMax[1]$
+\end_inset
+
+), giving 
+\begin_inset Formula $x_{SO}=\left\{ \flowMax[1],\qdemand-\flowMax[1]\right\} $
+\end_inset
+
+.
+ The results differ for Nash equilibrium.
+ Since 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "theorem:minsupport"
+
+\end_inset
+
+ tells us that 
+\begin_inset Formula $\BestNashEq{\Network}{\qdemand[n]}$
+\end_inset
+
+ will occur with one link in free flow, then we must have link 1 in congestion
+ and link 2 in free flow, or 
+\begin_inset Formula $\Mode[NE]=\left\{ 1,0\right\} $
+\end_inset
+
+ (since 
+\begin_inset Formula $\qdemand>\flowMax[1]$
+\end_inset
+
+, link 1 cannot be the link in free flow).
+ From Algorithm 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "alg:opNE"
+
+\end_inset
+
+, the corresponding flow, 
+\begin_inset Formula $\flow[NE]$
+\end_inset
+
+, will be 
+\begin_inset Formula $\left\{ \cffFlow 12,\qdemand-\cffFlow 12\right\} $
+\end_inset
+
+.
+ The comparison of the social optimum and Nash equilibrium conditions are
+ depicted in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:sone"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -2322,7 +2560,7 @@ status open
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -2350,7 +2588,7 @@ Social optimum
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -2389,15 +2627,43 @@ Differences in flow assignments between social optimum and Nash equilibrium
 \end_inset
 
 
-\end_layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:sone"
 
-\begin_layout Plain Layout
+\end_inset
+
 
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Computing the Price of Anarchy when 
+\begin_inset Formula $\qdemand>\flowMax[1]$
+\end_inset
+
+ reveals where the inefficiencies lie in the Nash Equilibrium.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+POA\left(\Network,\qdemand\right) & = & \frac{\parA[2]\cffFlow 12+\parA[2]\left(\qdemand-\cffFlow 12\right)}{\parA[1]\flowMax[1]+\parA[2]\left(\qdemand-\flowMax[1]\right)}\\
+ & = & \frac{\parA[2]\qdemand}{\qdemand\parA[2]-\flowMax[1]\left(\parA[2]-\parA[1]\right)}\\
+ & = & \frac{1}{1-\frac{\flowMax[1]}{\qdemand}\left(1-\frac{\parA[1]}{\parA[2]}\right)}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+First, we note 
 \end_layout
 
 \begin_layout Section
