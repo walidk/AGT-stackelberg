@@ -1,0 +1,8 @@
+function out = latency(a,b,c)
+
+    function out_val = out_fn(flow,mode)
+        if mode == 0
+            out_val = a;
+        end
+        out_val = b*(1/flow - 1/c) + a;
+        

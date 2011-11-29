@@ -2285,22 +2285,119 @@ reference "def:hat"
 .
 \end_layout
 
-\begin_layout Subsection
-Nash equilibria for 2-parallel link networks
+\begin_layout Section
+Price of Anarchy on Two-Link Network
 \end_layout
 
 \begin_layout Standard
-We consider a 
-\begin_inset Formula $(2,\qdemand)$
+Let us consider a network 
+\begin_inset Formula $\Network$
 \end_inset
 
- instance.
- We characterize the Nash equilibria of the network depending on the flow
- demand 
-\begin_inset Formula $r$
+ with 
+\begin_inset Formula $\NLinks=2$
+\end_inset
+
+ links, and 
+\begin_inset Formula $\parA[1]<\parA[2]$
 \end_inset
 
 .
+ Also, for the sake of this demonstration, we assume 
+\begin_inset Formula $\flowMax[2]+\cffFlow 12>\flowMax[1]$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../figures/socialopplot.pdf
+	width 3.5in
+	clip
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Social optimum
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../figures/nashplot.pdf
+	width 3.5in
+	clip
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Nash equilibrium
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Differences in flow assignments between social optimum and Nash equilibrium
+ when first link is beyond capacity
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
