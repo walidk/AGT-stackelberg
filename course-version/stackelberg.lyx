@@ -2537,7 +2537,11 @@ reference "alg:opNE"
 \begin_inset Formula $\left\{ \cffFlow 12,\qdemand-\cffFlow 12\right\} $
 \end_inset
 
-.
+ (where we also tacitly assume that 
+\begin_inset Formula $\flowMax[2]\ge\qdemand-\cffFlow 12$
+\end_inset
+
+).
  The comparison of the social optimum and Nash equilibrium conditions are
  depicted in 
 \begin_inset CommandInset ref
@@ -2560,7 +2564,7 @@ status open
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -2588,11 +2592,11 @@ Social optimum
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ../figures/nashplot.pdf
+	filename ../figures/neplot.pdf
 	width 3.5in
 	clip
 
@@ -2646,7 +2650,7 @@ Computing the Price of Anarchy when
 \begin_inset Formula $\qdemand>\flowMax[1]$
 \end_inset
 
- reveals where the inefficiencies lie in the Nash Equilibrium.
+ reveals where the inefficiencies lie in the Nash equilibrium.
 \end_layout
 
 \begin_layout Standard
@@ -2667,9 +2671,29 @@ First, we note that as
 \begin_inset Formula $\parA[2]\rightarrow\parA[1]$
 \end_inset
 
-, then the Price of Anarchy goes to 1.
- Intuitively, what this says is that inefficiencies are directly related
- 
+, the Price of Anarchy goes to 1.
+ Intuitively, what this says is that inefficiencies in Nash equilibrium
+ can be directly attributed to the differences in free flow travel time
+ between the links.
+ As the differences in free flow speed increases, so will the Price of Anarchy.
+ Additionally, as the demand increases, the Price of Anarchy will decrease.
+ This occurs because the absolute difference in total latency between social
+ optimum and Nash equilibrium is constant as demand increases.
+ The discontinuity in total latency for Nash equilibrium occurs when demand
+ exceeds the capacity of the first link (
+\begin_inset Formula $\qdemand>\flowMax[1]$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+What we can conclude from the Price of Anarchy analysis of the two link
+ case is that selfish routing is most costly in the demand region where
+ a free flow link is near capacity.
+ If a controller were to anticipate a scenario where demand was slightly
+ above this capacity, one could take extra measures to divert flow away
+ from this link.
 \end_layout
 
 \begin_layout Section
