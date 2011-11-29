@@ -835,145 +835,6 @@ Some of the known results on congestion networks do not apply to our setting:
 \end_layout
 
 \begin_layout Section
-Social Optima
-\end_layout
-
-\begin_layout Standard
-Consider an instance 
-\begin_inset Formula $(\Network,\qdemand)$
-\end_inset
-
- where the flow demand 
-\begin_inset Formula $r$
-\end_inset
-
- does not exceed the maximum capacity of the network 
-\begin_inset Formula $r\leq\sum_{n}\flow[\link]^{\max}$
-\end_inset
-
-.
- Since the total cost function is 
-\begin_inset Formula $C(\mass)=\sum_{n}\Length[\link]\mass[\link]$
-\end_inset
-
-, the social optimum of the network is a solution to the following optimization
- problem 
-\begin_inset Formula $(SO)$
-\end_inset
-
- 
-\begin_inset Formula 
-\begin{align*}
-\min_{\flow,\Mode} & \sum_{n}\flow[n]l_{n}(\flow[n],\Mode[n])\\
-\text{subject to } & \sum_{n}\flow[\link]=r\\
- & \flow[n]\in[0,\flowMax[n]]
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The objective function is non-convex.
- However, we show that the solutions to this optimization problem are necessaril
-y in free-flow (
-\begin_inset Formula $\Mode=0$
-\end_inset
-
-), thus the social optimum can be computed by solving an equivalent linear
- program.
-\end_layout
-
-\begin_layout Lemma
-\begin_inset CommandInset label
-LatexCommand label
-name "lemma:relaxedTTT_is_ff"
-
-\end_inset
-
- 
-\begin_inset Formula $(x^{*},\Mode^{*})$
-\end_inset
-
- is optimal for 
-\begin_inset Formula $(SO)$
-\end_inset
-
- only if 
-\begin_inset Formula $\Mode[i]{}^{*}=0\quad\forall i\in\left\{ 1,\ldots,\NLinks\right\} $
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Proof
-This follows immediately from the fact the latency on a link in congestion
- is always greater than the latency of the link in free-flow 
-\begin_inset Formula $l_{n}(\flow[n],1)\geq l_{n}(\flow[n],0)$
-\end_inset
-
- 
-\begin_inset Formula $\forall\flow[n]\in[0,\flowMax[n]]$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Subsection
-Simple characterization of social optima
-\end_layout
-
-\begin_layout Standard
-As a consequence of the previous Lemma, and using the fact that the latency
- is constant in free-flow 
-\begin_inset Formula $l_{n}(\flow[n],0)=\parA[n]$
-\end_inset
-
-, the social optimum can be computed by solving the following equivalent
- linear program 
-\begin_inset Formula 
-\begin{align*}
-\min_{\flow} & \sum_{n}\flow[n]\parA[n]\\
-\text{subject to } & \sum_{n}\flow[\link]=r\\
- & \flow[n]\in[0,\flowMax[n]]
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Then assuming the links are ordered by increasing free-flow latency 
-\begin_inset Formula $a_{1}\leq\dots\leq a_{N}$
-\end_inset
-
- the social optimum is simply given by the assignment that saturates most
- efficient links first.
- Formally, if 
-\begin_inset Formula $k_{0}=\max\{k|r>\sum_{n=1}^{k}x_{n}^{\max}\}$
-\end_inset
-
- then the social optimal assignment 
-\begin_inset Formula $x^{*}$
-\end_inset
-
- is given by
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align}
-\flow^{*}=(\flowMax[1],\dots,\flowMax[k_{0}],\qdemand-\sum_{n=1}^{k_{0}}\flowMax[n],0,\dots,0)\label{eq:so}
-\end{align}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
 Nash Equilibria
 \end_layout
 
@@ -2289,6 +2150,145 @@ reference "def:hat"
 \end_layout
 
 \begin_layout Section
+Social Optima
+\end_layout
+
+\begin_layout Standard
+Consider an instance 
+\begin_inset Formula $(\Network,\qdemand)$
+\end_inset
+
+ where the flow demand 
+\begin_inset Formula $r$
+\end_inset
+
+ does not exceed the maximum capacity of the network 
+\begin_inset Formula $r\leq\sum_{n}\flow[\link]^{\max}$
+\end_inset
+
+.
+ Since the total cost function is 
+\begin_inset Formula $C(\mass)=\sum_{n}\Length[\link]\mass[\link]$
+\end_inset
+
+, the social optimum of the network is a solution to the following optimization
+ problem 
+\begin_inset Formula $(SO)$
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{align*}
+\min_{\flow,\Mode} & \sum_{n}\flow[n]l_{n}(\flow[n],\Mode[n])\\
+\text{subject to } & \sum_{n}\flow[\link]=r\\
+ & \flow[n]\in[0,\flowMax[n]]
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The objective function is non-convex.
+ However, we show that the solutions to this optimization problem are necessaril
+y in free-flow (
+\begin_inset Formula $\Mode=0$
+\end_inset
+
+), thus the social optimum can be computed by solving an equivalent linear
+ program.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lemma:relaxedTTT_is_ff"
+
+\end_inset
+
+ 
+\begin_inset Formula $(x^{*},\Mode^{*})$
+\end_inset
+
+ is optimal for 
+\begin_inset Formula $(SO)$
+\end_inset
+
+ only if 
+\begin_inset Formula $\Mode[i]{}^{*}=0\quad\forall i\in\left\{ 1,\ldots,\NLinks\right\} $
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+This follows immediately from the fact the latency on a link in congestion
+ is always greater than the latency of the link in free-flow 
+\begin_inset Formula $l_{n}(\flow[n],1)\geq l_{n}(\flow[n],0)$
+\end_inset
+
+ 
+\begin_inset Formula $\forall\flow[n]\in[0,\flowMax[n]]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Simple characterization of social optima
+\end_layout
+
+\begin_layout Standard
+As a consequence of the previous Lemma, and using the fact that the latency
+ is constant in free-flow 
+\begin_inset Formula $l_{n}(\flow[n],0)=\parA[n]$
+\end_inset
+
+, the social optimum can be computed by solving the following equivalent
+ linear program 
+\begin_inset Formula 
+\begin{align*}
+\min_{\flow} & \sum_{n}\flow[n]\parA[n]\\
+\text{subject to } & \sum_{n}\flow[\link]=r\\
+ & \flow[n]\in[0,\flowMax[n]]
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then assuming the links are ordered by increasing free-flow latency 
+\begin_inset Formula $a_{1}\leq\dots\leq a_{N}$
+\end_inset
+
+ the social optimum is simply given by the assignment that saturates most
+ efficient links first.
+ Formally, if 
+\begin_inset Formula $k_{0}=\max\{k|r>\sum_{n=1}^{k}x_{n}^{\max}\}$
+\end_inset
+
+ then the social optimal assignment 
+\begin_inset Formula $x^{*}$
+\end_inset
+
+ is given by
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\flow^{*}=(\flowMax[1],\dots,\flowMax[k_{0}],\qdemand-\sum_{n=1}^{k_{0}}\flowMax[n],0,\dots,0)\label{eq:so}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Price of Anarchy on Two-Link Network
 \end_layout
 
@@ -2663,7 +2663,13 @@ POA\left(\Network,\qdemand\right) & = & \frac{\parA[2]\cffFlow 12+\parA[2]\left(
 \end_layout
 
 \begin_layout Standard
-First, we note 
+First, we note that as 
+\begin_inset Formula $\parA[2]\rightarrow\parA[1]$
+\end_inset
+
+, then the Price of Anarchy goes to 1.
+ Intuitively, what this says is that inefficiencies are directly related
+ 
 \end_layout
 
 \begin_layout Section
