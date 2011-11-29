@@ -835,6 +835,145 @@ Some of the known results on congestion networks do not apply to our setting:
 \end_layout
 
 \begin_layout Section
+Social Optima
+\end_layout
+
+\begin_layout Standard
+Consider an instance 
+\begin_inset Formula $(\Network,\qdemand)$
+\end_inset
+
+ where the flow demand 
+\begin_inset Formula $r$
+\end_inset
+
+ does not exceed the maximum capacity of the network 
+\begin_inset Formula $r\leq\sum_{n}\flow[\link]^{\max}$
+\end_inset
+
+.
+ Since the total cost function is 
+\begin_inset Formula $C(\mass)=\sum_{n}\Length[\link]\mass[\link]$
+\end_inset
+
+, the social optimum of the network is a solution to the following optimization
+ problem 
+\begin_inset Formula $(SO)$
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{align*}
+\min_{\flow,\Mode} & \sum_{n}\flow[n]l_{n}(\flow[n],\Mode[n])\\
+\text{subject to } & \sum_{n}\flow[\link]=r\\
+ & \flow[n]\in[0,\flowMax[n]]
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The objective function is non-convex.
+ However, we show that the solutions to this optimization problem are necessaril
+y in free-flow (
+\begin_inset Formula $\Mode=0$
+\end_inset
+
+), thus the social optimum can be computed by solving an equivalent linear
+ program.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lemma:relaxedTTT_is_ff"
+
+\end_inset
+
+ 
+\begin_inset Formula $(x^{*},\Mode^{*})$
+\end_inset
+
+ is optimal for 
+\begin_inset Formula $(SO)$
+\end_inset
+
+ only if 
+\begin_inset Formula $\Mode[i]{}^{*}=0\quad\forall i\in\left\{ 1,\ldots,\NLinks\right\} $
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+This follows immediately from the fact the latency on a link in congestion
+ is always greater than the latency of the link in free-flow 
+\begin_inset Formula $l_{n}(\flow[n],1)\geq l_{n}(\flow[n],0)$
+\end_inset
+
+ 
+\begin_inset Formula $\forall\flow[n]\in[0,\flowMax[n]]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Simple characterization of social optima
+\end_layout
+
+\begin_layout Standard
+As a consequence of the previous Lemma, and using the fact that the latency
+ is constant in free-flow 
+\begin_inset Formula $l_{n}(\flow[n],0)=\parA[n]$
+\end_inset
+
+, the social optimum can be computed by solving the following equivalent
+ linear program 
+\begin_inset Formula 
+\begin{align*}
+\min_{\flow} & \sum_{n}\flow[n]\parA[n]\\
+\text{subject to } & \sum_{n}\flow[\link]=r\\
+ & \flow[n]\in[0,\flowMax[n]]
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then assuming the links are ordered by increasing free-flow latency 
+\begin_inset Formula $a_{1}\leq\dots\leq a_{N}$
+\end_inset
+
+ the social optimum is simply given by the assignment that saturates most
+ efficient links first.
+ Formally, if 
+\begin_inset Formula $k_{0}=\max\{k|r>\sum_{n=1}^{k}x_{n}^{\max}\}$
+\end_inset
+
+ then the social optimal assignment 
+\begin_inset Formula $x^{*}$
+\end_inset
+
+ is given by
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\flow^{*}=(\flowMax[1],\dots,\flowMax[k_{0}],\qdemand-\sum_{n=1}^{k_{0}}\flowMax[n],0,\dots,0)
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Nash Equilibria
 \end_layout
 
@@ -1378,7 +1517,7 @@ name "def:hat"
 \end_inset
 
 
-\begin_inset Formula $\cffFlow ij\coloneqq\left\{ \flow\in\left[0,\parC[i]\right]:\latency[i]\left(x,1\right)=\parA[j]\right\} \forall i\in\left\{ 1,\ldots,\NLinks\right\} ,j\in\left\{ i+1,\ldots,\NLinks\right\} $
+\begin_inset Formula $\cffFlow ij\coloneqq\left\{ \flow\in\left[0,\flowMax[i]\right]:\latency[i]\left(x,1\right)=\parA[j]\right\} \forall i\in\left\{ 1,\ldots,\NLinks\right\} ,j\in\left\{ i+1,\ldots,\NLinks\right\} $
 \end_inset
 
 
@@ -1421,7 +1560,7 @@ represents is the flow on link
  to begin to be utilized in a Nash equilibrium.
  For the triangular fundamental diagram, we can algebraically solve for
  
-\begin_inset Formula $\cffFlow ij=\frac{\parB[i]\parC[i]}{\parC[i]\left(\parA[j]-\parA[i]\right)+\parB[i]}$
+\begin_inset Formula $\cffFlow ij=\frac{\parB[i]\flowMax[i]}{\flowMax[i]\left(\parA[j]-\parA[i]\right)+\parB[i]}$
 \end_inset
 
 .
@@ -1434,7 +1573,7 @@ represents is the flow on link
 \end_inset
 
  (
-\begin_inset Formula $\parC[i]$
+\begin_inset Formula $\flowMax[i]$
 \end_inset
 
 ) as 
@@ -1486,7 +1625,7 @@ name "lem:xhat"
 \end_inset
 
 
-\begin_inset Formula $\opneFlow[j]jr\in\left[0,\parC[j]\right]\implies\left(\opneFlow jr,\cffMode j\right)\in\NashEq{\Network}{\qdemand}$
+\begin_inset Formula $\opneFlow[j]jr\in\left[0,\flowMax[j]\right]\implies\left(\opneFlow jr,\cffMode j\right)\in\NashEq{\Network}{\qdemand}$
 \end_inset
 
 .
@@ -1512,7 +1651,7 @@ reference "def:hat"
 \end_inset
 
 
-\begin_inset Formula $\opneFlow[i]j{\qdemand}\in\left[0,\parC[i]\right]\forall i\in\left\{ 1,\ldots,\NLinks\right\} $
+\begin_inset Formula $\opneFlow[i]j{\qdemand}\in\left[0,\flowMax[i]\right]\forall i\in\left\{ 1,\ldots,\NLinks\right\} $
 \end_inset
 
 .
@@ -1633,7 +1772,7 @@ By induction.
 \end_inset
 
 , and the maximum demand that can have such an equilibrium is 
-\begin_inset Formula $\sum_{\link=1}^{\NLinks-1}\cffFlow{\link}{\NLinks}+\parC[\NLinks]$
+\begin_inset Formula $\sum_{\link=1}^{\NLinks-1}\cffFlow{\link}{\NLinks}+\flowMax[\NLinks]$
 \end_inset
 
 .
@@ -1645,7 +1784,7 @@ reference "lem:filluplower"
 \end_inset
 
 , a sufficient condition to show is for all demands between 0 and 
-\begin_inset Formula $\sum_{\link=1}^{\NLinks-1}\cffFlow{\link}{\NLinks}+\parC[\NLinks]$
+\begin_inset Formula $\sum_{\link=1}^{\NLinks-1}\cffFlow{\link}{\NLinks}+\flowMax[\NLinks]$
 \end_inset
 
 , there exists a single-link free flow Nash equilibrium.
@@ -1655,23 +1794,23 @@ reference "lem:filluplower"
 
 .
  For the base step, it is obvious that if 
-\begin_inset Formula $0\le\qdemand\le\parC[1]$
+\begin_inset Formula $0\le\qdemand\le\flowMax[1]$
 \end_inset
 
 , there is a single-link free flow Nash equilibrium solution (all flow is
  in free flow on link 1).
  Next, assume that if 
-\begin_inset Formula $0\le\qdemand\le\sum_{\link=1}^{j-1}\cffFlow{\link}j+\parC[j]$
+\begin_inset Formula $0\le\qdemand\le\sum_{\link=1}^{j-1}\cffFlow{\link}j+\flowMax[j]$
 \end_inset
 
 , then there exists a single-link free flow Nash equilibrium.
  Now, assume 
-\begin_inset Formula $0\le\qdemand\le\sum_{\link=1}^{j}\cffFlow{\link}{j+1}+\parC[j+1]$
+\begin_inset Formula $0\le\qdemand\le\sum_{\link=1}^{j}\cffFlow{\link}{j+1}+\flowMax[j+1]$
 \end_inset
 
 .
  From the induction hypothesis, if 
-\begin_inset Formula $0\le\qdemand\le\sum_{\link=1}^{j-1}\cffFlow{\link}j+\parC[j]$
+\begin_inset Formula $0\le\qdemand\le\sum_{\link=1}^{j-1}\cffFlow{\link}j+\flowMax[j]$
 \end_inset
 
 , then there exists such a Nash equilibrium.
@@ -1680,19 +1819,9 @@ reference "lem:filluplower"
 
 \begin_layout Proof
 \begin_inset Formula 
-\[
-\sum_{\link=1}^{j-1}\cffFlow{\link}j+\parC[j]\le\qdemand\le\sum_{\link=1}^{j}\cffFlow{\link}{j+1}+\parC[j+1]
-\]
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-(*)
-\end_layout
+\begin{equation}
+\sum_{\link=1}^{j-1}\cffFlow{\link}j+\flowMax[j]\le\qdemand\le\sum_{\link=1}^{j}\cffFlow{\link}{j+1}+\flowMax[j+1]\label{eq:im1}
+\end{equation}
 
 \end_inset
 
@@ -1705,7 +1834,7 @@ reference "lem:xhat"
 \end_inset
 
 , we need only to show that if 
-\begin_inset Formula $\parC[j+1]\ge\qdemand-\sum_{\link=1}^{j}\cffFlow{\link}{j+1}\ge0$
+\begin_inset Formula $\flowMax[j+1]\ge\qdemand-\sum_{\link=1}^{j}\cffFlow{\link}{j+1}\ge0$
 \end_inset
 
 , then 
@@ -1735,19 +1864,9 @@ reference "lem:xhat"
 
 \begin_layout Proof
 \begin_inset Formula 
-\[
-\sum_{\link=1}^{j-2}\cffFlow{\link}j+\cffFlow{j-1}j\le\sum_{\link=1}^{j-2}\cffFlow{\link}{j-1}+\parC[j-1]
-\]
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-asdf
-\end_layout
+\begin{equation}
+\sum_{\link=1}^{j-2}\cffFlow{\link}j+\cffFlow{j-1}j\le\sum_{\link=1}^{j-2}\cffFlow{\link}{j-1}+\flowMax[j-1]\label{eq:im2}
+\end{equation}
 
 \end_inset
 
@@ -1755,13 +1874,13 @@ asdf
  Then we have:
 \end_layout
 
-\begin_layout Proof
+\begin_layout Standard
 \begin_inset Formula 
-\begin{eqnarray*}
-\parC[j+1] & \ge\qdemand-\sum_{\link=1}^{j}\cffFlow{\link}{j+1} & (*)\\
- & \ge\qdemand-\sum_{\link=1}^{j-1}\cffFlow{\link}j-\parC[j] & (**)\\
- & \ge0 & (*)
-\end{eqnarray*}
+\begin{align*}
+\flowMax[j+1] & \ge\qdemand-\sum_{\link=1}^{j}\cffFlow{\link}{j+1} & \text{using \eqref{eq:im1}}\\
+ & \ge\qdemand-\sum_{\link=1}^{j-1}\cffFlow{\link}j-\flowMax[j] & \text{using \eqref{eq:im2}}\\
+ & \geq0 & \text{using \eqref{eq:im1}}
+\end{align*}
 
 \end_inset
 
@@ -2182,145 +2301,6 @@ We consider a
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Section
-Social Optima
-\end_layout
-
-\begin_layout Standard
-Consider an instance 
-\begin_inset Formula $(N,\qdemand)$
-\end_inset
-
- where the flow demand 
-\begin_inset Formula $r$
-\end_inset
-
- does not exceed the maximum capacity of the network 
-\begin_inset Formula $r\leq\sum_{n}\flow[\link]^{\max}$
-\end_inset
-
-.
- Since the total cost function is 
-\begin_inset Formula $C(\mass)=\sum_{n}\Length[\link]\mass[\link]$
-\end_inset
-
-, the social optimum of the network is a solution to the following optimization
- problem 
-\begin_inset Formula $(SO)$
-\end_inset
-
- 
-\begin_inset Formula 
-\begin{align*}
-\min_{\flow,\Mode} & \sum_{n}\flow[n]l_{n}(\flow[n],\Mode[n])\\
-\text{subject to } & \sum_{n}\flow[\link]=r\\
- & \flow[n]\in[0,\flowMax[n]]
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The objective function is non-convex.
- However, we show that the solutions to this optimization problem are necessaril
-y in free-flow (
-\begin_inset Formula $\Mode=0$
-\end_inset
-
-), thus the social optimum can be computed by solving an equivalent linear
- program.
-\end_layout
-
-\begin_layout Lemma
-\begin_inset CommandInset label
-LatexCommand label
-name "lemma:relaxedTTT_is_ff"
-
-\end_inset
-
- 
-\begin_inset Formula $(x^{*},\Mode^{*})$
-\end_inset
-
- is optimal for 
-\begin_inset Formula $(SO)$
-\end_inset
-
- only if 
-\begin_inset Formula $\Mode{}^{*}=0$
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Proof
-This follows immediately from the fact the latency on a link in congestion
- is always greater than the latency of the link in free-flow 
-\begin_inset Formula $l_{n}(\flow[n],1)\geq l_{n}(\flow[n],0)$
-\end_inset
-
- 
-\begin_inset Formula $\forall\flow[n]\in[0,\flowMax[n]]$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Subsection
-Simple characterization of social optima
-\end_layout
-
-\begin_layout Standard
-As a consequence of the previous Lemma, and using the fact that the latency
- is constant in free-flow 
-\begin_inset Formula $l_{n}(\flow[n],0)=\parA[n]$
-\end_inset
-
-, the social optimum can be computed by solving the following equivalent
- linear program 
-\begin_inset Formula 
-\begin{align*}
-\min_{\flow} & \sum_{n}\flow[n]\parA[n]\\
-\text{subject to } & \sum_{n}\flow[\link]=r\\
- & \flow[n]\in[0,\flowMax[n]]
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Then assuming the links are ordered by increasing free-flow latency 
-\begin_inset Formula $a_{1}\leq\dots\leq a_{N}$
-\end_inset
-
- the social optimum is simply given by the assignment that saturates most
- efficient links first.
- Formally, if 
-\begin_inset Formula $k_{0}=\max\{k|r>\sum_{n=1}^{k}x_{n}^{\max}\}$
-\end_inset
-
- then the social optimal assignment 
-\begin_inset Formula $x^{*}$
-\end_inset
-
- is given by
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align}
-\flow^{*}=(\flowMax[1],\dots,\flowMax[k_{0}],\qdemand-\sum_{n=1}^{k_{0}}\flowMax[n],0,\dots,0)
-\end{align}
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
