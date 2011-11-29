@@ -78,7 +78,7 @@ filename "lyx_commands.lyx"
 \end_layout
 
 \begin_layout Title
-Stackelberg strategies for transportation networks
+Stackelberg Routing on Transportation Networks
 \begin_inset Note Note
 status open
 
@@ -604,7 +604,7 @@ where
 \end_layout
 
 \begin_layout Standard
-Using the expression
+Using the expression 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:flow"
@@ -997,7 +997,7 @@ In particular, every (non-atomic) user cannot improve her latency by switching
 \begin_layout Lemma
 \begin_inset CommandInset label
 LatexCommand label
-name "lemma:nash_eq"
+name "lem:nash_eq"
 
 \end_inset
 
@@ -1236,7 +1236,7 @@ Take
 , which violates 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "lemma:nash_eq"
+reference "lem:nash_eq"
 
 \end_inset
 
@@ -1383,7 +1383,7 @@ reference "cor:atmost1ff"
  From 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "lemma:nash_eq"
+reference "lem:nash_eq"
 
 \end_inset
 
@@ -1409,7 +1409,7 @@ reference "lemma:nash_eq"
 yet from 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "lemma:nash_eq"
+reference "lem:nash_eq"
 
 \end_inset
 
@@ -2025,18 +2025,18 @@ The proofs for the lemmas above are omitted for brevity.
 \end_layout
 
 \begin_layout Proof
-From 
+From Corollary 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "cor:atmost1ff"
 
 \end_inset
 
-, the complete set of candidate Nash equilibria with demand, 
+, the complete set of candidate Nash equilibria with demand 
 \begin_inset Formula $\qdemand,$
 \end_inset
 
-are the flows with one link in free flow (
+ are the flows with one link in free flow (
 \begin_inset Formula $\left\{ \opneFlow{\qdemand}i:i\in\left\{ 1,\ldots,\NLinks\right\} \right\} $
 \end_inset
 
@@ -2093,8 +2093,7 @@ reference "theorem:minsupport"
 
 .
  While the results are interesting and useful in their own rights, they
- become even more powerful when describing Stackelberg equilibria in Section
- 
+ become even more powerful when describing Stackelberg equilibria in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:Optimal-Stackelberg-strategies"
@@ -2183,7 +2182,7 @@ reference "alg:opNE"
 \begin_inset Formula $\cffFlow ij$
 \end_inset
 
- in 
+ in Definition 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "def:hat"
@@ -2480,7 +2479,7 @@ reference "eq:so"
 \end_inset
 
 , and all the demand will be on link 1 in free flow.
- Similarly, 
+ Similarly, Theorem
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "theorem:minsupport"
@@ -2498,7 +2497,7 @@ reference "theorem:minsupport"
 
  is has all demand on link 1 in free flow, and is equivalent to the social
  optimum solution.
- This is depicted in Figure 
+ This is depicted in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:ff"
@@ -2584,7 +2583,7 @@ reference "eq:so"
 
 .
  The results differ for Nash equilibrium.
- Since 
+ Since Theorem 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "theorem:minsupport"
@@ -2903,7 +2902,7 @@ induced equilibrium
  and by 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "lemma:nash_eq"
+reference "lem:nash_eq"
 
 \end_inset
 
