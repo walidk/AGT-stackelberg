@@ -3007,10 +3007,6 @@ The Non-Compliant First strategy is optimal
 \end_layout
 
 \begin_layout Standard
-
-\end_layout
-
-\begin_layout Proof
 Let 
 \begin_inset Formula $s$
 \end_inset
@@ -3023,7 +3019,7 @@ Let
  We will show that
 \end_layout
 
-\begin_layout Proof
+\begin_layout Standard
 \begin_inset Formula 
 \[
 C(x,\Mode)\geq C(\bar{x},\bar{\Mode})
@@ -3042,7 +3038,7 @@ C(x,\Mode)\geq C(\bar{x},\bar{\Mode})
 .
 \end_layout
 
-\begin_layout Proof
+\begin_layout Standard
 \noindent
 The proof proceeds as follows: we first show that links 
 \begin_inset Formula $\{1,\dots,l-1\}$
@@ -3079,7 +3075,7 @@ x_{n}\leq\bar{x}_{n}
 .
 \end_layout
 
-\begin_layout Proof
+\begin_layout Standard
 Let 
 \begin_inset Formula $k'=\max Supp(t)$
 \end_inset
@@ -3100,7 +3096,6 @@ Let
 .
 \end_layout
 
-\begin_deeper
 \begin_layout Lemma
 Link 
 \begin_inset Formula $k'$
@@ -3129,12 +3124,10 @@ Nash equilibrium induced by Stackelberg strategy
 .
 \end_layout
 
-\end_deeper
 \begin_layout Proof
 TBD
 \end_layout
 
-\begin_deeper
 \begin_layout Lemma
 \begin_inset Formula $k'\geq k$
 \end_inset
@@ -3238,7 +3231,6 @@ Therefore we must have
 .
 \end_layout
 
-\end_deeper
 \begin_layout Proof
 Using the lemma, we can now show that links 
 \begin_inset Formula $\{1,\dots,l-1\}$
