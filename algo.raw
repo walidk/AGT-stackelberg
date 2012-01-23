@@ -1,5 +1,5 @@
-procedure optimalNE(N,r)
-Inputs: Parallel network, N, of size N; demand r
+procedure bestNE(N,r)
+Inputs: Parallel network of size N; demand r
 Outputs: Optimal flow/mode vectors (X,M)
 
 for i $\in$ {1,...,N}:
@@ -10,7 +10,7 @@ return No-Solution
 
 
 procedure freeFlowConfig(N,r,j):
-Inputs: network N, demand r, free flow link index j
+Inputs: network of size N, demand r, free flow link index j
 Outputs: flow/mode configuration (X,M)
 
 for i $\in$ {1,...,N}:
