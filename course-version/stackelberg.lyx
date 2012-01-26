@@ -378,8 +378,8 @@ status open
 
 \begin_layout Plain Layout
 
-\change_inserted 835226575 1327619010
-A: what is essential? do we need to introduce?
+\change_inserted 835226575 1327619218
+A: what is essential? do we need to introduce? also put reference
 \change_unchanged
 
 \end_layout
@@ -414,10 +414,35 @@ name "sec:The-Model"
 \begin_layout Standard
 In this section, we consider a transportation setting to motivate the choice
  of the class of latency functions.
+\change_inserted 835226575 1327619245
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327619264
+A: rewrite in a more general context (no transp.) Always present trans.
+ as an example
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsection
-Traffic Network
+
+\change_deleted 835226575 1327619415
+Traffic
+\change_inserted 835226575 1327619419
+Horizontal Queueing
+\change_unchanged
+ Network
 \end_layout
 
 \begin_layout Standard
