@@ -299,7 +299,26 @@ key "lighthill1955kinematic,richards1956shock"
 
 \end_inset
 
-, and show that the resulting latency function can be expressed in the above
+,
+\change_inserted 835226575 1327618923
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327618948
+A: actually, you mean Greenshields and all the other f.d.
+ contributions
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ and show that the resulting latency function can be expressed in the above
  form 
 \begin_inset Formula $l(\flow,\Mode)$
 \end_inset
@@ -326,6 +345,24 @@ s slow down, so their latency increases, and the amount of flow on the link
 
 \begin_layout Subsection
 Main results
+\change_inserted 835226575 1327618973
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327618979
+A: there needs to be more lead in in the introduction
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -333,8 +370,25 @@ This new class of latency functions leads to new interesting results:
 \end_layout
 
 \begin_layout Itemize
-We show that for this class we do not have essential uniqueness of Nash
- equilibria.
+We show that for this class we do not have essential
+\change_inserted 835226575 1327618997
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327619010
+A: what is essential? do we need to introduce?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ uniqueness of Nash equilibria.
  We also show that the set of all pure Nash equilibria can be computed in
  polynomial time, and we characterize in particular the best Nash equilibrium.
 \end_layout
