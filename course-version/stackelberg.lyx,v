@@ -1,4 +1,28 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
+head	1.1;
+access;
+symbols;
+locks
+	jdr:1.1; strict;
+comment	@# @;
+
+
+1.1
+date	2012.01.26.22.34.14;	author jdr;	state Exp;
+branches;
+next	;
+
+
+desc
+@before alex edits
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#LyX 2.0 created this file. For more info see http://www.lyx.org/
 \lyxformat 413
 \begin_document
 \begin_header
@@ -58,12 +82,11 @@ theorems-ams-bytype
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author 835226575 "Jack Reilly" 
 \end_header
 
 \begin_body
@@ -79,48 +102,13 @@ filename "lyx_commands.lyx"
 \end_layout
 
 \begin_layout Title
-Stackelberg Routing on 
-\change_deleted 835226575 1327617333
-Transportation
-\change_inserted 835226575 1327617337
-Horizontal Queueing
-\change_unchanged
- Networks
-\change_inserted 835226575 1327617462
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 835226575 1327617610
-A: phrase as compliant/non-compliant and congestion, don't explicitly say
- traffic/transportation as main setup
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
+Stackelberg Routing on Transportation Networks
 \end_layout
 
 \begin_layout Abstract
-We study inefficiencies of transportation networks due to the selfish 
-\change_deleted 835226575 1327617306
-behaviour
-\change_inserted 835226575 1327617309
-behavior
-\change_unchanged
- and lack of coordination of 
-\change_deleted 835226575 1327617370
-driver
-\change_inserted 835226575 1327617370
-agent
-\change_unchanged
-s, by comparing social optima to Nash equilibria.
+We study inefficiencies of transportation networks due to the selfish behaviour
+ and lack of coordination of drivers, by comparing social optima to Nash
+ equilibria.
  Then we investigate possible strategies to reduce the inefficiency by studying
  the Stackelberg routing game: assuming we have control over a fraction
  of the flow on the network, what is a good way of routing that compliant
@@ -151,26 +139,6 @@ We study Stackelberg routing for a new class of latency functions, that
  Then we study the Stackelberg routing game and show that the optimal Stackelber
 g strategy can be computed in polynomial time for this class of latency
  functions on parallel link networks.
-\change_inserted 835226575 1327617550
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 835226575 1327617614
-A: explain how this applies to traffic just as an example
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
- The work is applied for modeling transportation networks in which a fraction
- of users are compliant to routing guidance provided by a central authority,
- while the rest of the users behave selfishly.
-\change_unchanged
-
 \end_layout
 
 \begin_layout Section
@@ -192,24 +160,6 @@ key "roughgarden2001stackelberg"
 
 ), and several bounds have been shown on the efficiency of these strategies.
  
-\change_inserted 835226575 1327617575
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 835226575 1327617617
-A: For CDC we need more consequent introduction
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Subsection
@@ -217,13 +167,8 @@ A new class of latency functions
 \end_layout
 
 \begin_layout Standard
-The class of latency functions that have been studied so far 
-\change_deleted 835226575 1327617872
-satisfies two important properties
-\change_inserted 835226575 1327617880
-rely on very specific assumptions
-\change_unchanged
-: if 
+The class of latency functions that have been studied so far satisfies two
+ important properties: if 
 \begin_inset Formula $l(\flow)$
 \end_inset
 
@@ -241,14 +186,8 @@ rely on very specific assumptions
 
  is assumed to be convex.
  While this class of latency functions provides a good model for congestion
- 
-\change_deleted 835226575 1327617892
-on
-\change_inserted 835226575 1327617892
-for
-\change_unchanged
- a considerable range of networks, such as communication networks, it does
- not accurately model horizontal queuing congestion, such as congestion
+ on a considerable range of networks, such as communication networks, it
+ does not accurately model horizontal queuing congestion, such as congestion
  on transportation networks for example.
  Intuitively, a given flow 
 \begin_inset Formula $x$
@@ -258,14 +197,8 @@ for
 \end_layout
 
 \begin_layout Itemize
-either many 
-\change_deleted 835226575 1327617373
-driver
-\change_inserted 835226575 1327617373
-agent
-\change_unchanged
-s moving slowly (high density on a congested road), in which case the latency
- is large
+either many drivers moving slowly (high density on a congested road), in
+ which case the latency is large
 \end_layout
 
 \begin_layout Itemize
@@ -316,14 +249,8 @@ key "lighthill1955kinematic,richards1956shock"
 decreasing 
 \emph default
 function of flow.
- Intuitively, as the link becomes more congested, 
-\change_deleted 835226575 1327617375
-driver
-\change_inserted 835226575 1327617375
-agent
-\change_unchanged
-s slow down, so their latency increases, and the amount of flow on the link
- decreases.
+ Intuitively, as the link becomes more congested, drivers slow down, so
+ their latency increases, and the amount of flow on the link decreases.
 \end_layout
 
 \begin_layout Subsection
@@ -4621,3 +4548,4 @@ options "plain"
 
 \end_body
 \end_document
+@
