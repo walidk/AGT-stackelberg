@@ -192,7 +192,7 @@ key "roughgarden2001stackelberg"
 
 ), and several bounds have been shown on the efficiency of these strategies.
  
-\change_inserted 835226575 1327617575
+\change_inserted 835226575 1327618386
 
 \begin_inset Note Note
 status open
@@ -201,6 +201,25 @@ status open
 
 \change_inserted 835226575 1327617617
 A: For CDC we need more consequent introduction
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 835226575 1327618388
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327618392
+note specific to alex edits
 \change_unchanged
 
 \end_layout
