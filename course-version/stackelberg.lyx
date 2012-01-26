@@ -210,27 +210,6 @@ A: For CDC we need more consequent introduction
 
 \end_layout
 
-\begin_layout Standard
-
-\change_inserted 835226575 1327618388
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 835226575 1327618392
-note specific to alex edits
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
-\end_layout
-
 \begin_layout Subsection
 A new class of latency functions
 \end_layout
