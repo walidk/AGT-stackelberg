@@ -63,7 +63,6 @@ theorems-ams-bytype
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author 835226575 "Jack Reilly" 
 \end_header
 
 \begin_body
@@ -79,30 +78,16 @@ filename "lyx_commands.lyx"
 \end_layout
 
 \begin_layout Title
-Stackelberg Routing on 
-\change_deleted 835226575 1327617333
-Transportation
-\change_inserted 835226575 1327627765
-Horizontal Queueing
-\change_unchanged
- Networks
-\change_inserted 835226575 1327628575
-
+Stackelberg Routing on Horizontal Queueing Networks
 \end_layout
 
 \begin_layout Title
-
-\change_inserted 835226575 1327627856
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 835226575 1327617610
 A: phrase as compliant/non-compliant and congestion, don't explicitly say
  traffic/transportation as main setup
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -111,14 +96,10 @@ A: phrase as compliant/non-compliant and congestion, don't explicitly say
 \end_layout
 
 \begin_layout Title
-
-\change_inserted 835226575 1327628585
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 835226575 1327627885
 J: How do we motivate the idea of Horizontal Queues? Will there be any complaint
 s about no backwave propogation? Motivate with 
 \begin_inset Quotes eld
@@ -138,17 +119,11 @@ jobs are all processed at same rate for internet traffic, but not true for
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 835226575 1327628593
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 835226575 1327628592
 A: all lemmas need to be named
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -157,17 +132,11 @@ A: all lemmas need to be named
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 835226575 1327628657
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 835226575 1327628615
 Saurabh: get rid of Definition's, just define instead
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -176,54 +145,32 @@ Saurabh: get rid of Definition's, just define instead
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 835226575 1327628661
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 835226575 1327628678
 A: social network 
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 835226575 1327628680
 J: ?
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
 \begin_layout Abstract
-We study inefficiencies of transportation networks due to the selfish 
-\change_deleted 835226575 1327617306
-behaviour
-\change_inserted 835226575 1327617309
-behavior
-\change_unchanged
- and lack of coordination of 
-\change_deleted 835226575 1327617370
-driver
-\change_inserted 835226575 1327617370
-agent
-\change_unchanged
-s, by comparing social optima to Nash equilibria.
+We study inefficiencies of transportation networks due to the selfish behavior
+ and lack of coordination of agents, by comparing social optima to Nash
+ equilibria.
  Then we investigate possible strategies to reduce the inefficiency by studying
  the Stackelberg routing game: assuming we have control over a fraction
  of the flow on the network, what is a good way of routing that compliant
@@ -254,17 +201,11 @@ We study Stackelberg routing for a new class of latency functions, that
  Then we study the Stackelberg routing game and show that the optimal Stackelber
 g strategy can be computed in polynomial time for this class of latency
  functions on parallel link networks.
-\change_inserted 835226575 1327617550
-
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 835226575 1327617614
 A: explain how this applies to traffic just as an example
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -272,57 +213,39 @@ A: explain how this applies to traffic just as an example
  The work is applied for modeling transportation networks in which a fraction
  of users are compliant to routing guidance provided by a central authority,
  while the rest of the users behave selfishly.
-\change_unchanged
-
 \end_layout
 
 \begin_layout Section
 Introduction
-\change_inserted 835226575 1327627900
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 835226575 1327627912
 \begin_inset Note Note
 status open
 
 \begin_layout Enumerate
-
-\change_inserted 835226575 1327628278
 General literature about routing (Roughgarden and co)
 \end_layout
 
 \begin_layout Enumerate
-
-\change_inserted 835226575 1327628290
 General literature about horizontal queue routing
 \end_layout
 
 \begin_layout Enumerate
-
-\change_inserted 835226575 1327628304
 presentation of the general framework: horizontal queues + compliant/ non-compli
 ant
 \end_layout
 
 \begin_layout Enumerate
-
-\change_inserted 835226575 1327628317
 Contribution of the article
 \end_layout
 
 \begin_layout Enumerate
-
-\change_inserted 835226575 1327628321
 Organization of the article
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -341,17 +264,11 @@ key "roughgarden2001stackelberg"
 
 ), and several bounds have been shown on the efficiency of these strategies.
  
-\change_inserted 835226575 1327618386
-
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 835226575 1327617617
 A: For CDC we need more consequent introduction
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -364,13 +281,8 @@ A new class of latency functions
 \end_layout
 
 \begin_layout Standard
-The class of latency functions that have been studied so far 
-\change_deleted 835226575 1327617872
-satisfies two important properties
-\change_inserted 835226575 1327617880
-rely on very specific assumptions
-\change_unchanged
-: if 
+The class of latency functions that have been studied so far rely on very
+ specific assumptions: if 
 \begin_inset Formula $l(\flow)$
 \end_inset
 
@@ -388,14 +300,8 @@ rely on very specific assumptions
 
  is assumed to be convex.
  While this class of latency functions provides a good model for congestion
- 
-\change_deleted 835226575 1327617892
-on
-\change_inserted 835226575 1327617892
-for
-\change_unchanged
- a considerable range of networks, such as communication networks, it does
- not accurately model horizontal queuing congestion, such as congestion
+ for a considerable range of networks, such as communication networks, it
+ does not accurately model horizontal queuing congestion, such as congestion
  on transportation networks for example.
  Intuitively, a given flow 
 \begin_inset Formula $x$
@@ -405,14 +311,8 @@ for
 \end_layout
 
 \begin_layout Itemize
-either many 
-\change_deleted 835226575 1327617373
-driver
-\change_inserted 835226575 1327617373
-agent
-\change_unchanged
-s moving slowly (high density on a congested road), in which case the latency
- is large
+either many agents moving slowly (high density on a congested road), in
+ which case the latency is large
 \end_layout
 
 \begin_layout Itemize
@@ -449,24 +349,16 @@ key "lighthill1955kinematic,richards1956shock"
 \end_inset
 
 ,
-\change_inserted 835226575 1327618923
-
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 835226575 1327618948
 A: actually, you mean Greenshields and all the other f.d.
  contributions
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
  and show that the resulting latency function can be expressed in the above
  form 
 \begin_inset Formula $l(\flow,\Mode)$
@@ -482,29 +374,17 @@ A: actually, you mean Greenshields and all the other f.d.
 decreasing 
 \emph default
 function of flow.
- Intuitively, as the link becomes more congested, 
-\change_deleted 835226575 1327617375
-driver
-\change_inserted 835226575 1327617375
-agent
-\change_unchanged
-s slow down, so their latency increases, and the amount of flow on the link
- decreases.
+ Intuitively, as the link becomes more congested, agents slow down, so their
+ latency increases, and the amount of flow on the link decreases.
 \end_layout
 
 \begin_layout Subsection
 Main results
-\change_inserted 835226575 1327627602
-
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 835226575 1327618979
 A: there needs to be more lead in in the introduction
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -514,31 +394,21 @@ A: there needs to be more lead in in the introduction
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 835226575 1327627612
 A: What contributions does this make? 
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 835226575 1327627631
 J: how is this different from main results?
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -548,23 +418,15 @@ This new class of latency functions leads to new interesting results:
 
 \begin_layout Itemize
 We show that for this class we do not have essential
-\change_inserted 835226575 1327618997
-
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 835226575 1327619218
 A: what is essential? do we need to introduce? also put reference
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
  uniqueness of Nash equilibria.
  We also show that the set of all pure Nash equilibria can be computed in
  polynomial time, and we characterize in particular the best Nash equilibrium.
@@ -575,13 +437,9 @@ We show that the optimal Stackelberg strategy can be computed in polynomial
  time.
  This results contrasts with the class of non-decreasing latency functions,
  for which computing the optimal Stackelberg strategy is NP-hard.
-\change_inserted 835226575 1327628108
-
 \end_layout
 
 \begin_layout Section
-
-\change_inserted 835226575 1327628116
 Related Work
 \end_layout
 
@@ -594,64 +452,40 @@ name "sec:The-Model"
 \end_inset
 
 
-\change_inserted 835226575 1327628357
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 835226575 1327628359
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 835226575 1327628554
 A: you need to present this as horiz queues, give several exapmpesl (green,
  daga, papa) and THEN show the tri dia as one of the instantiatons.
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
 \begin_layout Standard
 In this section, we consider a transportation setting to motivate the choice
  of the class of latency functions.
-\change_inserted 835226575 1327619245
-
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 835226575 1327619264
 A: rewrite in a more general context (no transp.) Always present trans.
  as an example
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Subsection
-
-\change_deleted 835226575 1327619415
-Traffic
-\change_inserted 835226575 1327619419
-Horizontal Queueing
-\change_unchanged
- Network
+Horizontal Queueing Network
 \end_layout
 
 \begin_layout Standard
@@ -742,16 +576,9 @@ reference "fig:nparlink"
 \begin_inset Formula $\mass[\link]$
 \end_inset
 
-, given by a triangular 
-\change_deleted 835226575 1327619451
-fundamental diagram
-\change_inserted 835226575 1327619473
-flux function (also referred to as fundamental diagram in transportation).
- It
-\change_deleted 835226575 1327619474
- that
-\change_unchanged
- specifies the flow 
+, given by a triangular flux function (also referred to as fundamental diagram
+ in transportation).
+ It specifies the flow 
 \begin_inset Formula $x_{n}$
 \end_inset
 
@@ -759,8 +586,6 @@ flux function (also referred to as fundamental diagram in transportation).
 \begin_inset Formula $\rho_{n}$
 \end_inset
 
-
-\change_inserted 835226575 1327619725
  by a functional relation 
 \begin_inset Formula $\flow[\link]=Q_{\link}\left(\mass[\link]\right)$
 \end_inset
@@ -774,11 +599,7 @@ flux function (also referred to as fundamental diagram in transportation).
 \end_inset
 
 .
- 
-\change_deleted 835226575 1327619759
-, with the following parameters:
-\change_inserted 835226575 1327629079
-There are various ways to model flux functions on links with horizontal
+ There are various ways to model flux functions on links with horizontal
  queueing, most of which are concave 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -791,61 +612,51 @@ key "daganzo1994cell"
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 835226575 1327629084
 J: add more refs
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
 .
- These 
-\change_unchanged
-
+ These are usually parameterized by characteristics of the network, in particula
+r:
 \end_layout
 
 \begin_layout Itemize
+The free-flow speed on the link 
 \begin_inset Formula $\freeflow{\link}$
 \end_inset
 
- the free-flow speed on the link 
+,
 \end_layout
 
 \begin_layout Itemize
+The congestion wave speed 
 \begin_inset Formula $\speedCong[\link]$
 \end_inset
 
- the congestion wave speed 
+,
 \end_layout
 
 \begin_layout Itemize
+The maximum capacity of the link 
 \begin_inset Formula $\flowMax[\link]$
 \end_inset
 
- the maximum capacity of the link 
+.
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 835226575 1327619541
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 835226575 1327619561
 A: make this an example (triangular), but present the whole paragraph in
  a more generic manner
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 In the free flow regime (when the density on the link is less than a critical
  density 
 \begin_inset Formula $\masscrit[\link]$
@@ -874,11 +685,7 @@ In the free flow regime (when the density on the link is less than a critical
 \begin_inset Formula $\flow[\link]=\flow[\link]^{\max}-\speedCong[\link](\mass[\link]-\masscrit[\link])=-\speedCong[\link](\mass[\link]-\mass[\link]^{\max})$
 \end_inset
 
- and the velocity is decreasing
-\change_inserted 835226575 1327619573
- 
-\change_unchanged
-
+ and the velocity is decreasing 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "daganzo1995cell,daganzo1994cell,harker1988multiple"
@@ -953,28 +760,16 @@ We assume that the network is subject to flow demand or rate
 \begin_inset Formula $r$
 \end_inset
 
- that repres
-\change_inserted 835226575 1327622984
-e
-\change_unchanged
-nts a set of non-atomic players
-\change_inserted 835226575 1327623005
-
+ that represents a set of non-atomic players
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 835226575 1327623017
 A: will people know what this means?
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 .
  We denote by 
 \begin_inset Formula $(\NLinks,\qdemand)$
@@ -989,23 +784,15 @@ A: will people know what this means?
 \end_inset
 
 , and no compliant flow
-\change_inserted 835226575 1327623023
-
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 835226575 1327623026
 this needs to be explained
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 .
  We next define feasible flow assignments for network instance 
 \begin_inset Formula $(\NLinks,\qdemand)$
@@ -1047,20 +834,10 @@ If
 \begin_inset Formula $(\NLinks,\qdemand)$
 \end_inset
 
-, we denote by
-\change_inserted 835226575 1327624299
- 
+, we denote by 
 \begin_inset Formula $\Supp{\flow}$
 \end_inset
 
-
-\change_deleted 835226575 1327624296
- 
-\begin_inset Formula $ $
-\end_inset
-
- 
-\change_unchanged
 the support of 
 \begin_inset Formula $\flow$
 \end_inset
@@ -1077,32 +854,18 @@ the support of
 \end_layout
 
 \begin_layout Subsection
-Deriving the Latency Function for a 
-\change_deleted 835226575 1327625943
-Traffic
-\change_inserted 835226575 1327625946
-Horizontal Queueing
-\change_unchanged
- Network
+Deriving the Latency Function for a Horizontal Queueing Network
 \end_layout
 
 \begin_layout Standard
 The 
-\change_inserted 835226575 1327625987
-
 \begin_inset Quotes eld
 \end_inset
 
-
-\change_unchanged
 velocity
-\change_inserted 835226575 1327625989
-
 \begin_inset Quotes erd
 \end_inset
 
-
-\change_unchanged
  on link 
 \begin_inset Formula $\link$
 \end_inset
@@ -1111,11 +874,8 @@ velocity
 \begin_inset Formula $\flow[\link]/\mass[\link]$
 \end_inset
 
-
-\change_inserted 835226575 1327625997
- (flux over density)
-\change_unchanged
-, and the latency incurred by every non-atomic player on link 
+ (flux over density), and the latency incurred by every non-atomic player
+ on link 
 \begin_inset Formula $n$
 \end_inset
 
@@ -1128,23 +888,15 @@ velocity
 \end_inset
 
 
-\change_inserted 835226575 1327626027
-
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 835226575 1327626037
 A: There is an abuse of notation on the latencies
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
