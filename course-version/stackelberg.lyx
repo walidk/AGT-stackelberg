@@ -82,12 +82,17 @@ filename "lyx_commands.lyx"
 Stackelberg Routing on 
 \change_deleted 835226575 1327617333
 Transportation
-\change_inserted 835226575 1327617337
+\change_inserted 835226575 1327627765
 Horizontal Queueing
 \change_unchanged
  Networks
-\change_inserted 835226575 1327617462
+\change_inserted 835226575 1327628575
 
+\end_layout
+
+\begin_layout Title
+
+\change_inserted 835226575 1327627856
 \begin_inset Note Note
 status open
 
@@ -96,6 +101,104 @@ status open
 \change_inserted 835226575 1327617610
 A: phrase as compliant/non-compliant and congestion, don't explicitly say
  traffic/transportation as main setup
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+
+\change_inserted 835226575 1327628585
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327627885
+J: How do we motivate the idea of Horizontal Queues? Will there be any complaint
+s about no backwave propogation? Motivate with 
+\begin_inset Quotes eld
+\end_inset
+
+jobs are all processed at same rate for internet traffic, but not true for
+ highway traffic.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 835226575 1327628593
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327628592
+A: all lemmas need to be named
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 835226575 1327628657
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327628615
+Saurabh: get rid of Definition's, just define instead
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 835226575 1327628661
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327628678
+A: social network 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327628680
+J: ?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
 \change_unchanged
 
 \end_layout
@@ -175,6 +278,52 @@ A: explain how this applies to traffic just as an example
 
 \begin_layout Section
 Introduction
+\change_inserted 835226575 1327627900
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 835226575 1327627912
+\begin_inset Note Note
+status open
+
+\begin_layout Enumerate
+
+\change_inserted 835226575 1327628278
+General literature about routing (Roughgarden and co)
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 835226575 1327628290
+General literature about horizontal queue routing
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 835226575 1327628304
+presentation of the general framework: horizontal queues + compliant/ non-compli
+ant
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 835226575 1327628317
+Contribution of the article
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 835226575 1327628321
+Organization of the article
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -345,7 +494,7 @@ s slow down, so their latency increases, and the amount of flow on the link
 
 \begin_layout Subsection
 Main results
-\change_inserted 835226575 1327618973
+\change_inserted 835226575 1327627602
 
 \begin_inset Note Note
 status open
@@ -354,6 +503,34 @@ status open
 
 \change_inserted 835226575 1327618979
 A: there needs to be more lead in in the introduction
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327627612
+A: What contributions does this make? 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327627631
+J: how is this different from main results?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
 \change_unchanged
 
 \end_layout
@@ -398,6 +575,14 @@ We show that the optimal Stackelberg strategy can be computed in polynomial
  time.
  This results contrasts with the class of non-decreasing latency functions,
  for which computing the optimal Stackelberg strategy is NP-hard.
+\change_inserted 835226575 1327628108
+
+\end_layout
+
+\begin_layout Section
+
+\change_inserted 835226575 1327628116
+Related Work
 \end_layout
 
 \begin_layout Section
@@ -408,6 +593,30 @@ name "sec:The-Model"
 
 \end_inset
 
+
+\change_inserted 835226575 1327628357
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 835226575 1327628359
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327628554
+A: you need to present this as horiz queues, give several exapmpesl (green,
+ daga, papa) and THEN show the tri dia as one of the instantiatons.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
 
 \end_layout
 
@@ -533,7 +742,16 @@ reference "fig:nparlink"
 \begin_inset Formula $\mass[\link]$
 \end_inset
 
-, given by a triangular fundamental diagram that specifies the flow 
+, given by a triangular 
+\change_deleted 835226575 1327619451
+fundamental diagram
+\change_inserted 835226575 1327619473
+flux function (also referred to as fundamental diagram in transportation).
+ It
+\change_deleted 835226575 1327619474
+ that
+\change_unchanged
+ specifies the flow 
 \begin_inset Formula $x_{n}$
 \end_inset
 
@@ -541,7 +759,29 @@ reference "fig:nparlink"
 \begin_inset Formula $\rho_{n}$
 \end_inset
 
+
+\change_inserted 835226575 1327619725
+ by a functional relation 
+\begin_inset Formula $\flow[\link]=Q_{\link}\left(\mass[\link]\right)$
+\end_inset
+
+, where 
+\begin_inset Formula $Q_{\link}$
+\end_inset
+
+ is the flux function of link 
+\begin_inset Formula $\link$
+\end_inset
+
+.
+ 
+\change_deleted 835226575 1327619759
 , with the following parameters:
+\change_inserted 835226575 1327619797
+There are various ways to model flux functions on links with horizontal
+ queueing, most of which are concave 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Itemize
@@ -566,6 +806,24 @@ reference "fig:nparlink"
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted 835226575 1327619541
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327619561
+A: make this an example (triangular), but present the whole paragraph in
+ a more generic manner
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
 In the free flow regime (when the density on the link is less than a critical
  density 
 \begin_inset Formula $\masscrit[\link]$
@@ -595,6 +853,10 @@ In the free flow regime (when the density on the link is less than a critical
 \end_inset
 
  and the velocity is decreasing
+\change_inserted 835226575 1327619573
+ 
+\change_unchanged
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "daganzo1995cell,daganzo1994cell,harker1988multiple"
@@ -669,7 +931,29 @@ We assume that the network is subject to flow demand or rate
 \begin_inset Formula $r$
 \end_inset
 
- that represnts a set of non-atomic players.
+ that repres
+\change_inserted 835226575 1327622984
+e
+\change_unchanged
+nts a set of non-atomic players
+\change_inserted 835226575 1327623005
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327623017
+A: will people know what this means?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+.
  We denote by 
 \begin_inset Formula $(\NLinks,\qdemand)$
 \end_inset
@@ -682,7 +966,25 @@ We assume that the network is subject to flow demand or rate
 \begin_inset Formula $r$
 \end_inset
 
-, and no compliant flow.
+, and no compliant flow
+\change_inserted 835226575 1327623023
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327623026
+this needs to be explained
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+.
  We next define feasible flow assignments for network instance 
 \begin_inset Formula $(\NLinks,\qdemand)$
 \end_inset
@@ -723,18 +1025,28 @@ If
 \begin_inset Formula $(\NLinks,\qdemand)$
 \end_inset
 
-, we denote by 
-\begin_inset Formula $Supp(\flow)$
+, we denote by
+\change_inserted 835226575 1327624299
+ 
+\begin_inset Formula $\Supp{\flow}$
 \end_inset
 
- the support of 
+
+\change_deleted 835226575 1327624296
+ 
+\begin_inset Formula $ $
+\end_inset
+
+ 
+\change_unchanged
+the support of 
 \begin_inset Formula $\flow$
 \end_inset
 
 , that is the set of links that are used by the flow assignment 
 \begin_inset Formula 
 \[
-Supp(\flow)=\{\link|\flow[\link]>0\}
+\Supp{\flow}=\{\link|\flow[\link]>0\}
 \]
 
 \end_inset
@@ -743,11 +1055,33 @@ Supp(\flow)=\{\link|\flow[\link]>0\}
 \end_layout
 
 \begin_layout Subsection
-Deriving the Latency Function for a Traffic Network
+Deriving the Latency Function for a 
+\change_deleted 835226575 1327625943
+Traffic
+\change_inserted 835226575 1327625946
+Horizontal Queueing
+\change_unchanged
+ Network
 \end_layout
 
 \begin_layout Standard
-The velocity on link 
+The 
+\change_inserted 835226575 1327625987
+
+\begin_inset Quotes eld
+\end_inset
+
+
+\change_unchanged
+velocity
+\change_inserted 835226575 1327625989
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\change_unchanged
+ on link 
 \begin_inset Formula $\link$
 \end_inset
 
@@ -755,6 +1089,10 @@ The velocity on link
 \begin_inset Formula $\flow[\link]/\mass[\link]$
 \end_inset
 
+
+\change_inserted 835226575 1327625997
+ (flux over density)
+\change_unchanged
 , and the latency incurred by every non-atomic player on link 
 \begin_inset Formula $n$
 \end_inset
@@ -767,6 +1105,24 @@ The velocity on link
 
 \end_inset
 
+
+\change_inserted 835226575 1327626027
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327626037
+A: There is an abuse of notation on the latencies
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
 
 \end_layout
 

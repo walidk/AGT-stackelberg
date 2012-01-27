@@ -508,17 +508,17 @@ stackelberg commands
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\parA}[1][]{a_{#1}}
+\newcommand{\parA}[1][]{a_{#1}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\parB}[1][]{b_{#1}}
+\newcommand{\parB}[1][]{b_{#1}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\parC}[1][]{c_{#1}}
+\newcommand{\parC}[1][]{c_{#1}}
 \end_inset
 
 
@@ -639,6 +639,14 @@ super script j = (1 through j-1 in congestion) and j in free flow (if exists)
 \begin_layout Standard
 \begin_inset FormulaMacro
 \newcommand{\cffMode}[2][]{\bar{\Mode}_{#1}^{#2}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Supp}[1]{\text{Supp\ensuremath{\left(#1\right)}}}
 \end_inset
 
 
