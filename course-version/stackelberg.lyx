@@ -777,9 +777,31 @@ flux function (also referred to as fundamental diagram in transportation).
  
 \change_deleted 835226575 1327619759
 , with the following parameters:
-\change_inserted 835226575 1327619797
+\change_inserted 835226575 1327629079
 There are various ways to model flux functions on links with horizontal
  queueing, most of which are concave 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "daganzo1994cell"
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327629084
+J: add more refs
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+.
+ These 
 \change_unchanged
 
 \end_layout
