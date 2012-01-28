@@ -2449,6 +2449,29 @@ We have shown so far that there are at most
 
 \begin_layout Subsubsection
 Single link free flow Nash Equilibria
+\change_inserted 835226575 1327729843
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327729868
+A: initially, when i read this page, i had a hard time until i realized
+ this is induction on the 
+\series bold
+size 
+\series default
+of the network?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -2457,7 +2480,7 @@ Consider a Nash equilibrium
 \end_inset
 
  and let 
-\begin_inset Formula $k=\max Supp(x).$
+\begin_inset Formula $k=\max\left\{ \Supp{\flow}\right\} $
 \end_inset
 
  Assume 
@@ -2469,8 +2492,18 @@ Consider a Nash equilibrium
 \begin_inset Formula $(x,m)$
 \end_inset
 
- is a free flow Nash Equilibrium).
+ is a free flow Nash 
+\change_inserted 835226575 1327729878
+e
+\change_deleted 835226575 1327729878
+E
+\change_unchanged
+quilibrium).
  We have from 
+\change_inserted 835226575 1327729884
+Corollary 
+\change_unchanged
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "cor:atmost1ff"
@@ -2572,10 +2605,28 @@ Now we can characterize single-link free flow equilibria.
 
 \end_inset
 
+
+\change_inserted 835226575 1327730271
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327730277
+A: same thing we need to discuss
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
  
 \begin_inset Formula 
 \begin{equation}
-\opneFlow k{\qdemand}=(\cffFlow 1k,\dots,\cffFlow{k-1}k,r-\sum_{\link=1}^{k-1}\cffFlow{\link}k,0,\dots,0)\label{eq:x_bar}
+\opneFlow k{\qdemand}=(\cffFlow 1k,\dots,\overset{k-1}{\cffFlow{k-1}k},\overset{k}{r-\sum_{\link=1}^{k-1}\cffFlow{\link}k},0,\dots,0)\label{eq:x_bar}
 \end{equation}
 
 \end_inset
@@ -2613,11 +2664,19 @@ reference "eq:x_bar"
 \end_inset
 
 , we have that 
-\begin_inset Formula $\latency[i]=\parA[j]\forall i<k,$
+\begin_inset Formula $\forall i<k$
 \end_inset
 
 
-\begin_inset Formula $\opneFlow[i]k{\qdemand}\in\left[0,\flowMax[i]\right]\forall i\in\left\{ 1,\ldots,\NLinks\right\} $
+\change_inserted 835226575 1327730342
+, 
+\begin_inset Formula $\latency[i]=\parA[j]$
+\end_inset
+
+ and 
+\change_unchanged
+
+\begin_inset Formula $\opneFlow[i]k{\qdemand}\in\left[0,\flowMax[i]\right]\quad\forall i\in\left\{ 1,\ldots,\NLinks\right\} $
 \end_inset
 
 .
@@ -2635,7 +2694,7 @@ reference "eq:x_bar"
 \end_inset
 
  are not in 
-\begin_inset Formula $Supp\left(\opneFlow k{\qdemand}\right),$
+\begin_inset Formula $\Supp{\opneFlow k{\qdemand}},$
 \end_inset
 
  and have a latency greater than 
@@ -2644,7 +2703,7 @@ reference "eq:x_bar"
 
 .
  Therefore, we have that 
-\begin_inset Formula $\forall\link\in Supp\left(\opneFlow k{\qdemand}\right)$
+\begin_inset Formula $\forall\link\in\Supp{\opneFlow k{\qdemand}}$
 \end_inset
 
 , 
@@ -2652,14 +2711,18 @@ reference "eq:x_bar"
 \end_inset
 
  and 
-\begin_inset Formula $\forall\link\notin Supp\left(\opneFlow k{\qdemand}\right)$
+\begin_inset Formula $\forall\link\notin\Supp{\opneFlow k{\qdemand}}$
 \end_inset
 
  
 \begin_inset Formula $l_{n}>a_{k}$
 \end_inset
 
-, which satisfies 
+, which satisfies
+\change_inserted 835226575 1327730432
+ Definition
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "def:ne"
@@ -2671,6 +2734,41 @@ reference "def:ne"
 
 \begin_layout Subsubsection
 Existence of a single-link free-flow Nash Equilibrium
+\change_inserted 835226575 1327730608
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327730627
+A: I do not understand m bar N + 1.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327730686
+J: If taken literally, it means that link 1 through N + 1 - 1 = 1 through
+ N are congested, while all other links are not congested.
+ This may lead to confusion but notation overkill would be the other option.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -2682,8 +2780,17 @@ reference "lem:xhat"
 \end_inset
 
 , we have an analytical representation of free flow Nash equilibria.
- Next we show that if the set of Nash equilibria is non-empty, then it contains
- a single link free flow Nash equilibrium.
+ Next
+\change_inserted 835226575 1327730501
+,
+\change_unchanged
+ we show that if the set of Nash equilibria is non-empty, then it contains
+ a single link free flow Nash equilibrium
+\change_inserted 835226575 1327730543
+ (i.e.
+ a Nash equilibrium for which there is a single link in free flow)
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Lemma
@@ -2702,7 +2809,11 @@ Consider instance
 \begin_inset Formula $\left(\flow,\cffMode{\NLinks+1}\right)\in\NashEq{\NLinks}{\qdemand}$
 \end_inset
 
-, then there also exists free flow Nash equilibrium 
+, then there also exists
+\change_inserted 835226575 1327730573
+ a
+\change_unchanged
+ free flow Nash equilibrium 
 \family roman
 \series medium
 \shape up
@@ -2730,7 +2841,7 @@ We first observe that the maximum demand
 \begin_inset Formula $r$
 \end_inset
 
- such that there exists a completely congested Nash equilibrim is 
+ such that there exists a completely congested Nash equilibrium is 
 \begin_inset Formula $\sum_{\link=1}^{\NLinks-1}\cffFlow{\link}{\NLinks}+\flowMax[\NLinks]$
 \end_inset
 
@@ -2743,10 +2854,13 @@ reference "lem:filluplower"
 \end_inset
 
 , it suffices to show the following property: 
-\begin_inset Formula $P_{N}$
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $\mathbf{P_{N}}$
 \end_inset
 
- 
+: 
 \begin_inset Formula $\forall r\in[0,\sum_{\link=1}^{\NLinks-1}\cffFlow{\link}{\NLinks}+\flowMax[\NLinks]]$
 \end_inset
 
@@ -2755,7 +2869,11 @@ reference "lem:filluplower"
 \end_inset
 
 .
- We show 
+ 
+\end_layout
+
+\begin_layout Proof
+We show 
 \begin_inset Formula $P_{N}$
 \end_inset
 
@@ -2763,11 +2881,8 @@ reference "lem:filluplower"
 \begin_inset Formula $N$
 \end_inset
 
-:
-\end_layout
-
-\begin_layout Proof
-For 
+, the size of the network.
+ For 
 \begin_inset Formula $N=1$
 \end_inset
 
@@ -2780,10 +2895,7 @@ For
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Proof
-Now let 
+ Now let 
 \begin_inset Formula $N\geq1$
 \end_inset
 
@@ -2801,11 +2913,7 @@ Now let
 \end_inset
 
 .
- 
-\end_layout
-
-\begin_layout Proof
-If 
+ If 
 \begin_inset Formula $0\le\qdemand\le\sum_{\link=1}^{N-1}\cffFlow{\link}N+\flowMax[N]$
 \end_inset
 
@@ -2850,7 +2958,15 @@ Now if
 
 \end_inset
 
-We will show that 
+
+\change_inserted 835226575 1327731137
+, 
+\change_deleted 835226575 1327731139
+We will
+\change_inserted 835226575 1327731140
+we can
+\change_unchanged
+ show that 
 \begin_inset Formula $\left(\opneFlow{N+1}{\qdemand},\cffMode{N+1}\right)\in\NashEq{\NLinks+1}{\qdemand}$
 \end_inset
 
@@ -2868,7 +2984,13 @@ reference "lem:xhat"
 
 .
  We readily have the second inequality.
- And to show the first inequality, we have
+
+\change_inserted 835226575 1327731119
+ T
+\change_deleted 835226575 1327731117
+ And t
+\change_unchanged
+o show the first inequality, we have
 \family roman
 \series medium
 \shape up
