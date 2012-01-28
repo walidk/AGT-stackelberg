@@ -169,9 +169,14 @@ J: ?
 \end_layout
 
 \begin_layout Abstract
-We study inefficiencies of transportation networks due to the selfish behavior
- and lack of coordination of agents, by comparing social optima to Nash
- equilibria.
+We study inefficiencies of 
+\change_deleted 835226575 1327724773
+transportation
+\change_inserted 835226575 1327724776
+capacity constrained
+\change_unchanged
+ networks due to the selfish behavior and lack of coordination of agents,
+ by comparing social optima to Nash equilibria.
  Then we investigate possible strategies to reduce the inefficiency by studying
  the Stackelberg routing game: assuming we have control over a fraction
  of the flow on the network, what is a good way of routing that compliant
@@ -312,19 +317,36 @@ The class of latency functions that have been studied so far rely on very
 \end_layout
 
 \begin_layout Itemize
-either many agents moving slowly (high density on a congested road), in
- which case the latency is large
+either 
+\change_deleted 835226575 1327724845
+many
+\change_inserted 835226575 1327724851
+a large concentration of
+\change_unchanged
+ agents moving slowly (high density on a congested road), in which case
+ the latency is large
+\change_inserted 835226575 1327724861
+,
+\change_unchanged
+
 \end_layout
 
 \begin_layout Itemize
 or few cars moving fast (low density), in which case the latency is small
+\change_inserted 835226575 1327724881
+.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
 this means that the latency is not uniquely determined by the flow, and
  depends on how congested the link is.
- One simple way of modeling this is to have an additional binary argument
- 
+ One simple way of modeling this
+\change_inserted 835226575 1327724875
+ phenomenon
+\change_unchanged
+ is to have an additional binary argument 
 \begin_inset Formula $m$
 \end_inset
 
@@ -341,8 +363,18 @@ this means that the latency is not uniquely determined by the flow, and
 \end_inset
 
 .
- We then consider a macroscopic model of traffic flow inspired by the model
- developed by Lighthill and Whitham, and Richards
+ 
+\change_deleted 835226575 1327724917
+We then consider a
+\change_inserted 835226575 1327724923
+This work considers a
+\change_unchanged
+ macroscopic model of traffic flow inspired by the model developed by Lighthill
+ and Whitham, and Richards
+\change_inserted 835226575 1327724892
+ 
+\change_unchanged
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "lighthill1955kinematic,richards1956shock"
@@ -436,8 +468,12 @@ A: what is essential? do we need to introduce? also put reference
 \begin_layout Itemize
 We show that the optimal Stackelberg strategy can be computed in polynomial
  time.
- This results contrasts with the class of non-decreasing latency functions,
- for which computing the optimal Stackelberg strategy is NP-hard.
+ This result
+\change_deleted 835226575 1327724985
+s
+\change_unchanged
+ contrasts with the class of non-decreasing latency functions, for which
+ computing the optimal Stackelberg strategy is NP-hard.
 \end_layout
 
 \begin_layout Section
