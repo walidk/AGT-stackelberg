@@ -3423,21 +3423,12 @@ reference "alg:bestNE"
 \begin_inset Formula $\cffFlow ij$
 \end_inset
 
- in 
-\change_deleted 835226575 1327736529
-Definition 
+
+\change_deleted 981273183 1327736079
+ in Definition 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "def:hat"
-
-\end_inset
-
-
-\change_inserted 835226575 1327736593
-
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "eq:x_hat"
 
 \end_inset
 
@@ -3526,17 +3517,21 @@ Consider an instance
 \end_inset
 
 , the social optimum of the network is a solution to the following optimization
- problem 
-\begin_inset Formula $(SO)$
+ problem
+\change_inserted 981273183 1327735788
+,
+\change_unchanged
+ 
+\begin_inset Formula $\textit{Social Optimum }(SO)$
 \end_inset
 
  
 \begin_inset Formula 
-\begin{align*}
-\min_{\flow,\Mode} & \sum_{n}\flow[n]l_{n}(\flow[n],\Mode[n])\\
-\text{subject to } & \sum_{n}\flow[\link]=r\\
+\begin{flalign*}
+\text{minimize}_{\flow,\Mode} & \sum_{n}\flow[n]l_{n}(\flow[n],\Mode[n])\\
+\text{subject to} & \sum_{n}\flow[\link]=r\\
  & \flow[n]\in[0,\flowMax[n]]
-\end{align*}
+\end{flalign*}
 
 \end_inset
 
@@ -3614,10 +3609,20 @@ As a consequence of the previous Lemma, and using the fact that the latency
 \end_layout
 
 \begin_layout Standard
-Then assuming the links are ordered by increasing free-flow latency 
+Then 
+\change_deleted 981273183 1327736209
+assuming
+\change_inserted 981273183 1327736209
+since
+\change_unchanged
+ the links are ordered by increasing free-flow latency 
 \begin_inset Formula $a_{1}\leq\dots\leq a_{N}$
 \end_inset
 
+
+\change_inserted 981273183 1327736376
+,
+\change_unchanged
  the social optimum is simply given by the assignment that saturates most
  efficient links first.
  Formally, if 
@@ -3647,10 +3652,24 @@ Price of Stability on a Two-Link Network
 \end_layout
 
 \begin_layout Standard
-In this section we characterize the loss of efficiency of Nash equilibria
- by comparing them to the social optimum on a simple 2 link parallel network.
+In this section
+\change_inserted 981273183 1327736404
+,
+\change_unchanged
+ we characterize the loss of efficiency of Nash equilibria by comparing
+ them to the social optimum on a simple 
+\change_inserted 981273183 1327736416
+two-
+\change_deleted 981273183 1327736415
+2 
+\change_unchanged
+link parallel network.
  To characterize the loss of efficiency of Nash equilibria several metrics
  have been used including Price of Anarchy
+\change_inserted 981273183 1327736442
+ 
+\change_unchanged
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "roughgarden2004bounding,roughgarden2002bad"
@@ -3658,6 +3677,10 @@ key "roughgarden2004bounding,roughgarden2002bad"
 \end_inset
 
  and Price of Stability
+\change_inserted 981273183 1327736440
+ 
+\change_unchanged
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "koutsoupias1999worst"
@@ -3671,7 +3694,25 @@ key "koutsoupias1999worst"
  optimum cost.
  For the case of non-decreasing latency functions, the Price of Anarchy
  and the Price of Stability coincide since all Nash equilibria have the
- same cost by the essential uniqueness property.
+ same cost by the essential uniqueness property
+\change_inserted 981273183 1327736481
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 981273183 1327736498
+add reference for the essential uniqueness property
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+.
  Since we focus our analysis on the best Nash equilibrium, we use as a metric
  the Price of Stability.
 \end_layout
@@ -3691,14 +3732,20 @@ Consider a network instance
 
 .
  Let 
-\begin_inset Formula $\BestNashEq 2{\qdemand}=\left(\flow[NE](r),\Mode[BNE](r)\right)$
+\begin_inset Formula $\BestNashEq 2{\qdemand}=\left(\flow[\text{BNE}](r),\Mode[\text{BNE}](r)\right)$
 \end_inset
 
  be the best Nash equilibrium and 
-\begin_inset Formula $\left(x_{SO}(r),0\right)$
+\begin_inset Formula $\left(x_{\text{SO}}(r),0\right)$
 \end_inset
 
- be the social optimum, as defined in 
+ be the social optimum, as defined 
+\change_inserted 981273183 1327736576
+by
+\change_deleted 981273183 1327736575
+in
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:so"
@@ -3712,7 +3759,7 @@ reference "eq:so"
 \begin_layout Standard
 \begin_inset Formula 
 \[
-POS(\NLinks,\qdemand)=\frac{\Latency\left(\flow[NE](r),\Mode[NE](r)\right)}{\Latency\left(\flow[SO],0\right)}
+\POS Nr=\frac{\Latency\left(\flow[\text{BNE}](r),\Mode[\text{BNE}](r)\right)}{\Latency\left(\flow[\text{SO}],0\right)}
 \]
 
 \end_inset
@@ -3721,6 +3768,27 @@ POS(\NLinks,\qdemand)=\frac{\Latency\left(\flow[NE](r),\Mode[NE](r)\right)}{\Lat
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted 981273183 1327736798
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 981273183 1327736812
+Alex: is it contingent on 
+\begin_inset Formula $r\leq\sum\flowMax[n]$
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
 From the analysis of 
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -3735,25 +3803,31 @@ reference "alg:bestNE"
 
 \end_inset
 
-, we need only to consider the following two cases:
+, we 
+\change_inserted 981273183 1327736764
+only 
+\change_unchanged
+need 
+\change_deleted 981273183 1327736767
+only 
+\change_unchanged
+to consider the following two cases:
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Paragraph
+
+\change_inserted 981273183 1327737065
+Case 1: 
+\change_unchanged
+
 \begin_inset Formula $0\le\qdemand\le\flowMax[1]$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $\qdemand>\flowMax[1]$
-\end_inset
-
-
+:
 \end_layout
 
 \begin_layout Standard
-For the first case, using 
+Using 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:so"
@@ -3766,6 +3840,10 @@ reference "eq:so"
 
 , and all the demand will be on link 1 in free flow.
  Similarly, from Theorem
+\change_inserted 981273183 1327736867
+ 
+\change_unchanged
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "theorem:minsupport"
@@ -3816,7 +3894,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Flow configuration when demand is under the capacity of the fastest link
+Flow configuration when demand is under the capacity of the fastest link.
 \end_layout
 
 \end_inset
@@ -3839,13 +3917,42 @@ name "fig:ff"
 
 \end_layout
 
-\begin_layout Standard
-If we now consider the case where 
+\begin_layout Paragraph
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Alex: explain in the caption what you see in the figure.
+ Figure: replace Link 1 with latency of link 1.
+ Figure not pretty (different fonts)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+
+\change_inserted 981273183 1327737124
+Case 2: 
 \begin_inset Formula $\qdemand>\flowMax[1]$
 \end_inset
 
-, we know that all flow demand cannot be accomodated by link 1, and the
- results become more interesting.
+
+\change_unchanged
+:
+\change_inserted 981273183 1327737124
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 981273183 1327737025
+W
+\change_unchanged
+e know that all flow demand cannot be accomodated by link 1, and the results
+ become more interesting.
  From 
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -3858,7 +3965,7 @@ reference "eq:so"
 \end_inset
 
 .
- And from Theorem 
+ From Theorem 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "theorem:minsupport"
@@ -3869,13 +3976,13 @@ reference "theorem:minsupport"
 \begin_inset Formula $\BestNashEq 2{\qdemand}$
 \end_inset
 
- will occur with one link in free flow, and since the total demand exceeds
- the capacity of link 
+ has a single link in free flow.
+ Since the total demand exceeds the capacity of link 
 \begin_inset Formula $1$
 \end_inset
 
-, then we must have link 1 in congestion and link 2 in free flow, i.e.
- 
+, then link 2 is in free flow, and link 1 is congested.
+ Therefore 
 \begin_inset Formula $\Mode[NE](r)=(1,0)$
 \end_inset
 
@@ -3888,7 +3995,7 @@ reference "alg:bestNE"
 \end_inset
 
 , the corresponding flow 
-\begin_inset Formula $\flow[NE](r)$
+\begin_inset Formula $\flow[\text{NE}](r)$
 \end_inset
 
  will be 
@@ -3901,9 +4008,9 @@ reference "alg:bestNE"
 
 ).
  The comparison of the social optimum and Nash equilibrium conditions are
- depicted in 
+ depicted in Figure 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:sone"
 
 \end_inset
@@ -3979,7 +4086,7 @@ Nash equilibrium
 
 \begin_layout Plain Layout
 Differences in flow assignments between social optimum and Nash equilibrium
- when first link is beyond capacity
+ when first link is beyond capacity.
 \end_layout
 
 \end_inset
@@ -4010,7 +4117,7 @@ Computing the Price of Stability when
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray*}
-POS\left(2,\qdemand\right) & = & \frac{\parA[2]\cffFlow 12+\parA[2]\left(\qdemand-\cffFlow 12\right)}{\parA[1]\flowMax[1]+\parA[2]\left(\qdemand-\flowMax[1]\right)}\\
+\POS 2r & = & \frac{\parA[2]\cffFlow 12+\parA[2]\left(\qdemand-\cffFlow 12\right)}{\parA[1]\flowMax[1]+\parA[2]\left(\qdemand-\flowMax[1]\right)}\\
  & = & \frac{\parA[2]\qdemand}{\qdemand\parA[2]-\flowMax[1]\left(\parA[2]-\parA[1]\right)}\\
  & = & \frac{1}{1-\frac{\flowMax[1]}{\qdemand}\left(1-\frac{\parA[1]}{\parA[2]}\right)}
 \end{eqnarray*}
@@ -4051,7 +4158,20 @@ First, we note that as
 \end_layout
 
 \begin_layout Standard
-What we can conclude from the Price of Stability analysis of the two link
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Alex: Rephrase in non-transportation network.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+What we can conclude from the Price of Stability analysis of the two-link
  case is that selfish routing is most costly in the demand region where
  a free flow link is near capacity.
  If a controller were to anticipate a scenario where demand was slightly
