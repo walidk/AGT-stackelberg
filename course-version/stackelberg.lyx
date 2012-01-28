@@ -3528,7 +3528,7 @@ Consider an instance
  
 \begin_inset Formula 
 \begin{flalign*}
-\text{minimize}_{\flow,\Mode} & \sum_{n}\flow[n]l_{n}(\flow[n],\Mode[n])\\
+\underset{\flow,\Mode}{\text{minimize}} & \sum_{n}\flow[n]l_{n}(\flow[n],\Mode[n])\\
 \text{subject to} & \sum_{n}\flow[\link]=r\\
  & \flow[n]\in[0,\flowMax[n]]
 \end{flalign*}
@@ -3597,11 +3597,11 @@ As a consequence of the previous Lemma, and using the fact that the latency
 , the social optimum can be computed by solving the following equivalent
  linear program 
 \begin_inset Formula 
-\begin{align*}
-\min_{\flow} & \sum_{n}\flow[n]\parA[n]\\
+\begin{alignat*}{1}
+\underset{\flow}{\text{minimize}} & \sum_{n}\flow[n]\parA[n]\\
 \text{subject to } & \sum_{n}\flow[\link]=r\\
  & \flow[n]\in[0,\flowMax[n]]
-\end{align*}
+\end{alignat*}
 
 \end_inset
 
