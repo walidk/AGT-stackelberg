@@ -217,8 +217,20 @@ A: explain how this applies to traffic just as an example
 \end_inset
 
  The work is applied for modeling transportation networks in which a fraction
- of users are compliant to routing guidance provided by a central authority,
- while the rest of the users behave selfishly.
+ of 
+\change_deleted 835226575 1327726751
+user
+\change_inserted 835226575 1327726751
+agent
+\change_unchanged
+s are compliant to routing guidance provided by a central authority, while
+ the rest of the 
+\change_deleted 835226575 1327726752
+user
+\change_inserted 835226575 1327726752
+agent
+\change_unchanged
+s behave selfishly.
 \end_layout
 
 \begin_layout Section
@@ -1593,8 +1605,13 @@ An assignment
 \end_layout
 
 \begin_layout Standard
-In particular, every non-atomic user cannot improve her latency by switching
- to another link.
+In particular, every non-atomic 
+\change_deleted 835226575 1327726754
+user
+\change_inserted 835226575 1327726754
+agent
+\change_unchanged
+ cannot improve her latency by switching to another link.
  As a consequence, all links that are in the support of 
 \begin_inset Formula $\flow$
 \end_inset
@@ -3553,8 +3570,14 @@ We consider the following problem: given a network under constant flow demand
 \begin_inset Formula $\beta$
 \end_inset
 
- of the flow: the corresponding users are compliant and willing to change
- their routes according to the instructions they are given.
+ of the flow: the corresponding 
+\change_deleted 835226575 1327726755
+user
+\change_inserted 835226575 1327726755
+agent
+\change_unchanged
+s are compliant and willing to change their routes according to the instructions
+ they are given.
  The coordinator (who plays the role of the leader in the Stackelberg game)
  assigns the compliant flow 
 \begin_inset Formula $\beta r$
@@ -3604,7 +3627,13 @@ We assume that the remaining flow
 \begin_inset Formula $s$
 \end_inset
 
- of compliant users 
+ of compliant 
+\change_deleted 835226575 1327726756
+user
+\change_inserted 835226575 1327726756
+agent
+\change_unchanged
+s 
 \emph on
 is not affected
 \emph default
@@ -3824,8 +3853,14 @@ To see this, consider the following 2-link network where such that link
 \end_layout
 
 \begin_layout Standard
-Assuming that the assignment of compliant users is not affected by introducing
- the non-compliant flow, we have for any assignment 
+Assuming that the assignment of compliant 
+\change_deleted 835226575 1327726757
+user
+\change_inserted 835226575 1327726757
+agent
+\change_unchanged
+s is not affected by introducing the non-compliant flow, we have for any
+ assignment 
 \begin_inset Formula $t$
 \end_inset
 
@@ -3850,7 +3885,13 @@ Assuming that the assignment of compliant users is not affected by introducing
 \begin_inset Formula $\latency[2](s_{2}+t_{2},\Mode[2])>\latency[1](s_{1},0)$
 \end_inset
 
- (non compliant users are forced to use less efficient link 2).
+ (non compliant 
+\change_deleted 835226575 1327726758
+user
+\change_inserted 835226575 1327726758
+agent
+\change_unchanged
+s are forced to use less efficient link 2).
 \end_layout
 
 \begin_layout Subsection
@@ -4029,8 +4070,13 @@ Roughly speaking, the optimal Stackelberg strategy in our case corresponds
 \end_layout
 
 \begin_layout Itemize
-first computing the best Nash equilibrium of non-compliant users alone,
- 
+first computing the best Nash equilibrium of non-compliant 
+\change_deleted 835226575 1327726759
+user
+\change_inserted 835226575 1327726759
+agent
+\change_unchanged
+s alone, 
 \begin_inset Formula $(\bar{t},\bar{m)}=BNE(N,(1-\beta)r)$
 \end_inset
 
