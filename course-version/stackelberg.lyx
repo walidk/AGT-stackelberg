@@ -82,9 +82,9 @@ filename "lyx_commands.lyx"
 Stackelberg Routing on Horizontal Queueing Networks
 \end_layout
 
-\begin_layout Title
+\begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 A: phrase as compliant/non-compliant and congestion, don't explicitly say
@@ -96,9 +96,9 @@ A: phrase as compliant/non-compliant and congestion, don't explicitly say
 
 \end_layout
 
-\begin_layout Title
+\begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 J: How do we motivate the idea of Horizontal Queues? Will there be any complaint
@@ -1405,10 +1405,22 @@ where
 \end_inset
 
  satisfies the following properties:
+\change_inserted 835226575 1327725881
+
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
 
+\change_deleted 835226575 1327725873
+
+\series bold
+t
+\change_inserted 835226575 1327725922
+P1: 
+\series default
+T
+\change_unchanged
+he
 \family roman
 \series medium
 \shape up
@@ -1420,12 +1432,18 @@ where
 \uwave off
 \noun off
 \color none
-the latency is constant in free-flow.
+ latency is constant in free-flow.
  We denote by 
 \begin_inset Formula $\parA[n]$
 \end_inset
 
- the free-flow latency.
+ the free-flow latency
+\change_inserted 835226575 1327725956
+ where
+\change_deleted 835226575 1327725955
+.
+
+\change_unchanged
  
 \begin_inset Formula $l_{n}(x_{n},0)=\parA[n]$
 \end_inset
@@ -1435,9 +1453,62 @@ the latency is constant in free-flow.
 \end_inset
 
 
+\change_inserted 835226575 1327725957
+.
+\change_unchanged
+
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
+
+\change_inserted 835226575 1327725969
+
+\series bold
+P2:
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\change_deleted 835226575 1327725960
+t
+\change_inserted 835226575 1327725971
+T
+\change_unchanged
+he latency is decreasing in congestion: 
+\begin_inset Formula $\flow[n]\longmapsto l_{n}(\flow[n],1)$
+\end_inset
+
+ is decreasing
+\change_deleted 835226575 1327726021
+,
+\change_unchanged
+ 
+\change_deleted 835226575 1327726031
+can be inverted in polynomial time
+\change_inserted 835226575 1327726037
+invertible
+\change_unchanged
+, and 
+\begin_inset Formula $l_{n}(\flowMax[n],1)=\parA[n]$
+\end_inset
+
+
+\change_inserted 835226575 1327726050
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327726055
 
 \family roman
 \series medium
@@ -1450,14 +1521,15 @@ the latency is constant in free-flow.
 \uwave off
 \noun off
 \color none
-the latency is decreasing in congestion: 
-\begin_inset Formula $\flow[n]\longmapsto l_{n}(\flow[n],1)$
+A: invertible in polynomial time?
+\change_unchanged
+
+\end_layout
+
 \end_inset
 
- is decreasing, can be inverted in polynomial time, and 
-\begin_inset Formula $l_{n}(\flowMax[n],1)=\parA[n]$
-\end_inset
 
+\change_unchanged
 
 \end_layout
 
