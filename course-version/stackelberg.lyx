@@ -1345,7 +1345,25 @@ latency function
 resulting from a concave flux function 
 \change_unchanged
 does not satisfy properties usually assumed in the Stackelberg routing literatur
-e.
+e
+\change_inserted 835226575 1327726825
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327726833
+A: be specific about what you are referring to
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+.
  In particular, 
 \change_inserted 835226575 1327725711
 if we consider a triangular flux function, 
@@ -1546,9 +1564,31 @@ A: invertible in polynomial time?
 \end_layout
 
 \begin_layout Standard
-Some of the known results on congestion networks do not apply to our setting:
- for instance, the network may have multiple Nash equilibria that have different
- costs.
+Some of the known results on congestion networks 
+\change_inserted 835226575 1327726871
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327726879
+A: again be specific, references
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+do not apply to our setting: for 
+\change_deleted 835226575 1327726917
+instance
+\change_inserted 835226575 1327726917
+example
+\change_unchanged
+, the network may have multiple Nash equilibria that have different costs.
  In the next section we specify this result and address the issue of having
  multiple Nash equilibria.
 \end_layout
@@ -1558,20 +1598,103 @@ Nash Equilibria
 \end_layout
 
 \begin_layout Standard
-In this section we characterize pure non-atomic Nash equilibria of the network
- (also called Wardrop equilibria in the traffic literature), which we simply
- refer to as Nash equilibria.
+In this section
+\change_inserted 835226575 1327726954
+,
+\change_unchanged
+ we characterize pure non-atomic Nash equilibria
+\change_inserted 835226575 1327726959
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327726969
+A: again, this nonatomic business needs to be explained
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ of the network (also called Wardrop equilibria in the traffic literature
+\change_inserted 835226575 1327727020
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327727022
+A: references
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+), which we simply refer to as Nash equilibria.
  We first review the essential uniqueness of Nash equilibria in the case
  of increasing latency functions (in the sense that all Nash equilibria
- have the same cost).
+ have the same cost
+\change_inserted 835226575 1327727047
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327727056
+A: put a reference if this is standard definition
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+).
  Then we show that our class of latency functions induce multiple Nash equilibri
 a with different costs.
- We show that the set of Nash equilibria can be computed in polynomial time,
- and we characterize the best Nash equilibrium.
+ We show that the set of Nash equilibria can be computed in polynomial time
+\change_inserted 835226575 1327727091
+ (with respect to the number of parallel links)
+\change_unchanged
+, and we characterize the best Nash equilibrium.
 \end_layout
 
 \begin_layout Subsection
 Characterization of Nash Equilibria
+\change_inserted 835226575 1327727129
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 835226575 1327727239
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327727140
+A: One sentence to explain what the section is about
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+The basic notion of Nash equilibrium on a network flow problem with a single
+ source and single destination is given.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Definition
@@ -1585,7 +1708,11 @@ An assignment
 \begin_inset Formula $(\flow,\Mode)\in\mathbb{R}_{+}^{\NLinks}\times\{0,1\}^{\NLinks}$
 \end_inset
 
- for instance 
+ for
+\change_inserted 835226575 1327727146
+ a parallel network
+\change_unchanged
+ instance 
 \begin_inset Formula $(\NLinks,\qdemand)$
 \end_inset
 
@@ -1611,7 +1738,11 @@ user
 \change_inserted 835226575 1327726754
 agent
 \change_unchanged
- cannot improve her latency by switching to another link.
+ cannot improve her
+\change_inserted 835226575 1327727265
+/his
+\change_unchanged
+ latency by switching to another link.
  As a consequence, all links that are in the support of 
 \begin_inset Formula $\flow$
 \end_inset
@@ -1625,14 +1756,39 @@ agent
 \end_inset
 
 .
- Note that to fully characterize the equilibrium one needs to specify the
- congestion state 
+ Note that to fully characterize the equilibrium
+\change_inserted 835226575 1327727282
+,
+\change_unchanged
+ one needs to specify the congestion state 
 \begin_inset Formula $m$
 \end_inset
 
-, since the latency on a link depends on whether the link is congested.
+, since the latency on a link depends on whether the link is congested
+\change_inserted 835226575 1327727294
+ or not
+\change_unchanged
+.
  The following Lemma gives an equivalent characterization of pure Nash equilibri
 a
+\change_inserted 835226575 1327727372
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327727382
+A: need to define pure Nash
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Lemma
@@ -1646,7 +1802,11 @@ name "lem:nash_eq"
 \begin_inset Formula $(\flow,\Mode)$
 \end_inset
 
- is an assignment for instance 
+ is an assignment for 
+\change_inserted 835226575 1327727398
+a parallel network 
+\change_unchanged
+instance 
 \begin_inset Formula $(\NLinks,\qdemand)$
 \end_inset
 
@@ -1660,11 +1820,69 @@ name "lem:nash_eq"
 \end_inset
 
  and the total latency incurred by the network is 
+\change_inserted 835226575 1327727447
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327727468
+A: where is 
+\begin_inset Formula $m$
+\end_inset
+
+ a vector defined? 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327727480
+J: I believe it is in definition 2
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \begin_inset Formula $\Latency(\flow,\Mode)=\qdemand\latency[0]$
 \end_inset
 
 .
  
+\change_inserted 835226575 1327727408
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327727427
+A: C is already defined previously in terms of 
+\begin_inset Formula $\rho$
+\end_inset
+
+, need to manage notation.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
