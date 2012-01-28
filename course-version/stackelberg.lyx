@@ -3063,7 +3063,45 @@ reference "sub:Traffic-Networks-Have"
 , we showed that any assignment at Nash equilibrium has at most one link
  in free flow.
  We also showed that if there exists a completely congested Nash equilibrium,
- then there is also a single-link free flow Nash equilibrium.
+ then there 
+\change_deleted 835226575 1327735659
+is also a
+\change_inserted 835226575 1327735661
+also exists a
+\change_unchanged
+ single-link free flow Nash equilibrium
+\change_inserted 835226575 1327735681
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327735689
+A: corresponding to the same optimal cost? 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327735704
+J: I don't think I understand, but I believe the answer is no.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+.
  We define the best Nash equilibrium to be the Nash equilibrium of least
  total latency
 \end_layout
@@ -3123,14 +3161,18 @@ name "theorem:minsupport"
 
 \end_inset
 
- For network instance 
-\begin_inset Formula $(N,r)$
+ For 
+\change_inserted 835226575 1327735724
+a parallel 
+\change_unchanged
+network instance 
+\begin_inset Formula $(\NLinks,r)$
 \end_inset
 
 , the best Nash equilibrium is the one that has smallest support
 \begin_inset Formula 
 \[
-\BestNashEq{\NLinks}{\qdemand}=\underset{\left(\flow,\Mode\right)\in\NashEq{\Network}{\qdemand}}{\arg\min}\left\{ \max\left[Supp\left(\flow\right)\right]\right\} 
+\BestNashEq{\NLinks}{\qdemand}=\underset{\left(\flow,\Mode\right)\in\NashEq{\NLinks}{\qdemand}}{\arg\min}\left\{ \max\left[\Supp{\flow}\right]\right\} 
 \]
 
 \end_inset
@@ -3151,7 +3193,13 @@ reference "theorem:minsupport"
  be the best Nash equilibrium (because there always exists a single-link
  free flow equilibrium, and it is better).
  The second result says that the better of two single-link free flow Nash
- equilibria will be the one with the smaller-index free flow link.
+ equilibria will be the one with the 
+\change_deleted 835226575 1327735866
+smaller-index free flow link
+\change_inserted 835226575 1327735888
+free flow link that has a smaller index
+\change_unchanged
+.
 \end_layout
 
 \begin_deeper
