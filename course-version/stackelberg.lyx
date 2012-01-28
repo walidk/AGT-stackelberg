@@ -64,6 +64,7 @@ theorems-ams-bytype
 \html_css_as_file 0
 \html_be_strict false
 \author 835226575 "Jack Reilly" 
+\author 981273183 "Walid Krichene" 
 \end_header
 
 \begin_body
@@ -4011,17 +4012,21 @@ We consider the following problem: given a network under constant flow demand
 \begin_inset Formula $\beta$
 \end_inset
 
- of the flow: the corresponding users are 
+ of the flow: the corresponding 
+\change_deleted 981273183 1327732963
+users
+\change_inserted 981273183 1327732964
+agents
+\change_unchanged
+ are 
 \emph on
 compliant
 \emph default
  and willing to change their 
-\change_deleted 981273183 1327731342
+\change_deleted 981273183 1327732958
 routes
-\change_inserted 981273183 1327731342
-routing
 \change_unchanged
- according to the instructions they are given.
+routing according to the instructions they are given.
  The coordinator (who plays the role of the leader in the Stackelberg game)
  assigns the compliant flow 
 \begin_inset Formula $\beta r$
@@ -4040,11 +4045,7 @@ routing
 \begin_inset Formula $s$
 \end_inset
 
- satisfies
-\change_inserted 981273183 1327731427
- the followin relations:
-\change_unchanged
- 
+ satisfies the followin relations: 
 \begin_inset Formula 
 \begin{align*}
 \cFlow[\link]\leq\flow[\link]^{\max}\,\forall n &  & \sum_{n}\cFlow[\link]=\beta r
@@ -4114,19 +4115,11 @@ induced equilibrium
 \begin_inset Formula $\cFlow[\link]+\ncFlow[\link](\cFlow)$
 \end_inset
 
-, and we have 
-\change_inserted 981273183 1327731510
-for all 
-\change_unchanged
-
+, and we have for all 
 \begin_inset Formula $n$
 \end_inset
 
-
-\change_inserted 981273183 1327731515
-:
-\change_unchanged
- 
+: 
 \begin_inset Formula 
 \[
 \ncFlow[\link](\cFlow)>0\Rightarrow\forall k,\latency[\link]\left(\cFlow[\link]+\ncFlow[\link](\cFlow),\Mode[\link](\cFlow)\right)\leq\latency[k]\left(\cFlow[k]+\ncFlow[k](\cFlow),\Mode[k](\cFlow)\right)
@@ -4134,13 +4127,7 @@ for all
 
 \end_inset
 
- 
-\change_deleted 981273183 1327731494
-and b
-\change_inserted 981273183 1327731494
-B
-\change_unchanged
-y 
+ and bBy 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "lem:nash_eq"
@@ -4169,23 +4156,11 @@ This can be summarized in the following definition of a Stackelberg strategy
 \begin_inset Formula $(\NLinks,r,\beta)$
 \end_inset
 
- of 
-\change_inserted 981273183 1327731564
-a 
-\change_unchanged
-network 
-\change_inserted 981273183 1327731568
-with 
-\change_unchanged
-
+ of a network with 
 \begin_inset Formula $\NLinks$
 \end_inset
 
- 
-\change_inserted 981273183 1327731571
-links 
-\change_unchanged
-under flow demand 
+ links under flow demand 
 \begin_inset Formula $r$
 \end_inset
 
@@ -4193,11 +4168,7 @@ under flow demand
 \begin_inset Formula $\beta$
 \end_inset
 
-
-\change_inserted 981273183 1327731574
 .
-\change_unchanged
-
 \end_layout
 
 \begin_layout Definition
@@ -4238,8 +4209,8 @@ A Stackelberg strategy for instance
  and 
 \begin_inset Formula 
 \begin{align*}
-\forall n\in Supp\left(\ncFlow(\cFlow)\right),\, & \latency[\link]\left(\cFlow[\link]+\ncFlow[\link](\cFlow),\Mode[\link](\cFlow)\right)=\latency[0]\\
-\forall n\notin Supp\left(\ncFlow(\cFlow)\right),\, & \latency[\link]\left(\cFlow[\link],\Mode[\link](\cFlow)\right)\geq\latency[0]
+\forall n\in\Supp{\ncFlow(\cFlow)},\, & \latency[\link]\left(\cFlow[\link]+\ncFlow[\link](\cFlow),\Mode[\link](\cFlow)\right)=\latency[0]\\
+\forall n\notin\Supp{\ncFlow(\cFlow)},\, & \latency[\link]\left(\cFlow[\link],\Mode[\link](\cFlow)\right)\geq\latency[0]
 \end{align*}
 
 \end_inset
@@ -4248,8 +4219,6 @@ A Stackelberg strategy for instance
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 981273183 1327731715
 This extends the definition usually used in the congestion games literature,
  see for example 
 \begin_inset CommandInset citation
@@ -4402,7 +4371,7 @@ name "lemma:inducedNCeq"
 \end_inset
 
 Let 
-\begin_inset Formula $s\in\text{\StackSet}$
+\begin_inset Formula $s\in\StackSet$
 \end_inset
 
  be a Stackelberg strategy for network instance 
@@ -4455,7 +4424,7 @@ reference "theorem:minsupport"
 \end_inset
 
 , we immediately have 
-\begin_inset Formula $\Mode[\max Supp(t(s))]=0$
+\begin_inset Formula $\Mode[\max\Supp{t(s)}]=0$
 \end_inset
 
 .
@@ -4527,12 +4496,8 @@ Computing the optimal Stackelberg strategy
 \end_layout
 
 \begin_layout Standard
-In this section
-\change_inserted 981273183 1327732228
-,
-\change_unchanged
- we show the following result: the optimal Stackelberg strategy can be computed
- in polynomial time for parallel networks with 
+In this section, we show the following result: the optimal Stackelberg strategy
+ can be computed in polynomial time for parallel networks with 
 \begin_inset Formula $N$
 \end_inset
 
@@ -4562,17 +4527,26 @@ key "roughgarden2001stackelberg"
 
 \begin_layout Standard
 
-\change_deleted 981273183 1327732238
-Roughly speaking
-\change_inserted 981273183 1327732242
-Intuitively
+\change_deleted 981273183 1327733166
+Roughly speakingIntuitively, t
+\change_inserted 981273183 1327733166
+T
 \change_unchanged
-, the optimal Stackelberg strategy in our case corresponds to
+he optimal Stackelberg strategy in our case corresponds to
+\change_inserted 981273183 1327733127
+:
+\change_unchanged
+
 \end_layout
 
 \begin_layout Itemize
-first computing the best Nash equilibrium of non-compliant users alone,
- 
+
+\change_deleted 981273183 1327733117
+f
+\change_inserted 981273183 1327733117
+F
+\change_unchanged
+irst computing the best Nash equilibrium of non-compliant users alone, 
 \begin_inset Formula $(\bar{t},\bar{m)}=\BestNashEq N{(1-\beta)r}$
 \end_inset
 
@@ -4580,7 +4554,13 @@ first computing the best Nash equilibrium of non-compliant users alone,
 \end_layout
 
 \begin_layout Itemize
-then assigning the compliant flow by filling the remaining links, i.e.
+
+\change_deleted 981273183 1327733119
+t
+\change_inserted 981273183 1327733119
+T
+\change_unchanged
+hen assigning the compliant flow by filling the remaining links, i.e.
  those that are not congested under 
 \begin_inset Formula $(\bar{t},\bar{m})$
 \end_inset
@@ -4616,7 +4596,11 @@ Intuitively, the best induced Nash equilibrium
 \end_inset
 
  and that has minimal cost, then one expects this strategy to be optimal.
- Next we detail this idea by defining a candidate Stackelberg strategy 
+ Next
+\change_inserted 981273183 1327733181
+,
+\change_unchanged
+ we detail this idea by defining a candidate Stackelberg strategy 
 \begin_inset Formula $\bar{s}$
 \end_inset
 
@@ -4727,7 +4711,7 @@ Note that in a network under best Nash assignment
 \end_inset
 
 , if 
-\begin_inset Formula $i=\max Supp(t)$
+\begin_inset Formula $i=\max\Supp t$
 \end_inset
 
 , then all links 
@@ -4822,7 +4806,7 @@ Let
 
 .
  Let 
-\begin_inset Formula $k=\max Supp(\bar{t})$
+\begin_inset Formula $k=\max\Supp{\bar{t}}$
 \end_inset
 
 .
@@ -4864,8 +4848,12 @@ i.e.
 
  is in free-flow.
  
+\change_inserted 981273183 1327733456
+Figure 
+\change_unchanged
+
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:optimal_stackelberg_nc"
 
 \end_inset
@@ -4911,6 +4899,32 @@ Best Nash equilibrium
 \begin_inset Formula $(1-\beta)r$
 \end_inset
 
+
+\change_inserted 981273183 1327733641
+.
+ All links in the support 
+\begin_inset Formula $\left\{ 1,\dots,k\right\} $
+\end_inset
+
+ have the same latency 
+\begin_inset Formula $a_{k}$
+\end_inset
+
+.
+ Links 
+\begin_inset Formula $\left\{ 1,\dots k-1\right\} $
+\end_inset
+
+ are exactly 
+\begin_inset Formula $k$
+\end_inset
+
+-congested, and link 
+\begin_inset Formula $k$
+\end_inset
+
+ is in free-flow.
+\change_unchanged
 
 \end_layout
 
@@ -5066,10 +5080,24 @@ Equilibrium induced by candidate Stackelberg strategy
 \begin_inset Formula $\bar{s}$
 \end_inset
 
+
+\change_inserted 981273183 1327734778
+.
+ Flows that correspond to the Stackelberg strategy 
+\begin_inset Formula $\bar{s}$
+\end_inset
+
+ are highlighted.
+
+\change_unchanged
  
+\change_deleted 981273183 1327733817
+
 \begin_inset Formula $ $
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 
@@ -5094,8 +5122,13 @@ name "fig:optimal_stackelberg_total"
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted 981273183 1327733728
+Figure 
+\change_unchanged
+
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "fig:optimal_stackelberg_total"
 
 \end_inset
@@ -5126,7 +5159,13 @@ reference "fig:optimal_stackelberg_total"
 \end_layout
 
 \begin_layout Standard
-Next we show that strategy 
+
+\change_deleted 981273183 1327733770
+Next
+\change_inserted 981273183 1327733776
+In the next section
+\change_unchanged
+ we show that strategy 
 \begin_inset Formula $\bar{s}$
 \end_inset
 
@@ -5201,17 +5240,17 @@ The proof proceeds as follows: we first show that links
 
 , in the following sense: these links have worse latency 
 \begin_inset Formula 
-\[
-\latency[n](x_{n},m_{n})\geq\latency[n](\bar{x}_{n},\bar{m}_{n})
-\]
+\begin{align*}
+\latency[n](x_{n},m_{n}) & \geq\latency[n](\bar{x}_{n},\bar{m}_{n}) & \forall n\in\{1,\dots,l-1\}
+\end{align*}
 
 \end_inset
 
  and hold less flow 
 \begin_inset Formula 
-\[
-x_{n}\leq\bar{x}_{n}
-\]
+\begin{align*}
+x_{n} & \leq\bar{x}_{n} & \forall n\in\{1,\dots,l-1\}
+\end{align*}
 
 \end_inset
 
@@ -5224,7 +5263,7 @@ x_{n}\leq\bar{x}_{n}
 
 \begin_layout Standard
 Let 
-\begin_inset Formula $k'=\max Supp(t)$
+\begin_inset Formula $k'=\max\Supp t$
 \end_inset
 
  be the link with largest free-flow latency, in the support of the non-compliant
@@ -5255,13 +5294,27 @@ reference "lemma:inducedNCeq"
 \end_inset
 
  where 
-\begin_inset Formula $k=\max Supp(\bar{t})$
+\begin_inset Formula $k=\max\Supp{\bar{t}}$
 \end_inset
 
 
 \end_layout
 
 \begin_layout Lemma
+
+\change_inserted 981273183 1327734631
+The last link in the support of 
+\begin_inset Formula $t$
+\end_inset
+
+ is less efficient than the last link in the support of 
+\begin_inset Formula $\bar{t}$
+\end_inset
+
+.
+ 
+\change_unchanged
+
 \begin_inset Formula $k'\geq k$
 \end_inset
 
@@ -5273,8 +5326,14 @@ Intuitively, since
 \begin_inset Formula $\bar{t}$
 \end_inset
 
- is the best Nash equilibrium of the non-compliant flow when they are not
- sharing the network with any other flow, the assignment 
+ is the best Nash equilibrium of the non-compliant 
+\change_deleted 981273183 1327734081
+flow
+\change_inserted 981273183 1327734081
+agents
+\change_unchanged
+ when they are not sharing the network with any other flow, the assignment
+ 
 \begin_inset Formula $(\bar{t},\bar{\Mode})$
 \end_inset
 
@@ -5282,13 +5341,22 @@ Intuitively, since
 \begin_inset Formula $(t,\Mode)$
 \end_inset
 
- of non-compliant flow when they are sharing the network with additional
- flow 
+ of non-compliant 
+\change_deleted 981273183 1327734106
+flow
+\change_inserted 981273183 1327734107
+agents
+\change_unchanged
+ when they are sharing the network with additional flow 
 \begin_inset Formula $s$
 \end_inset
 
 .
- The proof makes this argument more precise.
+ 
+\change_deleted 981273183 1327734122
+The proof makes this argument more precise.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Proof
@@ -5297,7 +5365,7 @@ First note that
 \end_inset
 
  restricted to 
-\begin_inset Formula $Supp(t)$
+\begin_inset Formula $\Supp t$
 \end_inset
 
  is at Nash equilibrium, and it is by definition the best such Nash equilibrium.
@@ -5306,7 +5374,7 @@ First note that
 \end_inset
 
  is in free-flow and 
-\begin_inset Formula $k'\in Supp(t)$
+\begin_inset Formula $k'\in\Supp t$
 \end_inset
 
 , the cost of this Nash equilibrium is simply 
@@ -5314,11 +5382,11 @@ First note that
 \end_inset
 
  where 
-\begin_inset Formula $r'=\sum_{n\in Supp(t)}s_{n}+t_{n}$
+\begin_inset Formula $r'=\sum_{n\in\Supp t}s_{n}+t_{n}$
 \end_inset
 
  is the total flow restricted to 
-\begin_inset Formula $Supp(t)$
+\begin_inset Formula $\Supp t$
 \end_inset
 
 .
@@ -5338,7 +5406,7 @@ We have
 \end_inset
 
 , and 
-\begin_inset Formula $(1-\beta)r=\sum_{n\in Supp(t)}t_{n}\leq\sum_{n\in Supp(t)}s_{n}+t_{n}=r'$
+\begin_inset Formula $(1-\beta)r=\sum_{n\in\Supp t}t_{n}\leq\sum_{n\in\Supp t}s_{n}+t_{n}=r'$
 \end_inset
 
 .
@@ -5422,7 +5490,7 @@ reference "def:stack"
 .
  We also have by 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand eqref
 reference "eq:opt_stack_latencies"
 
 \end_inset
@@ -5463,12 +5531,16 @@ x_{n} & \leq\cffFlow n{k'}\leq\cffFlow nk=\bar{x}_{n} & \forall n\in\{1,\dots,k-
 \begin_layout Standard
 and we have from 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand eqref
 reference "eq:opt_stack_flows"
 
 \end_inset
 
  
+\change_inserted 981273183 1327734003
+that 
+\change_unchanged
+
 \begin_inset Formula $\forall n\in\{k,\dots,l-1\}$
 \end_inset
 
@@ -5523,6 +5595,10 @@ Note that
 \begin_inset Formula $\forall n\in\{1,\dots,k\}$
 \end_inset
 
+
+\change_inserted 981273183 1327733960
+,
+\change_unchanged
  
 \begin_inset Formula $l_{n}(\bar{x}_{n},\bar{m}_{n})=a_{k}\leq a_{l}$
 \end_inset
@@ -5531,6 +5607,10 @@ Note that
 \begin_inset Formula $\forall n\in\{k,\dots,l-1\}$
 \end_inset
 
+
+\change_inserted 981273183 1327733974
+,
+\change_unchanged
  
 \begin_inset Formula $l_{n}(\bar{x}_{n},\bar{m}_{n})=a_{n}\leq a_{l}$
 \end_inset
@@ -5612,21 +5692,21 @@ We can now lower-bound the cost of the assignment
  We have
 \begin_inset Formula 
 \begin{align*}
-C(x,m)-C(\bar{x},\bar{m}) & =\sum_{n=1}^{N}x_{n}l_{n}-\sum_{n=1}^{l}\bar{x}_{n}\bar{l}_{n} & \text{since }Supp(\bar{x})=\{1,\dots,l\}\\
+C(x,m)-C(\bar{x},\bar{m}) & =\sum_{n=1}^{N}x_{n}l_{n}-\sum_{n=1}^{l}\bar{x}_{n}\bar{l}_{n} & \text{since }\Supp{\bar{x}}=\{1,\dots,l\}\\
  & =\sum_{n=1}^{l-1}(x_{n}l_{n}-\bar{x}_{n}\bar{l}_{n})+\sum_{n=l}^{N}x_{n}l_{n}-\bar{x}_{l}a_{l} & \text{since }\bar{l}_{l}=a_{l}\\
- & \geq\sum_{n=1}^{l-1}(x_{n}l_{n}-\bar{x}_{n}\bar{l}_{n})+\sum_{n=l}^{N}x_{n}a_{l}-\bar{x}_{l}a_{l} & \text{using \ref{eq:ff_latency}}\\
+ & \geq\sum_{n=1}^{l-1}(x_{n}l_{n}-\bar{x}_{n}\bar{l}_{n})+\sum_{n=l}^{N}x_{n}a_{l}-\bar{x}_{l}a_{l} & \text{using \eqref{eq:ff_latency}}\\
  & =\sum_{n=1}^{l-1}(x_{n}-\bar{x}_{n})l_{n}+\sum_{n=1}^{l-1}x_{n}(l_{n}-\bar{l}_{n})+\sum_{n=l}^{N}x_{n}a_{l}-\bar{x}_{l}a_{l}\\
- & \geq\sum_{n=1}^{l-1}(x_{n}-\bar{x}_{n})l_{n}+\sum_{n=l}^{N}x_{n}a_{l}-\bar{x}_{l}a_{l}\text{ } & \text{using \ref{eq:cong_latency}}
+ & \geq\sum_{n=1}^{l-1}(x_{n}-\bar{x}_{n})l_{n}+\sum_{n=l}^{N}x_{n}a_{l}-\bar{x}_{l}a_{l}\text{ } & \text{using \eqref{eq:cong_latency}}
 \end{align*}
 
 \end_inset
 
 Then using 
-\begin_inset Formula $\ref{eq:cong_flow}$
+\begin_inset Formula $\eqref{eq:cong_flow}$
 \end_inset
 
  and 
-\begin_inset Formula $\ref{eq:cong_latencybar}$
+\begin_inset Formula $\eqref{eq:cong_latencybar}$
 \end_inset
 
  we have 
