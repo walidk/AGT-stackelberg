@@ -2021,7 +2021,13 @@ name "sub:Traffic-Networks-Have"
 
 \end_inset
 
+
+\change_deleted 835226575 1327727631
 Traffic networks have multiple Nash Equilibria
+\change_inserted 835226575 1327727646
+Existence of multiple Nash equilibria for horizontal queueing networks
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -2081,7 +2087,7 @@ Let
 
 .
  Then 
-\begin_inset Formula $j\in Supp\left(\flow\right)\implies\Mode[i]=1\forall i\in\left\{ 1,\ldots,j-1\right\} $
+\begin_inset Formula $j\in\Supp{\flow}\implies\Mode[i]=1\forall i\in\left\{ 1,\ldots,j-1\right\} $
 \end_inset
 
 
