@@ -4011,14 +4011,17 @@ We consider the following problem: given a network under constant flow demand
 \begin_inset Formula $\beta$
 \end_inset
 
- of the flow: the corresponding 
-\change_deleted 835226575 1327726755
-user
-\change_inserted 835226575 1327726755
-agent
+ of the flow: the corresponding users are 
+\emph on
+compliant
+\emph default
+ and willing to change their 
+\change_deleted 981273183 1327731342
+routes
+\change_inserted 981273183 1327731342
+routing
 \change_unchanged
-s are compliant and willing to change their routes according to the instructions
- they are given.
+ according to the instructions they are given.
  The coordinator (who plays the role of the leader in the Stackelberg game)
  assigns the compliant flow 
 \begin_inset Formula $\beta r$
@@ -4037,10 +4040,14 @@ s are compliant and willing to change their routes according to the instructions
 \begin_inset Formula $s$
 \end_inset
 
- satisfies 
+ satisfies
+\change_inserted 981273183 1327731427
+ the followin relations:
+\change_unchanged
+ 
 \begin_inset Formula 
 \begin{align*}
-\cFlow[\link]\leq\flow[\link]^{\max}\forall n &  & \sum_{n}\cFlow[\link]=\beta r
+\cFlow[\link]\leq\flow[\link]^{\max}\,\forall n &  & \sum_{n}\cFlow[\link]=\beta r
 \end{align*}
 
 \end_inset
@@ -4108,9 +4115,17 @@ induced equilibrium
 \end_inset
 
 , and we have 
-\begin_inset Formula $\forall n$
+\change_inserted 981273183 1327731510
+for all 
+\change_unchanged
+
+\begin_inset Formula $n$
 \end_inset
 
+
+\change_inserted 981273183 1327731515
+:
+\change_unchanged
  
 \begin_inset Formula 
 \[
@@ -4119,7 +4134,13 @@ induced equilibrium
 
 \end_inset
 
- and by 
+ 
+\change_deleted 981273183 1327731494
+and b
+\change_inserted 981273183 1327731494
+B
+\change_unchanged
+y 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "lem:nash_eq"
@@ -4148,11 +4169,23 @@ This can be summarized in the following definition of a Stackelberg strategy
 \begin_inset Formula $(\NLinks,r,\beta)$
 \end_inset
 
- of network 
+ of 
+\change_inserted 981273183 1327731564
+a 
+\change_unchanged
+network 
+\change_inserted 981273183 1327731568
+with 
+\change_unchanged
+
 \begin_inset Formula $\NLinks$
 \end_inset
 
- under flow demand 
+ 
+\change_inserted 981273183 1327731571
+links 
+\change_unchanged
+under flow demand 
 \begin_inset Formula $r$
 \end_inset
 
@@ -4160,6 +4193,10 @@ This can be summarized in the following definition of a Stackelberg strategy
 \begin_inset Formula $\beta$
 \end_inset
 
+
+\change_inserted 981273183 1327731574
+.
+\change_unchanged
 
 \end_layout
 
@@ -4211,8 +4248,22 @@ A Stackelberg strategy for instance
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted 981273183 1327731715
+This extends the definition usually used in the congestion games literature,
+ see for example 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "roughgarden2001stackelberg"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 We will denote by 
-\begin_inset Formula $S(\NLinks,r,\beta)\subset\mathbb{{R}}^{\NLinks}$
+\begin_inset Formula $\text{S}(\NLinks,r,\beta)\subset\mathbb{{R}}^{\NLinks}$
 \end_inset
 
  the set of Stackelberg strategies for network instance 
@@ -4319,7 +4370,7 @@ s is not affected by introducing the non-compliant flow, we have for any
 \end_inset
 
  is not at Nash equilibrium since 
-\begin_inset Formula $Supp(t)=\{2\}$
+\begin_inset Formula $\Supp t=\{2\}$
 \end_inset
 
  and 
@@ -4351,7 +4402,7 @@ name "lemma:inducedNCeq"
 \end_inset
 
 Let 
-\begin_inset Formula $s\in S(\NLinks,r,\beta)$
+\begin_inset Formula $s\in\text{\StackSet}$
 \end_inset
 
  be a Stackelberg strategy for network instance 
@@ -4364,7 +4415,7 @@ Let
 
  its induced best Nash equilibrium.
  Then 
-\begin_inset Formula $\Mode[\max Supp(t(s))]=0$
+\begin_inset Formula $\Mode[\max\Supp{t(s)}]=0$
 \end_inset
 
 .
@@ -4427,7 +4478,7 @@ In this section we solve for optimal Stackelberg strategies, i.e.
  This is described by the following optimization problem 
 \begin_inset Formula 
 \begin{align*}
-\min_{s\in S(\NLinks,r,\beta)}C\left(s+\ncFlow(\cFlow),m(\cFlow)\right)
+\min_{s\in\StackSet}C\left(s+\ncFlow(\cFlow),m(\cFlow)\right)
 \end{align*}
 
 \end_inset
@@ -4455,7 +4506,7 @@ We define an optimal Stackelberg strategy
  to be a solution to the optimization problem 
 \begin_inset Formula 
 \begin{align*}
-s^{*}=\arg\min_{s\in S(\NLinks,r,\beta)}C\left(s+\ncFlow(\cFlow),m(\cFlow)\right)
+s^{*}=\arg\min_{s\in\StackSet}C\left(s+\ncFlow(\cFlow),m(\cFlow)\right)
 \end{align*}
 
 \end_inset
@@ -4476,8 +4527,12 @@ Computing the optimal Stackelberg strategy
 \end_layout
 
 \begin_layout Standard
-In this section we show the following result: the optimal Stackelberg strategy
- can be computed in polynomial time for parallel networks with 
+In this section
+\change_inserted 981273183 1327732228
+,
+\change_unchanged
+ we show the following result: the optimal Stackelberg strategy can be computed
+ in polynomial time for parallel networks with 
 \begin_inset Formula $N$
 \end_inset
 
@@ -4506,19 +4561,19 @@ key "roughgarden2001stackelberg"
 \end_layout
 
 \begin_layout Standard
-Roughly speaking, the optimal Stackelberg strategy in our case corresponds
- to
+
+\change_deleted 981273183 1327732238
+Roughly speaking
+\change_inserted 981273183 1327732242
+Intuitively
+\change_unchanged
+, the optimal Stackelberg strategy in our case corresponds to
 \end_layout
 
 \begin_layout Itemize
-first computing the best Nash equilibrium of non-compliant 
-\change_deleted 835226575 1327726759
-user
-\change_inserted 835226575 1327726759
-agent
-\change_unchanged
-s alone, 
-\begin_inset Formula $(\bar{t},\bar{m)}=BNE(N,(1-\beta)r)$
+first computing the best Nash equilibrium of non-compliant users alone,
+ 
+\begin_inset Formula $(\bar{t},\bar{m)}=\BestNashEq N{(1-\beta)r}$
 \end_inset
 
 

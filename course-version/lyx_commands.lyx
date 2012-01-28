@@ -575,7 +575,7 @@ nash eq
 
 
 \begin_inset FormulaMacro
-\renewcommand{\BestNashEq}[2]{BNE\left(#1,#2\right)}
+\renewcommand{\BestNashEq}[2]{\text{BNE}\left(#1,#2\right)}
 \end_inset
 
 
@@ -647,6 +647,14 @@ super script j = (1 through j-1 in congestion) and j in free flow (if exists)
 \begin_layout Standard
 \begin_inset FormulaMacro
 \newcommand{\Supp}[1]{\text{Supp\ensuremath{\left(#1\right)}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\StackSet}{\text{S}(N,r,\beta)}
 \end_inset
 
 
