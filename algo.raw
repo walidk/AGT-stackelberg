@@ -4,20 +4,20 @@ Outputs: Optimal flow/mode vectors (X,M)
 
 for i $\in$ {1,...,N}:
     let (X,M) = freeFlowConfig(N,r,i)
-    if X(i) $\in$ [0,$c_i$]:
+    if X(i) $\in$ [0,$c_i$]:                  # $c_i$ Equation (3)
        return (X,M)
 return No-Solution
 
 
 procedure freeFlowConfig(N,r,j):
-Inputs: network of size N, demand r, free flow link index j
-Outputs: flow/mode configuration (X,M)
+Inputs: Network of size N, demand r, free flow link index j
+Outputs: Flow/mode configuration (X,M)
 
 for i $\in$ {1,...,N}:
     if i < j:
-       X(i) = $\hat{x}_{i,j}$, M(i) = 1
+       X(i) = $\hat{x}_{i,j}$, M(i) = 1       # $\hat{x}_{i,j}$ Equation (5)
     elseif i == j:
        X(i) = r - $\sum_{k<j}$ X(K), M(i) = 0
     else:
-       X(i), M(i) = 0
+       X(i) = 0, M(i) = 0
 return (X,M)

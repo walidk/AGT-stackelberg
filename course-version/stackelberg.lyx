@@ -3353,6 +3353,7 @@ In this section, we present a very simple algorithm for finding
 
 \begin_layout Standard
 \begin_inset Float algorithm
+placement h
 wide false
 sideways false
 status open
@@ -3393,6 +3394,24 @@ name "alg:bestNE"
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted 835226575 1327736603
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327736610
+A: you need to give the context of alg.
+ 1
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
 We first note from Algorithm 
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -3404,13 +3423,26 @@ reference "alg:bestNE"
 \begin_inset Formula $\cffFlow ij$
 \end_inset
 
- in Definition 
+ in 
+\change_deleted 835226575 1327736529
+Definition 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "def:hat"
 
 \end_inset
 
+
+\change_inserted 835226575 1327736593
+
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "eq:x_hat"
+
+\end_inset
+
+
+\change_unchanged
 , we can precompute 
 \begin_inset Formula $\cffFlow ij\forall(i,j)\in\NLinks\times\NLinks$
 \end_inset
@@ -3419,6 +3451,24 @@ reference "def:hat"
 \begin_inset Formula $O\left(\NLinks^{2}\right)$
 \end_inset
 
+
+\change_inserted 835226575 1327736649
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327736659
+A: OK This computation needs to be clarified in context
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
 .
  The subroutine 
 \begin_inset Formula $ $
