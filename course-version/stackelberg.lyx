@@ -1068,7 +1068,33 @@ We can express the latency as a function of flow by introducing an integer
 \begin_inset Formula $n$
 \end_inset
 
- is in free-flow) 
+ is in free-flow)
+\change_inserted 835226575 1327725396
+; for this, we first extract density from flow and mode
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327725379
+J: added 
+\begin_inset Quotes eld
+\end_inset
+
+and mode
+\begin_inset Quotes erd
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+:
+\change_unchanged
+ 
 \begin_inset Formula 
 \[
 \mass[\link](\flow[n],\Mode[n])=\begin{cases}
@@ -1085,7 +1111,11 @@ We can express the latency as a function of flow by introducing an integer
 \begin_layout Standard
 this corresponds to inverting the fundamental diagram that gives the flow
  as a function of density.
- The latency is then given by 
+ The latency is then given by
+\change_inserted 835226575 1327725402
+ the following expression:
+\change_unchanged
+ 
 \begin_inset Formula 
 \begin{align*}
 l_{n}(\flow[n],\Mode[n])=\frac{\lenCell[n]\mass[\link]}{\flow[n]}=\begin{cases}
@@ -1109,6 +1139,8 @@ For convenience of notation, we introduce constants
 \end_inset
 
  such that
+\change_deleted 835226575 1327725463
+
 \end_layout
 
 \begin_layout Standard
@@ -1123,6 +1155,26 @@ l_{n}(x_{n},m_{n})=\begin{cases}
 \end_inset
 
 
+\change_inserted 835226575 1327725436
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327725452
+A: ok, i did not have a chance to redo the maths on the plane, we have to
+ do this.
+ ok for now
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -1134,6 +1186,38 @@ where
 \begin_inset Formula $\parB[n]=\lenCell[n]\massmax[\link]$
 \end_inset
 
+
+\change_inserted 835226575 1327725494
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327725503
+A: is there any physical interpretation for this? 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327725551
+J: corresponds directly to larger w (backwave propagation speed).
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
 .
 \end_layout
 
@@ -1142,7 +1226,7 @@ where
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1159,7 +1243,13 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Latency function resulting from the fundamental diagram of traffic.
+Latency function resulting from the 
+\change_deleted 835226575 1327725589
+fundamental diagram of traffic.
+\change_inserted 835226575 1327725593
+a triangular flux function.
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -1177,17 +1267,79 @@ name "fig:traffic_latency"
 \end_inset
 
 
+\change_inserted 835226575 1327725566
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327725572
+A: have same for greenshields,....
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsubsection
 Properties of the latency function
+\change_inserted 835226575 1327725678
+ for a triangular flux function
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327725690
+A: you should say: this is specific to triangular latency 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327725717
+J: I've added this to the title and in the paragraph
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
-Note that the resulting latency function does not satisfy properties usually
- assumed in the Stackelberg routing literature.
- In particular, the latency is not an increasing function of flow: it is
- a constant function if the link is in free-flow, and a 
+Note that the 
+\change_deleted 835226575 1327725611
+resulting 
+\change_unchanged
+latency function 
+\change_inserted 835226575 1327725635
+resulting from a concave flux function 
+\change_unchanged
+does not satisfy properties usually assumed in the Stackelberg routing literatur
+e.
+ In particular, 
+\change_inserted 835226575 1327725711
+if we consider a triangular flux function, 
+\change_unchanged
+the latency is not an increasing function of flow: it is a constant function
+ if the link is in free-flow, and a 
 \emph on
 decreasing
 \emph default
@@ -1197,8 +1349,14 @@ decreasing
 \end_inset
 
 , there are up to two possible latencies, one corresponding to the free-flow
- regime (low density, few cars on the link moving fast) and one to the congested
- regime (high density, many cars on the link moving slowly).
+ regime (low density, few 
+\change_deleted 835226575 1327725726
+cars
+\change_inserted 835226575 1327725726
+agents
+\change_unchanged
+ on the link moving fast) and one to the congested regime (high density,
+ many cars on the link moving slowly).
  These properties motivate the choice of the class of latency functions.
 \end_layout
 
