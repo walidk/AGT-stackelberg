@@ -747,11 +747,44 @@ key "daganzo1995cell,daganzo1994cell,harker1988multiple"
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted 835226575 1327725126
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327725138
+A: add Greenshields and Papageorgiou
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327725160
+J: Our approach is only valid for flat free flow regime, should we limit
+ our diagrams as so, to avoid confusion?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \begin_inset Float figure
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -907,7 +940,13 @@ velocity
 \begin_inset Formula $\link$
 \end_inset
 
- is given by 
+ is 
+\change_deleted 835226575 1327725194
+given
+\change_inserted 835226575 1327725195
+defined
+\change_unchanged
+ by 
 \begin_inset Formula $\flow[\link]/\mass[\link]$
 \end_inset
 
@@ -947,6 +986,13 @@ where
 \end_inset
 
 .
+
+\change_inserted 835226575 1327725261
+ In the context of traffic, velocity corresponds to physical speed of vehicles
+ on a freeway, and latency to delay incurred while traveling through the
+ network.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
