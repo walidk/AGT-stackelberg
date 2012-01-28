@@ -1972,7 +1972,7 @@ Since
 \end_inset
 
  is at Nash equilibrium and 
-\begin_inset Formula $\link_{1}\in Supp(\flow)$
+\begin_inset Formula $\link_{1}\in\Supp{\flow}$
 \end_inset
 
 , 
@@ -2040,10 +2040,15 @@ Let
 \end_inset
 
 .
- To simplify our discussion, we assume without loss of generality, that
- the links are ordered by increasing free-flow latencies, and that free-flow
- latencies are different to avoid degenerate cases where the set of Nash
- equilibria is infinite
+ To simplify 
+\change_deleted 835226575 1327727754
+our
+\change_inserted 835226575 1327727755
+the
+\change_unchanged
+ discussion, we assume without loss of generality, that the links are ordered
+ by increasing free-flow latencies, and that free-flow latencies are different
+ to avoid degenerate cases where the set of Nash equilibria is infinite
 \end_layout
 
 \begin_layout Standard
@@ -2072,6 +2077,24 @@ Consider an assignment
 \end_inset
 
  are congested.
+\change_inserted 835226575 1327727787
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327727792
+A: we need to discuss this
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Lemma
@@ -2087,7 +2110,7 @@ Let
 
 .
  Then 
-\begin_inset Formula $j\in\Supp{\flow}\implies\Mode[i]=1\forall i\in\left\{ 1,\ldots,j-1\right\} $
+\begin_inset Formula $j\in\Supp{\flow}\implies\Mode[i]=1\quad\forall i\in\left\{ 1,\ldots,j-1\right\} $
 \end_inset
 
 
@@ -2112,7 +2135,7 @@ reference "lem:nash_eq"
 
 .
  Therefore, 
-\begin_inset Formula $m_{i}=1\forall i\in\left\{ 1,\ldots,j-1\right\} $
+\begin_inset Formula $m_{i}=1\quad\forall i\in\left\{ 1,\ldots,j-1\right\} $
 \end_inset
 
 .
@@ -2131,7 +2154,7 @@ name "cor:atmost1ff"
 
 .
  Assume that 
-\begin_inset Formula $\exists k\in Supp(x)$
+\begin_inset Formula $\exists k\in\Supp{\flow}$
 \end_inset
 
  such that 
@@ -2144,10 +2167,47 @@ name "cor:atmost1ff"
 \end_inset
 
  and 
-\begin_inset Formula $Supp(x)=\left\{ 1,\dots,k\right\} $
+\begin_inset Formula $\Supp{\flow}=\left\{ 1,\dots,k\right\} $
 \end_inset
 
 .
+\change_inserted 835226575 1327728449
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327728469
+A: I do not understand this cor.
+ if i pick such a k, the prop is stil ltrue for k + 1, so how do i know
+ this was the smallest?
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327728912
+J: the key is that k is in the support, which means that there is flow on
+ k.
+ k+1 mustnt be in the support.
+ this part may not be clear (and therefore maybe shouldn't be a corollary).
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -2171,8 +2231,33 @@ s the equilibrium: links
 \begin_inset Formula $N$
 \end_inset
 
- such equilibria since spcifying which link is in free flow completely determine
-s the equilibrim.
+ such equilibria since sp
+\change_inserted 835226575 1327727879
+e
+\change_unchanged
+cifying which link is in free flow completely determines the equilibri
+\change_inserted 835226575 1327727882
+u
+\change_unchanged
+m.
+\change_inserted 835226575 1327728000
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 835226575 1327728003
+A: we need to talk about this
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -2208,12 +2293,18 @@ For a given congestion state
 \end_layout
 
 \begin_layout Proof
-In the case where 
-\begin_inset Formula $\left|Supp\left(\flow\right)\right|<2$
+In the case 
+\change_deleted 835226575 1327728111
+where
+\change_inserted 835226575 1327728111
+in which
+\change_unchanged
+ 
+\begin_inset Formula $\left|\Supp{\flow}\right|<2$
 \end_inset
 
 , the result is trivial, so we assume 
-\begin_inset Formula $\left|Supp\left(\flow\right)\right|\ge2$
+\begin_inset Formula $\left|\Supp{\flow}\right|\ge2$
 \end_inset
 
 .
@@ -2227,11 +2318,15 @@ In the case where
 
 .
  Then 
-\begin_inset Formula $\exists i,j\in Supp\left(\flow\right):\flow[i]<\flow[i]',\flow[j]>\flow[j]'$
+\begin_inset Formula $\exists i,j\in\Supp{\flow}:\flow[i]<\flow[i]',\flow[j]>\flow[j]'$
 \end_inset
 
 .
  From 
+\change_inserted 835226575 1327728183
+Corollary 
+\change_unchanged
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "cor:atmost1ff"
