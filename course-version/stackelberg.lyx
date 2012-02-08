@@ -417,26 +417,32 @@ This new class of latency functions leads to new interesting results:
 \end_layout
 
 \begin_layout Itemize
-We show that for this class we do not have essential
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: what is essential? do we need to introduce? also put reference
-\end_layout
+We show that for this class we do not have essential uniqueness of Nash
+ equilibria, meaning there may exist more than one Nash equilibrium 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "roughgarden2002bad"
 
 \end_inset
 
- uniqueness of Nash equilibria.
+.
  We also show that the set of all pure Nash equilibria can be computed in
- polynomial time, and we characterize in particular the best Nash equilibrium.
+ polynomial time, and we characterize in particular the best Nash equilibrium,
+ meaning the Nash equilibrium that minimizes the network's total latency.
 \end_layout
 
 \begin_layout Itemize
 We show that the optimal Stackelberg strategy can be computed in polynomial
  time.
  This result contrasts with the class of non-decreasing latency functions,
- for which computing the optimal Stackelberg strategy is NP-hard.
+ for which computing the optimal Stackelberg strategy is NP-hard 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "roughgarden2001stackelberg"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -781,13 +787,10 @@ We assume that the network is subject to flow demand or rate
 \begin_inset Formula $r$
 \end_inset
 
- that represents a set of non-atomic players
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: will people know what this means?
-\end_layout
+ that represents a set of non-atomic players (flows can be fractional) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "roughgarden2004bounding,schmeidler1973equilibrium"
 
 \end_inset
 
