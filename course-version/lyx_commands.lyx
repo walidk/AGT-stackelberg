@@ -445,20 +445,12 @@ stackelberg commands
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\Network}{\mathscr{N}}
+\renewcommand{\Network}{\mathscr{N}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\NLinks}{N}
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset FormulaMacro
-\newcommand{\Mode}[1][]{m_{#1}}
+\renewcommand{\NLinks}{N}
 \end_inset
 
 
@@ -466,12 +458,7 @@ stackelberg commands
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\latency}[1][]{l_{#1}}
-\end_inset
-
-
-\begin_inset FormulaMacro
-\newcommand{\Latency}{C}
+\renewcommand{\Mode}[1][]{m_{#1}}
 \end_inset
 
 
@@ -479,7 +466,12 @@ stackelberg commands
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\link}{n}
+\renewcommand{\latency}[1][]{l_{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\renewcommand{\Latency}{C}
 \end_inset
 
 
@@ -487,7 +479,7 @@ stackelberg commands
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\Length}[1][]{\lenCell[#1]}
+\renewcommand{\link}{n}
 \end_inset
 
 
@@ -495,12 +487,7 @@ stackelberg commands
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\cFlow}[1][]{s_{#1}}
-\end_inset
-
-
-\begin_inset FormulaMacro
-\newcommand{\ncFlow}[1][]{t_{#1}}
+\renewcommand{\Length}[1][]{\lenCell[#1]}
 \end_inset
 
 
@@ -508,17 +495,12 @@ stackelberg commands
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\parA}[1][]{a_{#1}}
+\renewcommand{\cFlow}[1][]{s_{#1}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\parB}[1][]{b_{#1}}
-\end_inset
-
-
-\begin_inset FormulaMacro
-\newcommand{\parC}[1][]{c_{#1}}
+\renewcommand{\ncFlow}[1][]{t_{#1}}
 \end_inset
 
 
@@ -526,7 +508,17 @@ stackelberg commands
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\coloneqq}{:=}
+\renewcommand{\parA}[1][]{a_{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\renewcommand{\parB}[1][]{b_{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\renewcommand{\parC}[1][]{c_{#1}}
 \end_inset
 
 
@@ -534,22 +526,7 @@ stackelberg commands
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\demRange}[1][]{r^{#1}}
-\end_inset
-
-
-\begin_inset FormulaMacro
-\newcommand{\ldemRange}[1][]{\bar{r}^{#1}}
-\end_inset
-
-
-\begin_inset FormulaMacro
-\newcommand{\lDem}[1][]{\qdemand^{#1}}
-\end_inset
-
-
-\begin_inset FormulaMacro
-\newcommand{\lFlow}[2][][]{\flow[#2]^{#1}}
+\renewcommand{\coloneqq}{:=}
 \end_inset
 
 
@@ -557,7 +534,7 @@ stackelberg commands
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\StackSet}{\text{S}(N,r,\beta)}
+\renewcommand{\StackSet}{\textup{S}(N,r,\beta)}
 \end_inset
 
 
@@ -578,12 +555,12 @@ nash eq
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\NashEq}[2]{\text{NE}\left(#1,#2\right)}
+\renewcommand{\BestNashEquilibrium}[2]{\textup{BNE}\left(#1,#2\right)}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\BestNashEq}[2]{\text{BNE}\left(#1,#2\right)}
+\renewcommand{\NashEquilibrium}[2]{\textup{NE}\left(#1,#2\right)}
 \end_inset
 
 
@@ -604,7 +581,7 @@ congestion matches free flow flow
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\cffFlow}[2]{\hat{\flow}_{#1}\left(#2\right)}
+\renewcommand{\cffFlow}[2]{\hat{\flow}_{#1}\left(#2\right)}
 \end_inset
 
 
@@ -625,7 +602,7 @@ optimal NE flow
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\opneFlow}[3][]{\bar{\flow}_{#1}^{#2,#3}}
+\renewcommand{\opneFlow}[3][]{\bar{\flow}_{#1}^{#2,#3}}
 \end_inset
 
 
@@ -646,7 +623,7 @@ super script j = (1 through j-1 in congestion) and j in free flow (if exists)
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\cffMode}[2][]{\bar{\Mode}_{#1}^{#2}}
+\renewcommand{\cffMode}[2][]{\bar{\Mode}_{#1}^{#2}}
 \end_inset
 
 
@@ -654,7 +631,7 @@ super script j = (1 through j-1 in congestion) and j in free flow (if exists)
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\Supp}[1]{\text{Supp\ensuremath{\left(#1\right)}}}
+\newcommand{\Supp}[1]{\textup{Supp}\left(#1\right)}
 \end_inset
 
 
@@ -662,7 +639,7 @@ super script j = (1 through j-1 in congestion) and j in free flow (if exists)
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\POS}[2]{\text{POS\ensuremath{\left(#1,#2\right)}}}
+\newcommand{\POS}[2]{\textup{POS}\left(#1,#2\right)}
 \end_inset
 
 
