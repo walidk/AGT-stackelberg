@@ -144,29 +144,6 @@ Saurabh: get rid of Definition's, just define instead
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: social network 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-J: ?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Abstract
 We study inefficiencies of capacity constrained networks due to the selfish
  behavior and lack of coordination of agents, by comparing social optima
@@ -414,11 +391,39 @@ J: how is this different from main results?
 
 \begin_layout Standard
 This new class of latency functions leads to new interesting results:
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+J: introduce what 
+\begin_inset Quotes eld
+\end_inset
+
+cost
+\begin_inset Quotes erd
+\end_inset
+
+ is
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
 We show that for this class we do not have essential uniqueness of Nash
  equilibria, meaning there may exist more than one Nash equilibrium 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+J: that minimizes cost
+\end_layout
+
+\end_inset
+
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "roughgarden2002bad"
@@ -499,7 +504,7 @@ Horizontal Queueing Network
 placement b
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -803,18 +808,8 @@ key "roughgarden2004bounding,schmeidler1973equilibrium"
 \begin_inset Formula $\NLinks$
 \end_inset
 
- links, rate 
-\begin_inset Formula $r$
-\end_inset
-
-, and no compliant flow
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-this needs to be explained
-\end_layout
-
+ links and a demand 
+\begin_inset Formula $\qdemand$
 \end_inset
 
 .
@@ -917,6 +912,16 @@ status open
 
 \begin_layout Plain Layout
 A: There is an abuse of notation on the latencies
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+J: two defn's of l_n
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1010,25 +1015,8 @@ We can express the latency as a function of flow by introducing an integer
 \begin_inset Formula $n$
 \end_inset
 
- is in free-flow); for this, we first extract density from flow and mode
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-J: added 
-\begin_inset Quotes eld
-\end_inset
-
-and mode
-\begin_inset Quotes erd
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-: 
+ is in free-flow); for this, we first extract density from flow and mode.
+ 
 \begin_inset Formula 
 \[
 \mass[\link](\flow[n],\Mode[n])=\begin{cases}
@@ -1043,7 +1031,7 @@ and mode
 \end_layout
 
 \begin_layout Standard
-this corresponds to inverting the fundamental diagram that gives the flow
+This corresponds to inverting the fundamental diagram that gives the flow
  as a function of density.
  The latency is then given by the following expression: 
 \begin_inset Formula 
@@ -1080,18 +1068,6 @@ l_{n}(x_{n},m_{n})=\begin{cases}
 \end_inset
 
 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: ok, i did not have a chance to redo the maths on the plane, we have to
- do this.
- ok for now
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -1103,26 +1079,6 @@ where
 \begin_inset Formula $\parB[n]=\lenCell[n]\massmax[\link]$
 \end_inset
 
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: is there any physical interpretation for this? 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-J: corresponds directly to larger w (backwave propagation speed).
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
 .
 \end_layout
 
@@ -1131,7 +1087,7 @@ J: corresponds directly to larger w (backwave propagation speed).
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1715,6 +1671,16 @@ name "sub:Traffic-Networks-Have"
 \end_inset
 
 Existence of multiple Nash equilibria for horizontal queueing networks
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Sketch out the whole process
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
