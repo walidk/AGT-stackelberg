@@ -456,6 +456,77 @@ Related Work
 
 \begin_layout Section
 The Model
+\end_layout
+
+\begin_layout Standard
+In this section, we setup a conventional congestion game on a parallel edge
+ network similar to the fashion of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "roughgarden2001stackelberg"
+
+\end_inset
+
+.
+ We consider a directed graph 
+\begin_inset Formula $\Graph$
+\end_inset
+
+ with a single source and a single sink.
+ Connecting the source and sink are 
+\begin_inset Formula $\NLinks$
+\end_inset
+
+ parallel edges indexed by 
+\begin_inset Formula $\link\in\left\{ 1,\ldots,\NLinks\right\} $
+\end_inset
+
+.
+ At the source, there is a constant positive flow demand 
+\begin_inset Formula $\qdemand$
+\end_inset
+
+.
+ The graph 
+\begin_inset Formula $\Graph$
+\end_inset
+
+ with demand 
+\begin_inset Formula $\qdemand$
+\end_inset
+
+ is depicted in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:nparlink"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+An assignment of the demand 
+\begin_inset Formula $\qdemand$
+\end_inset
+
+ to the graph 
+\begin_inset Formula $\Graph$
+\end_inset
+
+ is an 
+\begin_inset Formula $\NLinks$
+\end_inset
+
+-vector 
+\begin_inset Formula $x\in\mathbb{R}_{+}^{\NLinks}$
+\end_inset
+
+ such that
+\end_layout
+
+\begin_layout Section
+The Model
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:The-Model"
@@ -463,6 +534,34 @@ name "sec:The-Model"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Assumptions
+\end_layout
+
+\begin_layout Itemize
+nonatomic game
+\end_layout
+
+\begin_layout Itemize
+pure nash equilibrium
+\end_layout
+
+\begin_layout Itemize
+N links
+\end_layout
+
+\begin_layout Itemize
+Latency is a function of the total amount of flow on link
+\end_layout
+
+\begin_layout Itemize
+Mode 0 has constant latency
+\end_layout
+
+\begin_layout Itemize
+Mode 1 has increasing latency with flow
 \end_layout
 
 \begin_layout Standard
