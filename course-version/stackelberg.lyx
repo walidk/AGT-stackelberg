@@ -458,6 +458,10 @@ Related Work
 The Model
 \end_layout
 
+\begin_layout Subsection
+Assignment on Parallel Edge Network
+\end_layout
+
 \begin_layout Standard
 In this section, we setup a conventional congestion game on a parallel edge
  network similar to the fashion of 
@@ -503,10 +507,7 @@ reference "fig:nparlink"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-An assignment of the demand 
+ An assignment of the demand 
 \begin_inset Formula $\qdemand$
 \end_inset
 
@@ -519,10 +520,44 @@ An assignment of the demand
 \end_inset
 
 -vector 
-\begin_inset Formula $x\in\mathbb{R}_{+}^{\NLinks}$
+\begin_inset Formula $x\in\Rea[\NLinks]_{+}$
 \end_inset
 
- such that
+ such that 
+\begin_inset Formula $\sum_{i=1}^{\NLinks}\flow[i]=\qdemand$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Congestion Games and Latency Functions
+\end_layout
+
+\begin_layout Standard
+Congestion games are a standard game in game theory where resources are
+ allocated across a set of edges, such that all edges which contain flow
+ incur equal and minimal cost across all edges (this will be formalized
+ in 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+J: fill in section!
+\end_layout
+
+\end_inset
+
+).
+ The cost on an edge 
+\begin_inset Formula $\link$
+\end_inset
+
+ is called the latency for an edge 
+\begin_inset Formula $\link$
+\end_inset
+
+, and is a function of the state of the network.
 \end_layout
 
 \begin_layout Section
@@ -3953,7 +3988,7 @@ key "roughgarden2001stackelberg"
 
 \begin_layout Standard
 We will denote by 
-\begin_inset Formula $\text{S}(\NLinks,r,\beta)\subset\mathbb{{R}}^{\NLinks}$
+\begin_inset Formula $\text{S}(\NLinks,r,\beta)\subset\Rea[\NLinks]$
 \end_inset
 
  the set of Stackelberg strategies for network instance 
@@ -4119,7 +4154,7 @@ Note that
  and latencies
 \begin_inset Formula 
 \begin{align*}
-\tilde{{l}}_{n}:[0,\flowMax[n]-s_{n}]\times\left\{ 0,1\right\}  & \longrightarrow\mathbb{{R}}_{+}\\
+\tilde{{l}}_{n}:[0,\flowMax[n]-s_{n}]\times\left\{ 0,1\right\}  & \longrightarrow\Rea_{+}\\
 (\flow[n],\Mode[n]) & \longmapsto l_{n}(s_{n}+\flow[n],\Mode[n])
 \end{align*}
 
