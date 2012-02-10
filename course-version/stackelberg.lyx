@@ -459,7 +459,7 @@ The Model
 \end_layout
 
 \begin_layout Subsection
-Assignment on Parallel Edge Network
+Congestion Games on on Parallel Edge Network
 \end_layout
 
 \begin_layout Standard
@@ -528,36 +528,225 @@ reference "fig:nparlink"
 \end_inset
 
 .
-\end_layout
+ For the rest of the article, it is tacitly assumed that the underlying
+ network of our is such a graph 
+\begin_inset Formula $\Graph$
+\end_inset
 
-\begin_layout Subsection
-Congestion Games and Latency Functions
+ with 
+\begin_inset Formula $\NLinks$
+\end_inset
+
+ parallel edges (or links), which, for brevity, is denoted by the number
+ of parallel links, 
+\begin_inset Formula $\NLinks$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-Congestion games are a standard game in game theory where resources are
- allocated across a set of edges, such that all edges which contain flow
- incur equal and minimal cost across all edges (this will be formalized
- in 
+A congestion game 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "roughgarden2004bounding"
+
+\end_inset
+
+ can be played on a network 
+\begin_inset Formula $\NLinks$
+\end_inset
+
+ by introducing a cost function for each link on the network.
+ A link's cost can be imagined as the latency experienced by a job utilizing
+ a particular machine 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "roughgarden2001stackelberg"
+
+\end_inset
+
+, or the travel time of a vehicle using a particular road 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "wardrop1952some"
+
+\end_inset
+
+, and the cost function relates the amount of usage to the average cost
+ experienced by all users of the link.
+ Nash equilibria in congestion games are the subject of a large body of
+ study 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "aswani2011game,babaioff2009congestion,friesz1985transportation,harker1988multiple,papadimitriou2010new,roughgarden2002bad,roughgarden2005selfish"
+
+\end_inset
+
+.
+ Informally (with a formal defintion to follow), a Nash equilibrium is an
+ assignment 
+\begin_inset Formula $x$
+\end_inset
+
+ such that the cost incurred by all flow on the network is equal.
+\end_layout
+
+\begin_layout Subsection
+Latency Functions
+\end_layout
+
+\begin_layout Standard
+To model queueing effects in congestion networks, cost (or latency) functions
+ on links are typically a non-decreasing function of the amount of flow
+ across a link 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "aswani2011game,babaioff2009congestion,friesz1985transportation,harker1988multiple,papadimitriou2010new,roughgarden2002bad,roughgarden2005selfish"
+
+\end_inset
+
+.
+ While such modeling assumptions are reasonably accurate for certain types
+ of networks (such as the internet), there is a large class of networks
+ where such a model is insufficient.
+ For example, consider a road in a traffic network.
+ There are two scenarios where low flow conditions could occur: when there
+ are very few vehicles on the road moving quickly, or when there are very
+ many vehicles on the road moving slowly (due to congestion).
+ It is clear that a non-decreasing function of the amount of flow for latency
+ is not rich enough to capture this phenomenon.
+ Furthermore, the traffic example does not even describe a function, as
+ its inverse map is not even injective.
+ What is described instead is a 
+\emph on
+dual-mode
+\emph default
+ latency function, where one mode describes a link that is 
+\emph on
+in free-flow
+\emph default
+, while the other mode describes a link that is 
+\emph on
+in congestion.
+\end_layout
+
+\begin_layout Standard
+The relationship between the speed of flow on a network and the 
+\emph on
+density
+\emph default
+ of flow (or amount of flow in the static sense) is usually expressed by
+ a fundamental diagram 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "daganzo1994cell,greenshields1935study,wang2001freeway"
+
+\end_inset
+
+.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:nparlink-1"
+
+\end_inset
+
+ depicts a triangular relationship between density and flow on a link, while
+ similarly shaped diagrams have been developed for certain applications.
+ 
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-J: fill in section!
+J: something about h-queues.
 \end_layout
 
 \end_inset
 
-).
- The cost on an edge 
-\begin_inset Formula $\link$
+
+\end_layout
+
+\begin_layout Standard
+While such flow models have been popular for many decades in particular
+ domains (such as traffic and hydrodynamics
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+J: how do we motivate the generality of the approach beyond traffic? Sources
+ to cite?
+\end_layout
+
 \end_inset
 
- is called the latency for an edge 
-\begin_inset Formula $\link$
+), less attention has been given to these models in the literature for equilibri
+a in congestion games, which focuses on non-decreasing latency functions
+ and assumes flow and density to have a one-to-one relation.
+ This article describes the differences that arise when characterizing equilibri
+a in congestion games for this class of 
+\emph on
+dual-mode
+\emph default
+ latency functions.
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement b
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../figures/nparlink.pdf
+	scale 35
+
 \end_inset
 
-, and is a function of the state of the network.
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Network, 
+\begin_inset Formula $\Network$
+\end_inset
+
+, with 
+\begin_inset Formula $\NLinks$
+\end_inset
+
+ parallel links and demand, 
+\begin_inset Formula $\qdemand$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:nparlink-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
