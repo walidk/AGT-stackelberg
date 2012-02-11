@@ -627,7 +627,7 @@ key "roughgarden2001stackelberg"
  is depicted in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:nparlink"
+reference "fig:nparlink-1"
 
 \end_inset
 
@@ -821,7 +821,7 @@ J: something about h-queues.
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -838,15 +838,15 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Network, 
-\begin_inset Formula $\Network$
+Network instance 
+\begin_inset Formula $(\NLinks,r)$
 \end_inset
 
 , with 
-\begin_inset Formula $\NLinks$
+\begin_inset Formula $N$
 \end_inset
 
- parallel links and demand, 
+ parallel links and demand 
 \begin_inset Formula $\qdemand$
 \end_inset
 
@@ -1026,12 +1026,12 @@ reference "fig:permfds"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /Users/jdr/Documents/github-projects/Stackelberg/figures/AnnotatedFundamentalDiagramwithparameters.pdf
+	filename ../figures/AnnotatedFundamentalDiagramwithparameters.pdf
 	scale 35
 
 \end_inset
@@ -1113,12 +1113,12 @@ reference "fig:example-rho-latency"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /Users/jdr/Documents/github-projects/Stackelberg/figures/presentation/LatencyasFunctionofDensity.pdf
+	filename ../figures/presentation/LatencyasFunctionofDensity.pdf
 	scale 35
 
 \end_inset
@@ -1274,12 +1274,12 @@ reference "fig:example-flow-mode-latency"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /Users/jdr/Documents/github-projects/Stackelberg/figures/presentation/LatencyasFunctionofFlowMode.pdf
+	filename ../figures/presentation/LatencyasFunctionofFlowMode.pdf
 	scale 35
 
 \end_inset
@@ -2639,7 +2639,7 @@ Now if
 
 \end_inset
 
-, we can show that 
+we can show that 
 \begin_inset Formula $\left(\opneFlow{N+1}{\qdemand},\cffMode{N+1}\right)\in\NashEquilibrium{\NLinks+1}{\qdemand}$
 \end_inset
 
@@ -2934,7 +2934,7 @@ reference "cor:atmost1ff"
 \end_inset
 
  such that 
-\begin_inset Formula $\left(\flow',\cffMode{\NLinks+1}\right)\in\NashEquilibrium{\Network}{\qdemand}$
+\begin_inset Formula $\left(\flow',\cffMode{\NLinks+1}\right)\in\NashEquilibrium N{\qdemand}$
 \end_inset
 
 ).
@@ -4168,7 +4168,7 @@ In other words, the last link in the support of
 
 \begin_layout Proof
 Note that 
-\begin_inset Formula $t(s)$
+\begin_inset Formula $(t(s),m(s))$
 \end_inset
 
  is an assignment at Nash for the instance 
@@ -4555,7 +4555,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../figures/optimal_stackelberg2.png
+	filename ../figures/optimal_stackelberg1.png
 	scale 40
 
 \end_inset
@@ -4622,7 +4622,8 @@ Now define Stackelberg strategy
 \begin_inset Formula $\bar{s}$
 \end_inset
 
- as the optimal assignment of compliant flow 
+ as the optimal assignment (i.e.
+ of least cost) of compliant flow 
 \begin_inset Formula $\beta\qdemand$
 \end_inset
 
@@ -4736,7 +4737,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../figures/optimal_stackelberg1.png
+	filename ../figures/optimal_stackelberg2.png
 	scale 40
 
 \end_inset
@@ -4988,7 +4989,7 @@ Intuitively, since
 
 \begin_layout Proof
 First note that 
-\begin_inset Formula $s+t$
+\begin_inset Formula $(s+t,m)$
 \end_inset
 
  restricted to 
@@ -5139,11 +5140,11 @@ reference "lemma:slff"
 \end_layout
 
 \begin_layout Proof
-Note that 
+The assignment 
 \begin_inset Formula $((\tilde{t}_{1},\dots,\tilde{t}_{k'},0,\dots,0),(\tilde{m}_{1},\dots,\tilde{m}_{k'},0,\dots,0)\in\mathbb{R}^{N}\times\left\{ 0,1\right\} ^{N}$
 \end_inset
 
- is clearly an assignment at Nash Equilibrium for the instance 
+ is clearly at Nash Equilibrium for the instance 
 \begin_inset Formula $((1-\beta)r,N)$
 \end_inset
 
