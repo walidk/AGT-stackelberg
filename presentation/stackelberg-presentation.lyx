@@ -4,7 +4,7 @@
 \begin_header
 \textclass beamer
 \begin_preamble
-\usetheme{PaloAlto}
+
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -190,6 +190,37 @@ Class of fundamental diagrams considered
 Mapping to Latency
 \end_layout
 
+\begin_layout Itemize
+One-to-one mapping between density and latency.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\latency[\mass]:\left[0,\massmax\right]\rightarrow\Rea[+]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Flow-to-latency mapping is not unique.
+ Introduce a mode variable.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\latency[\flow,\Mode]:\left[0,\flowMax\right]\times\left\{ 0,1\right\} \rightarrow\Rea[+]
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 wide false
@@ -200,7 +231,7 @@ status open
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics

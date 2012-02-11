@@ -63,6 +63,13 @@
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand input
+filename "/Users/jdr/Documents/github-projects/Stackelberg/course-version/lyx_commands.lyx"
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand input
 filename "stackelberg-presentation.lyx"
 
 \end_inset
