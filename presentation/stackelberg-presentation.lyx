@@ -1,0 +1,548 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass beamer
+\begin_preamble
+
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-std
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Stackelberg on Horizontal Queueing Networks
+\end_layout
+
+\begin_layout Author
+Walid Krichene, Jack Reilly
+\end_layout
+
+\begin_layout BeginFrame
+Outline
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Part
+Latency Functions
+\end_layout
+
+\begin_layout Section
+Derivation from Fundamental Diagram
+\end_layout
+
+\begin_layout BeginFrame
+Assumptions of Fundamental Diagram
+\end_layout
+
+\begin_layout Block
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{Two Modes}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<1->
+\end_layout
+
+\end_inset
+
+Constant slope in the free-flow mode.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<2->
+\end_layout
+
+\end_inset
+
+Flow is decreasing function of density in congested mode.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../figures/presentation/AnnotatedFundamentalDiagram.pdf
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Class of fundamental diagrams considered
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Mapping to Latency
+\end_layout
+
+\begin_layout Itemize
+One-to-one mapping between density and latency.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\latency[\mass]:\left[0,\massmax\right]\rightarrow\Rea[+]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Flow-to-latency mapping is not unique.
+ Introduce a mode variable.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\latency[\flow,\Mode]:\left[0,\flowMax\right]\times\left\{ 0,1\right\} \rightarrow\Rea[+]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../figures/presentation/LatencyasFunctionofDensity.pdf
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+As function of density
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/jdr/Documents/github-projects/Stackelberg/figures/presentation/LatencyasFunctionofFlowMode.pdf
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+As function of density
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Relating flow-density relationship to latency
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Part
+Nash Equilibria
+\end_layout
+
+\begin_layout Section
+Enumerating All Nash Equilibria
+\end_layout
+
+\begin_layout BeginFrame
+Definition of NE
+\end_layout
+
+\begin_layout Standard
+Informally, a Nash equilibrium exists when there is no incentive for any
+ flow to switch from its current link to another link.
+\end_layout
+
+\begin_layout Definition
+An assignment 
+\begin_inset Formula $\left(\flow,\Mode\right)\in\Rea[\NLinks]_{+}\times\left\{ 0,1\right\} ^{\NLinks}$
+\end_inset
+
+ for a parallel network instance 
+\begin_inset Formula $\left(\NLinks,\qdemand\right)$
+\end_inset
+
+ is at Nash equilibrium, if 
+\begin_inset Formula $\forall\link:\flow[\link]>0\implies\latency[\link]\left(\flow[\link],\Mode[\link]\right)\le\latency[k]\left(\flow[k],\Mode[k]\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../figures/presentation/NE3link.pdf
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+An instance of a Nash equilibrium with one link in congestion, one in free
+ flow, and one unused
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Understanding Congestion Configuration
+\end_layout
+
+\begin_layout Standard
+For Nash equilibria, one can determine the congestion mode of a link from
+ the mode of other links.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:filluplower"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\flow,\Mode\right)\in\NashEquilibrium{\NLinks}{\qdemand}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $j\in\Supp{\flow}\implies\Mode[i]=1\quad\forall i\in\left\{ 1,\ldots,j-1\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Lemma
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../figures/presentation/LemmaLowerIndexLinksCongested.pdf
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+If a link is utilized, then all links with lower free flow speed must be
+ congested.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginFrame
+Understanding Congestion Configuration
+\end_layout
+
+\begin_layout Standard
+For Nash equilibria, one can determine the congestion mode of a link from
+ the mode of other links.
+\end_layout
+
+\begin_layout Corollary
+Let 
+\begin_inset Formula $\left(\flow,\Mode\right)\in\NashEquilibrium{\NLinks}{\qdemand}$
+\end_inset
+
+.
+ Assume that 
+\begin_inset Formula $\exists k\in\Supp{\flow}$
+\end_inset
+
+ such that 
+\begin_inset Formula $m_{k}=0$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $m=(1,\dots,\stackrel{k-1}{1},\stackrel{k}{0},\dots,0)$
+\end_inset
+
+ and 
+\begin_inset Formula $\Supp{\flow}=\left\{ 1,\dots,k\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /Users/jdr/Documents/github-projects/Stackelberg/figures/presentation/CorollaryAllaboveFFareempty.pdf
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+If a link is utilized and in free flow, then all links with higher free-flow
+ speeds must be empty
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Section
+Existence of Uncongested Equilibrium
+\end_layout
+
+\begin_layout Section
+Best Nash Equilibrium
+\end_layout
+
+\begin_layout Section
+Price of Stability
+\end_layout
+
+\begin_layout Part
+Optimal Stackelberg Assignment
+\end_layout
+
+\end_body
+\end_document

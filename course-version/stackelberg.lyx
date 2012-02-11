@@ -144,29 +144,6 @@ Saurabh: get rid of Definition's, just define instead
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: social network 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-J: ?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Abstract
 We study inefficiencies of capacity constrained networks due to the selfish
  behavior and lack of coordination of agents, by comparing social optima
@@ -414,33 +391,358 @@ J: how is this different from main results?
 
 \begin_layout Standard
 This new class of latency functions leads to new interesting results:
-\end_layout
-
-\begin_layout Itemize
-We show that for this class we do not have essential
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-A: what is essential? do we need to introduce? also put reference
+J: introduce what 
+\begin_inset Quotes eld
+\end_inset
+
+cost
+\begin_inset Quotes erd
+\end_inset
+
+ is
 \end_layout
 
 \end_inset
 
- uniqueness of Nash equilibria.
+
+\end_layout
+
+\begin_layout Itemize
+We show that for this class we do not have essential uniqueness of Nash
+ equilibria, meaning there may exist more than one Nash equilibrium 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+J: that minimizes cost
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "roughgarden2002bad"
+
+\end_inset
+
+.
  We also show that the set of all pure Nash equilibria can be computed in
- polynomial time, and we characterize in particular the best Nash equilibrium.
+ polynomial time, and we characterize in particular the best Nash equilibrium,
+ meaning the Nash equilibrium that minimizes the network's total latency.
 \end_layout
 
 \begin_layout Itemize
 We show that the optimal Stackelberg strategy can be computed in polynomial
  time.
  This result contrasts with the class of non-decreasing latency functions,
- for which computing the optimal Stackelberg strategy is NP-hard.
+ for which computing the optimal Stackelberg strategy is NP-hard 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "roughgarden2001stackelberg"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
 Related Work
+\end_layout
+
+\begin_layout Section
+The Model
+\end_layout
+
+\begin_layout Subsection
+Congestion Games on on Parallel Edge Network
+\end_layout
+
+\begin_layout Standard
+In this section, we setup a conventional congestion game on a parallel edge
+ network similar to the fashion of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "roughgarden2001stackelberg"
+
+\end_inset
+
+.
+ We consider a directed graph 
+\begin_inset Formula $\Graph$
+\end_inset
+
+ with a single source and a single sink.
+ Connecting the source and sink are 
+\begin_inset Formula $\NLinks$
+\end_inset
+
+ parallel edges indexed by 
+\begin_inset Formula $\link\in\left\{ 1,\ldots,\NLinks\right\} $
+\end_inset
+
+.
+ At the source, there is a constant positive flow demand 
+\begin_inset Formula $\qdemand$
+\end_inset
+
+.
+ The graph 
+\begin_inset Formula $\Graph$
+\end_inset
+
+ with demand 
+\begin_inset Formula $\qdemand$
+\end_inset
+
+ is depicted in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:nparlink"
+
+\end_inset
+
+.
+ An assignment of the demand 
+\begin_inset Formula $\qdemand$
+\end_inset
+
+ to the graph 
+\begin_inset Formula $\Graph$
+\end_inset
+
+ is an 
+\begin_inset Formula $\NLinks$
+\end_inset
+
+-vector 
+\begin_inset Formula $x\in\Rea[\NLinks]_{+}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\sum_{i=1}^{\NLinks}\flow[i]=\qdemand$
+\end_inset
+
+.
+ For the rest of the article, it is tacitly assumed that the underlying
+ network of our is such a graph 
+\begin_inset Formula $\Graph$
+\end_inset
+
+ with 
+\begin_inset Formula $\NLinks$
+\end_inset
+
+ parallel edges (or links), which, for brevity, is denoted by the number
+ of parallel links, 
+\begin_inset Formula $\NLinks$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+A congestion game 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "roughgarden2004bounding"
+
+\end_inset
+
+ can be played on a network 
+\begin_inset Formula $\NLinks$
+\end_inset
+
+ by introducing a cost function for each link on the network.
+ A link's cost can be imagined as the latency experienced by a job utilizing
+ a particular machine 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "roughgarden2001stackelberg"
+
+\end_inset
+
+, or the travel time of a vehicle using a particular road 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "wardrop1952some"
+
+\end_inset
+
+, and the cost function relates the amount of usage to the average cost
+ experienced by all users of the link.
+ Nash equilibria in congestion games are the subject of a large body of
+ study 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "aswani2011game,babaioff2009congestion,friesz1985transportation,harker1988multiple,papadimitriou2010new,roughgarden2002bad,roughgarden2005selfish"
+
+\end_inset
+
+.
+ Informally (with a formal defintion to follow), a Nash equilibrium is an
+ assignment 
+\begin_inset Formula $x$
+\end_inset
+
+ such that the cost incurred by all flow on the network is equal.
+\end_layout
+
+\begin_layout Subsection
+Latency Functions
+\end_layout
+
+\begin_layout Standard
+To model queueing effects in congestion networks, cost (or latency) functions
+ on links are typically a non-decreasing function of the amount of flow
+ across a link 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "aswani2011game,babaioff2009congestion,friesz1985transportation,harker1988multiple,papadimitriou2010new,roughgarden2002bad,roughgarden2005selfish"
+
+\end_inset
+
+.
+ While such modeling assumptions are reasonably accurate for certain types
+ of networks (such as the internet), there is a large class of networks
+ where such a model is insufficient.
+ For example, consider a road in a traffic network.
+ There are two scenarios where low flow conditions could occur: when there
+ are very few vehicles on the road moving quickly, or when there are very
+ many vehicles on the road moving slowly (due to congestion).
+ It is clear that a non-decreasing function of the amount of flow for latency
+ is not rich enough to capture this phenomenon.
+ Furthermore, the traffic example does not even describe a function, as
+ its inverse map is not even injective.
+ What is described instead is a 
+\emph on
+dual-mode
+\emph default
+ latency function, where one mode describes a link that is 
+\emph on
+in free-flow
+\emph default
+, while the other mode describes a link that is 
+\emph on
+in congestion.
+\end_layout
+
+\begin_layout Standard
+The relationship between the speed of flow on a network and the 
+\emph on
+density
+\emph default
+ of flow (or amount of flow in the static sense) is usually expressed by
+ a fundamental diagram 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "daganzo1994cell,greenshields1935study,wang2001freeway"
+
+\end_inset
+
+.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:nparlink-1"
+
+\end_inset
+
+ depicts a triangular relationship between density and flow on a link, while
+ similarly shaped diagrams have been developed for certain applications.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+J: something about h-queues.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+While such flow models have been popular for many decades in particular
+ domains (such as traffic and hydrodynamics
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+J: how do we motivate the generality of the approach beyond traffic? Sources
+ to cite?
+\end_layout
+
+\end_inset
+
+), less attention has been given to these models in the literature for equilibri
+a in congestion games, which focuses on non-decreasing latency functions
+ and assumes flow and density to have a one-to-one relation.
+ This article describes the differences that arise when characterizing equilibri
+a in congestion games for this class of 
+\emph on
+dual-mode
+\emph default
+ latency functions.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement b
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../figures/nparlink.pdf
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Network, 
+\begin_inset Formula $\Network$
+\end_inset
+
+, with 
+\begin_inset Formula $\NLinks$
+\end_inset
+
+ parallel links and demand, 
+\begin_inset Formula $\qdemand$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:nparlink-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -452,6 +754,34 @@ name "sec:The-Model"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Assumptions
+\end_layout
+
+\begin_layout Itemize
+nonatomic game
+\end_layout
+
+\begin_layout Itemize
+pure nash equilibrium
+\end_layout
+
+\begin_layout Itemize
+N links
+\end_layout
+
+\begin_layout Itemize
+Latency is a function of the total amount of flow on link
+\end_layout
+
+\begin_layout Itemize
+Mode 0 has constant latency
+\end_layout
+
+\begin_layout Itemize
+Mode 1 has increasing latency with flow
 \end_layout
 
 \begin_layout Standard
@@ -493,7 +823,7 @@ Horizontal Queueing Network
 placement b
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -781,13 +1111,10 @@ We assume that the network is subject to flow demand or rate
 \begin_inset Formula $r$
 \end_inset
 
- that represents a set of non-atomic players
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: will people know what this means?
-\end_layout
+ that represents a set of non-atomic players (flows can be fractional) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "roughgarden2004bounding,schmeidler1973equilibrium"
 
 \end_inset
 
@@ -800,18 +1127,8 @@ A: will people know what this means?
 \begin_inset Formula $\NLinks$
 \end_inset
 
- links, rate 
-\begin_inset Formula $r$
-\end_inset
-
-, and no compliant flow
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-this needs to be explained
-\end_layout
-
+ links and a demand 
+\begin_inset Formula $\qdemand$
 \end_inset
 
 .
@@ -914,6 +1231,16 @@ status open
 
 \begin_layout Plain Layout
 A: There is an abuse of notation on the latencies
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+J: two defn's of l_n
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1007,25 +1334,8 @@ We can express the latency as a function of flow by introducing an integer
 \begin_inset Formula $n$
 \end_inset
 
- is in free-flow); for this, we first extract density from flow and mode
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-J: added 
-\begin_inset Quotes eld
-\end_inset
-
-and mode
-\begin_inset Quotes erd
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-: 
+ is in free-flow); for this, we first extract density from flow and mode.
+ 
 \begin_inset Formula 
 \[
 \mass[\link](\flow[n],\Mode[n])=\begin{cases}
@@ -1040,7 +1350,7 @@ and mode
 \end_layout
 
 \begin_layout Standard
-this corresponds to inverting the fundamental diagram that gives the flow
+This corresponds to inverting the fundamental diagram that gives the flow
  as a function of density.
  The latency is then given by the following expression: 
 \begin_inset Formula 
@@ -1077,18 +1387,6 @@ l_{n}(x_{n},m_{n})=\begin{cases}
 \end_inset
 
 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: ok, i did not have a chance to redo the maths on the plane, we have to
- do this.
- ok for now
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -1100,26 +1398,6 @@ where
 \begin_inset Formula $\parB[n]=\lenCell[n]\massmax[\link]$
 \end_inset
 
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: is there any physical interpretation for this? 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-J: corresponds directly to larger w (backwave propagation speed).
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
 .
 \end_layout
 
@@ -1128,7 +1406,7 @@ J: corresponds directly to larger w (backwave propagation speed).
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1712,6 +1990,16 @@ name "sub:Traffic-Networks-Have"
 \end_inset
 
 Existence of multiple Nash equilibria for horizontal queueing networks
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Sketch out the whole process
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1843,7 +2131,7 @@ name "cor:atmost1ff"
 
 .
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 A: I do not understand this cor.
@@ -3958,7 +4246,7 @@ key "roughgarden2001stackelberg"
 
 \begin_layout Standard
 We will denote by 
-\begin_inset Formula $\text{S}(\NLinks,r,\beta)\subset\mathbb{{R}}^{\NLinks}$
+\begin_inset Formula $\text{S}(\NLinks,r,\beta)\subset\Rea[\NLinks]$
 \end_inset
 
  the set of Stackelberg strategies for network instance 
@@ -4123,7 +4411,7 @@ Note that
  and latencies
 \begin_inset Formula 
 \begin{align*}
-\tilde{{l}}_{n}:[0,\flowMax[n]-s_{n}]\times\left\{ 0,1\right\}  & \longrightarrow\mathbb{{R}}_{+}\\
+\tilde{{l}}_{n}:[0,\flowMax[n]-s_{n}]\times\left\{ 0,1\right\}  & \longrightarrow\Rea_{+}\\
 (\flow[n],\Mode[n]) & \longmapsto l_{n}(s_{n}+\flow[n],\Mode[n])
 \end{align*}
 
