@@ -3,6 +3,9 @@
 \begin_document
 \begin_header
 \textclass beamer
+\begin_preamble
+\usetheme{PaloAlto}
+\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language english
@@ -151,7 +154,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ../figures/presentation/AnnotatedFundamentalDiagram.pdf
-	scale 30
+	scale 25
 
 \end_inset
 
