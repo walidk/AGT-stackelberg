@@ -1893,8 +1893,18 @@ s the congestion state of the equilibrium: links
 \begin_inset Formula $m=(1,\dots,1)$
 \end_inset
 
+<<<<<<< HEAD
+ such equilibria since specifying which link is in free flow completely
+ determines the equilibrium.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+A: we need to talk about this
+=======
 .
  We will call such equilibria completely congested equilibria.
+>>>>>>> alex-edits
 \end_layout
 
 \begin_layout Standard
@@ -1906,10 +1916,14 @@ The following Lemma shows that given a congestion state
 \begin_inset Formula $(x,m)$
 \end_inset
 
+<<<<<<< HEAD
+\end_layout
+=======
 .
  This will show that there are at most 
 \begin_inset Formula $N+1$
 \end_inset
+>>>>>>> alex-edits
 
  equilibria: 
 \begin_inset Formula $N$
@@ -1941,8 +1955,13 @@ For a given congestion state
 \end_layout
 
 \begin_layout Proof
+<<<<<<< HEAD
+In the case in which 
+\begin_inset Formula $\left|\Supp{\flow}\right|<2$
+=======
 If 
 \begin_inset Formula $\left|\Supp{\flow}\right|\leq1$
+>>>>>>> alex-edits
 \end_inset
 
 , the result is trivial.
@@ -2311,8 +2330,12 @@ name "lem:xhat"
 \begin_inset Formula $\left(\opneFlow kr,\cffMode k\right)$
 \end_inset
 
+<<<<<<< HEAD
+\begin_inset Formula $\qdemand-\sum_{\link=1}^{k-1}\cffFlow{\link}k\in\left[0,\flowMax[k]\right]\implies\left(\opneFlow k{\qdemand},\cffMode k\right)\in\NashEquilibrium{\NLinks}{\qdemand}$
+=======
  is a Nash Equilibrium for the instance 
 \begin_inset Formula $(N,r)$
+>>>>>>> alex-edits
 \end_inset
 
 .
@@ -2448,9 +2471,36 @@ Consider instance
 
 .
  If there exists a completely congested Nash equilibrium 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
 \begin_inset Formula $\left(\flow,\cffMode{\NLinks+1}\right)\in\NashEquilibrium{\NLinks}{\qdemand}$
 \end_inset
 
+<<<<<<< HEAD
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+=======
+>>>>>>> alex-edits
 , then there also exists a free flow Nash equilibrium 
 \family roman
 \series medium
@@ -2605,8 +2655,13 @@ Now if
 
 \end_inset
 
+<<<<<<< HEAD
 , we can show that 
 \begin_inset Formula $\left(\opneFlow{N+1}{\qdemand},\cffMode{N+1}\right)\in\NashEquilibrium{\NLinks+1}{\qdemand}$
+=======
+we can show that 
+\begin_inset Formula $\left(\opneFlow{N+1}{\qdemand},\cffMode{N+1}\right)\in\NashEq{\NLinks+1}{\qdemand}$
+>>>>>>> alex-edits
 \end_inset
 
 .
@@ -2622,6 +2677,9 @@ reference "lem:xhat"
 \end_inset
 
 .
+<<<<<<< HEAD
+ We readily have the second inequality.
+=======
  We readily have the second inequality from 
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -2630,6 +2688,7 @@ reference "eq:im1"
 \end_inset
 
 .
+>>>>>>> alex-edits
  To show the first inequality, we have
 \family roman
 \series medium
@@ -2820,8 +2879,13 @@ reference "theorem:minsupport"
 , we use two intermediate results.
  The first result says that a fully congested Nash equilibrium will never
  be the best Nash equilibrium (because there always exists a single-link
+<<<<<<< HEAD
+ free flow equilibrium, and it is better).
+ The second result says that the better of two single-link free flow Nash
+=======
  free-flow equilibrium, and it is better).
  The second result says that the better of two single-link free-flow Nash
+>>>>>>> alex-edits
  equilibria will be the one with the free flow link that has a smaller index.
 \end_layout
 
@@ -2900,7 +2964,11 @@ reference "cor:atmost1ff"
 \end_inset
 
  such that 
+<<<<<<< HEAD
 \begin_inset Formula $\left(\flow',\cffMode{\NLinks+1}\right)\in\NashEquilibrium{\Network}{\qdemand}$
+=======
+\begin_inset Formula $\left(\flow',\cffMode{\NLinks+1}\right)\in\NashEq N{\qdemand}$
+>>>>>>> alex-edits
 \end_inset
 
 ).
@@ -3198,7 +3266,11 @@ As a consequence of the previous Lemma, and using the fact that the latency
 
 \begin_layout Standard
 Then since the links are ordered by increasing free-flow latency 
+<<<<<<< HEAD
+\begin_inset Formula $a_{1}\leq\dots\leq a_{N}$
+=======
 \begin_inset Formula $a_{1}<\dots<a_{N}$
+>>>>>>> alex-edits
 \end_inset
 
 , the social optimum is simply given by the assignment that saturates most
@@ -3360,7 +3432,15 @@ reference "eq:so"
 
 \end_inset
 
+<<<<<<< HEAD
+, we have 
+\begin_inset Formula $k_{0}=0$
+\end_inset
+
+, and all the demand will be on link 1 in free flow.
+=======
 , all the demand will be on link 1 in free flow.
+>>>>>>> alex-edits
  Similarly, from Theorem 
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -4255,7 +4335,11 @@ The optimal Stackelberg strategy in our case corresponds to:
 \begin_layout Itemize
 First computing the best Nash equilibrium of non-compliant users alone,
  
+<<<<<<< HEAD
 \begin_inset Formula $(\bar{t},\bar{m)}=\BestNashEquilibrium N{(1-\beta)r}$
+=======
+\begin_inset Formula $(\bar{t},\bar{m})=\BestNashEq N{(1-\beta)r}$
+>>>>>>> alex-edits
 \end_inset
 
 
@@ -4897,7 +4981,12 @@ The last link in the support of
 \begin_inset Formula $\bar{t}$
 \end_inset
 
+<<<<<<< HEAD
+.
+ 
+=======
 : 
+>>>>>>> alex-edits
 \begin_inset Formula $k'\geq k$
 \end_inset
 
@@ -4911,6 +5000,18 @@ Intuitively, since
 \end_inset
 
  is the best Nash equilibrium of the non-compliant agents when they are
+<<<<<<< HEAD
+ not sharing the network with any other flow, the assignment 
+\begin_inset Formula $(\bar{t},\bar{\Mode})$
+\end_inset
+
+ will use more efficient links than any Nash assignment 
+\begin_inset Formula $(t,\Mode)$
+\end_inset
+
+ of non-compliant agents when they are sharing the network with additional
+ flow 
+=======
  not sharing the network with any other flow, the cost of this assignment
  
 \begin_inset Formula $(\bar{t},\bar{\Mode})$
@@ -4918,10 +5019,15 @@ Intuitively, since
 
  is less than the cost of any equilibrium after introducing additional flow
  
+>>>>>>> alex-edits
 \begin_inset Formula $s$
 \end_inset
 
 .
+<<<<<<< HEAD
+ 
+=======
+>>>>>>> alex-edits
 \end_layout
 
 \begin_layout Proof

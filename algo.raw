@@ -1,23 +1,23 @@
-procedure bestNE(N,r)
-Inputs: Parallel network of size N; demand r
-Outputs: Optimal flow/mode vectors (X,M)
+procedure bestNE($N, r$)
+Inputs: Size of the network $N$, demand $r$
+Outputs: Assignment $(x, m)$ at Best Nash Equilibrium
 
-for i $\in$ {1,...,N}:
-    let (X,M) = freeFlowConfig(N,r,i)
-    if X(i) $\in$ [0,$c_i$]:                  # $c_i$ Equation (3)
-       return (X,M)
+for $i \in \{1,\dots,N\}$:
+    let $(x,m)$ = freeFlowConfig($N, r, i$)
+    if $x_i \in [0,x^{\max}_i]$:
+       return (x,m)
 return No-Solution
 
 
-procedure freeFlowConfig(N,r,j):
-Inputs: Network of size N, demand r, free flow link index j
-Outputs: Flow/mode configuration (X,M)
+procedure freeFlowConfig($N, r, i$):
+Inputs: Size of the network $N$, demand $r$, free-flow link index $j$
+Outputs: assignment $(x, m) = (\bar{x}^{r, i},\bar{m}^{r,i})$ as defined in Equations (6) and (7)
 
-for i $\in$ {1,...,N}:
-    if i < j:
-       X(i) = $\hat{x}_{i,j}$, M(i) = 1       # $\hat{x}_{i,j}$ Equation (5)
+for $i \in \{ 1, \dots, N \}$:
+    if $i < j$:
+       $x_i = \hat{x}_i(j)$, $m_i = 1$       # $\hat{x}_i(j)$ as defined in Equation (5)
     elseif i == j:
-       X(i) = r - $\sum_{k<j}$ X(K), M(i) = 0
+       $x_i = r - \sum_{k=1}^j x_k$, $m_i = 0$
     else:
-       X(i) = 0, M(i) = 0
-return (X,M)
+       $x_i = 0$, $m_i = 0$
+return $(x, m)$

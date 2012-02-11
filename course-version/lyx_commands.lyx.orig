@@ -81,22 +81,22 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\mass}[1][]{\rho_{#1}}
+\renewcommand{\mass}[1][]{\rho_{#1}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\newcommand{\massmax}[1][]{\mass[#1]^{\max}}
+\renewcommand{\massmax}[1][]{\mass[#1]^{\max}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\newcommand{\masscrit}[1][]{\mass[#1]^{\text{crit}}}
+\renewcommand{\masscrit}[1][]{\mass[#1]^{\text{crit}}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\vmass}{\vect{\mass}}
+\renewcommand{\vmass}{\vect{\mass}}
 \end_inset
 
 
@@ -104,17 +104,17 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\Junctions}{V}
+\renewcommand{\Junctions}{V}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\newcommand{\Cells}{E}
+\renewcommand{\Cells}{E}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\newcommand{\Graph}{(\Junctions,\Cells)}
+\renewcommand{\Graph}{(\Junctions,\Cells)}
 \end_inset
 
 
@@ -122,12 +122,12 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\junction}[1][]{v_{#1}}
+\renewcommand{\junction}[1][]{v_{#1}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\newcommand{\jcn}[1][]{\junction[#1]}
+\renewcommand{\jcn}[1][]{\junction[#1]}
 \end_inset
 
 
@@ -135,12 +135,12 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\cell}[1][]{e_{#1}}
+\renewcommand{\cell}[1][]{e_{#1}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\newcommand{\vcell}[1][]{\vect{\cell[#1]}}
+\renewcommand{\vcell}[1][]{\vect{\cell[#1]}}
 \end_inset
 
 
@@ -148,12 +148,12 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\Incoming}{I}
+\renewcommand{\Incoming}{I}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\newcommand{\inCells}[1][]{\Incoming_{#1}}
+\renewcommand{\inCells}[1][]{\Incoming_{#1}}
 \end_inset
 
 
@@ -161,12 +161,12 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\Outgoing}{O}
+\renewcommand{\Outgoing}{O}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\newcommand{\outCells}[1][]{\Outgoing_{#1}}
+\renewcommand{\outCells}[1][]{\Outgoing_{#1}}
 \end_inset
 
 
@@ -174,22 +174,22 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\speedFF}[1][]{v_{#1}}
+\renewcommand{\speedFF}[1][]{v_{#1}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\newcommand{\vff}{\speedFF}
+\renewcommand{\vff}{\speedFF}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\newcommand{\freeflow}[1]{\speedFF[#1]}
+\renewcommand{\freeflow}[1]{\speedFF[#1]}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\newcommand{\speedCong}[1][]{w_{#1}}
+\renewcommand{\speedCong}[1][]{w_{#1}}
 \end_inset
 
 
@@ -197,22 +197,22 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\minify}[1]{#1^{\text{min}}}
+\renewcommand{\minify}[1]{#1^{\text{min}}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\newcommand{\maxify}[1]{#1^{\text{max}}}
+\renewcommand{\maxify}[1]{#1^{\\max}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\newcommand{\inify}[1]{#1^{\text{in}}}
+\renewcommand{\inify}[1]{#1^{\text{in}}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\newcommand{\outify}[1]{#1^{\text{out}}}
+\renewcommand{\outify}[1]{#1^{\text{out}}}
 \end_inset
 
 
@@ -220,22 +220,22 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\flow}[1][]{x_{#1}}
+\renewcommand{\flow}[1][]{x_{#1}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\newcommand{\flowMax}[1][]{\maxify{\flow[#1]}}
+\renewcommand{\flowMax}[1][]{\maxify{\flow[#1]}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\newcommand{\flowIn}[1][]{\inify{\flow[#1]}}
+\renewcommand{\flowIn}[1][]{\inify{\flow[#1]}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\newcommand{\flowOut}[1][]{\outify{\flow[#1]}}
+\renewcommand{\flowOut}[1][]{\outify{\flow[#1]}}
 \end_inset
 
 
@@ -243,22 +243,22 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\vflow}{\vect q}
+\renewcommand{\vflow}{\vect q}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\newcommand{\vflowMax}{\maxify{\vect{\flow}}}
+\renewcommand{\vflowMax}{\maxify{\vect{\flow}}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\newcommand{\vflowIn}{\inify{\vect{\flow}}}
+\renewcommand{\vflowIn}{\inify{\vect{\flow}}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\newcommand{\vflowOut}{\outify{\vect{\flow}}}
+\renewcommand{\vflowOut}{\outify{\vect{\flow}}}
 \end_inset
 
 
@@ -266,22 +266,22 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\demand}[1][]{\Delta_{#1}}
+\renewcommand{\demand}[1][]{\Delta_{#1}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\newcommand{\dem}[1][]{\demand[#1]}
+\renewcommand{\dem}[1][]{\demand[#1]}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\newcommand{\supply}[1][]{\Sigma_{#1}}
+\renewcommand{\supply}[1][]{\Sigma_{#1}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\newcommand{\supp}[1][]{\supply[#1]}
+\renewcommand{\supp}[1][]{\supply[#1]}
 \end_inset
 
 
@@ -541,14 +541,6 @@ stackelberg commands
 \end_layout
 
 \begin_layout Standard
-\begin_inset FormulaMacro
-\newcommand{\StackSet}{\text{S}(N,r,\beta)}
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Note Note
 status open
 
@@ -647,7 +639,11 @@ super script j = (1 through j-1 in congestion) and j in free flow (if exists)
 
 \begin_layout Standard
 \begin_inset FormulaMacro
+<<<<<<< HEAD
 \newcommand{\POS}[2]{\textup{POS}\left(#1,#2\right)}
+=======
+\newcommand{\POS}[2]{\text{POS\ensuremath{\left(#1,#2\right)}}}
+>>>>>>> alex-edits
 \end_inset
 
 
