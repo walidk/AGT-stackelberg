@@ -6,6 +6,7 @@
 \begin_preamble
 
 \end_preamble
+\options handout
 \use_default_options true
 \begin_modules
 theorems-std
@@ -454,6 +455,10 @@ If a link is utilized, then all links with lower free flow speed must be
 
 \end_layout
 
+\begin_layout EndFrame
+
+\end_layout
+
 \begin_layout BeginFrame
 Understanding Congestion Configuration
 \end_layout
@@ -493,7 +498,7 @@ Let
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -528,8 +533,154 @@ If a link is utilized and in free flow, then all links with higher free-flow
 
 \end_layout
 
+\begin_layout BeginFrame
+Understanding Congestion Configuration
+\end_layout
+
+\begin_layout Standard
+For Nash equilibria, we can show that the flows can be uniquely determined
+ from the mode configuration.
+ This implies that if we can enumerate the mode configurations, then we
+ can enumerate all Nash equilibria.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:uniquemode"
+
+\end_inset
+
+For a given congestion state 
+\begin_inset Formula $\Mode$
+\end_inset
+
+, there is at most one assignment 
+\begin_inset Formula $x$
+\end_inset
+
+ such that 
+\begin_inset Formula $(x,m)$
+\end_inset
+
+ is at Nash equilibrium.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /Users/jdr/Documents/github-projects/Stackelberg/figures/presentation/LemmaUniqueFlowFromMode.pdf
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+There may not exist two distinct Nash equilibria with the same congestion
+ state.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
 \begin_layout Section
 Existence of Uncongested Equilibrium
+\end_layout
+
+\begin_layout BeginFrame
+Single-Link Free-Flow Nash Equilibria
+\end_layout
+
+\begin_layout Definition
+Congestion flow
+\end_layout
+
+\begin_layout Definition
+For 
+\begin_inset Formula $1\leq n<k\leq N$
+\end_inset
+
+, congestion flow 
+\begin_inset Formula $\cffFlow nk$
+\end_inset
+
+ is the unique flow in 
+\begin_inset Formula $[0,\flowMax[n]]$
+\end_inset
+
+ that satisfies
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula 
+\[
+l_{n}(\cffFlow nk,1)=a_{k}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../figures/presentation/DefinitionXHat.pdf
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Congested flows can be determined in reference to the link that is in free
+ flow.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
 \end_layout
 
 \begin_layout Section

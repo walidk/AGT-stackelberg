@@ -1001,7 +1001,7 @@ reference "eq:latency-relation"
 \end_inset
 
 , Assumption 3 can be expressed equivalently as 
-\begin_inset Formula $\frac{d\,\flow[\link]\left(\mass[\link]\right)}{\mass[\link]}\le\frac{x_{n}\left(\mass[\link]\right)}{\mass[\link]}$
+\begin_inset Formula $\frac{d\flow[\link]\left(\mass[\link]\right)}{d\mass[\link]}\le\frac{x_{n}\left(\mass[\link]\right)}{\mass[\link]}$
 \end_inset
 
 , which gives restrictions on allowable flow-density relationships in the
@@ -1964,6 +1964,17 @@ For a given congestion state
 \end_layout
 
 \begin_layout Proof
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+W: There is a third possible case, where the supports could be different.
+ Not an enlightening excercise to prove.
+ Sweep it under the rug???
+\end_layout
+
+\end_inset
+
 If 
 \begin_inset Formula $\left|\Supp{\flow}\right|\leq1$
 \end_inset
@@ -1973,7 +1984,7 @@ If
 \begin_inset Formula $\left|\Supp{\flow}\right|\ge2$
 \end_inset
 
-, and ssume 
+, and assume 
 \begin_inset Formula $\exists\flow,\flow',\flow\neq\flow'$
 \end_inset
 
