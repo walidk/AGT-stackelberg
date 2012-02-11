@@ -68,6 +68,23 @@ Stackelberg on Horizontal Queueing Networks
 Walid Krichene, Jack Reilly
 \end_layout
 
+\begin_layout BeginFrame
+Outline
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
 \begin_layout Part
 Latency Functions
 \end_layout
@@ -164,6 +181,30 @@ Class of fundamental diagrams considered
 
 \begin_layout EndFrame
 
+\end_layout
+
+\begin_layout Part
+Nash Equilibria
+\end_layout
+
+\begin_layout Section
+Classifying All Nash Equilibria
+\end_layout
+
+\begin_layout Section
+Existence of Uncongested Equilibrium
+\end_layout
+
+\begin_layout Section
+Best Nash Equilibrium
+\end_layout
+
+\begin_layout Section
+Price of Stability
+\end_layout
+
+\begin_layout Part
+Optimal Stackelberg Assignment
 \end_layout
 
 \end_body
