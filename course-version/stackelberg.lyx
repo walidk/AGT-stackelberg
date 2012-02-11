@@ -5675,6 +5675,9 @@ We can now lower-bound the cost of the assignment
 
 .
  We have
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
  & C(x,m)-C(\bar{x},\bar{m})\\
