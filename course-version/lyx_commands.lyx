@@ -220,22 +220,22 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\flow}[1][]{x_{#1}}
+\newcommand{\flow}[1][]{x_{#1}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\flowMax}[1][]{\maxify{\flow[#1]}}
+\newcommand{\flowMax}[1][]{\maxify{\flow[#1]}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\flowIn}[1][]{\inify{\flow[#1]}}
+\newcommand{\flowIn}[1][]{\inify{\flow[#1]}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\flowOut}[1][]{\outify{\flow[#1]}}
+\newcommand{\flowOut}[1][]{\outify{\flow[#1]}}
 \end_inset
 
 
@@ -243,22 +243,22 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\vflow}{\vect q}
+\newcommand{\vflow}{\vect q}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\vflowMax}{\maxify{\vect{\flow}}}
+\newcommand{\vflowMax}{\maxify{\vect{\flow}}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\vflowIn}{\inify{\vect{\flow}}}
+\newcommand{\vflowIn}{\inify{\vect{\flow}}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\vflowOut}{\outify{\vect{\flow}}}
+\newcommand{\vflowOut}{\outify{\vect{\flow}}}
 \end_inset
 
 
@@ -266,22 +266,22 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\demand}[1][]{\Delta_{#1}}
+\newcommand{\demand}[1][]{\Delta_{#1}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\dem}[1][]{\demand[#1]}
+\newcommand{\dem}[1][]{\demand[#1]}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\supply}[1][]{\Sigma_{#1}}
+\newcommand{\supply}[1][]{\Sigma_{#1}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\supp}[1][]{\supply[#1]}
+\newcommand{\supp}[1][]{\supply[#1]}
 \end_inset
 
 
@@ -289,13 +289,13 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\fa}[1]{\forall\,#1}
+\newcommand{\fa}[1]{\forall\,#1}
 {\forall#1}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\fain}[2]{\fa{#1\,\in\,#2}}
+\newcommand{\fain}[2]{\fa{#1\,\in\,#2}}
 {\fa{#1\in#2}}
 \end_inset
 
@@ -304,12 +304,12 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\totaltraveltime}[1][]{TTT_{#1}}
+\newcommand{\totaltraveltime}[1][]{TTT_{#1}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\ttt}[1][]{\totaltraveltime[#1]}
+\newcommand{\ttt}[1][]{\totaltraveltime[#1]}
 \end_inset
 
 
@@ -317,7 +317,7 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\qdemand}[1][]{r_{#1}}
+\newcommand{\qdemand}[1][]{r_{#1}}
 \end_inset
 
 
@@ -325,7 +325,7 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\delay}[1][]{D_{#1}}
+\newcommand{\delay}[1][]{D_{#1}}
 \end_inset
 
 
@@ -333,7 +333,7 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\lenCell}[1][]{L_{#1}}
+\newcommand{\lenCell}[1][]{L_{#1}}
 \end_inset
 
 
@@ -341,7 +341,7 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\Rea}[1][]{\mathcal{R}^{#1}}
+\newcommand{\Rea}[1][]{\mathcal{R}^{#1}}
 \end_inset
 
 
@@ -349,7 +349,7 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\Routes}[1][]{R_{#1}}
+\newcommand{\Routes}[1][]{R_{#1}}
 \end_inset
 
 
@@ -357,12 +357,12 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\cellRoute}[2]{\gamma_{#1.#2}}
+\newcommand{\cellRoute}[2]{\gamma_{#1.#2}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\odRoute}[2]{\psi_{#1.#2}}
+\newcommand{\odRoute}[2]{\psi_{#1.#2}}
 \end_inset
 
 
@@ -370,7 +370,7 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\degradeRatio}{}
+\newcommand{\degradeRatio}{}
 \end_inset
 
 
@@ -544,7 +544,7 @@ graph stuff
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\coloneqq}{:=}
+\renewcommand{\coloneqq}{:=}
 \end_inset
 
 
@@ -552,7 +552,7 @@ graph stuff
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\StackSet}{\textup{S}(N,r,\beta)}
+\renewcommand{\StackSet}{\textup{S}(N,r,\beta)}
 \end_inset
 
 
@@ -560,7 +560,7 @@ graph stuff
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\StackSet}{\text{S}(N,r,\beta)}
+\renewcommand{\StackSet}{\text{S}(N,r,\beta)}
 \end_inset
 
 
@@ -581,12 +581,12 @@ nash eq
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\BestNashEquilibrium}[2]{\textup{BNE}\left(#1,#2\right)}
+\renewcommand{\BestNashEquilibrium}[2]{\textup{BNE}\left(#1,#2\right)}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\NashEquilibrium}[2]{\textup{NE}\left(#1,#2\right)}
+\renewcommand{\NashEquilibrium}[2]{\textup{NE}\left(#1,#2\right)}
 \end_inset
 
 
@@ -607,7 +607,7 @@ congestion matches free flow flow
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\cffFlow}[2]{\hat{\flow}_{#1}\left(#2\right)}
+\renewcommand{\cffFlow}[2]{\hat{\flow}_{#1}\left(#2\right)}
 \end_inset
 
 
@@ -628,7 +628,7 @@ optimal NE flow
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\opneFlow}[3][]{\bar{\flow}_{#1}^{#2,#3}}
+\renewcommand{\opneFlow}[3][]{\bar{\flow}_{#1}^{#2,#3}}
 \end_inset
 
 
@@ -649,7 +649,7 @@ super script j = (1 through j-1 in congestion) and j in free flow (if exists)
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\cffMode}[2][]{\bar{\Mode}_{#1}^{#2}}
+\renewcommand{\cffMode}[2][]{\bar{\Mode}_{#1}^{#2}}
 \end_inset
 
 
@@ -657,7 +657,7 @@ super script j = (1 through j-1 in congestion) and j in free flow (if exists)
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\Supp}[1]{\textup{Supp}\left(#1\right)}
+\renewcommand{\Supp}[1]{\textup{Supp}\left(#1\right)}
 \end_inset
 
 
@@ -665,7 +665,15 @@ super script j = (1 through j-1 in congestion) and j in free flow (if exists)
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\POS}[2]{\textup{POS}\left(#1,#2\right)}
+\renewcommand{\POS}[2]{\textup{POS}\left(#1,#2\right)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\Cost}[2]{C_{#1}\left(#1,#2\right)}
 \end_inset
 
 

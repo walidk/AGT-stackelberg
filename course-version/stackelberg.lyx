@@ -86,20 +86,6 @@ Stackelberg Routing on Horizontal Queueing Networks
 status collapsed
 
 \begin_layout Plain Layout
-A: phrase as compliant/non-compliant and congestion, don't explicitly say
- traffic/transportation as main setup
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
 J: How do we motivate the idea of Horizontal Queues? Will there be any complaint
 s about no backwave propogation? Motivate with 
 \begin_inset Quotes eld
@@ -111,19 +97,6 @@ jobs are all processed at same rate for internet traffic, but not true for
 \end_inset
 
 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: all lemmas need to be named
 \end_layout
 
 \end_inset
@@ -178,15 +151,6 @@ We study Stackelberg routing for a new class of latency functions, that
  Then we study the Stackelberg routing game and show that the optimal Stackelber
 g strategy can be computed in polynomial time for this class of latency
  functions on parallel link networks.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: explain how this applies to traffic just as an example
-\end_layout
-
-\end_inset
-
  The work is applied for modeling transportation networks in which a fraction
  of agents are compliant to routing guidance provided by a central authority,
  while the rest of the agents behave selfishly.
@@ -194,6 +158,10 @@ A: explain how this applies to traffic just as an example
 
 \begin_layout Section
 Introduction
+\end_layout
+
+\begin_layout Subsection
+Congestion Games and Stackelberg Routing
 \end_layout
 
 \begin_layout Standard
@@ -227,6 +195,42 @@ Organization of the article
 \end_layout
 
 \begin_layout Standard
+Congestion games on networks involve assigning flows to particular routes
+ in order to achieve some end result.
+ Typical areas of study in congestion games are Nash equilibria (or user
+ optimal) assignments 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "lo2002cell,papadimitriou2010new,roughgarden2002bad"
+
+\end_inset
+
+, where all players choose routes that minimize individual costs, and system
+ optimum assignments 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "aswani2011game,roughgarden2004bounding,zheng2011network,ziliaskopoulos2000linear"
+
+\end_inset
+
+, where a central body assigns flow as to minimize a cost function over
+ all players.
+ Another type of congestion is Stackelberg routing games, where a fraction
+ of the network is centrally controlled, while the rest is free to act selfishly
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "aswani2011game,roughgarden2001stackelberg"
+
+\end_inset
+
+.
+ Typically, the objective in Stackelberg games is to route the centrally
+ controlled flow in a manner that minimizes a system-wide cost function
+ in anticipation of the rest of the flow's selfish response.
+\end_layout
+
+\begin_layout Standard
 Stackelberg routing on parallel link networks has been studied extensively
  for the class of non-decreasing latency functions, and it is known that
  computing the optimal Stackelberg strategy is NP-hard in the number of
@@ -240,26 +244,29 @@ key "roughgarden2001stackelberg"
 \end_inset
 
 ), and several bounds have been shown on the efficiency of these strategies.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: For CDC we need more consequent introduction
 \end_layout
+
+\begin_layout Subsection
+A New Class of Latency Functions
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:A-New-Class"
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Subsection
-A new class of latency functions
-\end_layout
-
 \begin_layout Standard
-The class of latency functions that have been studied so far rely on very
- specific assumptions: if 
+The class of latency functions that have been studied so far in Stackelberg
+ literature 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "roughgarden2001stackelberg"
+
+\end_inset
+
+ rely on very specific assumptions: if 
 \begin_inset Formula $l(\flow)$
 \end_inset
 
@@ -278,8 +285,15 @@ The class of latency functions that have been studied so far rely on very
  is assumed to be convex.
  While this class of latency functions provides a good model for congestion
  for a considerable range of networks, such as communication networks, it
- does not accurately model horizontal queuing congestion, such as congestion
- on transportation networks for example.
+ does not accurately model horizontal queueing congestion, such as congestion
+ on transportation networks 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "lebacque1996godunov,daganzo1994cell,work2010traffic,lighthill1955kinematic,richards1956shock"
+
+\end_inset
+
+.
  Intuitively, a given flow 
 \begin_inset Formula $x$
 \end_inset
@@ -297,7 +311,7 @@ or few cars moving fast (low density), in which case the latency is small.
 \end_layout
 
 \begin_layout Standard
-this means that the latency is not uniquely determined by the flow, and
+This means that the latency is not uniquely determined by the flow, and
  depends on how congested the link is.
  One simple way of modeling this phenomenon is to have an additional binary
  argument 
@@ -325,18 +339,7 @@ key "lighthill1955kinematic,richards1956shock"
 
 \end_inset
 
-,
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: actually, you mean Greenshields and all the other f.d.
- contributions
-\end_layout
-
-\end_inset
-
- and show that the resulting latency function can be expressed in the above
+, and show that the resulting latency function can be expressed in the above
  form 
 \begin_inset Formula $l(\flow,\Mode)$
 \end_inset
@@ -355,34 +358,35 @@ function of flow.
  latency increases, and the amount of flow on the link decreases.
 \end_layout
 
+\begin_layout Standard
+There exists a large body of literature in horizontal queueing theory that
+ analyzes game-theoretic concepts.
+ Popular problems revolve around dynamic traffic assignment problems for
+ user optimal assignments 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "friesz2006solving,lo2002cell,wang2001freeway"
+
+\end_inset
+
+ and system optimal assignments 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "zheng2011network,ziliaskopoulos2000linear"
+
+\end_inset
+
+.
+ To the knowledge of the authors, there does not exist a study of optimal
+ assignment of routes to a fraction of users on a horizontal queueing network
+ that considers the problem of scaling to more alternate route choices.
+\end_layout
+
 \begin_layout Subsection
-Main results
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: there needs to be more lead in in the introduction
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: What contributions does this make? 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-J: how is this different from main results?
-\end_layout
-
-\end_inset
-
-
-\end_layout
+Motivating Example: Compliant and Non-compliant Drivers on Highway Networks
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Motivating-Example"
 
 \end_inset
 
@@ -390,40 +394,91 @@ J: how is this different from main results?
 \end_layout
 
 \begin_layout Standard
-This new class of latency functions leads to new interesting results:
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-J: introduce what 
-\begin_inset Quotes eld
-\end_inset
-
-cost
-\begin_inset Quotes erd
-\end_inset
-
- is
+Advances in technology has enable a central agency to have influence over
+ the driving habits of individual users on a road network.
+ Contact could be made via a GPS-enabled smartphone application or before
+ and after-market vehicular navigation systems.
+ Given that the central agency has a contact point with only a fraction
+ of the entire network, game theoretic effects, such as Stackelberg equilibria,
+ cannot be neglected when providing routing advice to users.
+ 
 \end_layout
 
+\begin_layout Standard
+This article views the fraction of centrally controlled flow as the 
+\emph on
+compliant flow
+\emph default
+, and all other flow as the 
+\emph on
+non-compliant flow.
+
+\emph default
+ This terminology was chosen to reflect the assumption that there is a populatio
+n of drivers with individual contact points to central control that will
+ comply with the requests of the central control, while all other users
+ are assumed to either neglect the advice of the central control, or simply
+ not have a contact point and chooses paths independently.
+ The remainder of the article does not concern itself with the distinction
+ between the two different cases of 
+\emph on
+non-compliant flow
+\emph default
+ and treats the two cases identically.
+\end_layout
+
+\begin_layout Standard
+Oftentimes, there are a number of alternative and non-intersecting paths
+ that may be chosen by drivers on the network.
+ For example, parallel highway networks often exist between two heavily-populate
+d cities (the Northern California bay area has numerous examples of such
+ networks).
+ Therefore, Stackelberg routing strategies on parallel-link networks becomes
+ a matter of practical importance to traffic planners, quite possibly in
+ the near future.
+ When considering implementation on a real traffic network, the current
+ literature is inapplicable in number of ways.
+\end_layout
+
+\begin_layout Standard
+Firstly, as discussed in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:A-New-Class"
+
 \end_inset
 
+, game theoretic analysis of these class of problems do not capture some
+ of the important features of congestion in highway traffic networks.
+ Secondly, there do not exist tractable algorithms for calculating the optimal
+ assignment of 
+\emph on
+compliant flow
+\emph default
+, as the number of alternate paths increases.
+ To enable the creation of a full-scale system that optimally routes a fraction
+ of users on a highway, these problems must first be addressed.
+\end_layout
 
+\begin_layout Subsection
+Contributions of This Article
+\end_layout
+
+\begin_layout Standard
+We address a number of existing problems in the current literature for fractiona
+l compliance on horizontal queueing networks by introducing a class of latency
+ functions expressive enough to model congestion on horizontal queueing
+ networks.
+ This class introduces original theoretical and algorithmic results for
+ Nash equilibria and Stackelberg routing assignments.
+ Namely:
 \end_layout
 
 \begin_layout Itemize
 We show that for this class we do not have essential uniqueness of Nash
- equilibria, meaning there may exist more than one Nash equilibrium 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-J: that minimizes cost
-\end_layout
-
-\end_inset
-
- 
+ equilibria, meaning there may exist Nash equilibria with different total
+ costs, which is in contrast to the results for point-queueing models usually
+ considered in congestion games 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "roughgarden2002bad"
@@ -450,12 +505,82 @@ key "roughgarden2001stackelberg"
 .
 \end_layout
 
+\begin_layout Standard
+These results are necessary as progress towards the creation of a scalable,
+ accurate model for route assignment on fractional compliance, horizontal
+ queueing networks.
+ 
+\end_layout
+
+\begin_layout Subsection
+Organization of Article
+\end_layout
+
+\begin_layout Standard
+We proceed with an overview of the existing work in congestion games and
+ fractional compliance, and the intersection of game theoretic concepts
+ in horizontal-queueing networks.
+ In Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:The-Model"
+
+\end_inset
+
+, the model and cost function class under consideration is formalized and
+ compared against existing models.
+ Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Nash-Equilibria"
+
+\end_inset
+
+ presents the results of Nash equilibria on the model under consideration,
+ and specifically we show the lack of essential uniqueness of Nash equilibria
+ and give a tractable algorithm for computing all Nash equilibria (and the
+ best Nash equilibria).
+ This is followed with a discussion of system optimal results and the inefficien
+cies of Nash equilibria, where an analytical formulation is given for the
+ Price of Stability for the case of two link networks.
+ The main results of Stackelberg routing strategies are presented in Sections
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Stackelberg-routing"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Computing-the-optimal"
+
+\end_inset
+
+, where an efficient algorithm is presented for optimal Stackelberg routing
+ strategies on 
+\begin_inset Formula $\link$
+\end_inset
+
+ link networks.
+ The article concludes with some finishing remarks and directions for future
+ research.
+\end_layout
+
 \begin_layout Section
 Related Work
 \end_layout
 
 \begin_layout Section
 The Model
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:The-Model"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1045,7 +1170,7 @@ While expressing latency as a function of density is intuitive and succinct
  assignment problems, and not density.
  For this reason, we seek an alternative formulation of latency in flow.
  As discussed before, latency is not a function of flow (the mapping from
- flow to latency is not unique), another boolean variable is introduced.
+ flow to latency is not unique), another binary variable is introduced.
  Let the mode 
 \begin_inset Formula $\Mode[\link]$
 \end_inset
@@ -1187,8 +1312,83 @@ name "fig:example-flow-mode-latency"
 
 \end_layout
 
+\begin_layout Subsection
+System costs
+\end_layout
+
+\begin_layout Standard
+The cost to a single user is defined as the latency experienced by the user,
+ or the latency of the link chosen by the user.
+ Therefore, the total cost experienced on a particular link 
+\begin_inset Formula $\link$
+\end_inset
+
+ is 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+C_{\link}\left(\flow[\link],\Mode[\link]\right)=\latency[\link]\left(\flow[\link],\Mode[\link]\right)\flow[\link]=\Length[\link]\mass[\link].
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then, the total system cost is the sum of the costs of the individual links
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+C\left(\flow,\Mode\right)=\sum_{i=1}^{\NLinks}C_{i}\left(\flow[i],\Mode[i]\right),
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\flow$
+\end_inset
+
+ is the 
+\begin_inset Formula $\NLinks$
+\end_inset
+
+-vector 
+\begin_inset Formula $\left\{ \flow[i]:i\in\left\{ 1,\ldots,\NLinks\right\} \right\} $
+\end_inset
+
+ of flow values, and 
+\begin_inset Formula $\Mode$
+\end_inset
+
+ similarly is the 
+\begin_inset Formula $\NLinks$
+\end_inset
+
+-vector 
+\begin_inset Formula $\left\{ \Mode[i]:i\in\left\{ 1,\ldots,\NLinks\right\} \right\} $
+\end_inset
+
+ of mode values.
+\end_layout
+
 \begin_layout Section
 Nash Equilibria
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Nash-Equilibria"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2915,6 +3115,13 @@ A: OK This computation needs to be clarified in context
 
 \begin_layout Section
 Social Optima
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Social-Optima"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3050,6 +3257,13 @@ Then since the links are ordered by increasing free-flow latency
 
 \begin_layout Section
 Price of Stability on a Two-Link Network
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Price-of-Stability"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3513,6 +3727,13 @@ What we can conclude from the Price of Stability analysis of the two-link
 
 \begin_layout Section
 Stackelberg routing
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Stackelberg-routing"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4039,6 +4260,13 @@ s^{*}=\arg\min_{s\in\StackSet}C\left(s+\ncFlow(\cFlow),m(\cFlow)\right)
 
 \begin_layout Section
 Computing the optimal Stackelberg strategy
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Computing-the-optimal"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
