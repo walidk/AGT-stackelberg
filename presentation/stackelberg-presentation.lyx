@@ -7,6 +7,10 @@
 
 \end_preamble
 \use_default_options true
+\begin_modules
+theorems-ams
+theorems-ams-extended
+\end_modules
 \maintain_unincluded_children false
 \language english
 \language_package default
@@ -173,10 +177,6 @@ Class of fundamental diagrams considered
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -321,7 +321,212 @@ Nash Equilibria
 \end_layout
 
 \begin_layout Section
-Classifying All Nash Equilibria
+Enumerating All Nash Equilibria
+\end_layout
+
+\begin_layout BeginFrame
+Definition of NE
+\end_layout
+
+\begin_layout Standard
+Informally, a Nash equilibrium exists when there is no incentive for any
+ flow to switch from its current link to another link.
+\end_layout
+
+\begin_layout Definition
+An assignment 
+\begin_inset Formula $\left(\flow,\Mode\right)\in\Rea[\NLinks]_{+}\times\left\{ 0,1\right\} ^{\NLinks}$
+\end_inset
+
+ for a parallel network instance 
+\begin_inset Formula $\left(\NLinks,\qdemand\right)$
+\end_inset
+
+ is at Nash equilibrium, if 
+\begin_inset Formula $\forall\link:\flow[\link]>0\implies\latency[\link]\left(\flow[\link],\Mode[\link]\right)\le\latency[k]\left(\flow[k],\Mode[k]\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../figures/presentation/NE3link.pdf
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+An instance of a Nash equilibrium with one link in congestion, one in free
+ flow, and one unused
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Understanding Congestion Configuration
+\end_layout
+
+\begin_layout Standard
+For Nash equilibria, one can determine the congestion mode of a link from
+ the mode of other links.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:filluplower"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\flow,\Mode\right)\in\NashEquilibrium{\NLinks}{\qdemand}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $j\in\Supp{\flow}\implies\Mode[i]=1\quad\forall i\in\left\{ 1,\ldots,j-1\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Lemma
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../figures/presentation/LemmaLowerIndexLinksCongested.pdf
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+If a link is utilized, then all links with lower free flow speed must be
+ congested.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginFrame
+Understanding Congestion Configuration
+\end_layout
+
+\begin_layout Standard
+For Nash equilibria, one can determine the congestion mode of a link from
+ the mode of other links.
+\end_layout
+
+\begin_layout Corollary
+Let 
+\begin_inset Formula $\left(\flow,\Mode\right)\in\NashEquilibrium{\NLinks}{\qdemand}$
+\end_inset
+
+.
+ Assume that 
+\begin_inset Formula $\exists k\in\Supp{\flow}$
+\end_inset
+
+ such that 
+\begin_inset Formula $m_{k}=0$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $m=(1,\dots,\stackrel{k-1}{1},\stackrel{k}{0},\dots,0)$
+\end_inset
+
+ and 
+\begin_inset Formula $\Supp{\flow}=\left\{ 1,\dots,k\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /Users/jdr/Documents/github-projects/Stackelberg/figures/presentation/CorollaryAllaboveFFareempty.pdf
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+If a link is utilized and in free flow, then all links with higher free-flow
+ speeds must be empty
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
 \end_layout
 
 \begin_layout Section

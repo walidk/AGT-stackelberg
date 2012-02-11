@@ -692,10 +692,6 @@ dual-mode
 \end_layout
 
 \begin_layout Standard
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 placement b
 wide false
@@ -2135,7 +2131,7 @@ name "cor:atmost1ff"
 
 .
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 A: I do not understand this cor.
