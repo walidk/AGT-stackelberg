@@ -529,7 +529,7 @@ reference "fig:nparlink"
 
 .
  For the rest of the article, it is tacitly assumed that the underlying
- network of our is such a graph 
+ network of our model is such a graph 
 \begin_inset Formula $\Graph$
 \end_inset
 
@@ -584,8 +584,8 @@ key "aswani2011game,babaioff2009congestion,friesz1985transportation,harker1988mu
 \end_inset
 
 .
- Informally (with a formal defintion to follow), a Nash equilibrium is an
- assignment 
+ Informally (with a formal definition to follow), a Nash equilibrium is
+ an assignment 
 \begin_inset Formula $x$
 \end_inset
 
