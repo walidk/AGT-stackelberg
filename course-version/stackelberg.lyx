@@ -558,6 +558,24 @@ key "roughgarden2004bounding"
 \end_inset
 
  by introducing a cost function for each link on the network.
+ When fractional flows are allowed, the game is said to be played with non-atomi
+c players 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "roughgarden2004bounding,schmeidler1973equilibrium"
+
+\end_inset
+
+.
+ Atomic versus non-atomic players is similar to the modeling choice of microscop
+ic versus macroscopic flow in traffic modeling 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "lighthill1955kinematic,richards1956shock"
+
+\end_inset
+
+.
  A link's cost can be imagined as the latency experienced by a job utilizing
  a particular machine 
 \begin_inset CommandInset citation
@@ -575,8 +593,15 @@ key "wardrop1952some"
 
 , and the cost function relates the amount of usage to the average cost
  experienced by all users of the link.
- Nash equilibria in congestion games are the subject of a large body of
- study 
+ Nash equilibria (particularly pure Nash equilibria, which do not allow
+ randomized strategies 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "nisan2007algorithmic"
+
+\end_inset
+
+) in congestion games are the subject of a large body of study 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "aswani2011game,babaioff2009congestion,friesz1985transportation,harker1988multiple,papadimitriou2010new,roughgarden2002bad,roughgarden2005selfish"
@@ -584,8 +609,8 @@ key "aswani2011game,babaioff2009congestion,friesz1985transportation,harker1988mu
 \end_inset
 
 .
- Informally (with a formal definition to follow), a Nash equilibrium is
- an assignment 
+ Loosely (with a formal definition to follow), a Nash equilibrium is an
+ assignment 
 \begin_inset Formula $x$
 \end_inset
 
@@ -640,7 +665,7 @@ density
  a fundamental diagram 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "daganzo1994cell,greenshields1935study,wang2001freeway"
+key "daganzo1994cell,greenshields1935study,papageorgiou1989macroscopic"
 
 \end_inset
 
@@ -668,32 +693,7 @@ J: something about h-queues.
 \end_layout
 
 \begin_layout Standard
-While such flow models have been popular for many decades in particular
- domains (such as traffic and hydrodynamics
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-J: how do we motivate the generality of the approach beyond traffic? Sources
- to cite?
-\end_layout
-
-\end_inset
-
-), less attention has been given to these models in the literature for equilibri
-a in congestion games, which focuses on non-decreasing latency functions
- and assumes flow and density to have a one-to-one relation.
- This article describes the differences that arise when characterizing equilibri
-a in congestion games for this class of 
-\emph on
-dual-mode
-\emph default
- latency functions.
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
-placement b
 wide false
 sideways false
 status collapsed
@@ -745,127 +745,35 @@ name "fig:nparlink-1"
 
 \end_layout
 
-\begin_layout Section
-The Model
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:The-Model"
+\begin_layout Standard
+While such flow models have been popular for many decades in particular
+ domains (such as traffic and hydrodynamics
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+J: how do we motivate the generality of the approach beyond traffic? Sources
+ to cite?
+\end_layout
 
 \end_inset
 
-
+), less attention has been given to these models in the literature for equilibri
+a in congestion games, which focuses on non-decreasing latency functions
+ and assumes flow and density to have a one-to-one relation.
+ This article describes the differences that arise when characterizing equilibri
+a in congestion games for this class of 
+\emph on
+dual-mode
+\emph default
+ latency functions.
 \end_layout
 
 \begin_layout Subsection
-Assumptions
-\end_layout
-
-\begin_layout Itemize
-nonatomic game
-\end_layout
-
-\begin_layout Itemize
-pure nash equilibrium
-\end_layout
-
-\begin_layout Itemize
-N links
-\end_layout
-
-\begin_layout Itemize
-Latency is a function of the total amount of flow on link
-\end_layout
-
-\begin_layout Itemize
-Mode 0 has constant latency
-\end_layout
-
-\begin_layout Itemize
-Mode 1 has increasing latency with flow
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: you need to present this as horiz queues, give several exapmpesl (green,
- daga, papa) and THEN show the tri dia as one of the instantiatons.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-In this section, we consider a transportation setting to motivate the choice
- of the class of latency functions.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: rewrite in a more general context (no transp.) Always present trans.
- as an example
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Horizontal Queueing Network
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement b
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../figures/nparlink.pdf
-	scale 35
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Network, 
-\begin_inset Formula $\Network$
-\end_inset
-
-, with 
-\begin_inset Formula $\NLinks$
-\end_inset
-
- parallel links and demand, 
-\begin_inset Formula $\qdemand$
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
+Deriving a Class of Latency Functions for Horizontal Queues
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:nparlink"
-
-\end_inset
-
-
-\end_layout
+name "sub:Deriving-a-Class"
 
 \end_inset
 
@@ -873,529 +781,117 @@ name "fig:nparlink"
 \end_layout
 
 \begin_layout Standard
-We consider a network of 
-\begin_inset Formula $\NLinks$
-\end_inset
-
- parallel links indexed by 
-\begin_inset Formula $\link\in\{1,\ldots,\NLinks\}$
-\end_inset
-
-, under constant positive flow demand, or rate 
-\begin_inset Formula $\qdemand$
-\end_inset
-
-.
- 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "fig:nparlink"
-
-\end_inset
-
- shows an instance of the network.
- The flow 
-\begin_inset Formula $\flow[\link]$
-\end_inset
-
- on link 
+For a link 
 \begin_inset Formula $\link$
 \end_inset
 
- is a function of the density 
-\begin_inset Formula $\mass[\link]$
+ with length 
+\begin_inset Formula $\Length[\link],$
 \end_inset
 
-, given by a triangular flux function (also referred to as fundamental diagram
- in transportation).
- It specifies the flow 
-\begin_inset Formula $x_{n}$
-\end_inset
-
- as a function of the density on the link 
-\begin_inset Formula $\rho_{n}$
-\end_inset
-
- by a functional relation 
-\begin_inset Formula $\flow[\link]=Q_{\link}\left(\mass[\link]\right)$
-\end_inset
-
-, where 
-\begin_inset Formula $Q_{\link}$
-\end_inset
-
- is the flux function of link 
-\begin_inset Formula $\link$
-\end_inset
-
-.
- There are various ways to model flux functions on links with horizontal
- queueing, most of which are concave 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "daganzo1994cell"
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-J: add more refs
+ there are three assumptions on the behavior of horizontal queues that we
+ make.
 \end_layout
 
+\begin_layout Enumerate
+There exists a critical density, 
+\begin_inset Formula $\masscrit[\link]\in\Rea_{++}$
 \end_inset
 
-.
- These are usually parameterized by characteristics of the network, in particula
-r:
-\end_layout
-
-\begin_layout Itemize
-The free-flow speed on the link 
-\begin_inset Formula $\freeflow{\link}$
-\end_inset
-
-,
-\end_layout
-
-\begin_layout Itemize
-The congestion wave speed 
-\begin_inset Formula $\speedCong[\link]$
-\end_inset
-
-,
-\end_layout
-
-\begin_layout Itemize
-The maximum capacity of the link 
-\begin_inset Formula $\flowMax[\link]$
+, such that the latency is constant and minimal on the interval 
+\begin_inset Formula $\left[0,\masscrit\right]$
 \end_inset
 
 .
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: make this an example (triangular), but present the whole paragraph in
- a more generic manner
-\end_layout
-
+\begin_layout Enumerate
+There exists a maximum allowable flow, 
+\begin_inset Formula $\flowMax[\link]\in\Rea_{++}$
 \end_inset
 
-In the free flow regime (when the density on the link is less than a critical
- density 
+, and this flow is attained at 
 \begin_inset Formula $\masscrit[\link]$
 \end_inset
 
- that is given by 
-\begin_inset Formula $\speedFF[\link]\masscrit[\link]=\flowMax[\link]$
-\end_inset
-
-) the velocity is constant and the flow increases linearly in the density
- 
-\begin_inset Formula $\flow[\link]=\speedFF[\link]\mass[\link]$
-\end_inset
-
-.
- In the congested regime (
-\begin_inset Formula $\masscrit[\link]<\mass[\link]\leq\mass[\link]^{\max}$
-\end_inset
-
- the density on the link is greater than the critical density and less than
- a maximum density given by 
-\begin_inset Formula $\flow[\link]^{\max}-\speedCong[\link](\mass[\link]^{\max}-\masscrit[\link])=0$
-\end_inset
-
-), the flow decreases linearly in the density 
-\begin_inset Formula $\flow[\link]=\flow[\link]^{\max}-\speedCong[\link](\mass[\link]-\masscrit[\link])=-\speedCong[\link](\mass[\link]-\mass[\link]^{\max})$
-\end_inset
-
- and the velocity is decreasing 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "daganzo1995cell,daganzo1994cell,harker1988multiple"
-
-\end_inset
-
 .
 \end_layout
 
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align}
-\flow[\link]=\begin{cases}
-\speedFF[\link]\mass[\link] & \mass[\link]\leq\masscrit[\link]\\
-\flow[\link]^{\max}-\speedCong[\link](\mass[\link]-\masscrit[\link])=-\speedCong[\link](\mass[\link]-\mass[\link]^{\max}) & \masscrit[\link]<\mass[\link]\leq\mass[\link]^{\max}
-\end{cases}\label{eq:flow}
-\end{align}
-
+\begin_layout Enumerate
+The latency, 
+\begin_inset Formula $\latency[\link]^{\rho}:\Rea_{+}\rightarrow\Rea_{+}$
 \end_inset
 
-
+, is a continuous, non-decreasing function of the density.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: add Greenshields and Papageorgiou
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-J: Our approach is only valid for flat free flow regime, should we limit
- our diagrams as so, to avoid confusion?
-\end_layout
-
+We define the free-flow region as 
+\begin_inset Formula $\left[0,\masscrit[\link]\right]$
 \end_inset
 
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../figures/fundamentaldiagram.png
-	scale 35
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Fundamental diagram of traffic on link 
-\begin_inset Formula $n$
+ and congested region as all other feasible values for 
+\begin_inset Formula $\mass[\link]$
 \end_inset
 
 .
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:fundametal_diagram"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
+ From the above assumptions, a class of allowable fundamental diagrams can
+ be derived.
+ First, we observe that latency is related to flow and density through the
+ relation 
 \end_layout
 
 \begin_layout Standard
-We assume that the network is subject to flow demand or rate 
-\begin_inset Formula $r$
-\end_inset
-
- that represents a set of non-atomic players (flows can be fractional) 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "roughgarden2004bounding,schmeidler1973equilibrium"
-
-\end_inset
-
-.
- We denote by 
-\begin_inset Formula $(\NLinks,\qdemand)$
-\end_inset
-
- a network instance with 
-\begin_inset Formula $\NLinks$
-\end_inset
-
- links and a demand 
-\begin_inset Formula $\qdemand$
-\end_inset
-
-.
- We next define feasible flow assignments for network instance 
-\begin_inset Formula $(\NLinks,\qdemand)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Definition
-A flow assignment 
-\begin_inset Formula $\flow\in\mathbb{R}_{+}^{\NLinks}$
-\end_inset
-
- is feasible for the instance 
-\begin_inset Formula $(\NLinks,\qdemand)$
-\end_inset
-
- if 
-\begin_inset Formula $\forall n$
-\end_inset
-
- 
-\begin_inset Formula $\flow[\link]\leq\flow[\link]^{\max}$
-\end_inset
-
- and 
-\begin_inset Formula $\sum_{\link}\flow[\link]=\qdemand$
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-If 
-\begin_inset Formula $\flow$
-\end_inset
-
- is a feasible flow assignment for 
-\begin_inset Formula $(\NLinks,\qdemand)$
-\end_inset
-
-, we denote by 
-\begin_inset Formula $\Supp{\flow}$
-\end_inset
-
-the support of 
-\begin_inset Formula $\flow$
-\end_inset
-
-, that is the set of links that are used by the flow assignment 
-\begin_inset Formula 
-\[
-\Supp{\flow}=\{\link|\flow[\link]>0\}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Deriving the Latency Function for a Horizontal Queueing Network
-\end_layout
-
-\begin_layout Standard
-The 
-\begin_inset Quotes eld
-\end_inset
-
-velocity
-\begin_inset Quotes erd
-\end_inset
-
- on link 
-\begin_inset Formula $\link$
-\end_inset
-
- is defined by 
-\begin_inset Formula $\flow[\link]/\mass[\link]$
-\end_inset
-
- (flux over density), and the latency incurred by every non-atomic player
- on link 
-\begin_inset Formula $n$
-\end_inset
-
- is given by 
-\begin_inset Formula 
-\[
-\latency[\link](\mass[\link],\flow[\link])=\frac{\Length[\link]\mass[\link]}{\flow[\link]}
-\]
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: There is an abuse of notation on the latencies
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-J: two defn's of l_n
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-where 
-\begin_inset Formula $\Length[\link]$
-\end_inset
-
- is the length of link 
-\begin_inset Formula $n$
-\end_inset
-
-.
- In the context of traffic, velocity corresponds to physical speed of vehicles
- on a freeway, and latency to delay incurred while traveling through the
- network.
-\end_layout
-
-\begin_layout Standard
-Using the expression 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "eq:flow"
-
-\end_inset
-
- of flow as a function of the density, we can write
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-\latency[\link](\mass[\link])=\begin{cases}
-\frac{\Length[\link]}{\speedFF[\link]} & \mass[\link]\leq\masscrit[\link]\\
-\frac{\Length[\link]}{\speedCong[\link](\massmax[\link]/\mass[\link]-1)} & \masscrit[\link]<\mass[\link]\leq\massmax[\link]
-\end{cases}
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The total latency incurred by all players on a link is 
-\begin_inset Formula $\flow[\link]\latency[\link](\mass[\link])=\Length[\link]\mass[\link]$
-\end_inset
-
-, and the total latency incurred by all players on the network is 
 \begin_inset Formula 
 \begin{equation}
-C(\mass)=\sum_{n}\Length[\link]\mass[\link]\label{eq:cost_function}
+\latency[\link]^{\mass}\left(\mass[\link]\right)=\frac{\Length[\link]\mass[\link]}{\flow[\link]\left(\mass[\link]\right)},\label{eq:latency-relation}
 \end{equation}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Subsubsection
-Latency as a function of flow
-\end_layout
-
-\begin_layout Standard
-We can express the latency as a function of flow by introducing an integer
- 
-\begin_inset Formula $\Mode[n]\in\{0,1\}$
-\end_inset
-
- that specifies whether link 
-\begin_inset Formula $n$
-\end_inset
-
- is congested (
-\begin_inset Formula $\Mode[n]=1$
-\end_inset
-
- if 
-\begin_inset Formula $n$
-\end_inset
-
- is congested and 
-\begin_inset Formula $\Mode[n]=0$
-\end_inset
-
- if 
-\begin_inset Formula $n$
-\end_inset
-
- is in free-flow); for this, we first extract density from flow and mode.
- 
-\begin_inset Formula 
-\[
-\mass[\link](\flow[n],\Mode[n])=\begin{cases}
-\frac{\flow[n]}{\freeflow n} & \Mode[n]=0\\
-\frac{1}{\speedCong[n]}(\flowMax[n]-\flow[n])+\masscrit[\link] & \Mode[n]=1
-\end{cases}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-This corresponds to inverting the fundamental diagram that gives the flow
- as a function of density.
- The latency is then given by the following expression: 
-\begin_inset Formula 
-\begin{align*}
-l_{n}(\flow[n],\Mode[n])=\frac{\lenCell[n]\mass[\link]}{\flow[n]}=\begin{cases}
-\frac{\lenCell[n]}{v_{n}} & m_{n}=0\\
-\lenCell[n]\left(\frac{\massmax[\link]}{x_{n}}-\frac{1}{w_{n}}\right) & m_{n}=1
-\end{cases}
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-For convenience of notation, we introduce constants 
-\begin_inset Formula $\parA[n]$
-\end_inset
-
-, 
-\begin_inset Formula $\parB[n]$
-\end_inset
-
- such that
-\begin_inset Formula 
-\begin{align}
-l_{n}(x_{n},m_{n})=\begin{cases}
-\parA[n] & m_{n}=0\\
-\parB[n]\left(\frac{1}{x_{n}}-\frac{1}{x_{n}^{\max}}\right)+\parA[n] & m_{n}=1
-\end{cases}\label{eq:latency}
-\end{align}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 where 
-\begin_inset Formula $\parA[n]=\frac{\lenCell[n]}{\freeflow n}$
+\begin_inset Formula $x_{\link}:\Rea_{+}\rightarrow\Rea_{+}$
 \end_inset
 
- is the free-flow latency and 
-\begin_inset Formula $\parB[n]=\lenCell[n]\massmax[\link]$
+ is precisely the flow-to-density fundamental diagram relationship.
+ Assumption 2 just states that 
+\begin_inset Formula $\mass[\link]\ge\masscrit[\link]\implies\flow[\link]\left(\mass[\link]\right)\in\left[0,\flowMax[\link]\right]$
+\end_inset
+
+.
+ Assumption 3 guarantees that the slope of 
+\begin_inset Formula $\latency[\link]^{\mass}\left(\mass[\link]\right)\ge0:\mass[\link]\ge\masscrit[\link]$
+\end_inset
+
+(as the slope is assumed constant positive for 
+\begin_inset Formula $\mass[\link]\le\masscrit[\link]$
+\end_inset
+
+).
+ Through Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:latency-relation"
+
+\end_inset
+
+, Assumption 3 can be expressed equivalently as 
+\begin_inset Formula $\frac{d\,\flow[\link]\left(\mass[\link]\right)}{\mass[\link]}\le\frac{x_{n}\left(\mass[\link]\right)}{\mass[\link]}$
+\end_inset
+
+, which gives restrictions on allowable flow-density relationships in the
+ congestion region of the fundamental diagram.
+ This restriction is still quite expressive, as it not only allows non-concavity
+, but even permits 
+\begin_inset Formula $\flow[\link]$
+\end_inset
+
+ to be increasing on subranges.
+ A depiction of allowable fundamental diagrams is given in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:permfds"
+
 \end_inset
 
 .
@@ -1403,7 +899,6 @@ where
 
 \begin_layout Standard
 \begin_inset Float figure
-placement H
 wide false
 sideways false
 status collapsed
@@ -1411,7 +906,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../figures/latency.png
+	filename /Users/jdr/Documents/github-projects/Stackelberg/figures/AnnotatedFundamentalDiagramwithparameters.pdf
 	scale 35
 
 \end_inset
@@ -1423,98 +918,28 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Latency function resulting from the a triangular flux function.
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:traffic_latency"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: have same for greenshields,....
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-Properties of the latency function for a triangular flux function
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: you should say: this is specific to triangular latency 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-J: I've added this to the title and in the paragraph
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Note that the latency function resulting from a concave flux function does
- not satisfy properties usually assumed in the Stackelberg routing literature
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: be specific about what you are referring to
-\end_layout
+A few examples of fundamental diagrams which satisfy the requirements given
+ in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Deriving-a-Class"
 
 \end_inset
 
 .
- In particular, if we consider a triangular flux function, the latency is
- not an increasing function of flow: it is a constant function if the link
- is in free-flow, and a 
-\emph on
-decreasing
-\emph default
- function when the link is congested.
- And for a given flow 
-\begin_inset Formula $\flow[\link]$
+\end_layout
+
 \end_inset
 
-, there are up to two possible latencies, one corresponding to the free-flow
- regime (low density, few agents on the link moving fast) and one to the
- congested regime (high density, many cars on the link moving slowly).
- These properties motivate the choice of the class of latency functions.
-\end_layout
 
-\begin_layout Subsection
-A Class of Congestion Latency Functions
-\end_layout
-
-\begin_layout Standard
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:latency_class"
+name "fig:permfds"
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -1522,15 +947,144 @@ name "sub:latency_class"
 \end_layout
 
 \begin_layout Standard
-We consider the class of latency functions 
+Now that the allowable fundamental diagrams is derived, Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:latency-relation"
+
+\end_inset
+
+ enables the formal expression of the class of latency functions for the
+ horizontal queueing model.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
-\begin{align*}
-l_{n}:[0,\flowMax[n]]\times\left\{ 0,1\right\}  & \longrightarrow\mathbb{{R}}_{+}\\
-(\flow[n],\Mode[n]) & \longmapsto l_{n}(\flow[n],\Mode[n])
-\end{align*}
+\[
+\latency[\link]^{\mass}\left(\mass[\link]\right)=\begin{cases}
+\frac{\Length[\link]\masscrit[\link]}{\flowMax[\link]} & \mass[\link]\in\left[0,\masscrit[\link]\right]\\
+\frac{\Length[\link]\mass[\link]}{\flow[\link]\left(\mass[\link]\right)} & \textup{otherwise}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Examples of latency functions that satisfy the assumptions are given in
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:example-rho-latency"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /Users/jdr/Documents/github-projects/Stackelberg/figures/presentation/LatencyasFunctionofDensity.pdf
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+A few examples of latency functions which satisfy the requirements given
+ in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Deriving-a-Class"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:example-rho-latency"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Latency as a function of Flow and Mode
+\end_layout
+
+\begin_layout Standard
+While expressing latency as a function of density is intuitive and succinct
+ for horizontal queues, expressing it as a function of flow turns out to
+ be more wieldy in the analysis of traffic assignment.
+ This is largely due to the fact that total flow must be conserved in traffic
+ assignment problems, and not density.
+ For this reason, we seek an alternative formulation of latency in flow.
+ As discussed before, latency is not a function of flow (the mapping from
+ flow to latency is not unique), another boolean variable is introduced.
+ Let the mode 
+\begin_inset Formula $\Mode[\link]$
+\end_inset
+
+ of link 
+\begin_inset Formula $\link$
+\end_inset
+
+ be defined as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Mode[\link]:=\begin{cases}
+0 & \link\text{ in free-flow}\\
+1 & \link\text{ in congestion}
+\end{cases}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then we can define our class of latency functions 
+\begin_inset Formula $\latency[\link]$
+\end_inset
+
+ as a function of both flow and mode:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\latency[\link]:\left[0,\flowMax[\link]\right]\times\left\{ 0,1\right\}  & \rightarrow & \Rea_{+}\\
+\left(\flow[\link],\Mode[\link]\right) & \rightarrow & \latency[\link]\left(\flow[\link],\Mode[\link]\right),
+\end{eqnarray*}
 
 \end_inset
 
@@ -1539,96 +1093,35 @@ l_{n}:[0,\flowMax[n]]\times\left\{ 0,1\right\}  & \longrightarrow\mathbb{{R}}_{+
 
 \begin_layout Standard
 where 
-\begin_inset Formula $\flow[n]\in[0,\flowMax[n]]$
+\begin_inset Formula $\flow[\link]\in\left[0,\flowMax[\link]\right]$
 \end_inset
 
- is the flow and 
-\begin_inset Formula $\Mode[n]\in\left\{ 0,1\right\} $
+ ,
+\begin_inset Formula $\Mode[\link]\in\left\{ 0,1\right\} $
 \end_inset
 
- is the congestion state.
- We assume that 
-\begin_inset Formula $l_{n}$
+.
+ The following results on 
+\begin_inset Formula $\latency[\link]$
 \end_inset
 
- satisfies the following properties:
-\end_layout
+ can be derived from the results in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Deriving-a-Class"
 
-\begin_layout Standard
-
-\series bold
-P1: 
-\series default
-The
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
- latency is constant in free-flow.
- We denote by 
-\begin_inset Formula $\parA[n]$
-\end_inset
-
- the free-flow latency where 
-\begin_inset Formula $l_{n}(x_{n},0)=\parA[n]$
-\end_inset
-
- 
-\begin_inset Formula $\forall\flow[n]\in[0,\flowMax[n]]$
 \end_inset
 
 .
 \end_layout
 
 \begin_layout Standard
-
-\series bold
-P2:
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
- The latency is decreasing in congestion: 
-\begin_inset Formula $\flow[n]\longmapsto l_{n}(\flow[n],1)$
-\end_inset
-
- is decreasing invertible, and 
-\begin_inset Formula $l_{n}(\flowMax[n],1)=\parA[n]$
-\end_inset
-
-.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-A: invertible in polynomial time?
-\end_layout
+\begin_inset Formula 
+\begin{eqnarray}
+\latency[\link]\left(\flow[\link],0\right) & = & \parA[\link]\label{eq:free-flow-constant}\\
+x>x':x,x'\in\left[0,\flowMax[\link]\right] & \implies & \latency[\link]\left(x,1\right)<\latency[\link]\left(x',1\right)\label{eq:congestion-decreasing}\\
+\latency[\link]\left(\flowMax[\link],0\right) & = & \latency[\link]\left(\flowMax[\link],1\right),\label{eq:max-flow-equal}
+\end{eqnarray}
 
 \end_inset
 
@@ -1636,20 +1129,62 @@ A: invertible in polynomial time?
 \end_layout
 
 \begin_layout Standard
-Some of the known results on congestion networks 
-\begin_inset Note Note
-status open
+where 
+\begin_inset Formula $\parA[\link]\in\Rea_{++}$
+\end_inset
+
+ is the constant free-flow speed.
+ Some examples of latency functions in the class expressed in this section
+ are given in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:example-flow-mode-latency"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
 
 \begin_layout Plain Layout
-A: again be specific, references
+\align center
+\begin_inset Graphics
+	filename /Users/jdr/Documents/github-projects/Stackelberg/figures/presentation/LatencyasFunctionofFlowMode.pdf
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+A few examples of latency functions plotted against flow.
+ The direction of the arrow is in the direction of increasing density.
 \end_layout
 
 \end_inset
 
-do not apply to our setting: for example, the network may have multiple
- Nash equilibria that have different costs.
- In the next section we specify this result and address the issue of having
- multiple Nash equilibria.
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:example-flow-mode-latency"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
