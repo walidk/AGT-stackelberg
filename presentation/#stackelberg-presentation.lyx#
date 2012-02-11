@@ -200,11 +200,11 @@ status open
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ../figures/presentation/LatencyasFunctionofDensity.pdf
+	filename /Users/jdr/Documents/github-projects/Stackelberg/figures/presentation/LatencyasFunctionofDensity.pdf
 	scale 20
 
 \end_inset
@@ -230,11 +230,11 @@ As function of density
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /Users/jdr/Documents/github-projects/Stackelberg/figures/presentation/LatencyasFunctionofFlowMode.pdf
+	filename /Users/jdr/Documents/github-projects/Stackelberg/figures/presentation/LatencyasFunctionofDensity.pdf
 	scale 20
 
 \end_inset
