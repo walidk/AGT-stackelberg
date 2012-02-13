@@ -2503,7 +2503,7 @@ A: same thing we need to discuss
  
 \begin_inset Formula 
 \begin{equation}
-\opneFlow k{\qdemand}=(\cffFlow 1k,\dots,\overset{k-1}{\cffFlow{k-1}k},\overset{k}{r-\sum_{\link=1}^{k-1}\cffFlow{\link}k},0,\dots,0)\label{eq:x_bar}
+\opneFlow k{\qdemand}:=(\cffFlow 1k,\dots,\overset{k-1}{\cffFlow{k-1}k},\overset{k}{r-\sum_{\link=1}^{k-1}\cffFlow{\link}k},0,\dots,0)\label{eq:x_bar}
 \end{equation}
 
 \end_inset
@@ -2627,7 +2627,7 @@ status open
 A: I do not understand m bar N + 1.
  
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 J: If taken literally, it means that link 1 through N + 1 - 1 = 1 through
@@ -2953,9 +2953,6 @@ J: I don't think I understand, but I believe the answer is no.
 
 \begin_layout Definition
 Best Nash Equilibrium
-\end_layout
-
-\begin_layout Definition
 \begin_inset CommandInset label
 LatexCommand label
 name "def:bne"
@@ -2963,7 +2960,11 @@ name "def:bne"
 \end_inset
 
 
-\begin_inset Formula $\BestNashEquilibrium{\NLinks}{\qdemand}=\underset{\left(\flow,\Mode\right)\in\NashEquilibrium{\NLinks}{\qdemand}}{\arg\min}\Latency\left(\flow,\Mode\right)$
+\begin_inset Formula 
+\[
+\BestNashEquilibrium{\NLinks}{\qdemand}=\underset{\left(\flow,\Mode\right)\in\NashEquilibrium{\NLinks}{\qdemand}}{\arg\min}\Latency\left(\flow,\Mode\right)
+\]
+
 \end_inset
 
 

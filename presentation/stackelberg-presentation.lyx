@@ -4,9 +4,9 @@
 \begin_header
 \textclass beamer
 \begin_preamble
-
+\usetheme{Boadilla}
 \end_preamble
-\options handout
+\options smaller
 \use_default_options true
 \begin_modules
 theorems-std
@@ -329,8 +329,8 @@ Definition of NE
 \end_layout
 
 \begin_layout Standard
-Informally, a Nash equilibrium exists when there is no incentive for any
- flow to switch from its current link to another link.
+Informally, NE exists when there is no incentive for any flow to switch
+ from current link.
 \end_layout
 
 \begin_layout Definition
@@ -464,8 +464,8 @@ Understanding Congestion Configuration
 \end_layout
 
 \begin_layout Standard
-For Nash equilibria, one can determine the congestion mode of a link from
- the mode of other links.
+For NE, one can determine the congestion mode of a link from the mode of
+ other links.
 \end_layout
 
 \begin_layout Corollary
@@ -537,11 +537,13 @@ If a link is utilized and in free flow, then all links with higher free-flow
 Understanding Congestion Configuration
 \end_layout
 
-\begin_layout Standard
-For Nash equilibria, we can show that the flows can be uniquely determined
- from the mode configuration.
- This implies that if we can enumerate the mode configurations, then we
- can enumerate all Nash equilibria.
+\begin_layout Itemize
+For NE, flows can be uniquely determined from the mode configuration.
+ 
+\end_layout
+
+\begin_layout Itemize
+If we can enumerate mode config's, we can enumerate all NE.
 \end_layout
 
 \begin_layout Lemma
@@ -614,10 +616,6 @@ Single-Link Free-Flow Nash Equilibria
 \end_layout
 
 \begin_layout Definition
-Congestion flow
-\end_layout
-
-\begin_layout Definition
 For 
 \begin_inset Formula $1\leq n<k\leq N$
 \end_inset
@@ -648,7 +646,7 @@ l_{n}(\cffFlow nk,1)=a_{k}
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -665,8 +663,115 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Congested flows can be determined in reference to the link that is in free
- flow.
+Congested flows can be determined in reference to link in free-flow.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Single-Link Free-Flow Nash Equilibria
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula 
+\begin{eqnarray*}
+\bar{\Mode}^{k} & \coloneqq & (1,\dots,\stackrel{k-1}{1},\stackrel{k}{0},\dots,0)\\
+\opneFlow k{\qdemand} & \coloneqq & (\cffFlow 1k,\dots,\overset{k-1}{\cffFlow{k-1}k},\overset{k}{r-\sum_{\link=1}^{k-1}\cffFlow{\link}k},0,\dots,0)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../figures/presentation/DefinitionXBar.pdf
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Link 3 free-flow NE
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../figures/presentation/DefinitionCompletelyCongestedEquilibrium.pdf
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Completely congested NE
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Characterizing NE by mode configuration.
 \end_layout
 
 \end_inset
@@ -687,8 +792,191 @@ Congested flows can be determined in reference to the link that is in free
 Best Nash Equilibrium
 \end_layout
 
+\begin_layout BeginFrame
+Existence of Free Flow NE
+\end_layout
+
+\begin_layout Standard
+Completely congested NE is 
+\series bold
+never
+\series default
+ only NE, can be used for proving Best NE.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset Formula $\exists$
+\end_inset
+
+ completely congested Nash equilibrium 
+\begin_inset Formula $\left(\flow,\cffMode{\NLinks+1}\right)\in\NashEquilibrium{\NLinks}{\qdemand}$
+\end_inset
+
+
+\begin_inset Formula $\implies\exists$
+\end_inset
+
+ free flow Nash equilibrium 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\left(\opneFlow j{\qdemand},\cffMode j\right)\in\NashEquilibrium{\NLinks}{\qdemand}$
+\end_inset
+
+ for some 
+\begin_inset Formula $j\leq N$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+By induction, proof iteratively seeks 
+\begin_inset Quotes eld
+\end_inset
+
+lower potential
+\begin_inset Quotes erd
+\end_inset
+
+, until feasible mode config.
+ found.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /Users/jdr/Documents/github-projects/Stackelberg/figures/presentation/LemmaExistenceofSingleLinkFreeFlowNE.pdf
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Illustration: 
+\begin_inset Formula $k=3$
+\end_inset
+
+ infeasible, 
+\begin_inset Formula $k=2$
+\end_inset
+
+ accommodates all flow.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Best Nash Equilibrium
+\end_layout
+
+\begin_layout Standard
+The best NE for a network 
+\begin_inset Formula $\NLinks$
+\end_inset
+
+ and demand 
+\begin_inset Formula $\qdemand$
+\end_inset
+
+ is uniquely expressed as the free-flow NE that utilizes the fewest links.
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula $\BestNashEquilibrium{\NLinks}{\qdemand}=\underset{\left(\flow,\Mode\right)\in\NashEquilibrium{\NLinks}{\qdemand}}{\arg\min}\Latency\left(\flow,\Mode\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../figures/presentation/TheoremBestNashEquilibrium.pdf
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The BNE occurs with 
+\begin_inset Formula $k=2$
+\end_inset
+
+ in free-flow, as 
+\begin_inset Formula $k=1$
+\end_inset
+
+ is infeasible, and all others must be suboptimal.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
 \begin_layout Section
 Price of Stability
+\end_layout
+
+\begin_layout BeginFrame
+Social Optimum
+\end_layout
+
+\begin_layout EndFrame
+
 \end_layout
 
 \begin_layout Part
