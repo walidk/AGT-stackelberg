@@ -2021,17 +2021,6 @@ For a given congestion state
 \end_layout
 
 \begin_layout Proof
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-W: There is a third possible case, where the supports could be different.
- Not an enlightening exercise to prove.
- Sweep it under the rug???
-\end_layout
-
-\end_inset
-
 Let 
 \begin_inset Formula $m\in\left\{ 0,1\right\} ^{N}$
 \end_inset
