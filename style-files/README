@@ -1,3 +1,6 @@
+this replaces the preinstalled version of IEEEconf.cls with the one recommended by CDC (which is good for us, since the new one weirdly doesn't support Proofs). The old version is moved in the same directory to (whatever).old
+
+
 sudo sh myshell.sh
 
 now go to lyx, and click Lyx->Reconfigure, then restart. proofs, and double column should be working

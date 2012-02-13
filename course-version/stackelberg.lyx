@@ -4,8 +4,7 @@
 \begin_header
 \textclass IEEEconf
 \begin_preamble
-\usepackage{fullpage}
-\usepackage{mathrsfs}
+\overrideIEEEmargins
 \end_preamble
 \options letterpaper, 10 pt, conference
 \use_default_options false
@@ -819,13 +818,13 @@ J: something about h-queues.
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename ../figures/nparlink.pdf
-	scale 35
+	width 3.5in
 
 \end_inset
 
@@ -1030,7 +1029,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename ../figures/AnnotatedFundamentalDiagramwithparameters.pdf
-	scale 35
+	width 3.5in
 
 \end_inset
 
@@ -1117,7 +1116,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename ../figures/presentation/LatencyasFunctionofDensity.pdf
-	scale 35
+	width 3.5in
 
 \end_inset
 
@@ -1278,7 +1277,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename ../figures/presentation/LatencyasFunctionofFlowMode.pdf
-	scale 35
+	width 3.5in
 
 \end_inset
 
@@ -3636,7 +3635,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename ../figures/freeflow.pdf
-	height 3in
+	width 3.5in
 
 \end_inset
 
@@ -4743,7 +4742,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ../figures/optimal_stackelberg1.png
-	scale 40
+	width 3.5in
 
 \end_inset
 
@@ -4925,7 +4924,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ../figures/optimal_stackelberg2.png
-	scale 40
+	width 3.5in
 
 \end_inset
 
