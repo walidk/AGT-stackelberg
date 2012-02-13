@@ -2,15 +2,13 @@
 \lyxformat 413
 \begin_document
 \begin_header
-\textclass article
+\textclass IEEEconf
 \begin_preamble
 \usepackage{fullpage}
 \usepackage{mathrsfs}
 \end_preamble
+\options letterpaper, 10 pt, conference
 \use_default_options false
-\begin_modules
-theorems-ams-bytype
-\end_modules
 \maintain_unincluded_children false
 \language english
 \language_package default
@@ -3050,7 +3048,6 @@ reference "theorem:minsupport"
  equilibria will be the one with the free flow link that has a smaller index.
 \end_layout
 
-\begin_deeper
 \begin_layout Lemma
 \begin_inset CommandInset label
 LatexCommand label
@@ -3099,7 +3096,6 @@ If
 
 \end_layout
 
-\end_deeper
 \begin_layout Proof
 The proofs for the lemmas above are omitted for brevity.
 \end_layout

@@ -1,0 +1,3 @@
+sudo sh myshell.sh
+
+now go to lyx, and click Lyx->Reconfigure, then restart. proofs, and double column should be working
