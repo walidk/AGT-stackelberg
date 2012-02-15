@@ -3,3 +3,10 @@
 *#
 *log
 course-version/*.pdf
+*out
+*aux
+*snm
+*nav
+*gz
+*toc
+*presentation.pdf
