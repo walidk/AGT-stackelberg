@@ -1,38 +1,23 @@
-%% LyX 2.0.2 created this file.  For more info, see http://www.lyx.org/.
-%% Do not edit unless you really know what you are doing.
-\documentclass[english,smaller]{beamer}
+\documentclass[english, smaller]{beamer}
+\usetheme{Boadilla}
+
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
-\setcounter{secnumdepth}{3}
-\setcounter{tocdepth}{3}
+%\setcounter{secnumdepth}{3}
+%\setcounter{tocdepth}{3}
 \usepackage{amsthm}
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{xargs}[2008/03/08]
+%\usepackage{babel}
+\usepackage{subfig}
 
 \makeatletter
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
-%% A simple dot to overcome graphicx limitations
-\newcommand{\lyxdot}{.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
  % this default might be overridden by plain title style
- \newcommand\makebeamertitle{\frame{\maketitle}}%
- \AtBeginDocument{
-   \let\origtableofcontents=\tableofcontents
-   \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
-   \def\gobbletableofcontents#1{\origtableofcontents}
- }
- \long\def\lyxframe#1{\@lyxframe#1\@lyxframestop}%
- \def\@lyxframe{\@ifnextchar<{\@@lyxframe}{\@@lyxframe<*>}}%
- \def\@@lyxframe<#1>{\@ifnextchar[{\@@@lyxframe<#1>}{\@@@lyxframe<#1>[]}}
- \def\@@@lyxframe<#1>[{\@ifnextchar<{\@@@@@lyxframe<#1>[}{\@@@@lyxframe<#1>[<*>][}}
- \def\@@@@@lyxframe<#1>[#2]{\@ifnextchar[{\@@@@lyxframe<#1>[#2]}{\@@@@lyxframe<#1>[#2][]}}
- \long\def\@@@@lyxframe<#1>[#2][#3]#4\@lyxframestop#5\lyxframeend{%
-   \frame<#1>[#2][#3]{\frametitle{#4}#5}}
- \def\lyxframeend{} % In case there is a superfluous frame end
+
 \theoremstyle{plain}
 \newtheorem{thm}{\protect\theoremname}
 \theoremstyle{definition}
@@ -43,20 +28,14 @@
 \newtheorem{cor}[thm]{\protect\corollaryname}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
-\usetheme{Boadilla}
 
-\@ifundefined{showcaptionsetup}{}{%
- \PassOptionsToPackage{caption=false}{subfig}}
-\usepackage{subfig}
 \makeatother
 
-\usepackage{babel}
 \providecommand{\corollaryname}{Corollary}
 \providecommand{\definitionname}{Definition}
 \providecommand{\lemmaname}{Lemma}
 \providecommand{\theoremname}{Theorem}
 
-\begin{document}
 \global\long\def\outify#1{#1^{\text{out}}}
 \newcommandx\flowOut[1][usedefault, addprefix=\global, 1=]{\outify{\flow[#1]}}
 \global\long\def\Network{\mathscr{N}}
@@ -130,28 +109,38 @@
 \global\long\def\Cells{E}
 \global\long\def\Junctions{V}
 
-\title{Stackelberg on Horizontal Queueing Networks}
 
+%###########################################################################################################
+\begin{document}
 
+\title{Stackelberg Routing on Horizontal Queueing Networks}
 \author{Walid Krichene, Jack Reilly}
+\date{\today}
 
-\makebeamertitle
+%---------------------------------------------------------------------------------------------------------------------
 
-\lyxframeend{}\lyxframe{Outline}
+\begin{frame}
+\titlepage
+\end{frame}
 
-\tableofcontents{}
+%---------------------------------------------------------------------------------------------------------------------
+\begin{frame}{Outline}
+\tableofcontents
+\end{frame}
 
+\AtBeginSection[]{
+\begin{frame}<beamer>\frametitle{Outline}
+\tableofcontents[currentsection] 
+\end{frame}
+}
 
-\lyxframeend{}
+%###########################################################################################################
+\section{Latency Functions}
 
+\subsection{Derivation from Fundamental Diagram}
 
-\part{Latency Functions}
-
-
-\lyxframeend{}\section{Derivation from Fundamental Diagram}
-
-
-\lyxframeend{}\lyxframe{Assumptions of Fundamental Diagram}
+%---------------------------------------------------------------------------------------------------------------------
+\begin{frame}{Assumptions of Fundamental Diagram}
 \begin{block}
 {Two Modes}
 \begin{enumerate}
@@ -159,20 +148,20 @@
 \item <2->Flow is decreasing function of density in congested mode.
 \end{enumerate}
 \end{block}
+
 \begin{figure}
 \begin{centering}
-\includegraphics[scale=0.25]{\lyxdot \lyxdot /\lyxdot \lyxdot /figures/presentation/AnnotatedFundamentalDiagram}
+\includegraphics[scale=0.25]{../../figures/presentation/AnnotatedFundamentalDiagram}
 \par\end{centering}
-
 \caption{Class of fundamental diagrams considered}
 \end{figure}
 
 
 
-\lyxframeend{}
+\end{frame}
 
-
-\lyxframeend{}\lyxframe{Mapping to Latency}
+%---------------------------------------------------------------------------------------------------------------------
+\begin{frame}{Mapping to Latency}
 \begin{itemize}
 \item One-to-one mapping between density and latency.
 \end{itemize}
@@ -189,9 +178,9 @@
 
 
 \begin{figure}
-\subfloat[As function of density]{\includegraphics[scale=0.2]{\lyxdot \lyxdot /\lyxdot \lyxdot /figures/presentation/LatencyasFunctionofDensity}
+\subfloat[As function of density]{\includegraphics[scale=0.2]{../../figures/presentation/LatencyasFunctionofDensity}
 
-}\subfloat[As function of density]{\includegraphics[scale=0.2]{/Users/jdr/Documents/github-projects/Stackelberg/figures/presentation/LatencyasFunctionofFlowMode}
+}\subfloat[As function of density]{\includegraphics[scale=0.2]{../../figures/presentation/LatencyasFunctionofFlowMode}
 
 }
 
@@ -204,16 +193,16 @@
 
 
 
-\lyxframeend{}
+\end{frame}
 
 
-\part{Nash Equilibria}
+\section{Nash Equilibria}
+
+%###########################################################################################################
+\subsection{Enumerating All Nash Equilibria}
 
 
-\lyxframeend{}\section{Enumerating All Nash Equilibria}
-
-
-\lyxframeend{}\lyxframe{Definition of NE}
+\begin{frame}{Definition of NE}
 
 	Informally, NE exists when there is no incentive for any flow to switch
 from current link.
@@ -224,7 +213,7 @@ at Nash equilibrium, if $\forall\link:\flow[\link]>0\implies\latency[\link]\left
 \end{defn}
 \begin{figure}
 \begin{centering}
-\includegraphics[scale=0.25]{\lyxdot \lyxdot /\lyxdot \lyxdot /figures/presentation/NE3link}
+\includegraphics[scale=0.25]{../../figures/presentation/NE3link}
 \par\end{centering}
 
 \caption{An instance of a Nash equilibrium with one link in congestion, one
@@ -233,10 +222,10 @@ in free flow, and one unused}
 
 
 
-\lyxframeend{}
+\end{frame}
 
-
-\lyxframeend{}\lyxframe{Understanding Congestion Configuration}
+%---------------------------------------------------------------------------------------------------------------------
+\begin{frame}{Understanding Congestion Configuration}
 
 For Nash equilibria, one can determine the congestion mode of a link
 from the mode of other links.
@@ -248,7 +237,7 @@ Then $j\in\Supp{\flow}\implies\Mode[i]=1\quad\forall i\in\left\{ 1,\ldots,j-1\ri
 \end{lem}
 \begin{figure}
 \begin{centering}
-\includegraphics[scale=0.25]{\lyxdot \lyxdot /\lyxdot \lyxdot /figures/presentation/LemmaLowerIndexLinksCongested}
+\includegraphics[scale=0.25]{../../figures/presentation/LemmaLowerIndexLinksCongested}
 \par\end{centering}
 
 \caption{If a link is utilized, then all links with lower free flow speed must
@@ -257,10 +246,10 @@ be congested.}
 
 
 
-\lyxframeend{}
+\end{frame}
 
-
-\lyxframeend{}\lyxframe{Understanding Congestion Configuration}
+%---------------------------------------------------------------------------------------------------------------------
+\begin{frame}{Understanding Congestion Configuration}
 
 For NE, one can determine the congestion mode of a link from the mode
 of other links.
@@ -271,7 +260,7 @@ $m=(1,\dots,\stackrel{k-1}{1},\stackrel{k}{0},\dots,0)$ and $\Supp{\flow}=\left\
 \end{cor}
 \begin{figure}
 \begin{centering}
-\includegraphics[scale=0.25]{/Users/jdr/Documents/github-projects/Stackelberg/figures/presentation/CorollaryAllaboveFFareempty}
+\includegraphics[scale=0.25]{../../figures/presentation/CorollaryAllaboveFFareempty}
 \par\end{centering}
 
 \caption{If a link is utilized and in free flow, then all links with higher
@@ -280,10 +269,10 @@ free-flow speeds must be empty}
 
 
 
-\lyxframeend{}
+\end{frame}
 
-
-\lyxframeend{}\lyxframe{Understanding Congestion Configuration}
+%---------------------------------------------------------------------------------------------------------------------
+\begin{frame}{Understanding Congestion Configuration}
 \begin{itemize}
 \item For NE, flows can be uniquely determined from the mode configuration. 
 \item If we can enumerate mode config's, we can enumerate all NE.\end{itemize}
@@ -293,7 +282,7 @@ is at most one assignment $x$ such that $(x,m)$ is at Nash equilibrium.
 \end{lem}
 \begin{figure}
 \begin{centering}
-\includegraphics[scale=0.25]{/Users/jdr/Documents/github-projects/Stackelberg/figures/presentation/LemmaUniqueFlowFromMode}
+\includegraphics[scale=0.25]{../../figures/presentation/LemmaUniqueFlowFromMode}
 \par\end{centering}
 
 \caption{There may not exist two distinct Nash equilibria with the same congestion
@@ -302,13 +291,13 @@ state.}
 
 
 
-\lyxframeend{}
+\end{frame}
+
+%###########################################################################################################
+\subsection{Existence of Uncongested Equilibrium}
 
 
-\lyxframeend{}\section{Existence of Uncongested Equilibrium}
-
-
-\lyxframeend{}\lyxframe{Single-Link Free-Flow Nash Equilibria}
+\begin{frame}{Single-Link Free-Flow Nash Equilibria}
 \begin{defn}
 For $1\leq n<k\leq N$, congestion flow $\cffFlow nk$ is the unique
 flow in $[0,\flowMax[n]]$ that satisfies
@@ -320,7 +309,7 @@ l_{n}(\cffFlow nk,1)=a_{k}
 \end{defn}
 \begin{figure}
 \begin{centering}
-\includegraphics[scale=0.25]{\lyxdot \lyxdot /\lyxdot \lyxdot /figures/presentation/DefinitionXHat}
+\includegraphics[scale=0.25]{../../figures/presentation/DefinitionXHat}
 \par\end{centering}
 
 \caption{Congested flows can be determined in reference to link in free-flow.}
@@ -328,10 +317,10 @@ l_{n}(\cffFlow nk,1)=a_{k}
 
 
 
-\lyxframeend{}
+\end{frame}
 
-
-\lyxframeend{}\lyxframe{Single-Link Free-Flow Nash Equilibria}
+%---------------------------------------------------------------------------------------------------------------------
+\begin{frame}{Single-Link Free-Flow Nash Equilibria}
 \begin{defn}
 \begin{eqnarray*}
 \bar{\Mode}^{k} & \coloneqq & (1,\dots,\stackrel{k-1}{1},\stackrel{k}{0},\dots,0)\\
@@ -341,11 +330,11 @@ l_{n}(\cffFlow nk,1)=a_{k}
 \end{defn}
 \begin{figure}
 \subfloat[Link 3 free-flow NE]{\begin{centering}
-\includegraphics[scale=0.2]{\lyxdot \lyxdot /\lyxdot \lyxdot /figures/presentation/DefinitionXBar}
+\includegraphics[scale=0.2]{../../figures/presentation/DefinitionXBar}
 \par\end{centering}
 
 }\subfloat[Completely congested NE]{\begin{centering}
-\includegraphics[scale=0.2]{\lyxdot \lyxdot /\lyxdot \lyxdot /figures/presentation/DefinitionCompletelyCongestedEquilibrium}
+\includegraphics[scale=0.2]{../../figures/presentation/DefinitionCompletelyCongestedEquilibrium}
 \par\end{centering}
 
 }
@@ -355,18 +344,18 @@ l_{n}(\cffFlow nk,1)=a_{k}
 
 
 
-\lyxframeend{}
+\end{frame}
+
+%###########################################################################################################
+\subsection{Best Nash Equilibrium}
 
 
-\lyxframeend{}\section{Best Nash Equilibrium}
-
-
-\lyxframeend{}\lyxframe{Existence of Free Flow NE}
+\begin{frame}{Existence of Free Flow NE}
 
 Completely congested NE is \textbf{never} only NE, can be used for
 proving Best NE.
 \begin{lem}
-$\exists$ completely congested Nash equilibrium $\left(\flow,\cffMode{\NLinks+1}\right)\in\NashEquilibrium{\NLinks}{\qdemand}$$\implies\exists$
+$\exists$ completely congested Nash equilibrium $\left(\flow,\cffMode{\NLinks+1}\right)\in\NashEquilibrium{\NLinks}{\qdemand}$ $\implies\exists$
 free flow Nash equilibrium \textrm{\textup{$\left(\opneFlow j{\qdemand},\cffMode j\right)\in\NashEquilibrium{\NLinks}{\qdemand}$
 for some $j\leq N$.}}
 \end{lem}
@@ -375,7 +364,7 @@ feasible mode config. found.
 
 \begin{figure}
 \begin{centering}
-\includegraphics[scale=0.25]{/Users/jdr/Documents/github-projects/Stackelberg/figures/presentation/LemmaExistenceofSingleLinkFreeFlowNE}
+\includegraphics[scale=0.25]{../../figures/presentation/LemmaExistenceofSingleLinkFreeFlowNE}
 \par\end{centering}
 
 \caption{Illustration: $k=3$ infeasible, $k=2$ accommodates all flow.}
@@ -383,19 +372,21 @@ feasible mode config. found.
 
 
 
-\lyxframeend{}
+\end{frame}
 
-
-\lyxframeend{}\lyxframe{Best Nash Equilibrium}
+%---------------------------------------------------------------------------------------------------------------------
+\begin{frame}{Best Nash Equilibrium}
 
 The best NE for a network $\NLinks$ and demand $\qdemand$ is uniquely
 expressed as the free-flow NE that utilizes the fewest links.
+
 \begin{defn}
 $\BestNashEquilibrium{\NLinks}{\qdemand}=\underset{\left(\flow,\Mode\right)\in\NashEquilibrium{\NLinks}{\qdemand}}{\arg\min}\Latency\left(\flow,\Mode\right)$
 \end{defn}
+
 \begin{figure}
 \begin{centering}
-\includegraphics[scale=0.25]{\lyxdot \lyxdot /\lyxdot \lyxdot /figures/presentation/TheoremBestNashEquilibrium}
+\includegraphics[scale=0.25]{../../figures/presentation/TheoremBestNashEquilibrium}
 \par\end{centering}
 
 \caption{The BNE occurs with $k=2$ in free-flow, as $k=1$ is infeasible,
@@ -403,18 +394,202 @@ and all others must be suboptimal.}
 \end{figure}
 
 
+\end{frame}
 
-\lyxframeend{}
+%###########################################################################################################
+\subsection{Price of Stability}
 
-
-\lyxframeend{}\section{Price of Stability}
-
-
-\lyxframeend{}\lyxframe{Social Optimum}
-
-
-\lyxframeend{}
+%---------------------------------------------------------------------------------------------------------------------
+\begin{frame}{Social Optimum}
 
 
-\part{Optimal Stackelberg Assignment}
+\end{frame}
+
+
+\section{Stackelberg Routing}
+
+\subsection{Stackelberg Routing Game}
+%###########################################################################################################
+\begin{frame}{Stackelberg Routing Game}
+
+\begin{itemize}
+\item Stackelberg instance $(N, r, \beta)$
+\item $\beta$ is the fraction of compliance
+\item Leader: route compliant flow $\beta r$
+\item Followers: choose their routes selfishly after Stackelberg strategy is revealed.
+\end{itemize}
+
+
+\begin{block}{Stackelberg strategy}
+Assignment $s$ of compliant flow (feasible for the instance $(N,\beta r)$)
+\end{block}
+
+\begin{block}{Induced Nash Equilibrium}
+$s$ induces assignment $(t(s), m(s))$ of non-compliant flow at Best Nash Equilibrium
+\[
+t_n(s)>0 \Rightarrow \forall k \leq N, l_n(s_n + t_n(s), m_n(s)) \leq l_k(s_k + t_k(s), m_k(s))
+\]
+(if $n$ is in the support of $t$, all other links have greater latency)
+\end{block}
+
+Set of Stackelberg strategies: $S(N, r, \beta)$
+
+\end{frame}
+
+%---------------------------------------------------------------------------------------------------------------------
+
+\begin{frame}{Stackelberg routing}
+
+\begin{block}{Lemma}
+Induced Equilibrium is a single-link free-flow equilibrium.
+\[
+m(s)_{\max \text{Supp}(t(s))} = 0
+\]
+\end{block}
+
+Follows from $(t(s), m(s))$ is at Nash Eq for the instance $(N,\beta r)$ and latencies
+\begin{align*}
+\tilde{l}_n: [0, x_n^{\max} - s_n]\times \{0,1\} & \rightarrow \mathbb{R}_+\\
+(x_n,m_n) & \mapsto l_n(s_n+x_n,m_n)
+\end{align*}
+and Theorem 1.
+
+\end{frame}
+
+%---------------------------------------------------------------------------------------------------------------------
+\begin{frame}{Optimal Stackelberg Strategy}
+
+\begin{block}{Optimal Stackelberg strategy}
+$s^*$ is an optimal strategy if the cost of the induced equilibrium
+\[
+C(s^* + t(s^*), m(s^*))
+\]
+is minimal over $S(N, r, \beta)$
+\end{block}
+
+
+
+\begin{block}{Stackelberg Equilibrium}
+Equilibrium induced by an optimal Stackelberg strategy $s^*$.
+\end{block}
+
+\end{frame}
+
+
+%###########################################################################################################
+\subsection{Computing The Optimal Stackelberg Strategy}
+
+\begin{frame}{Computing the Optimal Stackelberg Strategy}
+
+\begin{block}{Non-Compliant First strategy $\bar{s}$}
+\begin{itemize}
+\item Compute BNE of non-compliant users alone: $(\bar{t}, \bar{m}) = BNE(N, (1-\beta)r)$
+\item Compute $\bar{s}$: Assign the compliant flow by filling remaining links (non congested by non-compliant) each to max capacity.
+\end{itemize}
+\end{block}
+
+\pause 
+Intuitive argument
+\begin{itemize}
+\item $(\bar{t}, \bar{m})$ has best cost for non-compliant, cannot do better.
+\item Best we can do with compliant users is assign them optimally so they do not ``degrade'' equilibrium $(\bar{t}, \bar{m})$
+\end{itemize}
+
+
+\end{frame}
+
+
+
+%---------------------------------------------------------------------------------------------------------------------
+\begin{frame}{Computing the Optimal Stackelberg Strategy}
+
+\begin{block}{Non-Compliant First strategy $\bar{s}$}
+\begin{itemize}
+\item \alert{Compute BNE of non-compliant users alone: $(\bar{t}, \bar{m}) = BNE(N, (1-\beta)r)$}
+\item Compute $\bar{s}$: Assign the compliant flow by filling remaining links (non congested by non-compliant) each to max capacity.
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+
+
+%---------------------------------------------------------------------------------------------------------------------
+\begin{frame}{Non-Compliant First}
+
+\begin{center}
+\includegraphics[scale=0.25]{../../figures/presentation/optimal_stackelberg1.png}
+\end{center}
+
+\small
+\begin{align*}
+\bar{m} = (1, \dots, 1, \stackrel{k}{0}, \dots, 0) &&
+\bar{t} = \left( \hat{x}_1(k), \dots, \hat{x}_{k-1}(k), (1-\beta)r - \sum_{n = 1}^{k-1}\hat{x}_n(k), 0, \dots, 0\right)
+\end{align*}
+
+
+\end{frame}
+
+%---------------------------------------------------------------------------------------------------------------------
+\begin{frame}{Non-Compliant First}
+
+\begin{block}{Non-Compliant First strategy $\bar{s}$}
+\begin{itemize}
+\item Compute BNE of non-compliant users alone: $(\bar{t}, \bar{m}) = BNE(N, (1-\beta)r)$
+\item \alert{Compute $\bar{s}$: Assign the compliant flow by filling remaining links (non congested by non-compliant) each to max capacity.}
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+%---------------------------------------------------------------------------------------------------------------------
+\begin{frame}{Non-Compliant First}
+
+\begin{center}
+\includegraphics[scale=0.25]{../../figures/presentation/optimal_stackelberg2.png}
+\end{center}
+
+\invisible{
+\small
+\begin{align*}
+\bar{m} = (1, \dots, 1, \stackrel{k}{0}, \dots, 0) &&
+\bar{t} = \left( \hat{x}_1(k), \dots, \hat{x}_{k-1}(k), (1-\beta)r - \sum_{n = 1}^{k-1}\hat{x}_n(k), 0, \dots, 0\right)
+\end{align*}
+}
+\end{frame}
+
+
+%---------------------------------------------------------------------------------------------------------------------
+\begin{frame}{Non-Compliant First}
+
+\begin{center}
+\includegraphics[scale=0.25]{../../figures/presentation/optimal_stackelberg3.png}
+\end{center}
+
+\small
+\begin{align*}
+\bar{s} = 
+\left( 
+0, \dots, \stackrel{k-1}{0}, 
+\textcolor<1>{red}{ x_k^{\max} - \bar{t}_k}, 
+\textcolor<2>{red}{x_{k+1}^{\max}, \dots, x_{l-1}^{\max}}, 
+\textcolor<3>{red}{\beta r - (\sum_{n = k}^{l-1}x_n^{\max} - t_k)}, 
+\stackrel{l}{0}, \dots, 0
+\right)
+\end{align*}
+
+
+\end{frame}
+
+
+
+%---------------------------------------------------------------------------------------------------------------------
+\begin{frame}{Non-Compliant First is optimal}
+
+
+
+
+\end{frame}
+
+
 \end{document}
