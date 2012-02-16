@@ -1,5 +1,6 @@
-\documentclass[english, smaller]{beamer}
+\documentclass[xcolor=svgnames, english, smaller]{beamer}
 \usetheme{Boadilla}
+%\usecolortheme[named=Navy]{structure} 
 
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
@@ -114,7 +115,8 @@
 \begin{document}
 
 \title{Stackelberg Routing on Horizontal Queueing Networks}
-\author{Walid Krichene, Jack Reilly}
+\author{Walid Krichene \and Jack Reilly}
+\institute{}
 \date{\today}
 
 %---------------------------------------------------------------------------------------------------------------------
@@ -128,9 +130,9 @@
 \tableofcontents
 \end{frame}
 
-\AtBeginSection[]{
+\AtBeginSubsection[]{
 \begin{frame}<beamer>\frametitle{Outline}
-\tableofcontents[currentsection] 
+\tableofcontents[currentsubsection] 
 \end{frame}
 }
 
@@ -247,7 +249,7 @@ of other links.
 \begin{cor}
 Let $\left(\flow,\Mode\right)\in\NashEquilibrium{\NLinks}{\qdemand}$.
 Assume that $\exists k\in\Supp{\flow}$ such that $m_{k}=0$. Then
-$m=(1,\dots,\stackrel{k-1}{1},\stackrel{k}{0},\dots,0)$ and $\Supp{\flow}=\left\{ 1,\dots,k\right\} $.
+$m=(1,\dots,\overset{k-1}{1},\overset{k}{0},\dots,0)$ and $\Supp{\flow}=\left\{ 1,\dots,k\right\} $.
 \end{cor}
 \begin{figure}
 \begin{centering}
@@ -313,26 +315,24 @@ l_{n}(\cffFlow nk,1)=a_{k}
 %---------------------------------------------------------------------------------------------------------------------
 \begin{frame}{Single-Link Free-Flow Nash Equilibria}
 \begin{defn}
+
 \begin{eqnarray*}
-\bar{\Mode}^{k} & \coloneqq & (1,\dots,\stackrel{k-1}{1},\stackrel{k}{0},\dots,0)\\
-\opneFlow k{\qdemand} & \coloneqq & (\cffFlow 1k,\dots,\overset{k-1}{\cffFlow{k-1}k},\overset{k}{r-\sum_{\link=1}^{k-1}\cffFlow{\link}k},0,\dots,0)
+\bar{\Mode}^{k} & \coloneqq & (1,\dots,\overset{k-1}{1},\overset{k}{0},\dots,0)\\
+\opneFlow k{\qdemand} & \coloneqq & (\cffFlow 1k,\dots,\overset{k-1}{\cffFlow{k-1}k}, r-\sum_{\link=1}^{k-1}\cffFlow{\link}k, 0, \dots, 0)
 \end{eqnarray*}
 
 \end{defn}
+
 \begin{figure}
 \subfloat[Link 3 free-flow NE]{\begin{centering}
 \includegraphics[scale=0.2]{../../figures/presentation/DefinitionXBar}
 \par\end{centering}
-
 }\subfloat[Completely congested NE]{\begin{centering}
 \includegraphics[scale=0.2]{../../figures/presentation/DefinitionCompletelyCongestedEquilibrium}
 \par\end{centering}
-
 }
-
 \caption{Characterizing NE by mode configuration.}
 \end{figure}
-
 
 
 \end{frame}
@@ -411,7 +411,7 @@ and all others must be suboptimal.}
 \end{itemize}
 
 
-\begin{block}{Stackelberg strategy}
+\begin{block}{Definition: Stackelberg strategy}
 Assignment $s$ of compliant flow (feasible for the instance $(N,\beta r)$)
 \end{block}
 
@@ -431,12 +431,12 @@ Set of Stackelberg strategies: $S(N, r, \beta)$
 
 \begin{frame}{Stackelberg routing}
 
-\begin{block}{Lemma}
+\begin{lemma}
 Induced Equilibrium is a single-link free-flow equilibrium.
 \[
 m(s)_{\max \text{Supp}(t(s))} = 0
 \]
-\end{block}
+\end{lemma}
 
 Follows from $(t(s), m(s))$ is at Nash Eq for the instance $(N,\beta r)$ and latencies
 \begin{align*}
@@ -474,7 +474,7 @@ Equilibrium induced by an optimal Stackelberg strategy $s^*$.
 
 \begin{block}{Non-Compliant First strategy $\bar{s}$}
 \begin{itemize}
-\item Compute BNE of non-compliant users alone: $(\bar{t}, \bar{m}) = BNE(N, (1-\beta)r)$
+\item Compute BNE of non-compliant users alone: $(\bar{t}, \bar{m}) = \text{BNE}(N, (1-\beta)r)$
 \item Compute $\bar{s}$: Assign the compliant flow by filling remaining links (non congested by non-compliant) each to max capacity.
 \end{itemize}
 \end{block}
@@ -496,7 +496,7 @@ Intuitive argument
 
 \begin{block}{Non-Compliant First strategy $\bar{s}$}
 \begin{itemize}
-\item \alert{Compute BNE of non-compliant users alone: $(\bar{t}, \bar{m}) = BNE(N, (1-\beta)r)$}
+\item \alert{Compute BNE of non-compliant users alone: $(\bar{t}, \bar{m}) = \text{BNE}(N, (1-\beta)r)$}
 \item Compute $\bar{s}$: Assign the compliant flow by filling remaining links (non congested by non-compliant) each to max capacity.
 \end{itemize}
 \end{block}
@@ -508,13 +508,16 @@ Intuitive argument
 %---------------------------------------------------------------------------------------------------------------------
 \begin{frame}{Non-Compliant First}
 
+\begin{figure}
 \begin{center}
 \includegraphics[scale=0.25]{../../figures/presentation/optimal_stackelberg1.png}
+\caption{Nash Equilibrium $(\bar{t}, \bar{m})$ of non compliant flow $(1-\beta)r$}
 \end{center}
+\end{figure}
 
 \small
 \begin{align*}
-\bar{m} = (1, \dots, 1, \stackrel{k}{0}, \dots, 0) &&
+\bar{m} = (1, \dots, 1, \overset{k}{0}, \dots, 0) &&
 \bar{t} = \left( \hat{x}_1(k), \dots, \hat{x}_{k-1}(k), (1-\beta)r - \sum_{n = 1}^{k-1}\hat{x}_n(k), 0, \dots, 0\right)
 \end{align*}
 
@@ -526,7 +529,7 @@ Intuitive argument
 
 \begin{block}{Non-Compliant First strategy $\bar{s}$}
 \begin{itemize}
-\item Compute BNE of non-compliant users alone: $(\bar{t}, \bar{m}) = BNE(N, (1-\beta)r)$
+\item Compute BNE of non-compliant users alone: $(\bar{t}, \bar{m}) = \text{BNE}(N, (1-\beta)r)$
 \item \alert{Compute $\bar{s}$: Assign the compliant flow by filling remaining links (non congested by non-compliant) each to max capacity.}
 \end{itemize}
 \end{block}
@@ -543,7 +546,7 @@ Intuitive argument
 \invisible{
 \small
 \begin{align*}
-\bar{m} = (1, \dots, 1, \stackrel{k}{0}, \dots, 0) &&
+\bar{m} = (1, \dots, 1, \overset{k}{0}, \dots, 0) &&
 \bar{t} = \left( \hat{x}_1(k), \dots, \hat{x}_{k-1}(k), (1-\beta)r - \sum_{n = 1}^{k-1}\hat{x}_n(k), 0, \dots, 0\right)
 \end{align*}
 }
@@ -561,11 +564,11 @@ Intuitive argument
 \begin{align*}
 \bar{s} = 
 \left( 
-0, \dots, \stackrel{k-1}{0}, 
+0, \dots, \overset{k-1}{0}, 
 \textcolor<1>{red}{ x_k^{\max} - \bar{t}_k}, 
 \textcolor<2>{red}{x_{k+1}^{\max}, \dots, x_{l-1}^{\max}}, 
 \textcolor<3>{red}{\beta r - (\sum_{n = k}^{l-1}x_n^{\max} - t_k)}, 
-\stackrel{l}{0}, \dots, 0
+\overset{l}{0}, \dots, 0
 \right)
 \end{align*}
 
@@ -577,6 +580,7 @@ Intuitive argument
 %---------------------------------------------------------------------------------------------------------------------
 \begin{frame}{Non-Compliant First is optimal}
 
+Consider Stackelberg strategy $s$ and induced assignment $(t(s), m(s))$.
 
 
 
