@@ -5009,20 +5009,8 @@ The Non-Compliant First strategy is optimal
  is an optimal Stackelberg strategy.
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{proof}
-\end_layout
-
-\end_inset
-
- Let 
+\begin_layout Proof
+Let 
 \begin_inset Formula $s\in S(\NLinks,r,\beta)$
 \end_inset
 
@@ -5050,7 +5038,7 @@ begin{proof}
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 \noindent
 The proof proceeds as follows: we first show that links 
 \begin_inset Formula $\{1,\dots,l-1\}$
@@ -5087,7 +5075,7 @@ x_{n} & \leq\bar{x}_{n} & \forall n\in\{1,\dots,l-1\}
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 Let 
 \begin_inset Formula $k'=\max\Supp t$
 \end_inset
@@ -5126,6 +5114,7 @@ reference "lemma:inducedNCeq"
 .
 \end_layout
 
+\begin_deeper
 \begin_layout Lemma
 The last link in the support of 
 \begin_inset Formula $t$
@@ -5364,14 +5353,8 @@ i.e.
  This completes the proof of the Lemma.
 \end_layout
 
-\begin_layout Standard
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
+\end_deeper
+\begin_layout Proof
 Using the lemma, we can now show that links 
 \begin_inset Formula $\{1,\dots,l-1\}$
 \end_inset
@@ -5387,7 +5370,7 @@ Using the lemma, we can now show that links
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 Since 
 \begin_inset Formula $k'\in\Supp t\subset\Supp x$
 \end_inset
@@ -5475,7 +5458,7 @@ x_{n} & \leq\cffFlow n{k'}\leq\cffFlow nk=\bar{x}_{n} & \forall n\in\{1,\dots,k-
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 and we have from 
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -5517,11 +5500,11 @@ x_{n} & \leq\flowMax[n]=\bar{x}_{n} & \forall n\in\{k,\dots,l-1\}
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 Therefore we have
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 \begin_inset Formula 
 \begin{align}
 l_{n}(x_{n},m_{n}) & \geq l_{n}(\bar{x}_{n},\bar{m}_{n}) & \forall n\in\{1,\dots,l-1\}\label{eq:cong_latency}\\
@@ -5533,7 +5516,7 @@ x_{n} & \leq\bar{x}_{n} & \forall n\in\{1,\dots,l-1\}\label{eq:cong_flow}
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 Note that 
 \begin_inset Formula $\forall n\in\{1,\dots,k\}$
 \end_inset
@@ -5561,7 +5544,7 @@ l_{n}(\bar{x}_{n},\bar{m}_{n}) & \leq a_{l} & \forall n\in\{1,\dots,l-1\}\label{
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 Also note that links 
 \begin_inset Formula $n\in\{l,\dots,N\}$
 \end_inset
@@ -5578,7 +5561,7 @@ Also note that links
 , thus
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 \begin_inset Formula 
 \begin{align}
 l_{n}(x_{n},m_{n}) & \geq a_{l} & \forall n\in\{l,\dots,N\}\label{eq:ff_latency}
@@ -5589,7 +5572,7 @@ l_{n}(x_{n},m_{n}) & \geq a_{l} & \forall n\in\{l,\dots,N\}\label{eq:ff_latency}
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 We can now lower-bound the cost of the assignment 
 \begin_inset Formula $(x,m)$
 \end_inset
@@ -5627,7 +5610,7 @@ We can now lower-bound the cost of the assignment
  We have
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 \begin_inset Formula 
 \begin{align*}
  & C(x,m)-C(\bar{x},\bar{m})\\
@@ -5672,19 +5655,6 @@ C(x,m)-C(\bar{x},\bar{m}) & \geq\sum_{n=1}^{l-1}(x_{n}-\bar{x}_{n})a_{l}+\sum_{n
  & =\left(\sum_{n=1}^{N}x_{n}-\sum_{n=1}^{l}\bar{x}_{n}\right)a_{l}\\
  & =0
 \end{align*}
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{proof}
-\end_layout
 
 \end_inset
 
