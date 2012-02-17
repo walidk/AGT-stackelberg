@@ -78,6 +78,10 @@ filename "lyx_commands.lyx"
 Stackelberg Routing on Horizontal Queueing Networks
 \end_layout
 
+\begin_layout Author
+Walid Krichene, Jack Reilly, Saurabh Amin, Alexandre Bayen
+\end_layout
+
 \begin_layout Standard
 \begin_inset Note Note
 status collapsed
@@ -563,10 +567,6 @@ reference "sec:Computing-the-optimal"
  link networks.
  The article concludes with some finishing remarks and directions for future
  research.
-\end_layout
-
-\begin_layout Section
-Related Work
 \end_layout
 
 \begin_layout Section
@@ -2637,29 +2637,6 @@ reference "def:ne"
 
 \begin_layout Subsubsection
 Existence of a single-link free-flow Nash Equilibrium
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: I do not understand m bar N + 1.
- 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-J: If taken literally, it means that link 1 through N + 1 - 1 = 1 through
- N are congested, while all other links are not congested.
- This may lead to confusion but notation overkill would be the other option.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
