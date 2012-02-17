@@ -10,3 +10,4 @@ course-version/*.pdf
 *gz
 *toc
 *presentation.pdf
+*.DS_Store

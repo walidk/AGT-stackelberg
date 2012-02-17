@@ -2009,7 +2009,7 @@ For a given congestion state
 \begin_inset Formula $\Mode$
 \end_inset
 
-, there are at most two assignments 
+, there is at most one assignment 
 \begin_inset Formula $x$
 \end_inset
 
@@ -2058,7 +2058,8 @@ Let
 \begin_inset Formula $i<j$
 \end_inset
 
-: if this is not the case, exchange 
+.
+ If this is not the case, exchange 
 \begin_inset Formula $\flow$
 \end_inset
 
@@ -2119,7 +2120,7 @@ Now since
 \begin_inset Formula $i<j$
 \end_inset
 
-, then by 
+, then by Lemma 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "lem:filluplower"
@@ -2172,161 +2173,133 @@ reference "lem:filluplower"
 \end_layout
 
 \begin_layout Proof
-Now partition the set of Nash Equilibria in two sets: equilibria that have
- a completely congested support, denoted by 
-\begin_inset Formula $\text{NE}_{\text{c}}(\NLinks,r)$
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+W: It looks like the claim is not entirely true: if m = (1,0), then there
+ may be one eq 
+\begin_inset Formula $(r,0)$
 \end_inset
 
-, and equilibria that have one link in free flow in their support, denoted
- by 
-\begin_inset Formula $\text{NE}_{\text{f}}(\NLinks,r)$
+ and another eq 
+\begin_inset Formula $(\hat{x}_{1}(2),r-\hat{x}_{1}(2))$
 \end_inset
 
-.
+..
+ I think the Lemma is true if we say there are at most two.
 \end_layout
 
-\begin_layout Proof
-\begin_inset Formula 
-\begin{eqnarray*}
-\text{NE}_{\text{f}}(\NLinks,r) & = & \left\{ (\flow,m)\in\NashEquilibrium Nr|m_{\max\Supp{\flow}}=1\right\} \\
-\text{NE}_{\text{c}}(\NLinks,r) & = & \left\{ (\flow,m)\in\NashEquilibrium Nr|m_{\max\Supp{\flow}}=0\right\} 
-\end{eqnarray*}
-
 \end_inset
 
-
-\end_layout
-
-\begin_layout Proof
-Now we show that for a given 
-\begin_inset Formula $m$
+To compare latencies on link 
+\begin_inset Formula $j$
 \end_inset
 
-, each set contains at most one element.
-\end_layout
-
-\begin_deeper
-\begin_layout Paragraph
-Suppose 
-\begin_inset Formula $(\flow,m),(\flow',m)\in\text{NE}_{\text{f}}(N,r)$
+, we need to consider the cases 
+\begin_inset Formula $m_{j}=0$
 \end_inset
 
-, where 
-\begin_inset Formula $\flow,\flow'$
-\end_inset
-
- are as defined above
-\end_layout
-
-\begin_layout Standard
-Then since 
-\begin_inset Formula $j\in\Supp{\flow}$
-\end_inset
-
-, we have by 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "lem:filluplower"
-
-\end_inset
-
-, 
-\begin_inset Formula $\forall k<j$
-\end_inset
-
- 
-\begin_inset Formula $m_{k}=1$
-\end_inset
-
-.
- Since the last link in the support of 
-\begin_inset Formula $\flow'$
-\end_inset
-
- is, by assumption, in free flow, we have 
-\begin_inset Formula $\max\Supp{\flow'}\geq j$
-\end_inset
-
-.
- Therefore 
-\begin_inset Formula $j\in\Supp{\flow'}$
-\end_inset
-
-.
- But from 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:contradiction"
-
-\end_inset
-
- we have 
-\begin_inset Formula $\latency[i](x'_{i},m_{i})<\latency[j](x'_{j},m_{j})$
-\end_inset
-
- which contradicts the definition of a Nash Equilibrium (a link in the support
- of a Nash Equilibrium has latency less than or equal to any other link).
- Thus 
-\begin_inset Formula $\text{NE}_{\text{c}}(N,r)$
-\end_inset
-
- contains at most one element.
-\end_layout
-
-\begin_layout Paragraph
-Suppose 
-\begin_inset Formula $(\flow,m),(\flow',m)\in\text{NE}_{\text{c}}(N,r)$
-\end_inset
-
-, where 
-\begin_inset Formula $\flow,\flow'$
-\end_inset
-
- are as defined above
-\end_layout
-
-\begin_layout Standard
-Then since 
-\begin_inset Formula $j\in\Supp{\flow}$
-\end_inset
-
- and every link in the support is congested, 
+ and 
 \begin_inset Formula $m_{j}=1$
 \end_inset
 
 .
- Therefore 
-\begin_inset Formula $ $
+ If 
+\begin_inset Formula $\Mode[j]=0$
 \end_inset
 
-
-\begin_inset Formula $j$
-\end_inset
-
- is also congested under assignment 
-\begin_inset Formula $\flow'$
-\end_inset
-
-, thus 
-\begin_inset Formula $j\in\Supp{\flow'}$
+, then 
+\begin_inset Formula $\latency[j](x_{j},m_{j})=\latency[j](x'_{j},m_{j})=a_{j}$
 \end_inset
 
 .
- Similarly to the first case, this leads to a contradiction, which proves
- that 
-\begin_inset Formula $\text{NE}_{\text{c}}(N,r)$
+ If 
+\begin_inset Formula $\Mode[j]=1$
 \end_inset
 
- contains at most one element.
+, then 
+\begin_inset Formula $\latency[j](x'_{j},m_{j})>\latency[j](x_{j},m_{j})$
+\end_inset
+
+.
+ From both cases we conclude that 
+\begin_inset Formula $\latency[j](x_{j},m_{j})\ge\latency[j](x_{j},m_{j})$
+\end_inset
+
+.
+ Now since 
+\begin_inset Formula $i,j\in\Supp{x'}$
+\end_inset
+
+, we have from 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "lem:nash_eq"
+
+\end_inset
+
+ that links 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
+ have equal latencies under assignment 
+\begin_inset Formula $(x',m')$
+\end_inset
+
+: 
+\begin_inset Formula $\latency[i](x'_{i},m_{i})=\latency[j](x'_{j},m_{j})$
+\end_inset
+
+.
+ Therefore
 \end_layout
 
-\end_deeper
-\begin_layout Standard
-This shows that there are at most 
-\begin_inset Formula $\NLinks+1$
+\begin_layout Proof
+\begin_inset Formula 
+\begin{equation}
+\latency[i](x_{i},m_{i})>\latency[i](x'_{i},m_{i})=\latency[j](x'_{j},m_{j})\ge\latency[j](x_{j},m_{j})\label{eq:contradiction-1}
+\end{equation}
+
 \end_inset
 
- Nash equilibria for the instance 
+
+\end_layout
+
+\begin_layout Proof
+Thus we have two links in the support of 
+\begin_inset Formula $x$
+\end_inset
+
+ with different latencies: 
+\begin_inset Formula $i,j\in\Supp x$
+\end_inset
+
+ and 
+\begin_inset Formula $\latency[i](x_{i},m_{i})>\latency[j](x_{j},m_{j})$
+\end_inset
+
+, which contradicts the characterization of Nash Equilibria in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "lem:nash_eq"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+This shows that there are at most 
+\begin_inset Formula $\NLinks$
+\end_inset
+
++1 Nash equilibria for the instance 
 \begin_inset Formula $(\NLinks,r)$
 \end_inset
 
@@ -2334,11 +2307,7 @@ This shows that there are at most
 \begin_inset Formula $\NLinks$
 \end_inset
 
- single link free-flow equilibria, and 
-\begin_inset Formula $N+1$
-\end_inset
-
- congested equilibria).
+ single link free-flow equilibria, and one completely congested equilibrium).
  Next we characterize single link free-flow equilibria.
 \end_layout
 
@@ -2520,7 +2489,7 @@ A: same thing we need to discuss
  
 \begin_inset Formula 
 \begin{equation}
-\opneFlow k{\qdemand}:=(\cffFlow 1k,\dots,\overset{k-1}{\cffFlow{k-1}k},r-\sum_{\link=1}^{k-1}\cffFlow{\link}k,0,\dots,0)\label{eq:x_bar}
+\opneFlow k{\qdemand}:=(\cffFlow 1k,\dots,\overset{k-1}{\cffFlow{k-1}k},\overset{k}{r-\sum_{\link=1}^{k-1}\cffFlow{\link}k},0,\dots,0)\label{eq:x_bar}
 \end{equation}
 
 \end_inset
@@ -5145,6 +5114,7 @@ reference "lemma:inducedNCeq"
 .
 \end_layout
 
+\begin_deeper
 \begin_layout Lemma
 The last link in the support of 
 \begin_inset Formula $t$
@@ -5383,6 +5353,7 @@ i.e.
  This completes the proof of the Lemma.
 \end_layout
 
+\end_deeper
 \begin_layout Proof
 Using the lemma, we can now show that links 
 \begin_inset Formula $\{1,\dots,l-1\}$
