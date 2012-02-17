@@ -1456,7 +1456,7 @@ name "def:ne"
 \end_inset
 
 An assignment 
-\begin_inset Formula $(\flow,\Mode)\in\mathbb{R}_{+}^{\NLinks}\times\{0,1\}^{\NLinks}$
+\begin_inset Formula $(\flow,\Mode)\in\Rea[\NLinks]_{+}\times\{0,1\}^{\NLinks}$
 \end_inset
 
  for a parallel network instance 
@@ -2026,7 +2026,7 @@ Let
 \end_inset
 
  be a given congestion state and assume 
-\begin_inset Formula $x,x'\in\mathbb{R}^{N}$
+\begin_inset Formula $x,x'\in\Rea[\NLinks]$
 \end_inset
 
  are such that 
@@ -3344,7 +3344,7 @@ Consider an instance
  
 \begin_inset Formula 
 \begin{flalign*}
-\underset{\flow\in\mathbb{R}^{n},\Mode\in\left\{ 0,1\right\} ^{n}}{\text{minimize}} & \sum_{n}\flow[n]l_{n}(\flow[n],\Mode[n])\\
+\underset{\flow\in\Rea[\NLinks],\Mode\in\left\{ 0,1\right\} ^{n}}{\text{minimize}} & \sum_{n}\flow[n]l_{n}(\flow[n],\Mode[n])\\
 \text{subject to} & \sum_{n}\flow[\link]=r\\
  & \flow[n]\in[0,\flowMax[n]]
 \end{flalign*}
@@ -3410,7 +3410,7 @@ As a consequence of the previous Lemma, and using the fact that the latency
  linear program 
 \begin_inset Formula 
 \begin{alignat*}{1}
-\underset{\flow\in\mathbb{R}^{n}}{\text{minimize}} & \sum_{n}\flow[n]\parA[n]\\
+\underset{\flow\in\Rea[\NLinks]}{\text{minimize}} & \sum_{n}\flow[n]\parA[n]\\
 \text{subject to } & \sum_{n}\flow[\link]=r\\
  & \flow[n]\in[0,\flowMax[n]]
 \end{alignat*}
@@ -5282,7 +5282,7 @@ reference "lemma:slff"
 
 .
  Let 
-\begin_inset Formula $(\tilde{t},\tilde{m})\in\mathbb{R}^{k'}\times\left\{ 0,1\right\} ^{k'}$
+\begin_inset Formula $(\tilde{t},\tilde{m})\in\Rea[k']\times\left\{ 0,1\right\} ^{k'}$
 \end_inset
 
  be such an equilibrium.
@@ -5312,7 +5312,7 @@ reference "lemma:slff"
 
 \begin_layout Proof
 The assignment 
-\begin_inset Formula $((\tilde{t}_{1},\dots,\tilde{t}_{k'},0,\dots,0),(\tilde{m}_{1},\dots,\tilde{m}_{k'},0,\dots,0)\in\mathbb{R}^{N}\times\left\{ 0,1\right\} ^{N}$
+\begin_inset Formula $((\tilde{t}_{1},\dots,\tilde{t}_{k'},0,\dots,0),(\tilde{m}_{1},\dots,\tilde{m}_{k'},0,\dots,0)\in\Rea[\NLinks]\times\left\{ 0,1\right\} ^{N}$
 \end_inset
 
  is clearly at Nash Equilibrium for the instance 
