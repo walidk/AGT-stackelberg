@@ -418,6 +418,31 @@ x = (x_1^{\max}, \dots, x_{k-1}^{\max}, r - \sum_{n = 1}^{k-1} x_n^{\max}, 0, \d
 \end{frame}
 
 
+%---------------------------------------------------------------------------------------------------------------------
+\begin{frame}{Price of Stability}
+
+\begin{defn}
+$\textup{POS}\left( \NLinks, \qdemand \right) := \frac{C\left(\BestNashEquilibrium{\NLinks}{ \qdemand}\right)}{C\left(\textup{SO}\left(\NLinks, \qdemand\right)\right)}$
+\end{defn}
+
+For 2-link network:
+\begin{equation}
+\textup{POS}\left(2,\qdemand\right) = 
+\begin{cases}
+1 & \qdemand \le \flowMax[1] \\
+\frac{1}{1-\frac{\flowMax[1]}{\qdemand}\left(1-\frac{\parA[1]}{\parA[2]}\right)} & \text{otherwise}
+\end{cases}
+\end{equation}
+
+\begin{figure}
+\begin{centering}
+\subfloat[SF to PA Travel Times]{\includegraphics[height=1.3in]{../../figures/presentation/NE2Link101280}}
+\subfloat[POS vs. Demand]{\includegraphics[height=1.3in]{../../figures/presentation/POSNE2Link101280}}
+\end{centering}
+\end{figure}
+
+\end{frame}
+
 
 %###########################################################################################################
 \section{Stackelberg Routing}
@@ -677,7 +702,43 @@ We have $\forall n \in \{1, \dots, l-1\}$
 
 \end{frame}
 
+%############################################################
+\subsection{Price of Stability with Partial Compliance}
 
+%------------------------------------------------------------------
+\begin{frame}{Partial Compliance on Highway Network}
+
+For 2-link network:
+\begin{equation}
+C\left(S\left(2,\qdemand,\beta\right)\right) =
+\begin{cases}
+C\left(SO\left(2,\qdemand\right)\right) & \qdemand \le \left(1 - \beta\right)\qdemand \\
+C\left(BNE\left(2,\qdemand\right)\right) & \text{otherwise}
+\end{cases}
+\end{equation}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.25]{../../figures/presentation/POSNE2Link101280WithCompliance}
+\caption{Compliance Delays Inefficiencies}
+\end{figure}
+
+\end{frame}
+
+%------------------------------------------------------------------
+\begin{frame}{Stackelberg Solutions with Many Links}
+\begin{itemize}
+\item<1>Numerical results on 3-link networks.
+\item<2>Numerical results on 10-link networks.
+\item<3>Numerical results on 100-link networks.
+\end{itemize}
+\begin{figure}
+\centering
+\includegraphics<1>[scale=0.45]{../../figures/presentation/3links}
+\includegraphics<2>[scale=0.45]{../../figures/presentation/10links}
+\includegraphics<3>[scale=0.45]{../../figures/presentation/100links}
+\end{figure}
+\end{frame}
 
 %---------------------------------------------------------------------------------------------------------------------
 \begin{frame}
