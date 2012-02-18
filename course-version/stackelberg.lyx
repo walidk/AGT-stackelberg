@@ -384,7 +384,7 @@ key "zheng2011network,ziliaskopoulos2000linear"
 \end_layout
 
 \begin_layout Subsection
-Motivating Example: Compliant and Non-compliant Drivers on Highway Networks
+Motivating Application: Compliant and Non-compliant Drivers on Highway Networks
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:Motivating-Example"
@@ -1035,13 +1035,13 @@ reference "eq:latency-relation"
 
 , which gives restrictions on allowable flow-density relationships in the
  congestion region of the fundamental diagram.
- This restriction is still quite expressive, as it not only allows non-concavity
-, but even permits 
+ This restriction allows significant flexibility in the model, as it not
+ only allows non-concavity, but even permits 
 \begin_inset Formula $\flow[\link]$
 \end_inset
 
- to be increasing on subranges.
- A depiction of allowable fundamental diagrams is given in Figure 
+ to be increasing under certain conditions.
+ An illustration of allowable fundamental diagrams is given in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:permfds"
@@ -1054,7 +1054,7 @@ reference "fig:permfds"
 \begin_layout Standard
 Now that the allowable fundamental diagrams is derived, Equation 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand eqref
 reference "eq:latency-relation"
 
 \end_inset
@@ -1100,7 +1100,7 @@ status open
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1227,8 +1227,8 @@ name "fig:example-flow-latency"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Examples of flux functions and derived relationships within the class of
- relationships described Section 
+Examples of flux functions and derived relationships that satisfy the assumption
+s in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Deriving-a-Class"
@@ -1257,12 +1257,12 @@ Latency as a function of Flow and Mode
 \begin_layout Standard
 While expressing latency as a function of density is intuitive and succinct
  for horizontal queues, expressing it as a function of flow turns out to
- be more wieldy in the analysis of traffic assignment.
+ be more wieldy when used in the analysis of traffic assignment.
  This is largely due to the fact that total flow must be conserved in traffic
  assignment problems, and not density.
- For this reason, we seek an alternative formulation of latency in flow.
+ For this reason, we seek an alternative formulation of latency using flow.
  As discussed before, latency is not a function of flow (the mapping from
- flow to latency is not unique), another binary variable is introduced.
+ flow to latency is not unique), therefore another binary variable is introduced.
  Let the mode 
 \begin_inset Formula $\Mode[\link]$
 \end_inset
@@ -1271,16 +1271,16 @@ While expressing latency as a function of density is intuitive and succinct
 \begin_inset Formula $\link$
 \end_inset
 
- be defined as
+ be defined as:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
 \Mode[\link]:=\begin{cases}
-0 & \link\text{ in free-flow}\\
-1 & \link\text{ in congestion}
-\end{cases}.
+0 & \text{if }\link\text{ in free-flow}\\
+1 & \text{if }\link\text{ in congestion}
+\end{cases}
 \]
 
 \end_inset
@@ -1289,7 +1289,29 @@ While expressing latency as a function of density is intuitive and succinct
 \end_layout
 
 \begin_layout Standard
-Then we can define our class of latency functions 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+A: With an abuse of notation and keeping the notation l for latency, 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+J: I think we have cleared this up the superscript notation preceding.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+We can now define our class of latency functions 
 \begin_inset Formula $\latency[\link]$
 \end_inset
 
@@ -1313,7 +1335,7 @@ where
 \begin_inset Formula $\flow[\link]\in\left[0,\flowMax[\link]\right]$
 \end_inset
 
- ,
+, 
 \begin_inset Formula $\Mode[\link]\in\left\{ 0,1\right\} $
 \end_inset
 
@@ -1322,7 +1344,18 @@ where
 \begin_inset Formula $\latency[\link]$
 \end_inset
 
- can be derived from the results in Section 
+ can be derived from the results in Section
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+~
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Deriving-a-Class"
@@ -1336,8 +1369,8 @@ reference "sub:Deriving-a-Class"
 \begin_inset Formula 
 \begin{eqnarray}
 \latency[\link]\left(\flow[\link],0\right) & = & \parA[\link]\label{eq:free-flow-constant}\\
-x>x':x,x'\in\left[0,\flowMax[\link]\right] & \implies & \latency[\link]\left(x,1\right)<\latency[\link]\left(x',1\right)\label{eq:congestion-decreasing}\\
-\latency[\link]\left(\flowMax[\link],0\right) & = & \latency[\link]\left(\flowMax[\link],1\right),\label{eq:max-flow-equal}
+\latency[\link]\left(\flowMax[\link],0\right) & = & \latency[\link]\left(\flowMax[\link],1\right)\\
+x>x':x,x'\in\left[0,\flowMax[\link]\right] & \implies & \latency[\link]\left(x,1\right)<\latency[\link]\left(x',1\right),\label{eq:congestion-decreasing}
 \end{eqnarray}
 
 \end_inset
@@ -1352,7 +1385,7 @@ where
 
  is the constant free-flow speed.
  Some examples of latency functions in the class expressed in this section
- are given in Figure 
+ are illustrated in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:example-flow-latency"
@@ -1427,7 +1460,7 @@ where
 \begin_inset Formula $\left\{ \Mode[i]:i\in\left\{ 1,\ldots,\NLinks\right\} \right\} $
 \end_inset
 
- of mode values.
+ of mode values for the entire network.
 \end_layout
 
 \begin_layout Section
