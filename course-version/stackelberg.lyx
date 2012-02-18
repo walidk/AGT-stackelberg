@@ -641,8 +641,8 @@ reference "fig:nparlink"
 \end_inset
 
 .
- For the rest of the article, it is tacitly assumed that the underlying
- network for the model is such a graph 
+ For the rest of the article, it is assumed that the underlying network
+ for the model is such a graph 
 \begin_inset Formula $\Graph$
 \end_inset
 
@@ -734,7 +734,7 @@ key "roughgarden2004bounding,schmeidler1973equilibrium"
 
 .
  Atomic versus non-atomic players is similar to the modeling choice of microscop
-ic versus macroscopic flow in traffic modeling 
+ic versus macroscopic flow framework in traffic modeling 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "lighthill1955kinematic,richards1956shock"
@@ -742,7 +742,7 @@ key "lighthill1955kinematic,richards1956shock"
 \end_inset
 
 .
- A link's cost can be imagined as the latency experienced by a job utilizing
+ A link's cost can be though of as the latency experienced by a job utilizing
  a particular machine 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -759,7 +759,7 @@ key "wardrop1952some"
 
 , and the cost function relates the amount of usage to the average cost
  experienced by all users of the link.
- Nash equilibria (particularly pure Nash equilibria, which do not allow
+ Nash equilibria (in particular pure Nash equilibria, which do not allow
  randomized strategies 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -767,7 +767,8 @@ key "nisan2007algorithmic"
 
 \end_inset
 
-) in congestion games are the subject of a large body of study 
+) in congestion games have been the focus of significant amount of work
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "aswani2011game,babaioff2009congestion,friesz1985transportation,harker1988multiple,papadimitriou2010new,roughgarden2002bad,roughgarden2005selfish"
@@ -775,22 +776,16 @@ key "aswani2011game,babaioff2009congestion,friesz1985transportation,harker1988mu
 \end_inset
 
 .
- Loosely (with a formal definition to follow), a Nash equilibrium is an
- assignment 
-\begin_inset Formula $x$
-\end_inset
-
- such that the cost incurred by all flow on the network is equal.
 \end_layout
 
 \begin_layout Subsection
-Latency Functions
+Latency Functions in the Context of Horizontal Queueing
 \end_layout
 
 \begin_layout Standard
-To model queueing effects in congestion networks, cost (or latency) functions
- on links are typically a non-decreasing function of the amount of flow
- across a link 
+To model queueing effects in congestion networks, the cost (or latency)
+ function on a link is typically a non-decreasing function of the amount
+ of flow across the link 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "aswani2011game,babaioff2009congestion,friesz1985transportation,harker1988multiple,papadimitriou2010new,roughgarden2002bad,roughgarden2005selfish"
@@ -798,22 +793,23 @@ key "aswani2011game,babaioff2009congestion,friesz1985transportation,harker1988mu
 \end_inset
 
 .
- While such modeling assumptions are reasonably accurate for certain types
- of networks (such as the internet), there is a large class of networks
- where such a model is insufficient.
+ While such modeling assumptions are reasonable for certain types of networks
+ (such as the internet), there is a large class of networks for which such
+ a model is insufficient.
  For example, consider a road in a traffic network.
- There are two scenarios where low flow conditions could occur: when there
- are very few vehicles on the road moving quickly, or when there are very
- many vehicles on the road moving slowly (due to congestion).
+ There are two scenarios in which low flow conditions could occur: when
+ there are very few vehicles on the road moving fast, or when there is a
+ large number of vehicles on the road moving slowly (due to congestion).
  It is clear that a non-decreasing function of the amount of flow for latency
  is not rich enough to capture this phenomenon.
- Furthermore, the traffic example does not even describe a function, as
- its inverse map is not even injective.
- What is described instead is a 
+ Furthermore, the example explained for traffic does not even correspond
+ to a single value function, as its inverse map is not injective.
+ Instead, a 
 \emph on
 dual-mode
 \emph default
- latency function, where one mode describes a link that is 
+ latency function is required, in which one mode describes a link that is
+ 
 \emph on
 in free-flow
 \emph default
@@ -828,7 +824,15 @@ The relationship between the speed of flow on a network and the
 density
 \emph default
  of flow (or amount of flow in the static sense) is usually expressed by
- a fundamental diagram 
+ a function called the flux function in the physical sciences and conservation
+ law theory
+\begin_inset CommandInset citation
+LatexCommand cite
+key "evans1998partial,leveque2007finite"
+
+\end_inset
+
+ and fundamental diagram in traffic flow theory 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "daganzo1994cell,greenshields1935study,papageorgiou1989macroscopic"
@@ -839,7 +843,7 @@ key "daganzo1994cell,greenshields1935study,papageorgiou1989macroscopic"
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:nparlink"
+reference "fig:permfds"
 
 \end_inset
 
@@ -859,8 +863,8 @@ J: something about h-queues.
 \end_layout
 
 \begin_layout Standard
-While such flow models have been popular for many decades in particular
- domains (such as traffic and hydrodynamics
+While such flow models have been popular for many decades in specific domains
+ (such as traffic and fluid mechanics
 \begin_inset Note Note
 status open
 
@@ -874,12 +878,9 @@ J: how do we motivate the generality of the approach beyond traffic? Sources
 ), less attention has been given to these models in the literature for equilibri
 a in congestion games, which focuses on non-decreasing latency functions
  and assumes flow and density to have a one-to-one relation.
- This article describes the differences that arise when characterizing equilibri
-a in congestion games for this class of 
-\emph on
-dual-mode
-\emph default
- latency functions.
+ This article describes the required theoretical work required to characterize
+ Nash equilibria and their extensions to Stackelberg framework for this
+ class of DUAL-MODE latency functions.
 \end_layout
 
 \begin_layout Subsection
@@ -903,7 +904,14 @@ For a link
 \end_inset
 
  there are three assumptions on the behavior of horizontal queues that we
- make.
+ make, which are illustrated in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:permfds"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -916,6 +924,11 @@ There exists a critical density,
 \end_inset
 
 .
+ This implies that the flow 
+\begin_inset Formula $\flow[\link]$
+\end_inset
+
+ on the link is proportional to the density in that regime.
 \end_layout
 
 \begin_layout Enumerate
@@ -945,6 +958,34 @@ We define the free-flow region as
 
  and congested region as all other feasible values for 
 \begin_inset Formula $\mass[\link]$
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fn:papa"
+
+\end_inset
+
+Note, this allows for fundamental diagrams with unbounded support, for example
+ as in Papageorgiou 
+\begin_inset Formula $\flow\left(\mass\right)=\mass e^{-\mass}$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "papageorgiou1989macroscopic"
+
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 .
@@ -1011,55 +1052,6 @@ reference "fig:permfds"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../figures/AnnotatedFundamentalDiagramwithparameters.pdf
-	width 3.5in
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-A few examples of fundamental diagrams which satisfy the requirements given
- in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Deriving-a-Class"
-
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:permfds"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 Now that the allowable fundamental diagrams is derived, Equation 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1101,13 +1093,20 @@ reference "fig:example-rho-latency"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../figures/presentation/LatencyasFunctionofDensity.pdf
-	width 3.5in
+	filename /Users/jdr/Documents/github-projects/Stackelberg/figures/presentation/AnnotatedFundamentalDiagramMatched.pdf
+	height 3.5cm
 
 \end_inset
 
@@ -1118,15 +1117,7 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-A few examples of latency functions which satisfy the requirements given
- in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Deriving-a-Class"
-
-\end_inset
-
-.
+Fundamental diagram examples.
 \end_layout
 
 \end_inset
@@ -1134,7 +1125,120 @@ reference "sub:Deriving-a-Class"
 
 \begin_inset CommandInset label
 LatexCommand label
+name "fig:permfds"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Graphics
+	filename /Users/jdr/Documents/github-projects/Stackelberg/figures/presentation/LatencyasFunctionofDensityMatched.pdf
+	width 1.5in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Latency as a function of density examples.
+\begin_inset CommandInset label
+LatexCommand label
 name "fig:example-rho-latency"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\,\,\,$
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align right
+\begin_inset Graphics
+	filename /Users/jdr/Documents/github-projects/Stackelberg/figures/presentation/LatencyasFunctionofFlowModeMatched.pdf
+	width 1.5in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align right
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Latency as a function of flow and mode examples.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:example-flow-latency"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Examples of flux functions and derived relationships within the class of
+ relationships described Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Deriving-a-Class"
+
+\end_inset
+
+.
+ The dotted line describes a flux function which reacts less severely to
+ increasing density than the dashed and dot-dashed lines.
+\end_layout
 
 \end_inset
 
@@ -1251,53 +1355,11 @@ where
  are given in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:example-flow-mode-latency"
+reference "fig:example-flow-latency"
 
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../figures/presentation/LatencyasFunctionofFlowMode.pdf
-	width 3.5in
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-A few examples of latency functions plotted against flow.
- The direction of the arrow is in the direction of increasing density.
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:example-flow-mode-latency"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
