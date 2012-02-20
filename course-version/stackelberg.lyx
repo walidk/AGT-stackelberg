@@ -3697,60 +3697,8 @@ reference "theorem:minsupport"
 
  has all flow demand on link 1 in free flow, and is equivalent to the social
  optimum.
- This is depicted in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:ff"
-
-\end_inset
-
-.
  In this case, the Price of Stability is equal to 1, i.e there is no drop
  in efficiency due to selfish routing.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../figures/freeflow.pdf
-	width 3.5in
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Flow configuration when demand is under the capacity of the fastest link.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:ff"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Paragraph
@@ -3777,7 +3725,7 @@ Case 2:
 \end_layout
 
 \begin_layout Standard
-We know that all flow demand cannot be accomodated by link 1, and the results
+We know that all flow demand cannot be accommodated by link 1, and the results
  become more interesting.
  From 
 \begin_inset CommandInset ref
@@ -3829,7 +3777,7 @@ reference "alg:bestNE"
 \begin_inset Formula $(\cffFlow 12,\qdemand-\cffFlow 12)$
 \end_inset
 
- (where we also tacitely assume that 
+ (where we also tacitly assume that 
 \begin_inset Formula $\flowMax[2]\ge\qdemand-\cffFlow 12$
 \end_inset
 
@@ -3849,19 +3797,19 @@ reference "fig:sone"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ../figures/socialopplot.pdf
-	width 3.5in
+	filename /Users/jdr/Documents/github-projects/Stackelberg/figures/TwoLinkPOSSO.pdf
+	width 1.7in
 	clip
 
 \end_inset
@@ -3871,6 +3819,13 @@ status open
 
 \begin_layout Plain Layout
 Social optimum
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Social-optimum"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -3884,12 +3839,12 @@ Social optimum
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ../figures/neplot.pdf
-	width 3.5in
+	filename /Users/jdr/Documents/github-projects/Stackelberg/figures/TwoLinkPOSBNE.pdf
+	width 1.7in
 	clip
 
 \end_inset
@@ -3899,6 +3854,13 @@ status open
 
 \begin_layout Plain Layout
 Nash equilibrium
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Nash-equilibrium"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -3914,6 +3876,8 @@ Nash equilibrium
 \begin_layout Plain Layout
 Differences in flow assignments between social optimum and Nash equilibrium
  when first link is beyond capacity.
+ The area of the shaded regions is the total cost attributed to each link.
+ 
 \end_layout
 
 \end_inset
