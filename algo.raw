@@ -1,6 +1,6 @@
 procedure bestNE($N, r$)
-Inputs: Size of the network $N$, demand $r$
-Outputs: Assignment $(x, m)$ at Best Nash Equilibrium
+inputs: Size of the network $N$, demand $r$
+outputs: Assignment $(x, m) \in \text{BNE}(N, r)$
 
 for $i \in \{1,\dots,N\}$:
     let $(x,m)$ = freeFlowConfig($N, r, i$)
@@ -10,12 +10,15 @@ return No-Solution
 
 
 procedure freeFlowConfig($N, r, i$):
-Inputs: Size of the network $N$, demand $r$, free-flow link index $i$
-Outputs: assignment $(x, m)=(\bar{x}^{r, i},\bar{m}^{r,i})$ as defined in Equations (6) and (7)
+inputs: size of the network $N$, demand $r$, 
+	free-flow link index $i$
+outputs: assignment $(x, m)=(\bar{x}^{r, i},\bar{m}^{r,i})$ 
+	as defined in Equations (6) and (7)
 
 for $i \in \{ 1, \dots, N \}$:
     if $i < j$:
-       $x_i = \hat{x}_i(j)$, $m_i = 1$                                       $\hat{x}_i(j)$ as defined in Equation (5)
+       $x_i = \hat{x}_i(j)$, $m_i = 1$    
+       // $\hat{x}_i(j)$ as defined in Equation (5)
     elseif i == j:
        $x_i = r - \sum_{k=1}^j x_k$, $m_i = 0$
     else:

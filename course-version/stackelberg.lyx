@@ -1100,12 +1100,12 @@ status open
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /Users/jdr/Documents/github-projects/Stackelberg/figures/presentation/AnnotatedFundamentalDiagramMatched.pdf
+	filename ../figures/AnnotatedFundamentalDiagramMatched.pdf
 	height 3.5cm
 
 \end_inset
@@ -1142,12 +1142,12 @@ name "fig:permfds"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align left
 \begin_inset Graphics
-	filename /Users/jdr/Documents/github-projects/Stackelberg/figures/presentation/LatencyasFunctionofDensityMatched.pdf
+	filename ../figures/LatencyasFunctionofDensityMatched.pdf
 	width 1.5in
 
 \end_inset
@@ -1185,12 +1185,12 @@ name "fig:example-rho-latency"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align right
 \begin_inset Graphics
-	filename /Users/jdr/Documents/github-projects/Stackelberg/figures/presentation/LatencyasFunctionofFlowModeMatched.pdf
+	filename ../figures/LatencyasFunctionofFlowModeMatched.pdf
 	width 1.5in
 
 \end_inset
@@ -3286,6 +3286,19 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "../algo.raw"
@@ -3713,7 +3726,7 @@ reference "fig:ff"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3849,7 +3862,7 @@ reference "fig:sone"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3861,7 +3874,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename ../figures/socialopplot.pdf
-	width 3.5in
+	width 1.7in
 	clip
 
 \end_inset
@@ -3889,7 +3902,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename ../figures/neplot.pdf
-	width 3.5in
+	width 1.7in
 	clip
 
 \end_inset
@@ -4160,13 +4173,17 @@ induced equilibrium
 \end_inset
 
 , and we have for all 
-\begin_inset Formula $n$
+\begin_inset Formula $n\in\Supp{t_{n}(s)}$
+\end_inset
+
+ and for all 
+\begin_inset Formula $k\in\left\{ 1,\dots,N\right\} $
 \end_inset
 
 : 
 \begin_inset Formula 
 \[
-\ncFlow[\link](\cFlow)>0\Rightarrow\forall k\leq N,\ \latency[\link]\left(\cFlow[\link]+\ncFlow[\link](\cFlow),\Mode[\link](\cFlow)\right)\leq\latency[k]\left(\cFlow[k]+\ncFlow[k](\cFlow),\Mode[k](\cFlow)\right)
+\latency[\link]\left(\cFlow[\link]+\ncFlow[\link](\cFlow),\Mode[\link](\cFlow)\right)\leq\latency[k]\left(\cFlow[k]+\ncFlow[k](\cFlow),\Mode[k](\cFlow)\right)
 \]
 
 \end_inset
@@ -4771,11 +4788,43 @@ Let
 
 \end_inset
 
- and 
+ and
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
 \bar{t}=\left(\cffFlow 1k,\dots,\cffFlow{k-1}k,(1-\beta)\qdemand-\sum_{n=1}^{k-1}\cffFlow nk,0,\dots,0\right)
 \]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+normalsize
+\end_layout
 
 \end_inset
 
@@ -4954,9 +5003,10 @@ Now define Stackelberg strategy
 
 \begin_layout Standard
 \begin_inset Formula 
-\begin{equation}
-\bar{s}=\left(0,\dots,\stackrel{k-1}{0},\flowMax[k]-\bar{t}_{k},\flowMax[k+1],\dots,\flowMax[l-1],\beta\qdemand-(\sum_{n=k}^{l-1}\flowMax[n]-\bar{t_{k}}),\stackrel{l+1}{0},\dots,0\right)\label{eq:opt_stack_strategy}
-\end{equation}
+\begin{eqnarray}
+\bar{s} & = & (0,\dots,\stackrel{k-1}{0},\flowMax[k]-\bar{t}_{k},\flowMax[k+1],\dots,\flowMax[l-1],\nonumber \\
+ &  & \beta\qdemand-(\sum_{n=k}^{l-1}\flowMax[n]-\bar{t_{k}}),\stackrel{l+1}{0},\dots,0)\label{eq:opt_stack_strategy}
+\end{eqnarray}
 
 \end_inset
 
@@ -4973,9 +5023,10 @@ Equivalently, the total assignment
 
 \begin_layout Standard
 \begin_inset Formula 
-\begin{equation}
-\bar{x}=\left(\cffFlow 1k,\dots,\cffFlow{k-1}k,\flowMax[k],\flowMax[k+1],\dots,\flowMax[l-1],\qdemand-\sum_{n=1}^{k-1}\cffFlow nk-\sum_{n=k}^{l-1}\flowMax[n],\stackrel{l+1}{0},\dots,0\right)\label{eq:opt_stack_flows}
-\end{equation}
+\begin{eqnarray}
+\bar{x} & = & (\cffFlow 1k,\dots,\cffFlow{k-1}k,\flowMax[k],\flowMax[k+1],\dots,\flowMax[l-1],\nonumber \\
+ &  & \qdemand-\sum_{n=1}^{k-1}\cffFlow nk-\sum_{n=k}^{l-1}\flowMax[n],\stackrel{l+1}{0},\dots,0)\label{eq:opt_stack_flows}
+\end{eqnarray}
 
 \end_inset
 
@@ -5700,7 +5751,20 @@ We can now lower-bound the cost of the assignment
 \end_inset
 
 .
- We have
+ We have 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Proof
@@ -5713,6 +5777,19 @@ We can now lower-bound the cost of the assignment
  & =\sum_{n=1}^{l-1}(x_{n}-\bar{x}_{n})l_{n}(x_{n},m_{n})+\sum_{n=1}^{l-1}\bar{x}_{n}(l_{n}(x_{n},m_{n})-l_{n}(\bar{x}_{n},\bar{m}_{n}))+\sum_{n=l}^{N}x_{n}a_{l}-\bar{x}_{l}a_{l}\\
  & \geq\sum_{n=1}^{l-1}(x_{n}-\bar{x}_{n})l_{n}(x_{n},m_{n})+\sum_{n=l}^{N}x_{n}a_{l}-\bar{x}_{l}a_{l}\text{ } & \text{using \eqref{eq:cong_latency}}
 \end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+normalsize
+\end_layout
 
 \end_inset
 
