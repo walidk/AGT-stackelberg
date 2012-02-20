@@ -2962,8 +2962,9 @@ reference "eq:im1"
 \begin_inset Formula 
 \begin{align*}
 r & \ge\sum_{\link=1}^{N-1}\cffFlow{\link}N+\flowMax[N] & \text{using \eqref{eq:im1}}\\
- & \ge\sum_{\link=1}^{N-1}\cffFlow{\link}{N+1}+\flowMax[N] & \text{since \cffFlow nN\geq\cffFlow n{N+1}}\\
- & \geq\sum_{\link=1}^{N-1}\cffFlow{\link}{N+1}+\cffFlow N{N+1}=\sum_{\link=1}^{N}\cffFlow{\link}{N+1} & \text{since \flowMax[N]\geq\cffFlow N{N+1}}
+ & \ge\sum_{\link=1}^{N-1}\cffFlow{\link}{N+1}+\flowMax[N] & \text{\cffFlow nN\geq\cffFlow n{N+1}}\\
+ & \geq\sum_{\link=1}^{N-1}\cffFlow{\link}{N+1}+\cffFlow N{N+1} & \text{\flowMax[N]\geq\cffFlow N{N+1}}\\
+ & =\sum_{\link=1}^{N}\cffFlow{\link}{N+1}
 \end{align*}
 
 \end_inset
