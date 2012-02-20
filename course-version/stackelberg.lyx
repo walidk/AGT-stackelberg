@@ -3289,7 +3289,7 @@ status open
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "../algo.raw"
-lstparams "basicstyle={\\texttt},mathescape"
+lstparams "basicstyle={\\ttfamily},mathescape"
 
 \end_inset
 
