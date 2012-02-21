@@ -6,7 +6,7 @@ $\textbf{Outputs:}$ Assignment $(x, m)$ at
 for $i \in \{1,\dots,N\}$:
     let $(x,m)$ = freeFlowConfig($N, r, i$)
     if $x_i \in [0,x^{\max}_i]$:
-       return (x,m)
+       return $(x,m)$
 return No-Solution
 
 $\textbf{procedure freeFlowConfig(}N, r, i\textbf{)}$
@@ -18,7 +18,7 @@ $\textbf{Outputs:}$ assignment $(x, m)=(\bar{x}^{r, i},\bar{m}^{r,i})$
 for $i \in \{ 1, \dots, N \}$:
     if $i < j$:
        $x_i = \hat{x}_i(j)$, $m_i = 1$   $\mathbf{\quad \quad \hat{x}_i(j)} \textbf{ in Eq. (5)}$
-    elseif i == j:
+    elseif $i$ == $j$:
        $x_i = r - \sum_{k=1}^j x_k$, $m_i = 0$
     else:
        $x_i = 0$, $m_i = 0$
