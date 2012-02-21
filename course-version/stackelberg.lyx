@@ -3699,7 +3699,7 @@ reference "theorem:minsupport"
 
 \end_inset
 
- we have that since link 1 can accomodate 
+ we have that since link 1 can accommodate 
 \begin_inset Formula $\qdemand$
 \end_inset
 
@@ -3712,21 +3712,6 @@ reference "theorem:minsupport"
  optimum.
  In this case, the Price of Stability is equal to 1, i.e there is no drop
  in efficiency due to selfish routing.
-\end_layout
-
-\begin_layout Paragraph
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Alex: explain in the caption what you see in the figure.
- Figure: replace Link 1 with latency of link 1.
- Figure not pretty (different fonts)
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Paragraph
@@ -3884,13 +3869,76 @@ name "fig:Nash-equilibrium"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/jdr/Documents/github-projects/Stackelberg/figures/POSTwoLink.pdf
+	height 1.2in
+	clip
+
+\end_inset
+
+
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Differences in flow assignments between social optimum and Nash equilibrium
- when first link is beyond capacity.
- The area of the shaded regions is the total cost attributed to each link.
- 
+POS as a function of demand.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:POS-plot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Visualization of POS on two-link network.
+ Differences in flow assignments between social optimum and Nash equilibrium
+ are shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Social-optimum"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Nash-equilibrium"
+
+\end_inset
+
+.
+ The area of the shaded regions in are the total costs attributed to each
+ link.
+ In 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:POS-plot"
+
+\end_inset
+
+, the flat region corresponds to Case 1 and the decreasing region to Case
+ 2.
 \end_layout
 
 \end_inset
