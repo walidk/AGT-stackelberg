@@ -84,33 +84,11 @@ Walid Krichene, Jack Reilly, Saurabh Amin, Alexandre Bayen
 
 \begin_layout Standard
 \begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-J: How do we motivate the idea of Horizontal Queues? Will there be any complaint
-s about no backwave propogation? Motivate with 
-\begin_inset Quotes eld
-\end_inset
-
-jobs are all processed at same rate for internet traffic, but not true for
- highway traffic.
-\begin_inset Quotes erd
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Saurabh: get rid of Definition's, just define instead
+writing best Nash Equilibrium as BNE: Alex suggested changing it to BNE
+ in commentary, but we have not done so, we should discuss.
 \end_layout
 
 \end_inset
@@ -2430,21 +2408,6 @@ This shows that there are at most
 
 \begin_layout Subsubsection
 Single link free flow Nash Equilibria
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: initially, when i read this page, i had a hard time until i realized
- this is induction on the 
-\series bold
-size 
-\series default
-of the network?
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2506,6 +2469,8 @@ reference "cor:atmost1ff"
 \end_layout
 
 \begin_layout Definition
+
+\series bold
 Congestion flow
 \end_layout
 
@@ -2593,16 +2558,6 @@ Now we can characterize single-link free flow equilibria.
 
 \end_inset
 
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: same thing we need to discuss
-\end_layout
-
-\end_inset
-
  
 \begin_inset Formula 
 \begin{equation}
@@ -2614,7 +2569,148 @@ A: same thing we need to discuss
 
 \end_layout
 
+\begin_layout Standard
+Illustrations of Equations 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:x_hat"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:m_bar"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:x_bar"
+
+\end_inset
+
+ are shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "fig:xbar-and-hat-defns"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/jdr/Documents/github-projects/Stackelberg/figures/presentation/DefinitionXHat.pdf
+	width 1.7in
+	clip
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Examples of 
+\begin_inset Formula $\hat{x}$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:xhat"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/jdr/Documents/github-projects/Stackelberg/figures/presentation/DefinitionXBar.pdf
+	width 1.7in
+	clip
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Example of 
+\begin_inset Formula $\bar{x}^{3,\qdemand},\bar{m}^{3}$
+\end_inset
+
+ configuration.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Graphical illustration of Nash equilibria configurations when a link in
+ the support is in free flow.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:xbar-and-hat-defns"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Lemma
+
+\series bold
 Single link free-flow Nash Equilibria
 \end_layout
 
@@ -3263,7 +3359,7 @@ Computational complexity of finding best Nash equilibria
 \end_layout
 
 \begin_layout Standard
-In this section, we present a very simple algorithm for finding 
+In this section, we present a constructive algorithm for finding 
 \begin_inset Formula $\BestNashEquilibrium{\NLinks}{\qdemand}$
 \end_inset
 
@@ -3279,6 +3375,65 @@ In this section, we present a very simple algorithm for finding
 \end_layout
 
 \begin_layout Standard
+Algorithm 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "alg:bestNE"
+
+\end_inset
+
+ relies on the routine 
+\begin_inset Formula $\texttt{freeFlowConfig}$
+\end_inset
+
+, which outputs the unique 
+\emph on
+last-link-free-flow
+\emph default
+ configuration for a network 
+\begin_inset Formula $\NLinks$
+\end_inset
+
+, a demand 
+\begin_inset Formula $\qdemand$
+\end_inset
+
+, and a link 
+\begin_inset Formula $i$
+\end_inset
+
+ in free flow and in the support (Equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:x_bar"
+
+\end_inset
+
+).
+ Starting with link 1 in free flow, 
+\begin_inset Formula $\texttt{bestNE}$
+\end_inset
+
+ checks if the output of 
+\begin_inset Formula $\texttt{freeFlowConfig}$
+\end_inset
+
+ is a feasible assignment.
+ If this is the case, 
+\begin_inset Formula $\texttt{freeFlowConfig}$
+\end_inset
+
+ has found the best Nash Equilibrium, and 
+\begin_inset Formula $\texttt{bestNE}$
+\end_inset
+
+ terminates.
+ If not, the free flow link index is incremented by one, and the process
+ is repeated until either a feasible assignment is found, or no Nash equilibrium
+ exists.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float algorithm
 placement h
 wide false
@@ -3286,19 +3441,6 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-small
-\end_layout
-
-\end_inset
-
-
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "../algo.raw"
@@ -3334,16 +3476,6 @@ name "alg:bestNE"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: you need to give the context of alg.
- 1
-\end_layout
-
-\end_inset
-
 We first note from Algorithm 
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -3361,16 +3493,6 @@ reference "alg:bestNE"
 
  in 
 \begin_inset Formula $O\left(\NLinks^{2}\right)$
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: OK This computation needs to be clarified in context
-\end_layout
-
 \end_inset
 
 .
@@ -3408,6 +3530,20 @@ A: OK This computation needs to be clarified in context
 \end_layout
 
 \begin_layout Section
+Global Inefficiency of Best Nash Equilibria
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+J: needs an intro, will work on later
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 Social Optima
 \begin_inset CommandInset label
 LatexCommand label
@@ -3549,7 +3685,7 @@ Then since the links are ordered by increasing free-flow latency
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 Price of Stability on a Two-Link Network
 \begin_inset CommandInset label
 LatexCommand label
@@ -3723,8 +3859,7 @@ Case 2:
 \end_layout
 
 \begin_layout Standard
-We know that all flow demand cannot be accommodated by link 1, and the results
- become more interesting.
+We know that all flow demand cannot be accommodated by link 1.
  From 
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -3737,7 +3872,18 @@ reference "eq:so"
 \end_inset
 
 .
- From Theorem 
+ From Theorem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+~
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "theorem:minsupport"
@@ -3775,7 +3921,7 @@ reference "alg:bestNE"
 \begin_inset Formula $(\cffFlow 12,\qdemand-\cffFlow 12)$
 \end_inset
 
- (where we also tacitly assume that 
+ (where we also implicitly assume that 
 \begin_inset Formula $\flowMax[2]\ge\qdemand-\cffFlow 12$
 \end_inset
 
@@ -3795,7 +3941,7 @@ reference "fig:sone"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
