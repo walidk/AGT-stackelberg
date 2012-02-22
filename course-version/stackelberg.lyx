@@ -164,6 +164,15 @@ key "aswani2011game,roughgarden2004bounding,zheng2011network,ziliaskopoulos2000l
 
 , where a central body assigns flow as to minimize a cost function over
  all players.
+ Given convexity of the latency functions, Nash equilibrium can be solved
+ via convex optimization 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kelly2001mathematical"
+
+\end_inset
+
+.
  Another type of congestion is Stackelberg routing games, where a fraction
  of the network is centrally controlled, while the rest is free to act selfishly
  
@@ -177,6 +186,22 @@ key "aswani2011game,roughgarden2001stackelberg"
  Typically, the objective in Stackelberg games is to route the centrally
  controlled flow in a manner that minimizes a system-wide cost function
  in anticipation of the rest of the flow's selfish response.
+ Other variants of congestion games exist in the game theory literature
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "babaioff2009congestion"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "morgan2003spite"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
