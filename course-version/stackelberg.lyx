@@ -1563,6 +1563,8 @@ We first recall the fundamental notion of Nash equilibrium for the network
 \end_layout
 
 \begin_layout Definition
+
+\series bold
 Nash Equilibrium
 \end_layout
 
@@ -1636,8 +1638,7 @@ Note that to fully characterize the equilibrium, one needs to specify the
 
 , since the latency on a link depends on whether the link is congested or
  not.
- The following Lemma gives an equivalent characterization of pure Nash equilibri
-a.
+ The following Lemma gives an equivalent characterization of Nash equilibria.
 \begin_inset Note Note
 status open
 
@@ -1648,6 +1649,12 @@ A: need to define pure Nash
 \end_inset
 
 
+\end_layout
+
+\begin_layout Lemma
+
+\series bold
+Characterization of a Nash Equilibrium
 \end_layout
 
 \begin_layout Lemma
@@ -1735,7 +1742,7 @@ name "sub:Traffic-Networks-Have"
 
 \end_inset
 
-Existence of multiple Nash equilibria for horizontal queueing networks
+ Horizontal queueing networks have multiple Nash equilibria
 \begin_inset Note Note
 status open
 
@@ -1764,14 +1771,18 @@ m does not hold.
 status open
 
 \begin_layout Plain Layout
-Note that for the class of non decreasing latency functions, it is easy
- to show that all Nash Equilibria have the same cost.
- This result is known as essential uniqueness of Nash Equilibria.
+Note that essential uniqueness of Nash Equilibria holds for the class of
+ non decreasing latency functions, i.e.
+ all Nash Equilibria have the same cost.
  To show this result, assume that the latency functions 
 \begin_inset Formula $\flow[\link]\rightarrow\latency[\link](\flow[\link])$
 \end_inset
 
- are non-decreasing.
+ are non-decreasing and only depend on the flow 
+\begin_inset Formula $\flow[n]$
+\end_inset
+
+.
  Let 
 \begin_inset Formula $\flow$
 \end_inset
@@ -1811,10 +1822,7 @@ Note that for the class of non decreasing latency functions, it is easy
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Plain Layout
-Assume 
+ Assume 
 \begin_inset Formula $\flow\neq\flow'$
 \end_inset
 
@@ -1918,8 +1926,8 @@ Assume
 \begin_inset Formula $(x'',m'')=((\frac{1}{3},\frac{2}{3}),(1,1))$
 \end_inset
 
- are all Nash Equilibria for this instance, and they have different costs
- (
+ are all Nash Equilibria for this instance, and they have different costs:
+ 
 \begin_inset Formula $C(x,m)=1$
 \end_inset
 
@@ -1931,7 +1939,7 @@ Assume
 \begin_inset Formula $C(x'',m'')=3$
 \end_inset
 
-).
+.
  This simple example shows that there are at least two types of Nash Equilibria:
  equilibria for which every link in the support is congested (this is the
  case for 
@@ -2002,6 +2010,12 @@ A: we need to discuss this
 \end_layout
 
 \begin_layout Lemma
+
+\series bold
+Congestion of lower links
+\end_layout
+
+\begin_layout Lemma
 \begin_inset CommandInset label
 LatexCommand label
 name "lem:filluplower"
@@ -2043,6 +2057,12 @@ reference "lem:nash_eq"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Corollary
+
+\series bold
+Congestion states under equilibrium
 \end_layout
 
 \begin_layout Corollary
@@ -2140,7 +2160,7 @@ reference "lem:filluplower"
 \begin_inset Formula $i\in\left\{ j+1,\dots,N\right\} $
 \end_inset
 
- is strictly grater than the latency on link 
+ is strictly greater than the latency on link 
 \begin_inset Formula $j\in\Supp x$
 \end_inset
 
@@ -2178,16 +2198,20 @@ s the congestion state of the equilibrium: links
 
  are not in the support.
  We will call such a Nash equilibrium (where a single link in the support
- is in free flow) a single link free-flow Nash equilibrium.
+ is in free flow) a 
+\emph on
+single link free-flow Nash equilibrium
+\emph default
+.
  In general a Nash equilibrium does not necessarily have a link in free-flow:
- this defines a second type of equilibria where all links are congested,
- i.e.
+ this defines a second type of equilibria where all links in the support
+ are congested, i.e.
  
-\begin_inset Formula $m=(1,\dots,1)$
+\begin_inset Formula $m_{\max\Supp x}=1$
 \end_inset
 
 .
- We will call such equilibria completely congested equilibria.
+ We will call such equilibria congested equilibria.
 \end_layout
 
 \begin_layout Standard
@@ -2195,20 +2219,24 @@ The following Lemma shows that given a congestion state
 \begin_inset Formula $m$
 \end_inset
 
-, there is at most one corresponding Nash equilibrium 
+, there are at most two corresponding Nash equilibria 
 \begin_inset Formula $(x,m)$
 \end_inset
 
-.
+, one single link free-flow equilibrium, and one congested equilibrium.
  This will show that there are at most 
-\begin_inset Formula $N+1$
+\begin_inset Formula $2N+1$
 \end_inset
 
  equilibria: 
 \begin_inset Formula $N$
 \end_inset
 
- single link free-flow equilibria and one completely congested equilibrium.
+ single link free-flow equilibria and 
+\begin_inset Formula $N+1$
+\end_inset
+
+ completely congested equilibria.
 \end_layout
 
 \begin_layout Lemma
@@ -2561,8 +2589,8 @@ This shows that there are at most
  Next we characterize single-link free-flow equilibria.
 \end_layout
 
-\begin_layout Subsubsection
-Single-link free-flow Nash Equilibria
+\begin_layout Subsection
+Single-link free-flow Equilibria
 \end_layout
 
 \begin_layout Standard
@@ -2624,6 +2652,8 @@ reference "cor:atmost1ff"
 \end_layout
 
 \begin_layout Definition
+
+\series bold
 Congestion flow
 \end_layout
 
@@ -2655,7 +2685,11 @@ l_{n}(\cffFlow nk,1)=a_{k}\label{eq:x_hat}
 \end_layout
 
 \begin_layout Proposition
-Note that 
+
+\series bold
+Congestion Flows are decreasing
+\series default
+ 
 \begin_inset Formula 
 \begin{equation}
 \cffFlow{\link}k=l_{n}(.,1)^{-1}(a_{k})\label{eq:x_hat_alt_def}
@@ -2865,16 +2899,16 @@ name "fig:xbar-and-hat-defns"
 
 \end_layout
 
-\begin_layout Lemma
+\begin_layout Proposition
 
 \series bold
 Single link free-flow Nash Equilibria
 \end_layout
 
-\begin_layout Lemma
+\begin_layout Proposition
 \begin_inset CommandInset label
 LatexCommand label
-name "lem:xhat"
+name "prop:xbar"
 
 \end_inset
 
@@ -2974,7 +3008,7 @@ reference "def:ne"
 .
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Existence of a single-link free-flow Nash Equilibrium
 \end_layout
 
@@ -2982,7 +3016,7 @@ Existence of a single-link free-flow Nash Equilibrium
 From 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "lem:xhat"
+reference "prop:xbar"
 
 \end_inset
 
@@ -2990,6 +3024,12 @@ reference "lem:xhat"
  Next, we show that if the set of Nash equilibria is non-empty, then it
  contains a single link free flow Nash equilibrium (i.e.
  a Nash equilibrium for which there is a single link in free flow).
+\end_layout
+
+\begin_layout Lemma
+
+\series bold
+Existence of a single-link free-flow Nash equilibrium
 \end_layout
 
 \begin_layout Lemma
@@ -3056,7 +3096,7 @@ reference "lem:filluplower"
 \end_inset
 
 : 
-\begin_inset Formula $\forall r\in\left[0,\max_{k\in\left\{ 1,\dots,\NLinks\right\} }\left\{ \flowMax[k]+\sum_{\link=1}^{k-1}\cffFlow{\link}k\right\} \right]$
+\begin_inset Formula $\forall r\in\left[0,\max_{1\leq k\leq\NLinks}\left\{ \flowMax[k]+\sum_{\link=1}^{k-1}\cffFlow{\link}k\right\} \right]$
 \end_inset
 
 , there exists a single-link free flow Nash equilibrium for the instance
@@ -3116,8 +3156,25 @@ We show
 \end_layout
 
 \begin_deeper
-\begin_layout Case
-If
+\begin_layout Paragraph
+If 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3129,10 +3186,19 @@ If
 \end_inset
 
 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+normalsize
 \end_layout
 
-\begin_layout Standard
-then by the induction hypothesis there exists a single link free-flow Nash
+\end_inset
+
+ then by the induction hypothesis there exists a single link free-flow Nash
  equilibrium 
 \begin_inset Formula $(x,m)$
 \end_inset
@@ -3161,8 +3227,8 @@ then by the induction hypothesis there exists a single link free-flow Nash
 .
 \end_layout
 
-\begin_layout Case
-Now if
+\begin_layout Paragraph
+If
 \end_layout
 
 \begin_layout Standard
@@ -3210,7 +3276,7 @@ normalsize
  From 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "lem:xhat"
+reference "prop:xbar"
 
 \end_inset
 
@@ -3224,6 +3290,19 @@ reference "lem:xhat"
 
 \begin_layout Standard
 First, we note that since 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\end_inset
+
+ 
 \begin_inset Formula 
 \[
 \max_{1\leq k\leq\NLinks+1}\left\{ \flowMax[k]+\sum_{\link=1}^{k-1}\cffFlow{\link}k\right\} >\max_{1\leq k\leq\NLinks}\left\{ \flowMax[k]+\sum_{\link=1}^{k-1}\cffFlow{\link}k\right\} 
@@ -3231,7 +3310,33 @@ First, we note that since
 
 \end_inset
 
-then 
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+normalsize
+\end_layout
+
+\end_inset
+
+ then 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\end_inset
+
+ 
 \begin_inset Formula 
 \[
 \max_{1\leq k\leq\NLinks+1}\left\{ \flowMax[k]+\sum_{\link=1}^{k-1}\cffFlow{\link}k\right\} =\flowMax[N+1]+\sum_{\link=1}^{N}\cffFlow{\link}{N+1}
@@ -3239,7 +3344,20 @@ then
 
 \end_inset
 
-thus from 
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+normalsize
+\end_layout
+
+\end_inset
+
+ thus from 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:im1"
@@ -3303,7 +3421,19 @@ r & \ge\flowMax[N]+\sum_{\link=1}^{N-1}\cffFlow{\link}N & \text{using \eqref{eq:
 \end_layout
 
 \begin_layout Standard
-thus we obtain the desired inequality 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+normalsize
+\end_layout
+
+\end_inset
+
+ thus we obtain the desired inequality 
 \begin_inset Formula $\qdemand-\sum_{\link=1}^{N}\cffFlow{\link}{N+1}\geq0$
 \end_inset
 
@@ -3318,7 +3448,6 @@ thus we obtain the desired inequality
 .
 \end_layout
 
-\end_deeper
 \begin_layout Proof
 This achieves the induction.
 \end_layout
@@ -3628,7 +3757,7 @@ reference "sec:Optimal-Stackelberg-strategies"
 \end_layout
 
 \begin_layout Subsection
-Computational complexity of finding best Nash equilibria
+Computational complexity of finding Best Nash Equilibria
 \end_layout
 
 \begin_layout Standard
@@ -3874,6 +4003,12 @@ ly in free-flow (
 
 ), thus the social optimum can be computed by solving an equivalent linear
  program.
+\end_layout
+
+\begin_layout Lemma
+
+\series bold
+Social optima are in free-flow
 \end_layout
 
 \begin_layout Lemma
@@ -5331,7 +5466,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename ../figures/optimal_stackelberg1.png
-	width 3.5in
+	width 3in
 
 \end_inset
 
@@ -5515,7 +5650,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename ../figures/optimal_stackelberg2.png
-	width 3.5in
+	width 3in
 
 \end_inset
 
@@ -5619,10 +5754,40 @@ Optimal Stackelberg Strategy
 \end_inset
 
 , where 
-\begin_inset Formula $\bar{s}=(0,\dots,\stackrel{k-1}{0},\flowMax[k]-\bar{t}_{k},\flowMax[k+1],\dots,\flowMax[l-1],\beta\qdemand-(\sum_{n=k}^{l-1}\flowMax[n]-\bar{t_{k}}),\stackrel{l+1}{0},\dots,0)$
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
 \end_inset
 
-, 
+ 
+\begin_inset Formula 
+\[
+\bar{s}=\left(0,\dots,\stackrel{k-1}{0},\flowMax[k]-\bar{t}_{k},\flowMax[k+1],\dots,\flowMax[l-1],\beta\qdemand-(\sum_{n=k}^{l-1}\flowMax[n]-\bar{t_{k}}),\stackrel{l+1}{0},\dots,0\right),
+\]
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+normalsize
+\end_layout
+
+\end_inset
+
+ 
 \begin_inset Formula $\bar{t}$
 \end_inset
 
@@ -5942,7 +6107,11 @@ reference "lemma:slff"
 
 \begin_layout Proof
 The assignment 
-\begin_inset Formula $((\tilde{t}_{1},\dots,\tilde{t}_{k'},0,\dots,0),(\tilde{m}_{1},\dots,\tilde{m}_{k'},0,\dots,0)\in\Rea[\NLinks]\times\left\{ 0,1\right\} ^{N}$
+\begin_inset Formula $((\tilde{t}_{1},\dots,\tilde{t}_{k'},0,\dots,0),(\tilde{m}_{1},\dots,\tilde{m}_{k'},0,\dots,0)$
+\end_inset
+
+ 
+\begin_inset Formula $\in\Rea[\NLinks]\times\left\{ 0,1\right\} ^{N}$
 \end_inset
 
  is clearly at Nash Equilibrium for the instance 
@@ -6321,7 +6490,7 @@ normalsize
 \uwave off
 \noun off
 \color none
-Since 
+since 
 \family default
 \series default
 \shape default
@@ -6366,7 +6535,7 @@ Since
 \noun default
 \color inherit
 .
- Then using Equation 
+ Then using 
 \family roman
 \series medium
 \shape up
@@ -6417,8 +6586,8 @@ small
 \begin_inset Formula 
 \begin{align*}
  & C(x,m)-C(\bar{x},\bar{m})\\
- & =\sum_{n=1}^{l-1}(x_{n}-\bar{x}_{n})l_{n}(\bar{x}_{n},\bar{m}_{n})+\sum_{n=1}^{l-1}x_{n}(l_{n}(x_{n},m_{n})-l_{n}(\bar{x}_{n},\bar{m}_{n}))+\sum_{n=l}^{N}x_{n}a_{l}-\bar{x}_{l}a_{l}\\
- & \geq\sum_{n=1}^{l-1}(x_{n}l_{n}(x_{n},m_{n})-\bar{x}_{n}l_{n}(\bar{x}_{n},\bar{m}_{n}))+\sum_{n=l}^{N}x_{n}a_{l}-\bar{x}_{l}a_{l}
+ & \geq\sum_{n=1}^{l-1}(x_{n}-\bar{x}_{n})l_{n}(\bar{x}_{n},\bar{m}_{n})+\sum_{n=1}^{l-1}x_{n}(l_{n}(x_{n},m_{n})-l_{n}(\bar{x}_{n},\bar{m}_{n}))\\
+ & \ \ +\sum_{n=l}^{N}x_{n}a_{l}-\bar{x}_{l}a_{l}
 \end{align*}
 
 \end_inset
@@ -6507,6 +6676,9 @@ normalsize
 \end_inset
 
 , thus 
+\end_layout
+
+\begin_layout Proof
 \begin_inset Formula $\sum_{n=1}^{l-1}(x_{n}-\bar{x}_{n})l_{n}(x_{n},m_{n})\geq\sum_{n=1}^{l-1}(x_{n}-\bar{x}_{n})a_{l}$
 \end_inset
 
