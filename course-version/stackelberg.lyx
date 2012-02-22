@@ -144,36 +144,6 @@ Congestion Games and Stackelberg Routing
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Enumerate
-General literature about routing (Roughgarden and co)
-\end_layout
-
-\begin_layout Enumerate
-General literature about horizontal queue routing
-\end_layout
-
-\begin_layout Enumerate
-presentation of the general framework: horizontal queues + compliant/ non-compli
-ant
-\end_layout
-
-\begin_layout Enumerate
-Contribution of the article
-\end_layout
-
-\begin_layout Enumerate
-Organization of the article
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 Congestion games on networks involve assigning flows to particular routes
  in order to achieve some end result.
  Typical areas of study in congestion games are Nash equilibria (or user
