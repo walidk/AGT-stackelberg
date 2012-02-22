@@ -445,19 +445,34 @@ Contributions of This Article
 
 \begin_layout Standard
 We address a number of existing problems in the current literature for fractiona
-l compliance on horizontal queueing networks by introducing a class of latency
- functions expressive enough to model congestion on horizontal queueing
- networks.
- This class introduces original theoretical and algorithmic results for
- Nash equilibria and Stackelberg routing assignments.
- Namely:
+l compliance on networks in the context of a class of latency functions
+ expressive enough to model congestion on horizontal queueing networks.
+ Considering this class of latency functions introduces original theoretical
+ and algorithmic results for Nash equilibria and Stackelberg routing assignments.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+J: Keep this introductory paragraph?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Consider a congestion game on a parallel link network.
+ Each link has a dual-mode latency function where latency in constant in
+ free-flow mode and latency is decreasing in congestion with respect to
+ flow.
+ From these assumptions, we show the following results:
 \end_layout
 
 \begin_layout Itemize
-We show that for this class we do not have essential uniqueness of Nash
- equilibria, meaning there may exist Nash equilibria with different total
- costs, which is in contrast to the results for point-queueing models usually
- considered in congestion games 
+There is no essential uniqueness to Nash equilibria (there may exist Nash
+ equilibria with different total costs), which is in contrast to the results
+ for point-queueing models usually considered in congestion games 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "roughgarden2002bad"
@@ -465,13 +480,40 @@ key "roughgarden2002bad"
 \end_inset
 
 .
- We also show that the set of all pure Nash equilibria can be computed in
- polynomial time, and we characterize in particular the best Nash equilibrium,
- meaning the Nash equilibrium that minimizes the network's total latency.
 \end_layout
 
 \begin_layout Itemize
-We show that the optimal Stackelberg strategy can be computed in polynomial
+For a given a demand 
+\begin_inset Formula $\qdemand$
+\end_inset
+
+ and network of 
+\begin_inset Formula $\NLinks$
+\end_inset
+
+ links, the set of all pure Nash equilibria can be computed in time polynomial
+ in 
+\begin_inset Formula $\NLinks$
+\end_inset
+
+.
+ From this result, we characterize the 
+\emph on
+best Nash Equilibrium 
+\emph default
+(the Nash equilibrium that minimizes the total network latency) and show
+ that it is computable in 
+\begin_inset Formula $O\left(\NLinks^{2}\right)$
+\end_inset
+
+ time.
+\end_layout
+
+\begin_layout Itemize
+The optimal Stackelberg strategy can be computed in 
+\begin_inset Formula $O\left(\NLinks^{2}\right)$
+\end_inset
+
  time.
  This result contrasts with the class of non-decreasing latency functions,
  for which computing the optimal Stackelberg strategy is NP-hard 
@@ -488,7 +530,6 @@ key "roughgarden2001stackelberg"
 These results are necessary as progress towards the creation of a scalable,
  accurate model for route assignment on fractional compliance, horizontal
  queueing networks.
- 
 \end_layout
 
 \begin_layout Subsection
