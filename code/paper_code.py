@@ -15,7 +15,7 @@ demands = linspace(0,ne_capacity(network),N_POINTS)
 alphas = [0., .05,  .15, .5]
 profiles = network_profile(network,alphas + [1.],N_POINTS)
 latencies = profile_latencies(network,profiles)
-styles = ['k-','k--','k-.', 'k:']
+styles = ['-','--','-.', ':']
 names = ['HW 101','HW 280','HW 580','HW 880']
 plot_network(network,names, styles)
 pylab.ylim([55,140])
@@ -39,6 +39,5 @@ ne = latencies[0]
  for latency, style, alpha in zip(latencies[1:-1],
                                   styles[:-1],
                                   alphas[1:])]
-pylab.legend(loc='upper left')
-pylab.show()
-# pylab.savefig(fig_path('POSSim'))
+pylab.legend(loc='lower left')
+pylab.savefig(fig_path('VOASim'))

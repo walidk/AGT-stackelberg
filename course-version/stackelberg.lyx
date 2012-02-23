@@ -6790,14 +6790,14 @@ name "fig:Latency-functions-for"
 \end_inset
 
 
-\begin_inset Formula $\quad$
-\end_inset
+\end_layout
 
-
+\begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -6816,6 +6816,124 @@ Price of Stability vs.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Price-of-Stability"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\quad$
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../figures/VOASim.pdf
+	width 1.7in
+	clip
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Value of Altruism vs.
+ demand (cars/minute) for different compliance rates.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Value-of-Altruism"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../figures/POS3d.pdf
+	width 3.5in
+	clip
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Price of Stability profile (3d)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:POS3d"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../figures/POSContour.pdf
+	width 3.5in
+	clip
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Price of Stability profile (contour) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:POSContour"
 
 \end_inset
 
@@ -6861,7 +6979,7 @@ name "fig:Performance-of-parallel"
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
-bibfiles "jabtex-2"
+bibfiles "bibliography"
 options "plain"
 
 \end_inset

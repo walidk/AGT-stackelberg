@@ -176,8 +176,9 @@ def random_network(n_links):
 def network_demands(network,N_POINTS=1000):
     return linspace(0.01,ne_capacity(network)*(1-.01),N_POINTS)
     
-def network_profile(network,alphas,N_POINTS=1000):
-    demands = network_demands(network,N_POINTS)
+def network_profile(network,alphas,N_POINTS=1000,demands=None):
+    if demands is None:
+        demands = network_demands(network,N_POINTS)
     return stackelberg_ranges(network,demands,alphas)
     
 def profile_latencies(network,profiles):
