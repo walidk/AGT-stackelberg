@@ -6696,6 +6696,168 @@ C(x,m)-C(\bar{x},\bar{m}) & \geq\sum_{n=1}^{l-1}(x_{n}-\bar{x}_{n})a_{l}+\sum_{n
 
 \end_layout
 
+\begin_layout Section
+Numerical Results
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /Users/jdr/Documents/github-projects/AGT-stackelberg/figures/ParallelHighwayMap.pdf
+	width 2.5in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Map of parallel highway network
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Map-of-parallel"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../figures/LatenciesSim.pdf
+	width 1.7in
+	clip
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Latency (minutes) vs.
+ demand (cars/minute) for parallel highway routes.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Latency-functions-for"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\quad$
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../figures/POSSim.pdf
+	width 1.7in
+	clip
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Price of Stability vs.
+ demand (cars/minute) for different compliance rates.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Price-of-Stability"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Performance of Bay Area parallel highway network with optimal Stackelberg
+ routing strategies.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Performance-of-parallel"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
