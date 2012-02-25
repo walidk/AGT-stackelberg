@@ -1450,9 +1450,9 @@ Then, the total system cost is the sum of the costs of the individual links
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-C\left(\flow,\Mode\right)=\sum_{i=1}^{\NLinks}C_{i}\left(\flow[i],\Mode[i]\right),
-\]
+\begin{equation}
+C\left(\flow,\Mode\right)=\sum_{i=1}^{\NLinks}C_{i}\left(\flow[i],\Mode[i]\right),\label{eq:total-cost}
+\end{equation}
 
 \end_inset
 
@@ -6700,18 +6700,79 @@ C(x,m)-C(\bar{x},\bar{m}) & \geq\sum_{n=1}^{l-1}(x_{n}-\bar{x}_{n})a_{l}+\sum_{n
 Numerical Results
 \end_layout
 
+\begin_layout Subsection
+Example Network
+\end_layout
+
 \begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
+To motivate the theory developed here-within, an example network was created
+ to represent freeway traffic in the California Bay Area.
+ Four parallel highways are chosen starting in San Francisco and ending
+ in San Jose: I-101, I-280, I-880 and I-580 (shown in Figure
+\begin_inset ERT
 status open
 
 \begin_layout Plain Layout
+
+~
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Map-of-parallel"
+
+\end_inset
+
+).
+ We analyze the relative inefficiencies caused by selfish routing and how
+ optimal Stackelberg routing strategies improves these conditions.
+\end_layout
+
+\begin_layout Standard
+Figure
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+~
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Latency-functions-for"
+
+\end_inset
+
+ shows the latency functions for the highway network.
+ Under free flow conditions, I-101 is the fastest route available between
+ San Francisco and San Jose.
+ But when I-101 becomes congested, other routes become viable.
+ To analyze how congestion increases with demand, we compute total network
+ latency profiles (Equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:total-cost"
+
+\end_inset
+
+) for optimal Stackelberg strategies as a function of demand.
+ In addition, to show the sensitivity of the results to compliance rate,
+ we compute network latency profiles for multiple compliance rates.
+\end_layout
+
+\begin_layout Standard
 \align center
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -6743,21 +6804,17 @@ name "fig:Map-of-parallel"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 \align center
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -6792,7 +6849,7 @@ name "fig:Latency-functions-for"
 
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 \align center
 \begin_inset Float figure
 wide false
@@ -6872,12 +6929,12 @@ name "fig:Value-of-Altruism"
 
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 \align center
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -6911,12 +6968,12 @@ name "fig:POS3d"
 
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 \align center
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -6950,16 +7007,29 @@ name "fig:POSContour"
 
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 \align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../figures/SimTime.pdf
+	width 3.5in
+	clip
+
+\end_inset
+
+
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Performance of Bay Area parallel highway network with optimal Stackelberg
- routing strategies.
+Price of Stability profile (contour) 
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:Performance-of-parallel"
+name "fig:POSContour-1"
 
 \end_inset
 
