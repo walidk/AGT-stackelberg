@@ -19,24 +19,14 @@ pylab.rcParams.update(params)
 
 
 #with open('sim_time.json','r') as fn:
-with open('data2.json','r') as fn:
-    N,RT = load(fn)
-N = map(lambda x: x/1000.,N)
-z =  pylab.polyfit(N,RT, 2)
+with open('demand_data.json','r') as fn:
+    (N,RT),(N2,RT2),(N3,RT3) = load(fn)
 pylab.scatter(N,RT)
 pylab.hold(True)
-tt = pylab.linspace(.2,1.,100)
-pylab.plot(tt,map(pylab.poly1d(z), tt),'k',linewidth=2.)
-pylab.annotate('$y = {0:.3n} x^2$'.format(z[0]),
-            xy=(tt[50],pylab.poly1d(z)(tt[50])),
-            xytext=(0.6, 0.7),
-            textcoords='axes fraction',
-            arrowprops=dict(facecolor='black', 
-                            shrink=0.05),
-            horizontalalignment='right', 
-            verticalalignment='top',
-            )
-pylab.xlabel('# Links *1000')
+pylab.scatter(N2,RT2,c='r')
+pylab.scatter(N3,RT3,c='g')
+pylab.xlabel('Number of Links')
 pylab.ylabel('Run Time (s)')
+pylab.legend(map(lambda x: 'demand = %.1f*max demand' % x,[.4,.2,.1]),loc='upper left')
 pylab.show()
 

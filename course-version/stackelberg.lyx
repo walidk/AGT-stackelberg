@@ -3758,6 +3758,13 @@ reference "sec:Optimal-Stackelberg-strategies"
 
 \begin_layout Subsection
 Computational complexity of finding Best Nash Equilibria
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Computational-complexity-of"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4642,7 +4649,7 @@ We consider the following problem: given a network under constant flow demand
 
 , assume a coordinator (a central authority) has control over a fraction
  
-\begin_inset Formula $\beta$
+\begin_inset Formula $\compRate$
 \end_inset
 
  of the flow: the corresponding agents are 
@@ -4653,7 +4660,7 @@ compliant
  are given.
  The coordinator (who plays the role of the leader in the Stackelberg game)
  assigns the compliant flow 
-\begin_inset Formula $\beta r$
+\begin_inset Formula $\compRate r$
 \end_inset
 
  according to a Stackelberg strategy 
@@ -4661,7 +4668,7 @@ compliant
 \end_inset
 
  that is a feasible flow assignment for the instance 
-\begin_inset Formula $(\NLinks,\beta\qdemand)$
+\begin_inset Formula $(\NLinks,\compRate\qdemand)$
 \end_inset
 
 , i.e.
@@ -4672,7 +4679,7 @@ compliant
  satisfies the following relations: 
 \begin_inset Formula 
 \begin{align*}
-\cFlow[\link]\leq\flow[\link]^{\max}\,\forall n\leq N &  & \sum_{n}\cFlow[\link]=\beta r
+\cFlow[\link]\leq\flow[\link]^{\max}\,\forall n\leq N &  & \sum_{n}\cFlow[\link]=\compRate r
 \end{align*}
 
 \end_inset
@@ -4682,7 +4689,7 @@ compliant
 
 \begin_layout Standard
 We assume that the remaining flow 
-\begin_inset Formula $(1-\beta)r$
+\begin_inset Formula $(1-\compRate)r$
 \end_inset
 
  represents selfish players (who play the role of followers in the Stackelberg
@@ -4782,7 +4789,7 @@ reference "lem:nash_eq"
 \begin_layout Standard
 This can be summarized in the following definition of a Stackelberg strategy
  for an instance 
-\begin_inset Formula $(\NLinks,r,\beta)$
+\begin_inset Formula $(\NLinks,r,\compRate)$
 \end_inset
 
  of the Stackelerg game on a network with 
@@ -4794,7 +4801,7 @@ This can be summarized in the following definition of a Stackelberg strategy
 \end_inset
 
 , and fraction of compliance 
-\begin_inset Formula $\beta$
+\begin_inset Formula $\compRate$
 \end_inset
 
 .
@@ -4814,7 +4821,7 @@ name "def:stack"
 \end_inset
 
 Consider a Stackelberg instance 
-\begin_inset Formula $(\NLinks,r,\beta)$
+\begin_inset Formula $(\NLinks,r,\compRate)$
 \end_inset
 
 .
@@ -4823,11 +4830,11 @@ Consider a Stackelberg instance
 \end_inset
 
  of the compliant flow 
-\begin_inset Formula $\beta r$
+\begin_inset Formula $\compRate r$
 \end_inset
 
  that is feasible for the instance 
-\begin_inset Formula $(\NLinks,\beta\qdemand)$
+\begin_inset Formula $(\NLinks,\compRate\qdemand)$
 \end_inset
 
 , and which induces Best Nash Equilibrium 
@@ -4875,7 +4882,7 @@ key "roughgarden2001stackelberg"
 
 \begin_layout Standard
 We will denote by 
-\begin_inset Formula $\text{S}(\NLinks,r,\beta)\subset\Rea[\NLinks]$
+\begin_inset Formula $\text{S}(\NLinks,r,\compRate)\subset\Rea[\NLinks]$
 \end_inset
 
  the set of Stackelberg strategies for network instance 
@@ -4891,7 +4898,7 @@ We will denote by
 \noun off
 \color none
 
-\begin_inset Formula $(\NLinks,r,\beta)$
+\begin_inset Formula $(\NLinks,r,\compRate)$
 \end_inset
 
 
@@ -4946,7 +4953,7 @@ To see this, consider the following 2-link network such that link
 \end_inset
 
  and most of the flow is compliant 
-\begin_inset Formula $\beta r=\flow[1]^{\max}$
+\begin_inset Formula $\compRate r=\flow[1]^{\max}$
 \end_inset
 
 .
@@ -5009,7 +5016,7 @@ Let
 \end_inset
 
  be a Stackelberg strategy for the Stackelberg instance 
-\begin_inset Formula $(\NLinks,r,\beta)$
+\begin_inset Formula $(\NLinks,r,\compRate)$
 \end_inset
 
 , and 
@@ -5038,7 +5045,7 @@ Note that
 \end_inset
 
  is an assignment at Nash for the instance 
-\begin_inset Formula $(N,\beta r)$
+\begin_inset Formula $(N,\compRate r)$
 \end_inset
 
  and latencies
@@ -5185,7 +5192,7 @@ The optimal Stackelberg strategy in our case corresponds to:
 \begin_layout Itemize
 First computing the best Nash equilibrium of non-compliant users alone,
  
-\begin_inset Formula $(\bar{t},\bar{m)}=\BestNashEquilibrium N{(1-\beta)r}$
+\begin_inset Formula $(\bar{t},\bar{m)}=\BestNashEquilibrium N{(1-\compRate)r}$
 \end_inset
 
 
@@ -5215,7 +5222,7 @@ Intuitively, the best induced Nash equilibrium
 \end_inset
 
  of instance 
-\begin_inset Formula $(\NLinks,(1-\beta)r)$
+\begin_inset Formula $(\NLinks,(1-\compRate)r)$
 \end_inset
 
  (when the non-compliant flow is the only flow on the network).
@@ -5359,7 +5366,7 @@ Let
 \end_inset
 
  denote the Best Nash Equilibrium for the instance 
-\begin_inset Formula $(\NLinks,(1-\beta)\qdemand)$
+\begin_inset Formula $(\NLinks,(1-\compRate)\qdemand)$
 \end_inset
 
 .
@@ -5398,7 +5405,7 @@ small
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\bar{t}=\left(\cffFlow 1k,\dots,\cffFlow{k-1}k,(1-\beta)\qdemand-\sum_{n=1}^{k-1}\cffFlow nk,0,\dots,0\right)
+\bar{t}=\left(\cffFlow 1k,\dots,\cffFlow{k-1}k,(1-\compRate)\qdemand-\sum_{n=1}^{k-1}\cffFlow nk,0,\dots,0\right)
 \]
 
 \end_inset
@@ -5482,7 +5489,7 @@ Best Nash equilibrium
 \end_inset
 
  of non-compliant flow 
-\begin_inset Formula $(1-\beta)r$
+\begin_inset Formula $(1-\compRate)r$
 \end_inset
 
 .
@@ -5534,7 +5541,7 @@ We now define Stackelberg strategy
 
  as the optimal assignment (i.e.
  of least cost) of compliant flow 
-\begin_inset Formula $\beta\qdemand$
+\begin_inset Formula $\compRate\qdemand$
 \end_inset
 
  that induces equilibrium 
@@ -5581,7 +5588,7 @@ We now define Stackelberg strategy
 
  and so on.
  Let 
-\begin_inset Formula $l=\min\{n|\beta\qdemand-(\sum_{n=k}^{l-1}\flowMax[n]-t_{k})\geq0\}$
+\begin_inset Formula $l=\min\{n|\compRate\qdemand-(\sum_{n=k}^{l-1}\flowMax[n]-t_{k})\geq0\}$
 \end_inset
 
  be the least efficient link used by the Stackelberg assignment.
@@ -5596,7 +5603,7 @@ We now define Stackelberg strategy
 \begin_inset Formula 
 \begin{eqnarray}
 \bar{s} & = & (0,\dots,\stackrel{k-1}{0},\flowMax[k]-\bar{t}_{k},\flowMax[k+1],\dots,\flowMax[l-1],\nonumber \\
- &  & \beta\qdemand-(\sum_{n=k}^{l-1}\flowMax[n]-\bar{t_{k}}),\stackrel{l+1}{0},\dots,0)\label{eq:opt_stack_strategy}
+ &  & \compRate\qdemand-(\sum_{n=k}^{l-1}\flowMax[n]-\bar{t_{k}}),\stackrel{l+1}{0},\dots,0)\label{eq:opt_stack_strategy}
 \end{eqnarray}
 
 \end_inset
@@ -5750,7 +5757,7 @@ Optimal Stackelberg Strategy
 \end_inset
 
  is an optimal Stackelberg strategy for the Stackelberg instance 
-\begin_inset Formula $(\NLinks,r,\beta)$
+\begin_inset Formula $(\NLinks,r,\compRate)$
 \end_inset
 
 , where 
@@ -5769,7 +5776,7 @@ small
  
 \begin_inset Formula 
 \[
-\bar{s}=\left(0,\dots,\stackrel{k-1}{0},\flowMax[k]-\bar{t}_{k},\flowMax[k+1],\dots,\flowMax[l-1],\beta\qdemand-(\sum_{n=k}^{l-1}\flowMax[n]-\bar{t_{k}}),\stackrel{l+1}{0},\dots,0\right),
+\bar{s}=\left(0,\dots,\stackrel{k-1}{0},\flowMax[k]-\bar{t}_{k},\flowMax[k+1],\dots,\flowMax[l-1],\compRate\qdemand-(\sum_{n=k}^{l-1}\flowMax[n]-\bar{t_{k}}),\stackrel{l+1}{0},\dots,0\right),
 \]
 
 \end_inset
@@ -5792,7 +5799,7 @@ normalsize
 \end_inset
 
  is the Best Nash Equilibrium for the instance 
-\begin_inset Formula $(\NLinks,(1-\beta)r)$
+\begin_inset Formula $(\NLinks,(1-\compRate)r)$
 \end_inset
 
 , and 
@@ -5808,11 +5815,11 @@ normalsize
 
 \begin_layout Proof
 Let 
-\begin_inset Formula $s\in S(\NLinks,r,\beta)$
+\begin_inset Formula $s\in S(\NLinks,r,\compRate)$
 \end_inset
 
  be a Stackelberg strategy for the Stackelberg instance 
-\begin_inset Formula $(N,r,\beta)$
+\begin_inset Formula $(N,r,\compRate)$
 \end_inset
 
  and 
@@ -6036,7 +6043,7 @@ reference "def:stack"
 
 \begin_layout Proof
 But 
-\begin_inset Formula $\sum_{n=1}^{k'}(s_{n}+t_{n}(s))\geq\sum_{n\in\Supp t}t_{n}(s)=(1-\beta)r$
+\begin_inset Formula $\sum_{n=1}^{k'}(s_{n}+t_{n}(s))\geq\sum_{n\in\Supp t}t_{n}(s)=(1-\compRate)r$
 \end_inset
 
  since 
@@ -6050,7 +6057,7 @@ But
 \begin_layout Proof
 \begin_inset Formula 
 \[
-(1-\beta)r\leq\sum_{n=1}^{k'-1}\cffFlow n{k'}+\flowMax[k']
+(1-\compRate)r\leq\sum_{n=1}^{k'-1}\cffFlow n{k'}+\flowMax[k']
 \]
 
 \end_inset
@@ -6072,7 +6079,7 @@ reference "lemma:slff"
 
 , this guarantees the existence of a single-link free-flow Nash Equilibrium
  for the network instance 
-\begin_inset Formula $(k',(1-\beta)r)$
+\begin_inset Formula $(k',(1-\compRate)r)$
 \end_inset
 
 .
@@ -6086,7 +6093,7 @@ reference "lemma:slff"
 \end_inset
 
  is 
-\begin_inset Formula $(1-\beta)rl_{0}$
+\begin_inset Formula $(1-\compRate)rl_{0}$
 \end_inset
 
  where 
@@ -6099,7 +6106,7 @@ reference "lemma:slff"
 
 .
  Thus 
-\begin_inset Formula $C(\tilde{t},\tilde{m})\leq(1-\beta)ra_{k'}$
+\begin_inset Formula $C(\tilde{t},\tilde{m})\leq(1-\compRate)ra_{k'}$
 \end_inset
 
 .
@@ -6115,11 +6122,11 @@ The assignment
 \end_inset
 
  is clearly at Nash Equilibrium for the instance 
-\begin_inset Formula $((1-\beta)r,N)$
+\begin_inset Formula $((1-\compRate)r,N)$
 \end_inset
 
 , and has the same cost 
-\begin_inset Formula $C(\tilde{t},\tilde{m})\leq(1-\beta)ra_{k'}$
+\begin_inset Formula $C(\tilde{t},\tilde{m})\leq(1-\compRate)ra_{k'}$
 \end_inset
 
 .
@@ -6128,11 +6135,11 @@ The assignment
 \end_inset
 
  is the Best Nash Equilibrium for the instance 
-\begin_inset Formula $((1-\beta)r,N)$
+\begin_inset Formula $((1-\compRate)r,N)$
 \end_inset
 
  and has cost 
-\begin_inset Formula $(1-\beta)ra_{k}$
+\begin_inset Formula $(1-\compRate)ra_{k}$
 \end_inset
 
 , we must have
@@ -6141,7 +6148,7 @@ The assignment
 \begin_layout Proof
 \begin_inset Formula 
 \[
-(1-\beta)ra_{k}\leq(1-\beta)ra_{k'}
+(1-\compRate)ra_{k}\leq(1-\compRate)ra_{k'}
 \]
 
 \end_inset
@@ -6701,7 +6708,7 @@ Numerical Results
 \end_layout
 
 \begin_layout Subsection
-Example Network
+Example network
 \end_layout
 
 \begin_layout Standard
@@ -6728,51 +6735,17 @@ reference "fig:Map-of-parallel"
 
 ).
  We analyze the relative inefficiencies caused by selfish routing and how
- optimal Stackelberg routing strategies improves these conditions.
-\end_layout
-
-\begin_layout Standard
-Figure
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-~
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Latency-functions-for"
-
-\end_inset
-
- shows the latency functions for the highway network.
- Under free flow conditions, I-101 is the fastest route available between
- San Francisco and San Jose.
- But when I-101 becomes congested, other routes become viable.
- To analyze how congestion increases with demand, we compute total network
- latency profiles (Equation 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:total-cost"
-
-\end_inset
-
-) for optimal Stackelberg strategies as a function of demand.
- In addition, to show the sensitivity of the results to compliance rate,
- we compute network latency profiles for multiple compliance rates.
+ optimal Stackelberg routing strategies (Non-compliant First strategy) improves
+ these conditions.
 \end_layout
 
 \begin_layout Standard
 \align center
 \begin_inset Float figure
+placement h
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -6810,16 +6783,57 @@ name "fig:Map-of-parallel"
 \end_layout
 
 \begin_layout Standard
-\align center
-\begin_inset Float figure
-wide false
-sideways false
+Figure
+\begin_inset ERT
 status open
 
 \begin_layout Plain Layout
+
+~
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Latency-functions-for"
+
+\end_inset
+
+ shows the latency functions for the highway network, which were generated
+ from the assumption of a triangular fundamental diagram (constant positive
+ slope in free-flow region, constant negative slope in congestion region).
+ Under free flow conditions, I-101 is the fastest route available between
+ San Francisco and San Jose.
+ But when I-101 becomes congested, other routes become viable.
+ To analyze how congestion increases with demand, we compute total network
+ latency profiles (Equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:total-cost"
+
+\end_inset
+
+) for optimal Stackelberg strategies as a function of demand.
+ In addition, to show how congestion improves as a function of the amount
+ of compliant flow, we compute network latency profiles over a range of
+ compliance rates.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename ../figures/LatenciesSim.pdf
-	width 1.7in
+	width 2.5in
 	clip
 
 \end_inset
@@ -6850,6 +6864,39 @@ name "fig:Latency-functions-for"
 \end_layout
 
 \begin_layout Standard
+The numerical results are summarized in Figure 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "fig:Results-for-network"
+
+\end_inset
+
+.
+ The Price of Stability plot in Figure 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "fig:Price-of-Stability"
+
+\end_inset
+
+ shows that optimal Stackelberg solutions have the ability to delay the
+ congestion of a particular link, where the delay range (the amount of additiona
+l demand needed to cause a link to congest) is proportional to the fractional
+ compliance.
+ Observing the behavior around the 600-800 cars/minute, it takes about 30
+ extra cars/minute to congest the second link with 5% compliance, about
+ 100 cars/minute for 15% compliance, while the second link appears to only
+ congest near network capacity for 50% compliance.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
 \align center
 \begin_inset Float figure
 wide false
@@ -6929,6 +6976,84 @@ name "fig:Value-of-Altruism"
 
 \end_layout
 
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Results for network efficiency on parallel highway link example.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Results-for-network"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+While Price of Anarchy demonstrates how inefficient a particular equilibria
+ is in relation to a system optimal strategy, another metric was defined
+ to show how performant a particular Stackelberg strategy is in relation
+ to a 0% compliance strategy (or Nash equilibrium).
+ The metric is called 
+\emph on
+value of altruism 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "aswani2011game"
+
+\end_inset
+
+ 
+\emph default
+and is defined by:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+VOA\left(\NLinks,\qdemand,\compRate\right)=\frac{\min_{s\in\StackSet}C\left(s+\ncFlow(\cFlow),m(\cFlow)\right)}{\BestNashEquilibrium{\NLinks}{\qdemand}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Value of altruism for the example network is shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "fig:Value-of-Altruism"
+
+\end_inset
+
+.
+ The figure best demonstrates the 
+\begin_inset Quotes eld
+\end_inset
+
+delaying
+\begin_inset Quotes erd
+\end_inset
+
+ effect of optimal Stackelberg strategies.
+ While a smaller compliance fraction (5-15% on this network) will prevent
+ congestion over certain demand ranges, the optimal Stackelberg strategy
+ will eventually degrade to the best Nash equilibrium strategy, resulting
+ in a value of altruism value of 1.
+\end_layout
+
 \begin_layout Standard
 \align center
 \begin_inset Float figure
@@ -6937,6 +7062,7 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename ../figures/POS3d.pdf
 	width 3.5in
@@ -6962,6 +7088,221 @@ name "fig:POS3d"
 
 
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The importance of efficient computation of optimal Stackelberg strategies
+ can be seen by the complete demand-compliance fraction profile generated
+ in Figure 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "fig:POS3d"
+
+\end_inset
+
+.
+ If the amount of compliance is viewed as a cost to some central controller,
+ then the tiers visible in Figure 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "fig:POS3d"
+
+\end_inset
+
+ (take 
+\begin_inset Formula $\qdemand=1000$
+\end_inset
+
+, 
+\begin_inset Formula $.3\le\compRate\le.5$
+\end_inset
+
+) can be seen as regions of potential waste.
+ If a central controller can predict a demand in a range around 1000 cars/minute
+ and a maximum compliance fraction of .5, then the controller can reference
+ the two-dimensional profile and reduce the compliance fraction to a region
+ around .4, since any compliance above 30% and less than 50% can be viewed
+ as wasteful.
+\end_layout
+
+\begin_layout Subsection
+Scaling of optimal Stackelberg strategy algorithm on size of network
+\end_layout
+
+\begin_layout Standard
+To demonstrate the performance of the algorithm as the size of the network
+ scales up, the computation time of the optimal Stackelberg strategy was
+ measured for 500 randomly generated networks.
+ The number of links in the network was chosen to be between 3 and 1500
+ where the latency properties of each link were generated from randomly
+ chosen triangular fundamental diagrams.
+ The compliance rate was constant at 40% and the demand was chosen to be
+ 70% that of the maximum capacity of the network at best Nash equilibrium.
+ The results are shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "fig:Computation-time-as"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../figures/SimTime.pdf
+	width 1.7in
+	clip
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Quadratic fit to computation time-network size relationship
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Computation-time-as"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\quad$
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../figures/SimDemand.pdf
+	width 1.7in
+	clip
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Computation time increases with demand
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Computation-time-increases"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Computation time of optimal Stackelberg strategy relative to network size.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The relationship appears to be obviously quadratic, as demonstrated by the
+ time fit of the quadratic function.
+ This result is as anticipated, since the optimal Stackelberg strategy algorithm
+'s complexity comes from the computation of best Nash equilibrium, which
+ was shown to be quadratic in worst case analysis (Section 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "sub:Computational-complexity-of"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "fig:Computation-time-increases"
+
+\end_inset
+
+ shows that there appears to be a positive correlation between demand and
+ computation time.
+ As the demand's fraction of the network's maximum capacity increases, the
+ computation time of optimal Stackelberg increases as well.
+ This can be explained by the sequential searching nature of the best Nash
+ equilibrium algorithm (Algorithm 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "alg:bestNE"
+
+\end_inset
+
+).
+ The algorithm works by seeing if a Nash equilibrium is feasible over a
+ particular support on the network.
+ If so, the algorithm terminates, and if not, the support is increased and
+ the algorithm proceeds.
+ As the demand increases, the algorithm will have to check for larger and
+ larger supports, and thus explain the increasing computation times.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "bibliography"
+options "plain"
 
 \end_inset
 
@@ -7001,56 +7342,6 @@ name "fig:POSContour"
 
 
 \end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename ../figures/SimTime.pdf
-	width 3.5in
-	clip
-
-\end_inset
-
-
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Price of Stability profile (contour) 
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:POSContour-1"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset bibtex
-LatexCommand bibtex
-bibfiles "bibliography"
-options "plain"
 
 \end_inset
 

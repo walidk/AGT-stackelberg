@@ -505,7 +505,7 @@ graph stuff
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\Length}[1][]{\lenCell[#1]}
+\renewcommand{\Length}[1][]{\lenCell[#1]}
 \end_inset
 
 
@@ -513,12 +513,12 @@ graph stuff
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\cFlow}[1][]{s_{#1}}
+\renewcommand{\cFlow}[1][]{s_{#1}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\ncFlow}[1][]{t_{#1}}
+\renewcommand{\ncFlow}[1][]{t_{#1}}
 \end_inset
 
 
@@ -526,17 +526,17 @@ graph stuff
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\parA}[1][]{a_{#1}}
+\renewcommand{\parA}[1][]{a_{#1}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\parB}[1][]{b_{#1}}
+\renewcommand{\parB}[1][]{b_{#1}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\parC}[1][]{c_{#1}}
+\renewcommand{\parC}[1][]{c_{#1}}
 \end_inset
 
 
@@ -545,22 +545,6 @@ graph stuff
 \begin_layout Standard
 \begin_inset FormulaMacro
 \renewcommand{\coloneqq}{:=}
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset FormulaMacro
-\renewcommand{\StackSet}{\textup{S}(N,r,\beta)}
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset FormulaMacro
-\renewcommand{\StackSet}{\text{S}(N,r,\beta)}
 \end_inset
 
 
@@ -674,6 +658,22 @@ super script j = (1 through j-1 in congestion) and j in free flow (if exists)
 \begin_layout Standard
 \begin_inset FormulaMacro
 \renewcommand{\Cost}[2]{C_{#1}\left(#1,#2\right)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\compRate}{\alpha}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\StackSet}{\textup{S}(\NLinks,\qdemand,\compRate)}
 \end_inset
 
 
