@@ -101,15 +101,15 @@ We study inefficiencies of capacity constrained networks due to the selfish
  behavior and lack of coordination of agents, by comparing social optima
  to Nash equilibria.
  Then we investigate possible strategies to reduce the inefficiency by studying
- the Stackelberg routing game: assuming we have control over a fraction
- of the flow on the network, what is a good way of routing that compliant
- flow so that the induced Nash equilibrium is closer to the social optimum
- than the initial Nash equilibrium?
+ the Stackelberg routing game: assuming a coordinator has control over a
+ fraction of the flow on the network, what is a good way of routing that
+ compliant flow so that the induced Nash equilibrium is closer to the social
+ optimum than the initial Nash equilibrium?
 \end_layout
 
 \begin_layout Abstract
-Stackelberg routing on parallel link networks has been studied extensively
- for the class of non-decreasing latency functions, and it is shown in 
+Stackelberg routing on parallel networks has been studied extensively for
+ the class of non-decreasing latency functions, and it is shown in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "roughgarden2001stackelberg"
@@ -124,15 +124,16 @@ key "roughgarden2001stackelberg"
 \begin_layout Abstract
 We study Stackelberg routing for a new class of latency functions, that
  introduces a new model of congestion on a link.
- This class of latency functions arises in transportation networks for example.
+ This class of latency functions arises in transportation networks for example,
+ and better models congestion on horizontal queuing networks.
  We show that in our setting, there are multiple Nash equilibria, and we
  characterize the best Nash equilibrium.
  Then we study the Stackelberg routing game and show that the optimal Stackelber
 g strategy can be computed in polynomial time for this class of latency
- functions on parallel link networks.
- The work is applied for modeling transportation networks in which a fraction
- of agents are compliant to routing guidance provided by a central authority,
- while the rest of the agents behave selfishly.
+ functions on parallel networks.
+ This work is applied for modeling transportation networks in which a coordinato
+r can choose the routes of fraction of compliant agents, while the rest
+ of the agents choose their routes selfishly.
 \end_layout
 
 \begin_layout Section
@@ -1520,21 +1521,8 @@ A: references
 \end_inset
 
 ), which we simply refer to as Nash equilibria.
- We first review the essential uniqueness of Nash equilibria in the case
- of increasing latency functions (in the sense that all Nash equilibria
- have the same cost
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: put a reference if this is standard definition
-\end_layout
-
-\end_inset
-
-).
- Then we show that our class of latency functions induce multiple Nash equilibri
-a with different costs.
+ We show that our class of latency functions induce multiple Nash equilibria
+ with different costs.
  We show that the set of Nash equilibria can be computed in polynomial time
  (with respect to the number of parallel links), and we characterize the
  best Nash equilibrium.
@@ -1664,15 +1652,15 @@ name "lem:nash_eq"
 
 \end_inset
 
- If 
+ An feasible assignment 
 \begin_inset Formula $(\flow,\Mode)$
 \end_inset
 
- is an assignment for a parallel network instance 
+ for a network instance 
 \begin_inset Formula $(\NLinks,\qdemand)$
 \end_inset
 
- at Nash equilibrium, then 
+ is a Nash equilibrium if and only if 
 \begin_inset Formula 
 \begin{align*}
 \flow[\link]>0 & \Rightarrow\latency[\link](\flow[\link],\Mode[\link])=\latency[0]\\
@@ -1681,7 +1669,7 @@ name "lem:nash_eq"
 
 \end_inset
 
- and the total latency incurred by the network is 
+ The total latency incurred by the network is 
 \begin_inset Note Note
 status open
 
@@ -1760,13 +1748,13 @@ Let
 \begin_inset Formula $\NashEquilibrium{\NLinks}{\qdemand}$
 \end_inset
 
- denote the set of pure Nash Equilibria for network instance 
+ denote the set of Nash Equilibria for network instance 
 \begin_inset Formula $(\NLinks,r)$
 \end_inset
 
 .
- For our class of latency functions, the essential uniqueness of Nash equilibriu
-m does not hold.
+ For our class of latency functions, the essential uniqueness property of
+ Nash equilibrium does not hold.
 \begin_inset Foot
 status open
 
@@ -1791,11 +1779,11 @@ Note that essential uniqueness of Nash Equilibria holds for the class of
 \begin_inset Formula $\flow'$
 \end_inset
 
- be two assignments for 
+ be two Nash equilibria for 
 \begin_inset Formula $(\NLinks,\qdemand)$
 \end_inset
 
- at Nash equilibrium.
+.
  Let 
 \begin_inset Formula $\latency[0]$
 \end_inset
@@ -1926,7 +1914,7 @@ Note that essential uniqueness of Nash Equilibria holds for the class of
 \begin_inset Formula $(x'',m'')=((\frac{1}{3},\frac{2}{3}),(1,1))$
 \end_inset
 
- are all Nash Equilibria for this instance, and they have different costs:
+ are all Nash equilibria for this instance, and they have different costs:
  
 \begin_inset Formula $C(x,m)=1$
 \end_inset
@@ -1940,7 +1928,7 @@ Note that essential uniqueness of Nash Equilibria holds for the class of
 \end_inset
 
 .
- This simple example shows that there are at least two types of Nash Equilibria:
+ This simple example shows that there are at least two types of Nash equilibria:
  equilibria for which every link in the support is congested (this is the
  case for 
 \begin_inset Formula $(x'',m'')$
@@ -2027,8 +2015,12 @@ Let
 \end_inset
 
 .
- Then 
-\begin_inset Formula $j\in\Supp{\flow}\implies\Mode[i]=1\quad\forall i\in\left\{ 1,\ldots,j-1\right\} $
+ 
+\end_layout
+
+\begin_layout Lemma
+Then 
+\begin_inset Formula $j\in\Supp{\flow}\Rightarrow\Mode[i]=1\quad\forall i\in\left\{ 1,\ldots,j-1\right\} $
 \end_inset
 
 
@@ -2041,10 +2033,10 @@ Let
 
 .
  Then 
-\begin_inset Formula $\Mode[i]=0\implies\latency[i](x_{i,}m_{i})=\parA[i]<a_{j}\le\latency[j](x_{j},m_{j})$
+\begin_inset Formula $\Mode[i]=0\Rightarrow\latency[i](x_{i,}m_{i})=\parA[i]<a_{j}\le\latency[j](x_{j},m_{j})$
 \end_inset
 
-, which violates 
+, which violates the characterization of Nash equilibrium in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "lem:nash_eq"
@@ -2168,7 +2160,7 @@ reference "lem:filluplower"
 \begin_inset Formula $i\notin\Supp s$
 \end_inset
 
- (follows from the Nash Equilibrium condition in Lemma 
+ (follows from the characterization of Nash equilibrium in Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lem:nash_eq"
@@ -2187,7 +2179,7 @@ The corollary states that if some link
 \begin_inset Formula $k$
 \end_inset
 
- in the support of a Nash Equilibrium is in free flow, this completely determine
+ in the support of a Nash equilibrium is in free-flow, this completely determine
 s the congestion state of the equilibrium: links 
 \begin_inset Formula $\left\{ 1,\dots,k-1\right\} $
 \end_inset
@@ -2198,7 +2190,7 @@ s the congestion state of the equilibrium: links
 
  are not in the support.
  We will call such a Nash equilibrium (where a single link in the support
- is in free flow) a 
+ is in free-flow) a 
 \emph on
 single link free-flow Nash equilibrium
 \emph default
@@ -2211,7 +2203,11 @@ single link free-flow Nash equilibrium
 \end_inset
 
 .
- We will call such equilibria congested equilibria.
+ We will call such equilibria 
+\emph on
+congested equilibria
+\emph default
+.
 \end_layout
 
 \begin_layout Standard
@@ -2225,7 +2221,7 @@ The following Lemma shows that given a congestion state
 
 , one single link free-flow equilibrium, and one congested equilibrium.
  This will show that there are at most 
-\begin_inset Formula $2N+1$
+\begin_inset Formula $2N$
 \end_inset
 
  equilibria: 
@@ -2233,10 +2229,10 @@ The following Lemma shows that given a congestion state
 \end_inset
 
  single link free-flow equilibria and 
-\begin_inset Formula $N+1$
+\begin_inset Formula $N$
 \end_inset
 
- completely congested equilibria.
+ congested equilibria.
 \end_layout
 
 \begin_layout Lemma
@@ -2331,7 +2327,7 @@ We start by noting that since
 \end_inset
 
 .
- This follows from the fact that every link in the support of a Nash Equilibrium
+ This follows from the fact that every link in the support of a Nash equilibrium
  has equal latency, and 
 \begin_inset Formula $l_{i}(0,m_{i})=a_{i}<a_{j}\leq l_{j}(\flow[j],m_{j})$
 \end_inset
@@ -2344,7 +2340,7 @@ We start by noting that since
 \begin_inset Formula $\flow[i]$
 \end_inset
 
- cannot be zero, otherwise this would contradict the Nash Equilibrium condition.
+ cannot be zero, otherwise this would contradict the Nash equilibrium condition.
  
 \end_layout
 
@@ -2424,7 +2420,7 @@ Now partition the set of Nash Equilibria in two sets: equilibria that have
 \begin_inset Formula $\text{NE}_{\text{c}}(\NLinks,r)$
 \end_inset
 
-, and equilibria that have one link in free flow in their support, denoted
+, and equilibria that have one link in free-flow in their support, denoted
  by 
 \begin_inset Formula $\text{NE}_{\text{f}}(\NLinks,r)$
 \end_inset
@@ -2453,7 +2449,7 @@ Now we show that for a given
 \end_layout
 
 \begin_deeper
-\begin_layout Case
+\begin_layout Paragraph
 Suppose 
 \begin_inset Formula $(\flow,m),(\flow',m)\in\text{NE}_{\text{f}}(N,r)$
 \end_inset
@@ -2466,7 +2462,7 @@ Suppose
 \end_layout
 
 \begin_layout Standard
-Then since 
+then since 
 \begin_inset Formula $j\in\Supp{\flow}$
 \end_inset
 
@@ -2490,7 +2486,7 @@ reference "lem:filluplower"
 \begin_inset Formula $\flow'$
 \end_inset
 
- is, by assumption, in free flow, we have 
+ is, by assumption, in free-flow, we have 
 \begin_inset Formula $\max\Supp{\flow'}\geq j$
 \end_inset
 
@@ -2502,7 +2498,7 @@ reference "lem:filluplower"
 .
  But from 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand eqref
 reference "eq:contradiction"
 
 \end_inset
@@ -2513,14 +2509,18 @@ reference "eq:contradiction"
 
  which contradicts the definition of a Nash Equilibrium (a link in the support
  of a Nash Equilibrium has latency less than or equal to any other link).
- Thus 
-\begin_inset Formula $\text{NE}_{\text{c}}(N,r)$
+ Thus there is at most one assignment 
+\begin_inset Formula $x$
 \end_inset
 
- contains at most one element.
+ such that 
+\begin_inset Formula $(x,m)\in\text{NE}_{\text{c}}(N,r)$
+\end_inset
+
+.
 \end_layout
 
-\begin_layout Case
+\begin_layout Paragraph
 Suppose 
 \begin_inset Formula $(\flow,m),(\flow',m)\in\text{NE}_{\text{c}}(N,r)$
 \end_inset
@@ -2533,11 +2533,15 @@ Suppose
 \end_layout
 
 \begin_layout Standard
-Then since 
+then since 
 \begin_inset Formula $j\in\Supp{\flow}$
 \end_inset
 
- and every link in the support is congested, 
+ and every link in the support is congested (by definition of 
+\begin_inset Formula $\text{NE}_{\text{c}}(N,r)$
+\end_inset
+
+), then 
 \begin_inset Formula $m_{j}=1$
 \end_inset
 
@@ -2559,38 +2563,73 @@ Then since
 \end_inset
 
 .
- Similarly to the first case, this leads to a contradiction, which proves
- that 
-\begin_inset Formula $\text{NE}_{\text{c}}(N,r)$
+ Similarly to the first case, this leads to a contradiction since 
+\begin_inset Formula $\latency[i](x'_{i},m_{i})<\latency[j](x'_{j},m_{j})$
 \end_inset
 
- contains at most one element.
+, which proves that there is at most one assignment 
+\begin_inset Formula $x$
+\end_inset
+
+ such that 
+\begin_inset Formula $(x,m)\in\text{NE}_{\text{c}}(N,r)$
+\end_inset
+
+.
 \end_layout
 
 \end_deeper
 \begin_layout Standard
 This shows that there are at most 
-\begin_inset Formula $2\NLinks+1$
+\begin_inset Formula $2N$
 \end_inset
 
  Nash equilibria for the instance 
 \begin_inset Formula $(\NLinks,r)$
 \end_inset
 
- (
+: 
 \begin_inset Formula $\NLinks$
 \end_inset
 
- single link free-flow equilibria, and 
-\begin_inset Formula $N+1$
+ single link free-flow equilibria (corresponding to congestion states 
+\begin_inset Formula $m=(0,\dots,0)$
 \end_inset
 
- congested equilibria).
- Next we characterize single-link free-flow equilibria.
+, 
+\begin_inset Formula $m=(1,0,\dots,0)$
+\end_inset
+
+, 
+\begin_inset Formula $\dots$
+\end_inset
+
+, 
+\begin_inset Formula $m=(1,\dots,1,0)$
+\end_inset
+
+), and 
+\begin_inset Formula $N$
+\end_inset
+
+ congested equilibria (corresponding to congestion states 
+\begin_inset Formula $m=(1,0,\dots,0)$
+\end_inset
+
+, 
+\begin_inset Formula $\dots$
+\end_inset
+
+, 
+\begin_inset Formula $m=(1,\dots,1)$
+\end_inset
+
+).
+ Next we characterize single link free-flow equilibria.
 \end_layout
 
 \begin_layout Subsection
-Single-link free-flow Equilibria
+Single link free-flow Equilibria
 \end_layout
 
 \begin_layout Standard
@@ -2612,7 +2651,7 @@ Consider a Nash equilibrium
 \begin_inset Formula $(x,m)$
 \end_inset
 
- is a free flow Nash equilibrium).
+ is a free-flow Nash equilibrium).
  We have from Corollary 
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -2628,7 +2667,7 @@ reference "cor:atmost1ff"
 \begin_inset Formula $k$
 \end_inset
 
- is in free flow.
+ is in free-flow.
  Therefore we must have 
 \begin_inset Formula $\forall n\in\left\{ 1,\dots,k-1\right\} $
 \end_inset
@@ -2717,8 +2756,8 @@ Congestion Flows are decreasing
 \end_layout
 
 \begin_layout Standard
-We can now characterize single-link free flow equilibria.
- All single link free flow equilibria are of the form 
+We can now characterize single-link free-flow equilibria.
+ All single link free-flow equilibria are of the form 
 \family roman
 \series medium
 \shape up
@@ -2817,8 +2856,8 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Examples of 
-\begin_inset Formula $\hat{x}$
+Examples of congestion flows 
+\begin_inset Formula $\hat{x_{n}(k)}$
 \end_inset
 
 .
@@ -2856,11 +2895,11 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Example of 
-\begin_inset Formula $\bar{x}^{3,\qdemand},\bar{m}^{3}$
+Example of a single link free-flow assignment 
+\begin_inset Formula $(\bar{x}^{3,\qdemand},\bar{m}^{3})$
 \end_inset
 
- configuration.
+.
 \end_layout
 
 \end_inset
@@ -2878,8 +2917,7 @@ Example of
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Graphical illustration of Nash equilibria configurations when a link in
- the support is in free flow.
+Graphical illustration of single link free-flow Nash equilibria.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:xbar-and-hat-defns"
@@ -2960,8 +2998,12 @@ reference "eq:x_bar"
 \end_inset
 
 .
- By the assumption that 
+ And since 
 \begin_inset Formula $\cffMode[k]k=0$
+\end_inset
+
+ by definition of 
+\begin_inset Formula $\bar{m}_{k}$
 \end_inset
 
 , we also have 
@@ -2998,14 +3040,7 @@ reference "eq:x_bar"
 \begin_inset Formula $l_{n}(\opneFlow[n]k{\qdemand},\bar{\Mode}_{n}^{k})>a_{k}$
 \end_inset
 
-, which satisfies Definition 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "def:ne"
-
-\end_inset
-
-.
+, which satisfies the definition of a Nash equilibrium.
 \end_layout
 
 \begin_layout Subsection
@@ -3013,23 +3048,22 @@ Existence of a single-link free-flow Nash Equilibrium
 \end_layout
 
 \begin_layout Standard
-From 
+From property 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "prop:xbar"
 
 \end_inset
 
-, we have an analytical representation of free flow Nash equilibria.
+, we have an simple characterization of free-flow Nash equilibria.
  Next, we show that if the set of Nash equilibria is non-empty, then it
- contains a single link free flow Nash equilibrium (i.e.
- a Nash equilibrium for which there is a single link in free flow).
+ contains a single link free-flow equilibrium.
 \end_layout
 
 \begin_layout Lemma
 
 \series bold
-Existence of a single-link free-flow Nash equilibrium
+Existence of a single link free-flow Nash equilibrium
 \end_layout
 
 \begin_layout Lemma
@@ -3048,7 +3082,7 @@ Consider instance
 \begin_inset Formula $\NashEquilibrium{\NLinks}{\qdemand}\neq\emptyset$
 \end_inset
 
-, then there exists a free flow Nash equilibrium 
+, then there exists a free-flow Nash equilibrium 
 \family roman
 \series medium
 \shape up
@@ -3099,7 +3133,7 @@ reference "lem:filluplower"
 \begin_inset Formula $\forall r\in\left[0,\max_{1\leq k\leq\NLinks}\left\{ \flowMax[k]+\sum_{\link=1}^{k-1}\cffFlow{\link}k\right\} \right]$
 \end_inset
 
-, there exists a single-link free flow Nash equilibrium for the instance
+, there exists a single link free-flow Nash equilibrium for the instance
  
 \begin_inset Formula $(\NLinks,r)$
 \end_inset
@@ -3125,7 +3159,7 @@ We show
 \begin_inset Formula $0\le\qdemand\le\flowMax[1]$
 \end_inset
 
-, there is a single-link free flow Nash equilibrium 
+, there is a single-link free-flow Nash equilibrium 
 \begin_inset Formula $(x,m)=(r,0)$
 \end_inset
 
@@ -3156,49 +3190,16 @@ We show
 \end_layout
 
 \begin_deeper
-\begin_layout Paragraph
+\begin_layout Case
 If 
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-small
-\end_layout
-
+\begin_inset Formula $\qdemand\le\max_{1\leq k\leq\NLinks}\left\{ \flowMax[k]+\sum_{\link=1}^{k-1}\cffFlow{\link}k\right\} $
 \end_inset
 
-
+,
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\[
-\qdemand\le\max_{1\leq k\leq\NLinks}\left\{ \flowMax[k]+\sum_{\link=1}^{k-1}\cffFlow{\link}k\right\} 
-\]
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-normalsize
-\end_layout
-
-\end_inset
-
- then by the induction hypothesis there exists a single link free-flow Nash
+then by the induction hypothesis there exists a single link free-flow Nash
  equilibrium 
 \begin_inset Formula $(x,m)$
 \end_inset
@@ -3227,8 +3228,9 @@ normalsize
 .
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Case
 If
+ 
 \end_layout
 
 \begin_layout Standard
@@ -3249,9 +3251,10 @@ small
 
 \begin_layout Standard
 \begin_inset Formula 
-\begin{equation}
-\max_{1\leq k\leq\NLinks}\left\{ \flowMax[k]+\sum_{\link=1}^{k-1}\cffFlow{\link}k\right\} <\qdemand\le\max_{1\leq k\leq\NLinks+1}\left\{ \flowMax[k]+\sum_{\link=1}^{k-1}\cffFlow{\link}k\right\} \label{eq:im1}
-\end{equation}
+\begin{eqnarray}
+\max_{1\leq k\leq\NLinks}\left\{ \flowMax[k]+\sum_{\link=1}^{k-1}\cffFlow{\link}k\right\} \nonumber \\
+<r\le\max_{1\leq k\leq\NLinks+1} &  & \left\{ \flowMax[k]+\sum_{\link=1}^{k-1}\cffFlow{\link}k\right\} \label{eq:induction_2}
+\end{eqnarray}
 
 \end_inset
 
@@ -3268,7 +3271,7 @@ normalsize
 
 \end_inset
 
- we can show that 
+ then we can show that 
 \begin_inset Formula $\left(\opneFlow{N+1}{\qdemand},\cffMode{N+1}\right)\in\NashEquilibrium{\NLinks+1}{\qdemand}$
 \end_inset
 
@@ -3281,11 +3284,14 @@ reference "prop:xbar"
 \end_inset
 
 , we only need to show that 
-\begin_inset Formula $0\leq\qdemand-\sum_{\link=1}^{N}\cffFlow{\link}{N+1}\leq\flowMax[N+1]$
+\begin_inset Formula 
+\[
+0\leq\qdemand-\sum_{\link=1}^{N}\cffFlow{\link}{N+1}\leq\flowMax[N+1].
+\]
+
 \end_inset
 
-.
- 
+
 \end_layout
 
 \begin_layout Standard
@@ -3360,7 +3366,7 @@ normalsize
  thus from 
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:im1"
+reference "eq:induction_2"
 
 \end_inset
 
@@ -3409,7 +3415,7 @@ small
 
 \begin_inset Formula 
 \begin{align*}
-r & \ge\flowMax[N]+\sum_{\link=1}^{N-1}\cffFlow{\link}N & \text{using \eqref{eq:im1}}\\
+r & \ge\flowMax[N]+\sum_{\link=1}^{N-1}\cffFlow{\link}N & \text{using \eqref{eq:induction_2}}\\
  & \ge\flowMax[N]+\sum_{\link=1}^{N-1}\cffFlow{\link}{N+1} & \text{since }\text{\cffFlow nN\geq\cffFlow n{N+1}}\\
  & \geq\cffFlow N{N+1}+\sum_{\link=1}^{N-1}\cffFlow{\link}{N+1} & \text{since }\text{\flowMax[N]\geq\cffFlow N{N+1}}\\
  & =\sum_{\link=1}^{N}\cffFlow{\link}{N+1}
@@ -3433,7 +3439,10 @@ normalsize
 
 \end_inset
 
- thus we obtain the desired inequality 
+ thus we obtain the desired inequality
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula $\qdemand-\sum_{\link=1}^{N}\cffFlow{\link}{N+1}\geq0$
 \end_inset
 
@@ -3448,6 +3457,7 @@ normalsize
 .
 \end_layout
 
+\end_deeper
 \begin_layout Proof
 This achieves the induction.
 \end_layout
@@ -3507,8 +3517,8 @@ Let
 \begin_inset Formula $(\tilde{x},\tilde{m})\in\NashEquilibrium kr$
 \end_inset
 
-, and the cost of this equilibrium is simply 
-\begin_inset Formula $C(\tilde{x},\tilde{m})=a_{k}r$
+, and the cost of this equilibrium is 
+\begin_inset Formula $C(\tilde{x},\tilde{m})\leq a_{k}r$
 \end_inset
 
 .
@@ -3529,7 +3539,7 @@ Let
 \end_inset
 
 , and 
-\begin_inset Formula $C(x',m')=a_{k}r$
+\begin_inset Formula $C(x',m')=C(\tilde{x},\tilde{m})\leq a_{k}r$
 \end_inset
 
 .
@@ -3557,42 +3567,20 @@ name "sub:Best-Nash-Equilibria"
 \end_layout
 
 \begin_layout Standard
-In Section 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "sub:Traffic-Networks-Have"
-
-\end_inset
-
-, we showed that any assignment at Nash equilibrium has at most one link
- in free flow.
- We also showed that if there exists a completely congested Nash equilibrium,
- then there also exists a single-link free flow Nash equilibrium
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: corresponding to the same optimal cost? 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-J: I don't think I understand, but I believe the answer is no.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-.
- We define the 
+In order to study the inefficiency of Nash equilibria, and the improvement
+ of performance that we can achieve using a Stackelberg game (where a fraction
+ of the total flow is controlled by a central authority), we focus our attention
+ on 
 \emph on
-best Nash equilibrium
+best Nash equilibria
 \emph default
- (BNE) to be the Nash equilibrium of least total latency
+ and 
+\emph on
+Price of Stability 
+\emph default
+as a measure of their inefficiency (see for example ).
+ A best Nash equilibrium (BNE) is defined to be a Nash equilibrium of least
+ total latency.
 \end_layout
 
 \begin_layout Definition
@@ -3668,7 +3656,7 @@ name "theorem:minsupport"
 \begin_inset Formula $(\NLinks,r)$
 \end_inset
 
-, the unique Best Nash Equilibrium is the single-link free-flow equilibrium
+, the unique best Nash equilibrium is the single-link free-flow equilibrium
  that has smallest support
 \begin_inset Formula 
 \[
@@ -3745,15 +3733,6 @@ reference "theorem:minsupport"
 \end_inset
 
 .
- This characterization will also be useful when describing Stackelberg equilibri
-a in 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "sec:Optimal-Stackelberg-strategies"
-
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Subsection
@@ -3797,7 +3776,7 @@ reference "alg:bestNE"
 
 , which outputs a candidate 
 \emph on
-last-link-free-flow
+single-link-free-flow
 \emph default
  assignment for the instance 
 \begin_inset Formula $(\NLinks,r)$
@@ -3815,7 +3794,7 @@ reference "eq:x_bar"
 \end_inset
 
 ).
- Starting with link 1 in free flow, 
+ Starting with link 1 in free-flow, 
 \begin_inset Formula $\texttt{bestNE}$
 \end_inset
 
@@ -3830,7 +3809,7 @@ reference "eq:x_bar"
 \end_inset
 
  terminates.
- If not, the free flow link index is incremented by one, and the process
+ If not, the free-flow link index is incremented by one, and the process
  is repeated until either a feasible assignment is found, or the number
  of links exceeds 
 \begin_inset Formula $\NLinks$
@@ -3894,7 +3873,7 @@ reference "alg:bestNE"
 \end_inset
 
 , we can precompute 
-\begin_inset Formula $\cffFlow ij\forall(i,j)\in\NLinks\times\NLinks$
+\begin_inset Formula $\cffFlow ij\forall1\leq i<j\leq N)$
 \end_inset
 
  in 
@@ -3947,6 +3926,18 @@ J: needs an intro, will work on later
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+To study the inefficiency of Nash equilibria, in particular of the best
+ Nash equilibrium, we use Price of Stability as a measure of inefficiency.
+ Price of Stability is defined as the fraction of the cost of the best Nash
+ Equilibrium by the social optimal cost.
+ We first compute the cost of the social optimum, then consider a simple
+ two link parallel network and derive the Price of Stability for a triangular
+ fundamental diagram.
+ This example network will be useful for illustrating the dependency of
+ the Price of Stability on the flow demand and the free-flow latencies.
 \end_layout
 
 \begin_layout Subsection
@@ -4043,7 +4034,7 @@ name "lemma:socialOpt_is_ff"
 \begin_layout Proof
 This follows immediately from the fact the latency on a link in congestion
  is always greater than the latency of the link in free-flow 
-\begin_inset Formula $l_{n}(\flow[n],1)\geq l_{n}(\flow[n],0)$
+\begin_inset Formula $l_{n}(\flow[n],1)>l_{n}(\flow[n],0)$
 \end_inset
 
  
@@ -4124,18 +4115,11 @@ key "roughgarden2004bounding,roughgarden2002bad"
 
 \end_inset
 
- and Price of Stability 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "koutsoupias1999worst"
-
-\end_inset
-
-.
+ and Price of Stability ().
  The Price of Anarchy is defined as the ratio between the cost of the worst
  Nash equilibrium and the the social optimum cost, while the Price of Stability
  is defined as the ratio between the best Nash equilibrium and the social
- optimum cost.
+ optimal cost.
  For the case of non-decreasing latency functions, the Price of Anarchy
  and the Price of Stability coincide since all Nash equilibria have the
  same cost by the essential uniqueness property
@@ -4211,17 +4195,18 @@ Alex: is it contingent on
 
 \end_inset
 
-From the analysis of 
+From the expression 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:so"
 
 \end_inset
 
- and Algorithm 
+ of the social optimum and the characterization of the best Nash equilibrium
+ in Theorem 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:bestNE"
+reference "theorem:minsupport"
 
 \end_inset
 
@@ -4244,7 +4229,7 @@ reference "eq:so"
 
 \end_inset
 
-, all the demand will be on link 1 in free flow.
+, all the demand will be on link 1 in free-flow.
  Similarly, from Theorem 
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -4256,20 +4241,20 @@ reference "theorem:minsupport"
 \begin_inset Formula $\qdemand$
 \end_inset
 
- in free flow and the support cannot be smaller than a single link, then
+ in free-flow and the support cannot be smaller than a single link, then
  
 \begin_inset Formula $\BestNashEquilibrium 2{\qdemand}$
 \end_inset
 
- has all flow demand on link 1 in free flow, and is equivalent to the social
+ has all flow demand on link 1 in free-flow, and is equivalent to the social
  optimum.
- In this case, the Price of Stability is equal to 1, i.e there is no drop
+ In this case, the Price of Stability is equal to 1, i.e there is no decrease
  in efficiency due to selfish routing.
 \end_layout
 
 \begin_layout Paragraph
 Case 2: 
-\begin_inset Formula $\qdemand>\flowMax[1]$
+\begin_inset Formula $\flowMax[1]<\qdemand\leq\flowMax[2]+\cffFlow 12$
 \end_inset
 
 :
@@ -4311,12 +4296,12 @@ reference "theorem:minsupport"
 \begin_inset Formula $\BestNashEquilibrium 2{\qdemand}$
 \end_inset
 
- has a single link in free flow.
+ has a single link in free-flow.
  Since the total demand exceeds the capacity of link 
 \begin_inset Formula $1$
 \end_inset
 
-, then under a Best Nash Equilibrium, link 2 is in free flow, and link 1
+, then under a best Nash equilibrium, link 2 is in free-flow, and link 1
  is congested.
  Therefore 
 \begin_inset Formula $\Mode[\text{NE}](r)=(1,0)$
@@ -4338,12 +4323,8 @@ reference "alg:bestNE"
 \begin_inset Formula $(\cffFlow 12,\qdemand-\cffFlow 12)$
 \end_inset
 
- (where we also implicitly assume that 
-\begin_inset Formula $\flowMax[2]\ge\qdemand-\cffFlow 12$
-\end_inset
-
-).
- The comparison of the social optimum and Nash equilibrium conditions are
+.
+ The comparison of the social optimum and Nash equilibrium assignments are
  depicted in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4543,33 +4524,70 @@ Computing the Price of Stability when
 \end_layout
 
 \begin_layout Standard
-First, we note that as 
+In this simple two-link parallel network, the Price of Stability is maximal
+ at 
+\begin_inset Formula $r=\flowMax[1]$
+\end_inset
+
+ and equal to 
+\begin_inset Formula $\frac{a_{2}}{a_{1}}$
+\end_inset
+
+.
+ This shows in particular that for the general class of horizontal queuing
+ congestion latencies, the Price of Stability is unbounded, since for any
+ demand 
+\begin_inset Formula $r$
+\end_inset
+
+ and any positive constant 
+\begin_inset Formula $A$
+\end_inset
+
+, we can design an instance 
+\begin_inset Formula $(2,r)$
+\end_inset
+
+ such that the Price of Stability is 
+\begin_inset Formula $\frac{a_{2}}{a_{1}}>A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Also note that for a fixed flow demand 
+\begin_inset Formula $r$
+\end_inset
+
+, the Price of Stability is an increasing function of 
+\begin_inset Formula $\frac{a_{2}}{a_{1}}$
+\end_inset
+
+.
+ And as 
 \begin_inset Formula $\parA[2]\rightarrow\parA[1]$
 \end_inset
 
 , the Price of Stability goes to 1.
- Intuitively, what this says is that inefficiencies in Nash equilibrium
- can be directly attributed to the difference in free-flow latency between
- the links.
- As the differences in free flow latency increases, so will the Price of
+ Intuitively, the inefficiency of Nash equilibria can be directly attributed
+ to the difference in free-flow latency between the links.
+ As the differences in free-flow latency increases, so will the Price of
  Stability.
- Additionally, as the demand 
+\end_layout
+
+\begin_layout Standard
+Additionally, as the demand 
 \begin_inset Formula $r\geq\flowMax[1]$
 \end_inset
 
  increases, the Price of Stability decreases.
- This occurs because the absolute difference in total latency between social
- optimum and Nash equilibrium is constant for 
+ This occurs because the difference in total latency between social optimum
+ and Nash equilibrium is constant for 
 \begin_inset Formula $r\geq\flowMax[1]$
 \end_inset
 
 .
- Note the discontinuity in total latency for Nash equilibrium that occurs
- when demand exceeds the capacity of the first link (
-\begin_inset Formula $\qdemand>\flowMax[1]$
-\end_inset
-
-).
 \end_layout
 
 \begin_layout Standard
@@ -4586,12 +4604,21 @@ Alex: Rephrase in non-transportation network.
 \end_layout
 
 \begin_layout Standard
-We can conclude from the Price of Stability analysis of the two-link case
- that selfish routing is most costly in the demand region where a free flow
- link is near capacity.
+This also shows that selfish routing is most costly when a free-flow link
+ is near maximum capacity (note the discontinuity in total latency for Nash
+ equilibrium that occurs when demand exceeds the capacity of the first link
+ 
+\begin_inset Formula $\qdemand>\flowMax[1]$
+\end_inset
+
+).
  If a controller were to anticipate a scenario where demand was slightly
  above this capacity, they could dramatically reduce the inefficiency of
- the Nash equilibrium by rerouting a small fraction of the flow.
+ the Nash equilibrium by rerouting a small fraction of the flow and keeping
+ the link in free-flow.
+ This leads to defining a Stackelberg game where a leader, or a central
+ authority, controls a fraction of the flow in order to improve the total
+ latency on the network.
 \end_layout
 
 \begin_layout Section
@@ -4606,9 +4633,10 @@ name "sec:Stackelberg-routing"
 \end_layout
 
 \begin_layout Standard
-In order to reduce the inefficiency of the network, we assume that a fraction
- of the flow is centrally controlled, and we investigate possible strategies
- for improving the equilibria of the network.
+In order to reduce the inefficiency of the network due to selfish routing
+ and lack of coordination, we assume that a fraction of the flow is centrally
+ controlled, and we investigate possible strategies for improving the equilibria
+ of the network.
  Leader-follower routing games have been considered in the transportation
  literature 
 \begin_inset CommandInset citation
@@ -4625,9 +4653,9 @@ key "aswani2011game,joksimovicdifferent"
 \end_inset
 
 .
- Previous literature does not consider a decrease in flow on a link as a
- result of density buildup, while the class of latency functions presented
- in section 
+ However, latency functions considered in the previous literature do not
+ model decrease in flow on a link as a result of density buildup, while
+ the class of latency functions introduced in 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "sec:The-Model"
@@ -4635,6 +4663,10 @@ reference "sec:The-Model"
 \end_inset
 
  better models horizontal queuing.
+ In this section, we setup the problem and introduce useful definitions.
+ In the next section, we show that optimal Stackelberg strategies for this
+ new class of latency can be computed in polynomial time, and give a constructiv
+e algorithm for computing such an optimal strategy.
 \end_layout
 
 \begin_layout Subsection
@@ -4676,7 +4708,7 @@ compliant
 \begin_inset Formula $s$
 \end_inset
 
- satisfies the following relations: 
+ satisfies: 
 \begin_inset Formula 
 \begin{align*}
 \cFlow[\link]\leq\flow[\link]^{\max}\,\forall n\leq N &  & \sum_{n}\cFlow[\link]=\compRate r
@@ -4792,7 +4824,7 @@ This can be summarized in the following definition of a Stackelberg strategy
 \begin_inset Formula $(\NLinks,r,\compRate)$
 \end_inset
 
- of the Stackelerg game on a network with 
+ of the Stackelberg game on a network with 
 \begin_inset Formula $\NLinks$
 \end_inset
 
@@ -4857,6 +4889,10 @@ reference "def:bne"
 \end_inset
 
  and 
+\begin_inset Formula $\exists l_{0}>0$
+\end_inset
+
+ such that 
 \begin_inset Formula 
 \begin{align*}
 \forall n\in\Supp{\ncFlow(\cFlow)},\, & \latency[\link]\left(\cFlow[\link]+\ncFlow[\link](\cFlow),\Mode[\link](\cFlow)\right)=\latency[0]\\
@@ -5037,6 +5073,21 @@ In other words, the last link in the support of
 \end_inset
 
  is in free-flow.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Proof
@@ -5044,7 +5095,7 @@ Note that
 \begin_inset Formula $(t(s),m(s))$
 \end_inset
 
- is an assignment at Nash for the instance 
+ is a Nash equilibrium for the instance 
 \begin_inset Formula $(N,\compRate r)$
 \end_inset
 
@@ -5133,8 +5184,8 @@ s^{*}=\arg\min_{s\in\StackSet}C\left(s+\ncFlow(\cFlow),m(\cFlow)\right)
 
 \end_inset
 
- and a Stackelberg equilibrium is a Nash equilibrium 
-\begin_inset Formula $(\ncFlow(s^{*}),m(s^{*}))$
+ and a Stackelberg equilibrium is the equilibrium 
+\begin_inset Formula $(s^{*}+\ncFlow(s^{*}),m(s^{*}))$
 \end_inset
 
  induced by optimal strategy 
@@ -5144,108 +5195,8 @@ s^{*}=\arg\min_{s\in\StackSet}C\left(s+\ncFlow(\cFlow),m(\cFlow)\right)
 .
 \end_layout
 
-\begin_layout Section
-Computing the optimal Stackelberg strategy
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Computing-the-optimal"
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
-In this section, we show the following result: the optimal Stackelberg strategy
- can be computed in polynomial time for parallel networks with 
-\begin_inset Formula $N$
-\end_inset
-
- links for the class of congestion functions defined in 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "sub:latency_class"
-
-\end_inset
-
-.
- This result contrasts with the class of non-decreasing latency functions
- where the optimal Stackelberg strategy is shown to be NP-hard to compute,
- see
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "roughgarden2001stackelberg"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-The optimal Stackelberg strategy in our case corresponds to:
-\end_layout
-
-\begin_layout Itemize
-First computing the best Nash equilibrium of non-compliant users alone,
- 
-\begin_inset Formula $(\bar{t},\bar{m)}=\BestNashEquilibrium N{(1-\compRate)r}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Then assigning the compliant flow by filling the remaining links, i.e.
- those that are not congested under 
-\begin_inset Formula $(\bar{t},\bar{m})$
-\end_inset
-
-, up to maximum capacity, starting with the faster links.
- 
-\end_layout
-
-\begin_layout Standard
-Intuitively, the best induced Nash equilibrium 
-\begin_inset Formula $(t(s),m(s))$
-\end_inset
-
- of any Stackelberg strategy 
-\begin_inset Formula $s$
-\end_inset
-
- will be more congested than the best Nash equilibrium 
-\begin_inset Formula $(\bar{t},\bar{\Mode})$
-\end_inset
-
- of instance 
-\begin_inset Formula $(\NLinks,(1-\compRate)r)$
-\end_inset
-
- (when the non-compliant flow is the only flow on the network).
- So if we can find a strategy 
-\begin_inset Formula $\bar{s}$
-\end_inset
-
- that induces equilibrium 
-\begin_inset Formula $(\bar{t},\bar{\Mode})$
-\end_inset
-
- and that has minimal cost, then one expects this strategy to be optimal.
- Next, we detail this idea by defining a candidate Stackelberg strategy
- 
-\begin_inset Formula $\bar{s}$
-\end_inset
-
- that will later be shown to be optimal.
-\end_layout
-
-\begin_layout Standard
-We first introduce a definition that will be useful in proving the main
- result.
+We also introduce a definition that will be useful in proving the main result.
 \end_layout
 
 \begin_layout Definition
@@ -5297,6 +5248,10 @@ l_{n}(\flow[n],\Mode[n])\geq\parA[i]
 \end_inset
 
 This is equivalent to 
+\begin_inset Formula $\Mode[n]=1$
+\end_inset
+
+ and 
 \begin_inset Formula $\flow[n]\leq\cffFlow ni$
 \end_inset
 
@@ -5337,11 +5292,11 @@ Note that if
 \end_layout
 
 \begin_layout Standard
-In a network at Best Nash Equilibrium 
+And if 
 \begin_inset Formula $(t,\Mode)$
 \end_inset
 
-, if 
+ is a single link free-flow equilibrium, and 
 \begin_inset Formula $i=\max\Supp t$
 \end_inset
 
@@ -5354,6 +5309,105 @@ In a network at Best Nash Equilibrium
 \end_inset
 
 -congested.
+\end_layout
+
+\begin_layout Section
+Computing the optimal Stackelberg strategy
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Computing-the-optimal"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this section, we show the following result: the optimal Stackelberg strategy
+ can be computed in polynomial time for parallel networks with 
+\begin_inset Formula $N$
+\end_inset
+
+ links for the class of congestion functions defined in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sub:latency_class"
+
+\end_inset
+
+.
+ This result contrasts with the class of non-decreasing latency functions
+ where the optimal Stackelberg strategy is shown to be NP-hard to compute,
+ see
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "roughgarden2001stackelberg"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The optimal Stackelberg strategy in our case corresponds to:
+\end_layout
+
+\begin_layout Itemize
+First computing the best Nash equilibrium of non-compliant agents alone,
+ 
+\begin_inset Formula $(\bar{t},\bar{m})=\BestNashEquilibrium N{(1-\compRate)r}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Then assigning the compliant flow by filling the remaining links (i.e.
+ those that are not congested under 
+\begin_inset Formula $(\bar{t},\bar{m})$
+\end_inset
+
+), up to maximum capacity, starting with the faster links.
+ 
+\end_layout
+
+\begin_layout Standard
+Intuitively, the best induced Nash equilibrium 
+\begin_inset Formula $(t(s),m(s))$
+\end_inset
+
+ of any Stackelberg strategy 
+\begin_inset Formula $s$
+\end_inset
+
+ will be more congested than the best Nash equilibrium 
+\begin_inset Formula $(\bar{t},\bar{\Mode})$
+\end_inset
+
+ of instance 
+\begin_inset Formula $(\NLinks,(1-\compRate)r)$
+\end_inset
+
+.
+ So if we can find a strategy 
+\begin_inset Formula $\bar{s}$
+\end_inset
+
+ that induces equilibrium 
+\begin_inset Formula $(\bar{t},\bar{\Mode})$
+\end_inset
+
+ and that has minimal cost, then one expects this strategy to be optimal.
+ Next, we detail this idea by defining a candidate Stackelberg strategy
+ 
+\begin_inset Formula $\bar{s}$
+\end_inset
+
+ that will later be shown to be optimal.
 \end_layout
 
 \begin_layout Subsection
@@ -5678,6 +5732,8 @@ Equilibrium induced by candidate Stackelberg strategy
 \end_inset
 
  are highlighted.
+ In this example, latencies are taken to be affine in congestion for simplicity,
+ the results hold for the general class of horizontal queuing latencies.
  
 \end_layout
 
@@ -6316,7 +6372,7 @@ reference "eq:opt_stack_flows"
 \begin_inset Formula $n$
 \end_inset
 
- is in free flow and at maximum capacity under assignment 
+ is in free-flow and at maximum capacity under assignment 
 \begin_inset Formula $(\bar{x},\bar{m})$
 \end_inset
 
@@ -6745,12 +6801,12 @@ reference "fig:Map-of-parallel"
 placement h
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /Users/jdr/Documents/github-projects/AGT-stackelberg/figures/ParallelHighwayMap.pdf
+	filename ../figures/ParallelHighwayMap.pdf
 	width 2.5in
 
 \end_inset
@@ -6804,7 +6860,7 @@ reference "fig:Latency-functions-for"
  shows the latency functions for the highway network, which were generated
  from the assumption of a triangular fundamental diagram (constant positive
  slope in free-flow region, constant negative slope in congestion region).
- Under free flow conditions, I-101 is the fastest route available between
+ Under free-flow conditions, I-101 is the fastest route available between
  San Francisco and San Jose.
  But when I-101 becomes congested, other routes become viable.
  To analyze how congestion increases with demand, we compute total network
