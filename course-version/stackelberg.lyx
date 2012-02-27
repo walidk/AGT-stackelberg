@@ -460,8 +460,7 @@ J: Keep this introductory paragraph?
 \begin_layout Standard
 Consider a congestion game on a parallel link network.
  Each link has a dual-mode latency function where latency in constant in
- free-flow mode and latency is decreasing in congestion with respect to
- flow.
+ free-flow and latency is decreasing in congestion with respect to flow.
  From these assumptions, we show the following results:
 \end_layout
 
@@ -580,6 +579,14 @@ reference "sec:Computing-the-optimal"
 \end_inset
 
  link networks.
+ Some numerical results are presented in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Numerical-Results"
+
+\end_inset
+
+.
  The article concludes with some finishing remarks and directions for future
  research.
 \end_layout
@@ -1067,6 +1074,47 @@ reference "fig:permfds"
 \end_layout
 
 \begin_layout Standard
+One particular class of fundamental diagrams that satisfy the above assumptions
+ are triangular fundamental diagrams 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "daganzo1994cell,daganzo1995cell"
+
+\end_inset
+
+, which have constant positive slope 
+\begin_inset Formula $\speedff$
+\end_inset
+
+ in the free-flow region, constant negative slope 
+\begin_inset Formula $\speedCong$
+\end_inset
+
+ in the congestion region, and a max flow 
+\begin_inset Formula $\flowMax$
+\end_inset
+
+.
+ Assumptions 1 and 2 are satisfied by seeing that 
+\begin_inset Formula $\masscrit=\frac{\flowMax}{\speedff}$
+\end_inset
+
+, and Assumption 3 is satisfied by seeing that 
+\begin_inset Formula $\frac{d\flow\left(\mass\right)}{d\mass}=\speedCong\le0\le\frac{x\left(\mass\right)}{\mass}$
+\end_inset
+
+.
+ The dotted line in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Fundamental-diagram-examples."
+
+\end_inset
+
+ shows a triangular fundamental diagram.
+\end_layout
+
+\begin_layout Standard
 Now that the allowable fundamental diagrams is derived, Equation 
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -1102,13 +1150,46 @@ reference "fig:example-rho-latency"
 \end_inset
 
 .
+ For a triangular fundamental diagram, the latency can be explicitly stated:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\latency[\triangle]^{\mass}\left(\mass\right)=\begin{cases}
+\frac{\Length}{\speedff} & 0\le\mass\le\frac{\flowMax}{\speedff}\\
+\frac{\Length\mass}{\speedCong\left(\mass-\massmax\right)} & \frac{\flowMax}{\speedff}<\mass\le\massmax
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\massmax=\flowMax\left(\frac{1}{\speedff}-\frac{1}{\speedCong}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1133,6 +1214,13 @@ status collapsed
 
 \begin_layout Plain Layout
 Fundamental diagram examples.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Fundamental-diagram-examples."
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1218,7 +1306,7 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Latency as a function of flow and mode examples.
+Latency as a function of flow and state examples.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:example-flow-latency"
@@ -1266,7 +1354,7 @@ reference "sub:Deriving-a-Class"
 \end_layout
 
 \begin_layout Subsection
-Latency as a function of Flow and Mode
+Latency as a function of flow and congestion state
 \end_layout
 
 \begin_layout Standard
@@ -1315,7 +1403,7 @@ While expressing latency as a function of density is intuitive and succinct
 
 \begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 A: With an abuse of notation and keeping the notation l for latency, 
@@ -1340,7 +1428,7 @@ We can now define our class of latency functions
 \begin_inset Formula $\latency[\link]$
 \end_inset
 
- as a function of both flow and mode:
+ as a function of both flow and congestion state:
 \end_layout
 
 \begin_layout Standard
@@ -1418,6 +1506,20 @@ reference "fig:example-flow-latency"
 \end_inset
 
 .
+ Again, a triangular fundamental diagram can be readily expressed in flow-conges
+tion state form:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\latency[\triangle]\left(x,0\right) & = & \frac{\Length}{\speedff}\\
+\latency[\triangle]\left(\flow,1\right) & = & L\left(\frac{\massmax}{\flow}+\left(\speedCong\right)^{-1}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1485,7 +1587,7 @@ where
 \begin_inset Formula $\left\{ \Mode[i]:i\in\left\{ 1,\ldots,\NLinks\right\} \right\} $
 \end_inset
 
- of mode values for the entire network.
+ of state values for the entire network.
 \end_layout
 
 \begin_layout Section
@@ -4558,7 +4660,14 @@ In this simple two-link parallel network, the Price of Stability is maximal
 \begin_inset Formula $\frac{a_{2}}{a_{1}}$
 \end_inset
 
-.
+ (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:POS-plot"
+
+\end_inset
+
+).
  This shows in particular that for the general class of horizontal queuing
  congestion latencies, the Price of Stability is unbounded, since for any
  demand 
@@ -6782,6 +6891,13 @@ Finally, we note that the Non-compliant First strategy is, in general, not
 
 \begin_layout Section
 Numerical Results
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Numerical-Results"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -7020,8 +7136,8 @@ We also note that for a fixed compliance rate
 ) is proportional to the fractional compliance.
  Observing the behavior around the 600-800 cars/minute, it takes about 30
  extra cars/minute to congest the second link with 5% compliance, about
- 100 cars/minute for 15% compliance, while the second link appears to only
- congest near network capacity for 50% compliance.
+ 100 cars/minute for 15% compliance, while for 50% compliance, the second
+ link appears to only congest near network capacity.
 \end_layout
 
 \begin_layout Standard
@@ -7160,7 +7276,7 @@ key "aswani2011game"
 \begin_layout Standard
 \begin_inset Formula 
 \[
-VOA\left(\NLinks,\qdemand,\compRate\right)=\frac{\min_{s\in\StackSet}C\left(s+\ncFlow(\cFlow),m(\cFlow)\right)}{C\left(\BestNashEquilibrium{\NLinks}{\qdemand}\right)}
+VOA\left(\NLinks,\qdemand,\compRate\right)=\frac{\min_{s\in\StackSet}C\left(s+\ncFlow(\cFlow),m(\cFlow)\right)}{C\left(\flow[\BestNashEquilibrium{\NLinks}{\qdemand}],m_{\BestNashEquilibrium{\NLinks}{\qdemand}}\right)}
 \]
 
 \end_inset
@@ -7285,9 +7401,9 @@ Scaling of optimal Stackelberg strategy algorithm on size of network
 To demonstrate the performance of the algorithm as the size of the network
  scales up, the computation time of the optimal Stackelberg strategy was
  measured for 500 randomly generated networks.
- The number of links in the network was chosen to be between 3 and 1500
- where the latency properties of each link were generated from randomly
- chosen triangular fundamental diagrams.
+ The number of links in a network was chosen to be between 3 and 1500 where
+ the latency properties of each link were generated from randomly chosen
+ triangular fundamental diagrams.
  The compliance rate was constant at 40% and the demand was chosen to be
  70% that of the maximum capacity of the network at best Nash equilibrium.
  The results are shown in Figure 
