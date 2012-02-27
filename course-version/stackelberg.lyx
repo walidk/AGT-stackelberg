@@ -145,28 +145,22 @@ Congestion Games and Stackelberg Routing
 \end_layout
 
 \begin_layout Standard
-Congestion games on networks involve assigning flows to particular routes
- in order to achieve some end result.
- Typical areas of study in congestion games are Nash equilibria (or user
- optimal) assignments 
+Congestion games form an important class of non-atomic games that is used
+ to model the interaction of agents who are using resources on a network,
+ where the cost on each edge depends on the fraction of agents using that
+ edge.
+ Extensive work has been dedicated to studying Nash equilibria (or user
+ optimal assignments) of congestion games 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "lo2002cell,papadimitriou2010new,roughgarden2002bad"
 
 \end_inset
 
-, where all players choose routes that minimize individual costs, and system
- optimum assignments 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "aswani2011game,roughgarden2004bounding,zheng2011network,ziliaskopoulos2000linear"
-
-\end_inset
-
-, where a central body assigns flow as to minimize a cost function over
- all players.
- Given convexity of the latency functions, Nash equilibrium can be solved
- via convex optimization 
+, where all players are assumed to choose the routes that minimize individual
+ costs.
+ Under some assumptions on the latency functions, Nash equilibria can be
+ computed as a solution of a convex optimization problem 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "kelly2001mathematical"
@@ -174,9 +168,23 @@ key "kelly2001mathematical"
 \end_inset
 
 .
- Another type of congestion is Stackelberg routing games, where a fraction
- of the network is centrally controlled, while the rest is free to act selfishly
+ Nash equilibria of congestion games are known to be inefficient compared
+ to the system optimal assignments, where a coordinator, or a central authority,
+ assigns flow as to minimize a cost function over all players 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "aswani2011game,roughgarden2004bounding,zheng2011network,ziliaskopoulos2000linear"
+
+\end_inset
+
+.
  
+\end_layout
+
+\begin_layout Standard
+In order to address this inefficiency, Stackelberg routing games have been
+ proposed, where a fraction of the agents is centrally controlled, while
+ the rest is free to act selfishly 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "aswani2011game,roughgarden2001stackelberg"
@@ -184,9 +192,9 @@ key "aswani2011game,roughgarden2001stackelberg"
 \end_inset
 
 .
- Typically, the objective in Stackelberg games is to route the centrally
- controlled flow in a manner that minimizes a system-wide cost function
- in anticipation of the rest of the flow's selfish response.
+ The objective of the coordinator in the Stackelberg game is to route the
+ compliant flow in a manner that minimizes a system-wide cost function in
+ anticipation of the rest of the flow's selfish response.
  Other variants of congestion games exist in the game theory literature
  
 \begin_inset CommandInset citation
@@ -206,10 +214,10 @@ key "morgan2003spite"
 \end_layout
 
 \begin_layout Standard
-Stackelberg routing on parallel link networks has been studied extensively
- for the class of non-decreasing latency functions, and it is known that
- computing the optimal Stackelberg strategy is NP-hard in the number of
- links.
+Congestion games and Stackelberg routing on parallel networks have been
+ studied extensively for the class of non-decreasing latency functions,
+ and it is known that computing the optimal Stackelberg strategy is NP-hard
+ in the number of links.
  This led to considering polynomial time approximate strategies such as
  Largest Latency First and Scale (see 
 \begin_inset CommandInset citation
@@ -234,14 +242,7 @@ name "sub:A-New-Class"
 
 \begin_layout Standard
 The class of latency functions that have been studied so far in Stackelberg
- literature 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "roughgarden2001stackelberg"
-
-\end_inset
-
- rely on very specific assumptions: if 
+ routing literature rely on the following assumptions: if 
 \begin_inset Formula $l(\flow)$
 \end_inset
 
@@ -257,7 +258,14 @@ key "roughgarden2001stackelberg"
 \begin_inset Formula $\flow\longmapsto\flow l(\flow)$
 \end_inset
 
- is assumed to be convex.
+ is assumed to be convex 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "roughgarden2001stackelberg"
+
+\end_inset
+
+.
  While this class of latency functions provides a good model for congestion
  for a considerable range of networks, such as communication networks, it
  does not accurately model horizontal queueing congestion, such as congestion
@@ -287,7 +295,7 @@ or few cars moving fast (low density), in which case the latency is small.
 
 \begin_layout Standard
 This means that the latency is not uniquely determined by the flow, and
- depends on how congested the link is.
+ depends on the congestion state of the link.
  One simple way of modeling this phenomenon is to have an additional binary
  argument 
 \begin_inset Formula $m$
@@ -306,16 +314,16 @@ This means that the latency is not uniquely determined by the flow, and
 \end_inset
 
 .
- This work considers a macroscopic model of traffic flow inspired by the
- model developed by Lighthill and Whitham, and Richards 
+ We show for example that in transportation networks, latency functions
+ derived from a macroscopic model of traffic flow developed by Lighthill
+ and Whitham, and Richards 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "lighthill1955kinematic,richards1956shock"
 
 \end_inset
 
-, and show that the resulting latency function can be expressed in the above
- form 
+, can be expressed in the above form 
 \begin_inset Formula $l(\flow,\Mode)$
 \end_inset
 
@@ -334,10 +342,8 @@ function of flow.
 \end_layout
 
 \begin_layout Standard
-There exists a large body of literature in horizontal queueing theory that
- analyzes game-theoretic concepts.
- Popular problems revolve around dynamic traffic assignment problems for
- user optimal assignments 
+A large body of literature in horizontal queueing theory studied game-theoretic
+ concepts, such as dynamic traffic assignment for user equilibria 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "friesz2006solving,lo2002cell,wang2001freeway"
@@ -352,9 +358,8 @@ key "zheng2011network,ziliaskopoulos2000linear"
 \end_inset
 
 .
- To the knowledge of the authors, there does not exist a study of optimal
- assignment of routes to a fraction of users on a horizontal queueing network
- that considers the problem of scaling to more alternate route choices.
+ However, to the knowledge of the authors, optimal Stackelberg routing on
+ horizontal queuing networks has not been addressed so far.
 \end_layout
 
 \begin_layout Subsection
@@ -369,7 +374,7 @@ name "sub:Motivating-Example"
 \end_layout
 
 \begin_layout Standard
-Advances in technology has enable a central agency to have influence over
+Advances in technology have enabled a central agency to have influence over
  the driving habits of individual users on a road network.
  Contact could be made via a GPS-enabled smartphone application or before
  and after-market vehicular navigation systems.
@@ -440,34 +445,18 @@ Contributions of This Article
 \end_layout
 
 \begin_layout Standard
-We address a number of existing problems in the current literature for fractiona
-l compliance on networks in the context of a class of latency functions
- expressive enough to model congestion on horizontal queueing networks.
- Considering this class of latency functions introduces original theoretical
- and algorithmic results for Nash equilibria and Stackelberg routing assignments.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-J: Keep this introductory paragraph?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Consider a congestion game on a parallel link network.
- Each link has a dual-mode latency function where latency in constant in
- free-flow and latency is decreasing in congestion with respect to flow.
- From these assumptions, we show the following results:
+We introduce a new class of latency functions that is expressive enough
+ to model congestion on horizontal queuing networks, and study, under this
+ new class of latency, the Nash equilibria of the congestion game on parallel
+ networks, as well as optimal strategies for the Stackelberg routing game.
+ This leads to novel theoretical and algorithmic results for characterizing
+ and computing Nash equilibria and optimal Stackelberg strategies:
 \end_layout
 
 \begin_layout Itemize
-There is no essential uniqueness to Nash equilibria (there may exist Nash
- equilibria with different total costs), which is in contrast to the results
- for point-queueing models usually considered in congestion games 
+We show that there is no essential uniqueness of Nash equilibria (there
+ may exist Nash equilibria with different total costs), unlike point-queueing
+ models usually considered in congestion games 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "roughgarden2002bad"
@@ -478,26 +467,29 @@ key "roughgarden2002bad"
 \end_layout
 
 \begin_layout Itemize
-For a given a demand 
-\begin_inset Formula $\qdemand$
+We show that for a given instance 
+\begin_inset Formula $(\NLinks,r)$
 \end_inset
 
- and network of 
+ of a parallel network of 
 \begin_inset Formula $\NLinks$
 \end_inset
 
- links, the set of all pure Nash equilibria can be computed in time polynomial
+ links, subject to a constant demand 
+\begin_inset Formula $\qdemand$
+\end_inset
+
+, the set of all pure Nash equilibria can be computed in time polynomial
  in 
 \begin_inset Formula $\NLinks$
 \end_inset
 
-.
- From this result, we characterize the 
+, and we characterize the 
 \emph on
-best Nash Equilibrium 
+best Nash equilibrium 
 \emph default
 (the Nash equilibrium that minimizes the total network latency) and show
- that it is computable in 
+ that it can be computed in 
 \begin_inset Formula $O\left(\NLinks^{2}\right)$
 \end_inset
 
@@ -505,7 +497,8 @@ best Nash Equilibrium
 \end_layout
 
 \begin_layout Itemize
-The optimal Stackelberg strategy can be computed in 
+We study the Stackelberg routing game and show that the optimal Stackelberg
+ strategy can be computed in 
 \begin_inset Formula $O\left(\NLinks^{2}\right)$
 \end_inset
 
@@ -522,9 +515,9 @@ key "roughgarden2001stackelberg"
 \end_layout
 
 \begin_layout Standard
-These results are necessary as progress towards the creation of a scalable,
- accurate model for route assignment on fractional compliance, horizontal
- queueing networks.
+These results are an encouraging and necessary step towards a scalable,
+ accurate model for optimal route assignment on horizontal queueing networks
+ with fractional compliance.
 \end_layout
 
 \begin_layout Subsection
@@ -532,33 +525,38 @@ Organization of Article
 \end_layout
 
 \begin_layout Standard
-We proceed with an overview of the existing work in congestion games and
- fractional compliance, and the intersection of game theoretic concepts
- in horizontal-queueing networks.
- In Section 
+We start by defining the model and introducing a new class of latency functions
+ in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:The-Model"
 
 \end_inset
 
-, the model and cost function class under consideration is formalized and
- compared against existing models.
- Section 
+, and show as an example how such latency functions can be derived from
+ known macroscopic models of traffic flow.
+ In Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Nash-Equilibria"
 
 \end_inset
 
- presents the results of Nash equilibria on the model under consideration,
- and specifically we show the lack of essential uniqueness of Nash equilibria
- and give a tractable algorithm for computing all Nash equilibria (and the
- best Nash equilibria).
- This is followed with a discussion of system optimal results and the inefficien
-cies of Nash equilibria, where an analytical formulation is given for the
- Price of Stability for the case of two link networks.
- The main results of Stackelberg routing strategies are presented in Sections
+, we study Nash equilibria of congestion games for this new class of latency,
+ and show that the essential uniqueness property does not hold.
+ We then bound the number of Nash equilibria and give a tractable algorithm
+ for computing the set of Nash equilibria.
+ We then characterize the best Nash equilibrium to study its inefficiency
+ using Price of Stability as a measure of inefficiency.
+ In Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Inefficiency"
+
+\end_inset
+
+, we derive the Price of Stability for the case of two link parallel networks.
+ The main results on optimal Stackelberg routing are presented in Sections
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -573,13 +571,14 @@ reference "sec:Computing-the-optimal"
 
 \end_inset
 
-, where an efficient algorithm is presented for optimal Stackelberg routing
- strategies on 
-\begin_inset Formula $\link$
+, where a tractable algorithm is presented for computing a provably optimal
+ Stackelberg strategy on 
+\begin_inset Formula $\NLinks$
 \end_inset
 
  link networks.
- Some numerical results are presented in Section 
+ This is followed by numerical results that illustrate the effects of optimal
+ Stackelberg routing in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Numerical-Results"
@@ -587,8 +586,15 @@ reference "sec:Numerical-Results"
 \end_inset
 
 .
- The article concludes with some finishing remarks and directions for future
- research.
+ We conclude with a summary of our results and directions for future work
+ in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Discussion"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -607,8 +613,35 @@ Congestion Games on on Parallel Edge Network
 \end_layout
 
 \begin_layout Standard
-In this section, we setup a conventional congestion game on a parallel edge
- network similar to the graph studied in 
+We consider a non-atomic
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+When fractional flows are allowed, the players are said to be non-atomic
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "roughgarden2004bounding,schmeidler1973equilibrium"
+
+\end_inset
+
+.
+ The choice of atomic versus non-atomic players in congestion games is similar
+ to the modeling choice of microscopic versus macroscopic flow framework
+ in traffic modeling 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "lighthill1955kinematic,richards1956shock"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ congestion game on a parallel network similar to the one studied in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "roughgarden2001stackelberg"
@@ -623,58 +656,52 @@ reference "fig:nparlink"
 \end_inset
 
 .
- This graph 
-\begin_inset Formula $\Graph$
-\end_inset
-
- has a single source and a single sink.
+ The network has a single source and a single sink.
  Connecting the source and sink are 
 \begin_inset Formula $\NLinks$
 \end_inset
 
- parallel edges indexed by 
+ parallel edges (or links) indexed by 
 \begin_inset Formula $\link\in\left\{ 1,\ldots,\NLinks\right\} $
 \end_inset
 
 .
- At the source, there is a constant positive flow demand 
+ The network is subject to a constant positive flow demand 
 \begin_inset Formula $\qdemand$
 \end_inset
 
-.
- An assignment of the demand 
-\begin_inset Formula $\qdemand$
+ at the source.
+ We will denote by 
+\begin_inset Formula $(\NLinks,r)$
 \end_inset
 
- to the graph 
-\begin_inset Formula $\Graph$
-\end_inset
-
- is an 
+ an instance of a network with 
 \begin_inset Formula $\NLinks$
 \end_inset
 
--vector 
+ parallel links subject to demand 
+\begin_inset Formula $r$
+\end_inset
+
+.
+ A feasible flow assignment for the instance 
+\begin_inset Formula $(\NLinks,r)$
+\end_inset
+
+ is a vector 
 \begin_inset Formula $x\in\Rea[\NLinks]_{+}$
 \end_inset
 
  such that 
-\begin_inset Formula $\sum_{i=1}^{\NLinks}\flow[i]=\qdemand$
+\begin_inset Formula $\sum_{n=1}^{\NLinks}\flow[n]=\qdemand$
 \end_inset
 
-.
- For the rest of the article, it is assumed that the underlying network
- for the model is such a graph 
-\begin_inset Formula $\Graph$
+ where 
+\begin_inset Formula $\flow[n]$
 \end_inset
 
- with 
-\begin_inset Formula $\NLinks$
-\end_inset
-
- parallel edges (or links), which, for brevity, is denoted by the number
- of parallel links, 
-\begin_inset Formula $\NLinks$
+ is the flow on link 
+\begin_inset Formula $n$
 \end_inset
 
 .
@@ -734,38 +761,21 @@ name "fig:nparlink"
 \end_layout
 
 \begin_layout Standard
-A congestion game 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "roughgarden2004bounding"
-
+We then introduce a cost function, or latency function 
+\begin_inset Formula $l_{n}$
 \end_inset
 
- can be played on a network 
-\begin_inset Formula $\NLinks$
-\end_inset
-
- by introducing a cost function for each link on the network.
- When fractional flows are allowed, the game is said to be played with non-atomi
-c players 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "roughgarden2004bounding,schmeidler1973equilibrium"
-
+, on each link 
+\begin_inset Formula $n$
 \end_inset
 
 .
- Atomic versus non-atomic players is similar to the modeling choice of microscop
-ic versus macroscopic flow framework in traffic modeling 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "lighthill1955kinematic,richards1956shock"
-
+ A link's cost can be thought of as the latency experienced by a job assigned
+ to a particular machine 
+\begin_inset Formula $n$
 \end_inset
 
-.
- A link's cost can be though of as the latency experienced by a job utilizing
- a particular machine 
+ in the case of job scheduling 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "roughgarden2001stackelberg"
@@ -773,15 +783,23 @@ key "roughgarden2001stackelberg"
 \end_inset
 
 , or the travel time of a vehicle using a particular road 
+\begin_inset Formula $n$
+\end_inset
+
+ in the case of traffic assignment 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "wardrop1952some"
 
 \end_inset
 
-, and the cost function relates the amount of usage to the average cost
- experienced by all users of the link.
- Nash equilibria (in particular pure Nash equilibria, which do not allow
+.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Nash equilibria (in particular pure Nash equilibria, which do not allow
  randomized strategies 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -800,14 +818,34 @@ key "aswani2011game,babaioff2009congestion,friesz1985transportation,harker1988mu
 .
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
-Latency Functions in the Context of Horizontal Queueing
+Modeling congestion with Latency Functions
 \end_layout
 
 \begin_layout Standard
-To model queueing effects in congestion networks, the cost (or latency)
- function on a link is typically a non-decreasing function of the amount
- of flow across the link 
+To model the effects of queueing on a given link 
+\begin_inset Formula $n$
+\end_inset
+
+, the latency 
+\begin_inset Formula $l_{n}$
+\end_inset
+
+ on the link is typically assumed to be a non-decreasing function of the
+ amount of flow 
+\begin_inset Formula $x_{n}$
+\end_inset
+
+ on link 
+\begin_inset Formula $n$
+\end_inset
+
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "aswani2011game,babaioff2009congestion,friesz1985transportation,harker1988multiple,papadimitriou2010new,roughgarden2002bad,roughgarden2005selfish"
@@ -815,29 +853,63 @@ key "aswani2011game,babaioff2009congestion,friesz1985transportation,harker1988mu
 \end_inset
 
 .
- While such modeling assumptions are reasonable for certain types of networks
- (such as the internet), there is a large class of networks for which such
- a model is insufficient.
- For example, consider a road in a traffic network.
- There are two scenarios in which low flow conditions could occur: when
- there are very few vehicles on the road moving fast, or when there is a
- large number of vehicles on the road moving slowly (due to congestion).
- It is clear that a non-decreasing function of the amount of flow for latency
- is not rich enough to capture this phenomenon.
- Furthermore, the example explained for traffic does not even correspond
- to a single value function, as its inverse map is not injective.
- Instead, a 
+ While this class of latency accurately models congestion on a broad range
+ of networks (such as the internet, and more generally communication networks),
+ it fails to correctly model congestion for a large class of networks.
+ For example, consider a link (or road) 
+\begin_inset Formula $n$
+\end_inset
+
+ in a traffic network.
+ A given flow 
+\begin_inset Formula $\flow[n]$
+\end_inset
+
+ may correspond to two different scenarios : few vehicles on the road are
+ moving fast (the road is in 
 \emph on
-dual-mode
+free-flow
 \emph default
- latency function is required, in which one mode describes a link that is
- 
+), in which case the latency on the road is low, or a large number of vehicles
+ on the road are moving slowly (the road is 
+\emph on
+congested
+\emph default
+), in which case the latency on the road is high.
+ It is clear that this phenomenon is not captured if the latency is only
+ a function of flow.
+ One way to address this limitation is to have two latency functions: one
+ describes the latency on a link 
 \emph on
 in free-flow
 \emph default
-, while the other mode describes a link that is 
+, while the other describes the latency on a link 
 \emph on
 in congestion.
+ 
+\emph default
+Equivalently, one may introduce a second binary argument 
+\begin_inset Formula $m_{n}\in\left\{ 0,1\right\} $
+\end_inset
+
+ to the latency function, designed to specify whether the link is in free-flow
+ or in congestion.
+\end_layout
+
+\begin_layout Standard
+We next show that such latency functions can be derived from macroscopic
+ models of flow on Horizontal Queuing networks.
+\end_layout
+
+\begin_layout Subsection
+Deriving Latency Functions for Horizontal Queuing Networks
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Deriving-a-Class"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -897,27 +969,16 @@ J: how do we motivate the generality of the approach beyond traffic? Sources
 
 \end_inset
 
-), less attention has been given to these models in the literature for equilibri
-a in congestion games, which focuses on non-decreasing latency functions
- and assumes flow and density to have a one-to-one relation.
+), less attention has been given to these models in the literature studying
+ congestion games, which focuses on non-decreasing latency functions and
+ assumes flow and density to have a one-to-one relation.
  This article describes the required theoretical work required to characterize
  Nash equilibria and their extensions to Stackelberg framework for this
  class of horizontal queuing latency functions.
 \end_layout
 
-\begin_layout Subsection
-Deriving a Class of Latency Functions for Horizontal Queues
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:Deriving-a-Class"
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
-For a link 
+For a given link, or road segment 
 \begin_inset Formula $\link$
 \end_inset
 
@@ -993,8 +1054,8 @@ name "fn:papa"
 
 \end_inset
 
-Note, this allows for fundamental diagrams with unbounded support, for example
- as in Papageorgiou 
+Note, this allows for fundamental diagrams with unbounded density support,
+ for example as in Papageorgiou 
 \begin_inset Formula $\flow\left(\mass\right)=\mass e^{-\mass}$
 \end_inset
 
@@ -1031,7 +1092,7 @@ where
 
  is precisely the flow-to-density fundamental diagram relationship.
  Assumption 2 just states that 
-\begin_inset Formula $\mass[\link]\ge\masscrit[\link]\implies\flow[\link]\left(\mass[\link]\right)\in\left[0,\flowMax[\link]\right]$
+\begin_inset Formula $\mass[\link]\ge\masscrit[\link]\Rightarrow\flow[\link]\left(\mass[\link]\right)\in\left[0,\flowMax[\link]\right]$
 \end_inset
 
 .
@@ -1353,20 +1414,6 @@ reference "sub:Deriving-a-Class"
 
 \end_layout
 
-\begin_layout Subsection
-Latency as a function of flow and congestion state
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:latency_class"
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
 While expressing latency as a function of density is intuitive and succinct
  for horizontal queues, expressing it as a function of flow turns out to
@@ -1401,9 +1448,23 @@ While expressing latency as a function of density is intuitive and succinct
 
 \end_layout
 
+\begin_layout Subsection
+A new class of Latency functions: Horizontal Queuing Latency
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:latency_class"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 A: With an abuse of notation and keeping the notation l for latency, 
@@ -1424,7 +1485,7 @@ J: I think we have cleared this up the superscript notation preceding.
 
 \end_inset
 
-We can now define our class of latency functions 
+We can now define a general class of latency functions 
 \begin_inset Formula $\latency[\link]$
 \end_inset
 
@@ -1444,20 +1505,12 @@ We can now define our class of latency functions
 \end_layout
 
 \begin_layout Standard
-where 
-\begin_inset Formula $\flow[\link]\in\left[0,\flowMax[\link]\right]$
-\end_inset
-
-, 
-\begin_inset Formula $\Mode[\link]\in\left\{ 0,1\right\} $
-\end_inset
-
-.
- The following results on 
+We also assume that 
 \begin_inset Formula $\latency[\link]$
 \end_inset
 
- can be derived from the results in Section
+ satisfies the following properties, which can be derived from the assumptions
+ in Section
 \begin_inset ERT
 status open
 
@@ -1475,30 +1528,62 @@ reference "sub:Deriving-a-Class"
 
 \end_inset
 
+:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\exists a_{n}>0$
+\end_inset
+
+ such that 
+\begin_inset Formula $\forall\flow[n]\in[0,\flowMax[n]]$
+\end_inset
+
+, 
+\begin_inset Formula $\latency[\link]\left(\flow[\link],0\right)=\parA[\link]$
+\end_inset
+
+.
+ 
+\begin_inset Formula $a_{n}$
+\end_inset
+
+ is the constant free-flow latency.
+\end_layout
+
+\begin_layout Itemize
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $\latency[\link]\left(\flowMax[\link],1\right)=\latency[\link]\left(\flowMax[\link],0\right)=a_{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $x\mapsto\latency[\link]\left(x,1\right)$
+\end_inset
+
+ is decreasing on 
+\begin_inset Formula $[0,\flowMax[n]]$
+\end_inset
+
 .
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray}
-\latency[\link]\left(\flow[\link],0\right) & = & \parA[\link]\label{eq:free-flow-constant}\\
-\latency[\link]\left(\flowMax[\link],0\right) & = & \latency[\link]\left(\flowMax[\link],1\right)\\
-x>x':x,x'\in\left[0,\flowMax[\link]\right] & \Rightarrow & \latency[\link]\left(x,1\right)<\latency[\link]\left(x',1\right),\label{eq:congestion-decreasing}
-\end{eqnarray}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-where 
-\begin_inset Formula $\parA[\link]\in\Rea_{++}$
-\end_inset
-
- is the constant free-flow speed.
- Some examples of latency functions in the class expressed in this section
- are illustrated in Figure 
+Some examples of latency functions in this class are illustrated in Figure
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:example-flow-latency"
@@ -1506,8 +1591,8 @@ reference "fig:example-flow-latency"
 \end_inset
 
 .
- Again, a triangular fundamental diagram can be readily expressed in flow-conges
-tion state form:
+ Again, the latency function corresponding to a triangular fundamental diagram
+ can be readily expressed in this form:
 \end_layout
 
 \begin_layout Standard
@@ -1523,7 +1608,7 @@ tion state form:
 \end_layout
 
 \begin_layout Subsection
-System costs
+Total System Cost
 \end_layout
 
 \begin_layout Standard
@@ -1564,30 +1649,14 @@ C\left(\flow,\Mode\right)=\sum_{i=1}^{\NLinks}C_{i}\left(\flow[i],\Mode[i]\right
 
 \begin_layout Standard
 where 
-\begin_inset Formula $\flow$
+\begin_inset Formula $\flow=(x_{1},\dots,x_{\NLinks})$
 \end_inset
 
- is the 
-\begin_inset Formula $\NLinks$
+ is the vector of flows, and 
+\begin_inset Formula $\Mode=(m_{1},\dots,m_{\NLinks})$
 \end_inset
 
--vector 
-\begin_inset Formula $\left\{ \flow[i]:i\in\left\{ 1,\ldots,\NLinks\right\} \right\} $
-\end_inset
-
- of flows, and 
-\begin_inset Formula $\Mode$
-\end_inset
-
- is the 
-\begin_inset Formula $\NLinks$
-\end_inset
-
--vector 
-\begin_inset Formula $\left\{ \Mode[i]:i\in\left\{ 1,\ldots,\NLinks\right\} \right\} $
-\end_inset
-
- of congestion states for the entire network.
+ is the vector of congestion states for the entire network.
 \end_layout
 
 \begin_layout Section
@@ -4028,12 +4097,9 @@ reference "alg:bestNE"
 
 \begin_layout Section
 Inefficiency of Best Nash Equilibria
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-J: needs an intro, will work on later
-\end_layout
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Inefficiency"
 
 \end_inset
 
@@ -7294,7 +7360,7 @@ key "aswani2011game"
 \begin_layout Standard
 \begin_inset Formula 
 \[
-VOA\left(\NLinks,\qdemand,\compRate\right)=\frac{\min_{s\in\StackSet}C\left(s+\ncFlow(\cFlow),m(\cFlow)\right)}{C\left(\flow[\BestNashEquilibrium{\NLinks}{\qdemand}],m_{\BestNashEquilibrium{\NLinks}{\qdemand}}\right)}
+VOA\left(\NLinks,\qdemand,\compRate\right)=\frac{\min_{s\in\StackSet}C\left(s+\ncFlow(\cFlow),m(\cFlow)\right)}{C\left(\BestNashEquilibrium{\NLinks}{\qdemand}\right)}
 \]
 
 \end_inset
@@ -7360,6 +7426,45 @@ Price of Stability profile (3d)
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:POS3d"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../figures/POSContour.pdf
+	width 3in
+	clip
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Price of Stability profile (contour) 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:POSContour"
 
 \end_inset
 
@@ -7579,6 +7684,13 @@ reference "alg:bestNE"
 
 \begin_layout Section
 Discussion and Open Problems
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Discussion"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -7680,45 +7792,6 @@ We believe this work offers several directions of future research: the work
 LatexCommand bibtex
 bibfiles "bibliography"
 options "plain"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename ../figures/POSContour.pdf
-	width 3.5in
-	clip
-
-\end_inset
-
-
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Price of Stability profile (contour) 
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:POSContour"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
 
 \end_inset
 
