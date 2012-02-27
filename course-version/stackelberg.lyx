@@ -6081,6 +6081,7 @@ reference "lemma:inducedNCeq"
 .
 \end_layout
 
+\begin_deeper
 \begin_layout Lemma
 
 \series bold
@@ -6121,6 +6122,22 @@ Intuitively, since
 \end_inset
 
 .
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Proof
@@ -6329,6 +6346,7 @@ i.e.
  This completes the proof of the Lemma.
 \end_layout
 
+\end_deeper
 \begin_layout Proof
 Using the lemma, we can now show that links 
 \begin_inset Formula $\{1,\dots,l-1\}$
@@ -6938,7 +6956,7 @@ reference "fig:Map-of-parallel"
 placement h
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -7145,7 +7163,7 @@ We also note that for a fixed compliance rate
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -7566,7 +7584,7 @@ Discussion and Open Problems
 \begin_layout Standard
 We introduced a new class of latency functions that better models congestion
  on horizontal queuing networks, and we studied the resulting Nash equilibria
- for a non-atomic congestion game on a parallel network.
+ for non-atomic congestion games on parallel networks.
  We showed that the essential uniqueness property does not hold for this
  new class, and that there may be up to 
 \begin_inset Formula $2N$
@@ -7616,7 +7634,7 @@ In order to address this inefficiency, we considered the Stackelberg routing
  it can be computed in polynomial time, which stands in contrast with the
  fact that computing the optimal Stackelberg strategy for the class of non-decre
 asing latencies is NP-hard.
- We illustrated these result using an example network for which we computed
+ We illustrated these results using an example network for which we computed
  the decrease in inefficiency that can be achieved using optimal Stackelberg
  routing.
  This example showed that when the demand is near critical flows 
@@ -7624,8 +7642,8 @@ asing latencies is NP-hard.
 \end_inset
 
 , optimal Stackelberg routing can achieve a significant increase of efficiency
- (that measured using both Price of Stability and Value of Altruism) even
- for small values of compliance rate 
+ (that we measured using both Price of Stability and Value of Altruism)
+ even for small values of compliance rate 
 \begin_inset Formula $\compRate$
 \end_inset
 
