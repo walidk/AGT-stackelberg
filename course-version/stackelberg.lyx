@@ -283,7 +283,7 @@ either a large concentration of agents moving slowly (high density on a
 \end_layout
 
 \begin_layout Itemize
-or few cars moving fast (low density), in which case the latency is small.
+or few cars moving quickly (low density), in which case the latency is small.
 \end_layout
 
 \begin_layout Standard
@@ -335,8 +335,8 @@ function of flow.
 \end_layout
 
 \begin_layout Standard
-A large body of literature in horizontal queueing theory studied game-theoretic
- concepts, such as dynamic traffic assignment for user equilibria 
+A large body of literature in horizontal queueing theory has studied game-theore
+tic concepts, such as dynamic traffic assignment for user equilibria 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "friesz2006solving,lo2002cell,wang2001freeway"
@@ -512,7 +512,14 @@ We introduce a new class of latency functions that is expressive enough
  new class of latency, the Nash equilibria of the congestion game on parallel
  networks, as well as optimal strategies for the Stackelberg routing game.
  This leads to novel theoretical and algorithmic results for characterizing
- and computing Nash equilibria and optimal Stackelberg strategies:
+ and computing Nash equilibria and optimal Stackelberg strategies.
+\end_layout
+
+\begin_layout Standard
+Consider a congestion game on a parallel link network.
+ Each link has a dual-mode latency function where latency in constant in
+ free-flow and latency is decreasing in congestion with respect to flow.
+ From these assumptions, we show the following results:
 \end_layout
 
 \begin_layout Itemize
@@ -928,7 +935,7 @@ key "aswani2011game,babaioff2009congestion,friesz1985transportation,harker1988mu
 \end_inset
 
  may correspond to two different scenarios : few vehicles on the road are
- moving fast (the road is in 
+ moving quickly (the road is in 
 \emph on
 free-flow
 \emph default
@@ -981,7 +988,7 @@ density
 \emph default
  of flow (or amount of flow in the static sense) is usually expressed by
  a function called the flux function in the physical sciences and conservation
- law theory
+ law theory 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "evans1998partial,leveque2007finite"
@@ -1086,9 +1093,9 @@ The function
 \begin_inset Formula $D_{n}\subset\Rea_{+}$
 \end_inset
 
-
+, and corresponds to the fundamental diagram of traffic
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -1114,7 +1121,7 @@ key "papageorgiou1989macroscopic"
 
 \end_inset
 
-, and corresponds to the fundamental diagram of traffic.
+.
  First, we observe that latency is related to flow and density through the
  relation
 \end_layout
