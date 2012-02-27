@@ -157,8 +157,8 @@ key "lo2002cell,papadimitriou2010new,roughgarden2002bad"
 
 \end_inset
 
-, where all players are assumed to choose the routes that minimize individual
- costs.
+, where all players are assumed to choose the routes that minimize their
+ respective individual costs.
  Under some assumptions on the latency functions, Nash equilibria can be
  computed as a solution of a convex optimization problem 
 \begin_inset CommandInset citation
@@ -199,14 +199,7 @@ key "aswani2011game,roughgarden2001stackelberg"
  
 \begin_inset CommandInset citation
 LatexCommand cite
-key "babaioff2009congestion"
-
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "morgan2003spite"
+key "babaioff2009congestion,morgan2003spite"
 
 \end_inset
 
@@ -266,7 +259,7 @@ key "roughgarden2001stackelberg"
 \end_inset
 
 .
- While this class of latency functions provides a good model for congestion
+ While this class of latency functions provides a good model of congestion
  for a considerable range of networks, such as communication networks, it
  does not accurately model horizontal queueing congestion, such as congestion
  on transportation networks 
@@ -374,8 +367,71 @@ name "sub:Motivating-Example"
 \end_layout
 
 \begin_layout Standard
-Advances in technology have enabled a central agency to have influence over
- the driving habits of individual users on a road network.
+Advances in technology have made it possible to interact with individual
+ drivers on a traffic network and exchange information through GPS-enabled
+ smartphone applications or before and after-market vehicular navigation
+ systems.
+ This offers an opportunity to not only provide the driver with relevant
+ traffic information and collect anonymized data that help improve traffic
+ estimation, but also to provide routing advice that can improve the overall
+ efficiency of the network by relieving congestion.
+ 
+\end_layout
+
+\begin_layout Standard
+However, when providing routing advice, one needs to take into account the
+ possible impact of rerouting drivers on the traffic conditions of the network,
+ and the response of other drivers to this change in traffic conditions.
+ Failing to account for the response of the system may possibly result in
+ creating congestion.
+ This fits into the framework of Stackelberg routing, where a fraction of
+ the population of drivers is assumed to be 
+\emph on
+compliant
+\emph default
+ to routing suggestions, and the rest of the drivers are considered to be
+ 
+\emph on
+non-compliant
+\emph default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+We call compliant a driver who is connected to a central coordinator, through
+ a smartphone application or a navigation system, and is willing (or has
+ an external incentive) to follow routing suggestions provided by the coordinato
+r.
+ Other drivers (drivers who are not connected or who are simply not willing
+ to follow alternative routes) are described as non-compliant.
+ These two populations form respectively the leader and the followers in
+ the Stackelberg routing game.
+\end_layout
+
+\begin_layout Standard
+In many networks, drivers have a number of alternative disjoint paths to
+ reach their destination.
+ For example, parallel highway networks often exist between two heavily-populate
+d cities (the Northern California bay area has numerous examples of such
+ networks).
+ Therefore, Stackelberg routing strategies on simple parallel networks becomes
+ a matter of practical importance to traffic planners in the near future.
+ However, due to the limitations of congestion models discussed above, the
+ existing literature on Stackelberg routing is not readily applicable to
+ real traffic networks.
+ We start to address these limitations by considering a new class of latency
+ functions that better models congestion for horizontal queuing network,
+ in particular traffic networks.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Advances in technology enabled a central agency to have influence over the
+ driving habits of individual users on a road network.
  Contact could be made via a GPS-enabled smartphone application or before
  and after-market vehicular navigation systems.
  Given that the central agency has a contact point with only a fraction
@@ -384,7 +440,7 @@ Advances in technology have enabled a central agency to have influence over
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 This article views the fraction of centrally controlled flow as the 
 \emph on
 compliant flow
@@ -407,20 +463,21 @@ non-compliant flow
  and treats the two cases identically.
 \end_layout
 
-\begin_layout Standard
-Oftentimes, there are a number of alternative and non-intersecting paths
- that may be chosen by drivers on the network.
+\begin_layout Plain Layout
+In many networks, drivers have a number of alternative disjoint paths to
+ reach their destination.
  For example, parallel highway networks often exist between two heavily-populate
 d cities (the Northern California bay area has numerous examples of such
  networks).
- Therefore, Stackelberg routing strategies on parallel-link networks becomes
- a matter of practical importance to traffic planners, quite possibly in
- the near future.
- When considering implementation on a real traffic network, the current
- literature is inapplicable in number of ways.
+ Therefore, Stackelberg routing strategies on parallel networks becomes
+ a matter of practical importance to traffic planners in the near future.
+ However, due to the limitations of congestion models discussed above, the
+ existing literature on Stackelberg routing is not readily applicable to
+ implementation on a real traffic network.
+ Besides, existing models do not have a tractable 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Firstly, as discussed in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -438,6 +495,11 @@ compliant flow
 , as the number of alternate paths increases.
  To enable the creation of a full-scale system that optimally routes a fraction
  of users on a highway, these problems must first be addressed.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -545,9 +607,9 @@ reference "sec:Nash-Equilibria"
 , we study Nash equilibria of congestion games for this new class of latency,
  and show that the essential uniqueness property does not hold.
  We then bound the number of Nash equilibria and give a tractable algorithm
- for computing the set of Nash equilibria.
- We then characterize the best Nash equilibrium to study its inefficiency
- using Price of Stability as a measure of inefficiency.
+ for computing the set of Nash equilibria, then characterize in particular
+ the best Nash equilibrium to study its inefficiency using Price of Stability
+ as a measure of inefficiency.
  In Section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -576,7 +638,7 @@ reference "sec:Computing-the-optimal"
 \begin_inset Formula $\NLinks$
 \end_inset
 
- link networks.
+ link parallel networks.
  This is followed by numerical results that illustrate the effects of optimal
  Stackelberg routing in Section 
 \begin_inset CommandInset ref
@@ -970,15 +1032,15 @@ J: how do we motivate the generality of the approach beyond traffic? Sources
 \end_inset
 
 ), less attention has been given to these models in the literature studying
- congestion games, which focuses on non-decreasing latency functions and
- assumes flow and density to have a one-to-one relation.
+ congestion games, which focuses on modeling latency as a non-decreasing
+ function of flow, and assumes flow and density to have a one-to-one relation.
  This article describes the required theoretical work required to characterize
  Nash equilibria and their extensions to Stackelberg framework for this
  class of horizontal queuing latency functions.
 \end_layout
 
 \begin_layout Standard
-For a given link, or road segment 
+Consider a link 
 \begin_inset Formula $\link$
 \end_inset
 
@@ -986,61 +1048,42 @@ For a given link, or road segment
 \begin_inset Formula $\Length[\link],$
 \end_inset
 
- there are three assumptions on the behavior of horizontal queues that we
- make, which are illustrated in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:permfds"
+ and assume the flow 
+\begin_inset Formula $\flow[n]$
+\end_inset
+
+ on the link is given by a function 
+\begin_inset Formula 
+\begin{eqnarray*}
+x_{n}^{\rho}:D_{n} & \rightarrow & \Rea_{+}\\
+\rho_{n} & \mapsto & x_{n}=x_{n}^{\rho}(\rho_{n})
+\end{eqnarray*}
 
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Enumerate
-There exists a critical density, 
-\begin_inset Formula $\masscrit[\link]\in\Rea_{++}$
+ of the density 
+\begin_inset Formula $\rho_{n}$
 \end_inset
 
-, such that the latency is constant and minimal on the interval 
-\begin_inset Formula $\left[0,\masscrit\right]$
+ on the link, and the latency is given by a function 
+\begin_inset Formula 
+\begin{eqnarray*}
+\latency[\link]^{\rho}:D_{n} & \rightarrow & \Rea_{+}\\
+\rho_{n} & \mapsto & l_{n}^{\rho}(\rho_{n})
+\end{eqnarray*}
+
 \end_inset
 
-.
- This implies that the flow 
-\begin_inset Formula $\flow[\link]$
-\end_inset
 
- on the link is proportional to the density in that regime.
-\end_layout
-
-\begin_layout Enumerate
-There exists a maximum allowable flow, 
-\begin_inset Formula $\flowMax[\link]\in\Rea_{++}$
-\end_inset
-
-, and this flow is attained at 
-\begin_inset Formula $\masscrit[\link]$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-The latency, 
-\begin_inset Formula $\latency[\link]^{\rho}:\Rea_{+}\rightarrow\Rea_{+}$
-\end_inset
-
-, is a continuous, non-decreasing function of the density.
 \end_layout
 
 \begin_layout Standard
-We define the free-flow region as 
-\begin_inset Formula $\left[0,\masscrit[\link]\right]$
+The function 
+\begin_inset Formula $x_{\link}^{\rho}$
 \end_inset
 
- and congested region as all other feasible values for 
-\begin_inset Formula $\mass[\link]$
+ maps density to flow, and is defined on the domain 
+\begin_inset Formula $D_{n}\subset\Rea_{+}$
 \end_inset
 
 
@@ -1071,60 +1114,32 @@ key "papageorgiou1989macroscopic"
 
 \end_inset
 
-.
- From the above assumptions, a class of allowable fundamental diagrams can
- be derived.
+, and corresponds to the fundamental diagram of traffic.
  First, we observe that latency is related to flow and density through the
- relation 
+ relation
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\latency[\link]^{\mass}\left(\mass[\link]\right)=\frac{\Length[\link]\mass[\link]}{\flow[\link]\left(\mass[\link]\right)},\label{eq:latency-relation}
+\latency[\link]^{\mass}\left(\mass[\link]\right)=\frac{\Length[\link]\mass[\link]}{x_{n}^{\rho}\left(\mass[\link]\right)},\label{eq:latency-relation}
 \end{equation}
 
 \end_inset
 
-where 
-\begin_inset Formula $x_{\link}:\Rea_{+}\rightarrow\Rea_{+}$
+
+\end_layout
+
+\begin_layout Standard
+We make three assumptions on the flow and latency functions 
+\begin_inset Formula $x_{n}^{\rho}$
 \end_inset
 
- is precisely the flow-to-density fundamental diagram relationship.
- Assumption 2 just states that 
-\begin_inset Formula $\mass[\link]\ge\masscrit[\link]\Rightarrow\flow[\link]\left(\mass[\link]\right)\in\left[0,\flowMax[\link]\right]$
+ and 
+\begin_inset Formula $l_{n}^{\rho}$
 \end_inset
 
-.
- Assumption 3 guarantees that the slope of 
-\begin_inset Formula $\latency[\link]^{\mass}\left(\mass[\link]\right)\ge0:\mass[\link]\ge\masscrit[\link]$
-\end_inset
-
- (as the slope is assumed constant positive for 
-\begin_inset Formula $\mass[\link]\le\masscrit[\link]$
-\end_inset
-
-).
- Through Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:latency-relation"
-
-\end_inset
-
-, Assumption 3 can be expressed equivalently as 
-\begin_inset Formula $\frac{d\flow[\link]\left(\mass[\link]\right)}{d\mass[\link]}\le\frac{x_{n}\left(\mass[\link]\right)}{\mass[\link]}$
-\end_inset
-
-, which gives restrictions on allowable flow-density relationships in the
- congestion region of the fundamental diagram.
- This restriction allows significant flexibility in the model, as it not
- only allows non-concavity, but even permits 
-\begin_inset Formula $\flow[\link]$
-\end_inset
-
- to be increasing under certain conditions.
- An illustration of allowable fundamental diagrams is given in Figure 
+ for horizontal queues, which are illustrated in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:permfds"
@@ -1134,57 +1149,115 @@ reference "fig:permfds"
 .
 \end_layout
 
-\begin_layout Standard
-One particular class of fundamental diagrams that satisfy the above assumptions
- are triangular fundamental diagrams 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "daganzo1994cell,daganzo1995cell"
-
+\begin_layout Enumerate
+There exists a critical density 
+\begin_inset Formula $\masscrit[\link]>0$
 \end_inset
 
-, which have constant positive slope 
-\begin_inset Formula $\speedff$
-\end_inset
-
- in the free-flow region, constant negative slope 
-\begin_inset Formula $\speedCong$
-\end_inset
-
- in the congestion region, and a max flow 
-\begin_inset Formula $\flowMax$
+, such that the latency is constant and minimal on the interval 
+\begin_inset Formula $\left[0,\masscrit[n]\right]$
 \end_inset
 
 .
- Assumptions 1 and 2 are satisfied by seeing that 
-\begin_inset Formula $\masscrit=\frac{\flowMax}{\speedff}$
+ This is equivalent to the flow function 
+\begin_inset Formula $\flow[\link]^{\rho}$
 \end_inset
 
-, and Assumption 3 is satisfied by seeing that 
-\begin_inset Formula $\frac{d\flow\left(\mass\right)}{d\mass}=\speedCong\le0\le\frac{x\left(\mass\right)}{\mass}$
+ being linear on that interval.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $x_{n}^{\rho}$
+\end_inset
+
+ is maximal at 
+\begin_inset Formula $\masscrit[\link]$
 \end_inset
 
 .
- The dotted line in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Fundamental-diagram-examples."
-
+ The value of the flow at critical density is denoted 
+\begin_inset Formula $\flowMax[\link]=x_{n}^{\rho}(\masscrit[\link])$
 \end_inset
 
- shows a triangular fundamental diagram.
+ and referred to as maximum flow or 
+\emph on
+capacity
+\emph default
+ of the link.
+\end_layout
+
+\begin_layout Enumerate
+The latency function 
+\begin_inset Formula $\latency[\link]^{\rho}$
+\end_inset
+
+, is continuous, non-decreasing.
 \end_layout
 
 \begin_layout Standard
-Now that the allowable fundamental diagrams is derived, Equation 
+We define the free-flow region as 
+\begin_inset Formula $\mass[\link]\in\left[0,\masscrit[\link]\right]$
+\end_inset
+
+ and congested region as 
+\begin_inset Formula $\mass[\link]>\masscrit[\link]$
+\end_inset
+
+.
+ These assumptions define a class of supported fundamental diagrams.
+ Assumption 2 just states that 
+\begin_inset Formula $\forall\mass[\link]\ge0$
+\end_inset
+
+, 
+\begin_inset Formula $\flow[\link]^{\rho}\left(\mass[\link]\right)\in\left[0,\flowMax[\link]\right]$
+\end_inset
+
+.
+ From Equation 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand ref
 reference "eq:latency-relation"
 
 \end_inset
 
- enables the formal expression of the class of latency functions for the
- horizontal queueing model.
+, Assumption 3 can be expressed equivalently in terms of the flow function
+ 
+\begin_inset Formula $x_{n}^{\rho}$
+\end_inset
+
+ as 
+\begin_inset Formula $\frac{d\flow[\link]^{\rho}\left(\mass[\link]\right)}{d\mass[\link]}\le\frac{x_{n}^{\rho}\left(\mass[\link]\right)}{\mass[\link]}$
+\end_inset
+
+.
+ This gives reasonable restrictions on the shape of fundamental diagrams
+ in the congestion region, and flexible enough to allow non-concavity, and
+ even increasing functions 
+\begin_inset Formula $\flow[\link]^{\rho}$
+\end_inset
+
+ under certain conditions.
+ Examples of allowable fundamental diagrams are given in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:permfds"
+
+\end_inset
+
+, and corresponding examples of latency functions are given in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:example-rho-latency"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that from these assumptions, we can write the latency function for
+ the horizontal queueing model as
 \end_layout
 
 \begin_layout Standard
@@ -1194,51 +1267,6 @@ reference "eq:latency-relation"
 \frac{\Length[\link]\masscrit[\link]}{\flowMax[\link]} & \mass[\link]\in\left[0,\masscrit[\link]\right]\\
 \frac{\Length[\link]\mass[\link]}{\flow[\link]\left(\mass[\link]\right)} & \textup{otherwise}
 \end{cases}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Examples of latency functions that satisfy the assumptions are given in
- Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:example-rho-latency"
-
-\end_inset
-
-.
- For a triangular fundamental diagram, the latency can be explicitly stated:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\latency[\triangle]^{\mass}\left(\mass\right)=\begin{cases}
-\frac{\Length}{\speedff} & 0\le\mass\le\frac{\flowMax}{\speedff}\\
-\frac{\Length\mass}{\speedCong\left(\mass-\massmax\right)} & \frac{\flowMax}{\speedff}<\mass\le\massmax
-\end{cases}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-where 
-\begin_inset Formula $\massmax=\flowMax\left(\frac{1}{\speedff}-\frac{1}{\speedCong}\right)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
 \]
 
 \end_inset
@@ -1414,38 +1442,85 @@ reference "sub:Deriving-a-Class"
 
 \end_layout
 
-\begin_layout Standard
-While expressing latency as a function of density is intuitive and succinct
- for horizontal queues, expressing it as a function of flow turns out to
- be more wieldy when used in the analysis of traffic assignment.
- This is largely due to the fact that total flow must be conserved in traffic
- assignment problems, and not density.
- For this reason, we seek an alternative formulation of latency using flow.
- As discussed before, latency is not a function of flow (the mapping from
- flow to latency is not unique), therefore another binary variable is introduced.
- Let the congestion state 
-\begin_inset Formula $\Mode[\link]$
-\end_inset
-
- of link 
-\begin_inset Formula $\link$
-\end_inset
-
- be defined as:
+\begin_layout Example
+Triangular fundamental diagrams
 \end_layout
 
-\begin_layout Standard
+\begin_layout Example
+One particular class of fundamental diagrams 
+\begin_inset Formula $x^{\rho}$
+\end_inset
+
+ that satisfy the above assumptions are triangular fundamental diagrams
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "daganzo1994cell,daganzo1995cell"
+
+\end_inset
+
+, which are linear with positive slope 
+\begin_inset Formula $\speedff$
+\end_inset
+
+ in the free-flow region, affine with negative slope 
+\begin_inset Formula $\speedCong$
+\end_inset
+
+ in the congestion region, and have maximum flow 
+\begin_inset Formula $\flowMax=\masscrit\speedff$
+\end_inset
+
+.
+ Assumptions 1 and 2 are satisfied by definition, and Assumption 3 is satisfied
+ since 
+\begin_inset Formula $\frac{d\flow\left(\mass\right)}{d\mass}=\speedff=\frac{x\left(\mass\right)}{\mass}$
+\end_inset
+
+ 
+\begin_inset Formula $\forall\rho\in[0,\masscrit]$
+\end_inset
+
+ and 
+\begin_inset Formula $\frac{d\flow\left(\mass\right)}{d\mass}=\speedCong\le0\le\frac{x\left(\mass\right)}{\mass}$
+\end_inset
+
+ 
+\begin_inset Formula $\forall\rho\geq\masscrit$
+\end_inset
+
+.
+ The dotted line in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Fundamental-diagram-examples."
+
+\end_inset
+
+ shows a triangular fundamental diagram.
+ The latency function is then given by:
+\end_layout
+
+\begin_layout Example
 \begin_inset Formula 
 \[
-\Mode[\link]:=\begin{cases}
-0 & \text{if }\link\text{ is in free-flow}\\
-1 & \text{if }\link\text{ is congested}
+\latency[\triangle]^{\mass}\left(\mass\right)=\begin{cases}
+\frac{\Length}{\speedff} & 0\le\mass\le\frac{\flowMax}{\speedff}\\
+\frac{\Length\mass}{\speedCong\left(\mass-\massmax\right)} & \frac{\flowMax}{\speedff}<\mass\le\massmax
 \end{cases}
 \]
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Example
+where 
+\begin_inset Formula $\massmax=\flowMax\left(\frac{1}{\speedff}-\frac{1}{\speedCong}\right)$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -1485,6 +1560,35 @@ J: I think we have cleared this up the superscript notation preceding.
 
 \end_inset
 
+While expressing latency as a function of density is intuitive and succinct
+ for horizontal queues, expressing it as a function of flow proves to be
+ more convenient in the study of congestion games and Stackelberg routing.
+ This is largely due to the fact that total flow must be conserved in traffic
+ assignment problems, and not density.
+ For this reason, we introduce an equivalent formulation of latency using
+ flow and a binary argument that describes congestion state.
+ Let the congestion state 
+\begin_inset Formula $\Mode[\link]$
+\end_inset
+
+ of link 
+\begin_inset Formula $\link$
+\end_inset
+
+ be defined as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Mode[\link]:=\begin{cases}
+0 & \text{if }\link\text{ is in free-flow}\\
+1 & \text{if }\link\text{ is congested}
+\end{cases}
+\]
+
+\end_inset
+
 We can now define a general class of latency functions 
 \begin_inset Formula $\latency[\link]$
 \end_inset
@@ -1509,7 +1613,7 @@ We also assume that
 \begin_inset Formula $\latency[\link]$
 \end_inset
 
- satisfies the following properties, which can be derived from the assumptions
+ satisfies the following properties, which can are equivalent to the assumptions
  in Section
 \begin_inset ERT
 status open
@@ -1639,7 +1743,7 @@ Then, the total system cost is the sum of the costs of the individual links
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-C\left(\flow,\Mode\right)=\sum_{i=1}^{\NLinks}C_{i}\left(\flow[i],\Mode[i]\right),\label{eq:total-cost}
+C\left(\flow,\Mode\right)=\sum_{i=1}^{\NLinks}C_{i}\left(\flow[i],\Mode[i]\right)\label{eq:total-cost}
 \end{equation}
 
 \end_inset
