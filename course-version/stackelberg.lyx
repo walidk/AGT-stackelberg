@@ -902,7 +902,7 @@ a in congestion games, which focuses on non-decreasing latency functions
  and assumes flow and density to have a one-to-one relation.
  This article describes the required theoretical work required to characterize
  Nash equilibria and their extensions to Stackelberg framework for this
- class of DUAL-MODE latency functions.
+ class of horizontal queuing latency functions.
 \end_layout
 
 \begin_layout Subsection
@@ -1039,7 +1039,7 @@ where
 \begin_inset Formula $\latency[\link]^{\mass}\left(\mass[\link]\right)\ge0:\mass[\link]\ge\masscrit[\link]$
 \end_inset
 
-(as the slope is assumed constant positive for 
+ (as the slope is assumed constant positive for 
 \begin_inset Formula $\mass[\link]\le\masscrit[\link]$
 \end_inset
 
@@ -1306,7 +1306,7 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Latency as a function of flow and state examples.
+Examples of latency as a function of flow and congestion state.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:example-flow-latency"
@@ -1575,11 +1575,11 @@ where
 \begin_inset Formula $\left\{ \flow[i]:i\in\left\{ 1,\ldots,\NLinks\right\} \right\} $
 \end_inset
 
- of flow values, and 
+ of flows, and 
 \begin_inset Formula $\Mode$
 \end_inset
 
- similarly is the 
+ is the 
 \begin_inset Formula $\NLinks$
 \end_inset
 
@@ -1587,7 +1587,7 @@ where
 \begin_inset Formula $\left\{ \Mode[i]:i\in\left\{ 1,\ldots,\NLinks\right\} \right\} $
 \end_inset
 
- of state values for the entire network.
+ of congestion states for the entire network.
 \end_layout
 
 \begin_layout Section
@@ -1720,7 +1720,7 @@ In particular, every non-atomic agent cannot improve her/his latency by
 
 \begin_layout Standard
 Note that to fully describe the equilibrium, one needs to specify the congestion
- state 
+ state vector 
 \begin_inset Formula $m$
 \end_inset
 
@@ -7553,9 +7553,108 @@ reference "alg:bestNE"
 
 ).
  The algorithm tests if a Nash equilibrium exists for a particular support,
- and it fails to find such an equilibrium, increases the size of the support.
+ and if it fails to find such an equilibrium, increases the size of the
+ support.
  As the demand increases, the algorithm will have to check for larger supports,
  which explains the increase in computation time.
+\end_layout
+
+\begin_layout Section
+Discussion and Open Problems
+\end_layout
+
+\begin_layout Standard
+We introduced a new class of latency functions that better models congestion
+ on horizontal queuing networks, and we studied the resulting Nash equilibria
+ for a non-atomic congestion game on a parallel network.
+ We showed that the essential uniqueness property does not hold for this
+ new class, and that there may be up to 
+\begin_inset Formula $2N$
+\end_inset
+
+ equilibria for a network instance 
+\begin_inset Formula $(\NLinks,r)$
+\end_inset
+
+.
+ We then classified these equilibria into single link free-flow equilibria
+ 
+\begin_inset Formula $\text{NE}_{\text{f}}(\NLinks,r)$
+\end_inset
+
+, for which one link in the support is in free-flow, and congested equilibria
+ 
+\begin_inset Formula $\text{NE}_{\text{c}}(\NLinks,r)$
+\end_inset
+
+, for which all links in the support are congested.
+ Then we focused our attention on the best Nash equilibrium 
+\begin_inset Formula $\BestNashEquilibrium{\NLinks}r$
+\end_inset
+
+, which we proved is a single link free-flow equilibrium, and further characteri
+zed using Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "theorem:minsupport"
+
+\end_inset
+
+.
+ We then derived Price of Stability results for an example network that
+ illustrates the inefficiency of the best Nash equilibrium.
+\end_layout
+
+\begin_layout Standard
+In order to address this inefficiency, we considered the Stackelberg routing
+ problem where a central authority has control over a fraction 
+\begin_inset Formula $\compRate$
+\end_inset
+
+ of compliant agents.
+ We proved that the Non-compliant First (NCF) strategy is optimal, and that
+ it can be computed in polynomial time, which stands in contrast with the
+ fact that computing the optimal Stackelberg strategy for the class of non-decre
+asing latencies is NP-hard.
+ We illustrated these result using an example network for which we computed
+ the decrease in inefficiency that can be achieved using optimal Stackelberg
+ routing.
+ This example showed that when the demand is near critical flows 
+\begin_inset Formula $r^{(n)}$
+\end_inset
+
+, optimal Stackelberg routing can achieve a significant increase of efficiency
+ (that measured using both Price of Stability and Value of Altruism) even
+ for small values of compliance rate 
+\begin_inset Formula $\compRate$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+These encouraging results show that careful routing of a small compliant
+ population can dramatically improve the efficiency of the network.
+\end_layout
+
+\begin_layout Standard
+We believe this work offers several directions of future research: the work
+ presented here only considers parallel networks under static assumptions
+ (constant flow demand 
+\begin_inset Formula $r$
+\end_inset
+
+, and steady state equilibria) and one question is whether these equilibria
+ are stable in the dynamic sense, and how one may steer the system from
+ one equilibrium to a better one: consider for example the case where the
+ agents are stuck in a congested equilibrium, and assume a coordinator has
+ control over a fraction of the flow.
+ Can the coordinator steer the system to a single link free-flow equilibrium
+ by decongesting a link? And what is the minimal compliance rate needed
+ to achieve this? Another question is how robust are these results? Do they
+ hold for general network topologies? We believe that some of our results
+ extend to general network topologies, but we can see technical challenges
+ for these extensions.
 \end_layout
 
 \begin_layout Standard
