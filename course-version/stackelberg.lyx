@@ -615,7 +615,7 @@ reference "sec:Nash-Equilibria"
  and show that the essential uniqueness property does not hold.
  We then bound the number of Nash equilibria and give a tractable algorithm
  for computing the set of Nash equilibria, then characterize in particular
- the best Nash equilibrium to study its inefficiency using Price of Stability
+ the best Nash equilibrium to study its inefficiency using price of stability
  as a measure of inefficiency.
  In Section 
 \begin_inset CommandInset ref
@@ -624,7 +624,7 @@ reference "sec:Inefficiency"
 
 \end_inset
 
-, we derive the Price of Stability for the case of two link parallel networks.
+, we derive the price of stability for the case of two link parallel networks.
  The main results on optimal Stackelberg routing are presented in Sections
  
 \begin_inset CommandInset ref
@@ -3863,7 +3863,7 @@ best Nash equilibria
 \emph default
  and 
 \emph on
-Price of Stability 
+price of stability 
 \emph default
 as a measure of their inefficiency (see for example 
 \begin_inset CommandInset citation
@@ -4219,7 +4219,7 @@ name "sec:Inefficiency"
 
 \begin_layout Standard
 To study the inefficiency of Nash equilibria, in particular of the best
- Nash equilibrium, we use Price of Stability as a measure of inefficiency
+ Nash equilibrium, we use price of stability as a measure of inefficiency
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -4228,13 +4228,13 @@ key "Anshelevich2004"
 \end_inset
 
 .
- Price of Stability is defined as the ratio between the cost of the best
+ Price of stability is defined as the ratio between the cost of the best
  Nash Equilibrium and the social optimal cost.
  We first compute the cost of the social optimum, then consider a simple
- two link parallel network and derive the Price of Stability for a triangular
+ two link parallel network and derive the price of stability for a triangular
  fundamental diagram.
  This example network will be useful for illustrating the dependency of
- the Price of Stability on the flow demand and the free-flow latencies.
+ the price of stability on the flow demand and the free-flow latencies.
 \end_layout
 
 \begin_layout Subsection
@@ -4412,7 +4412,7 @@ key "roughgarden2004bounding,roughgarden2002bad"
 
 \end_inset
 
- and Price of Stability 
+ and price of stability 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Anshelevich2004"
@@ -4421,11 +4421,11 @@ key "Anshelevich2004"
 
 .
  The Price of Anarchy is defined as the ratio between the cost of the worst
- Nash equilibrium and the the social optimum cost, while the Price of Stability
+ Nash equilibrium and the the social optimum cost, while the price of stability
  is defined as the ratio between the best Nash equilibrium and the social
  optimal cost.
  For the case of non-decreasing latency functions, the Price of Anarchy
- and the Price of Stability coincide since all Nash equilibria have the
+ and the price of stability coincide since all Nash equilibria have the
  same cost by the essential uniqueness property
 \begin_inset Note Note
 status open
@@ -4438,7 +4438,7 @@ add reference for the essential uniqueness property
 
 .
  Since we focus our analysis on the best Nash equilibrium, we use as a metric
- the Price of Stability.
+ the price of stability.
 \end_layout
 
 \begin_layout Standard
@@ -4471,7 +4471,7 @@ reference "eq:so"
 \end_inset
 
 .
- The Price of Stability is then defined as
+ The price of stability is then defined as
 \end_layout
 
 \begin_layout Standard
@@ -4552,7 +4552,7 @@ reference "theorem:minsupport"
 
  has all flow demand on link 1 in free-flow, and is equivalent to the social
  optimum.
- In this case, the Price of Stability is equal to 1, i.e there is no decrease
+ In this case, the price of stability is equal to 1, i.e there is no decrease
  in efficiency due to selfish routing.
 \end_layout
 
@@ -4807,7 +4807,7 @@ name "fig:sone"
 \end_layout
 
 \begin_layout Standard
-Computing the Price of Stability when 
+Computing the price of stability when 
 \begin_inset Formula $\qdemand>\flowMax[1]$
 \end_inset
 
@@ -4828,7 +4828,7 @@ Computing the Price of Stability when
 \end_layout
 
 \begin_layout Standard
-In this simple two-link parallel network, the Price of Stability is maximal
+In this simple two-link parallel network, the price of stability is maximal
  at 
 \begin_inset Formula $r=\flowMax[1]$
 \end_inset
@@ -4846,7 +4846,7 @@ reference "fig:POS-plot"
 
 ).
  This shows in particular that for the general class of horizontal queuing
- congestion latencies, the Price of Stability is unbounded, since for any
+ congestion latencies, the price of stability is unbounded, since for any
  demand 
 \begin_inset Formula $r$
 \end_inset
@@ -4859,7 +4859,7 @@ reference "fig:POS-plot"
 \begin_inset Formula $(2,r)$
 \end_inset
 
- such that the Price of Stability is 
+ such that the price of stability is 
 \begin_inset Formula $\frac{a_{2}}{a_{1}}>A$
 \end_inset
 
@@ -4871,7 +4871,7 @@ Also note that for a fixed flow demand
 \begin_inset Formula $r>\flowMax[1]$
 \end_inset
 
-, the Price of Stability is an increasing function of 
+, the price of stability is an increasing function of 
 \begin_inset Formula $\frac{a_{2}}{a_{1}}$
 \end_inset
 
@@ -4880,7 +4880,7 @@ Also note that for a fixed flow demand
 \begin_inset Formula $\parA[2]\rightarrow\parA[1]$
 \end_inset
 
-, the Price of Stability goes to 1.
+, the price of stability goes to 1.
  Intuitively, the inefficiency of Nash equilibria can be directly attributed
  to the difference in free-flow latency between the links.
 \end_layout
@@ -4890,7 +4890,7 @@ Additionally, as the demand
 \begin_inset Formula $r\geq\flowMax[1]$
 \end_inset
 
- increases, the Price of Stability decreases.
+ increases, the price of stability decreases.
  This occurs because the difference in total latency between social optimum
  and Nash equilibrium is constant for 
 \begin_inset Formula $r\geq\flowMax[1]$
@@ -7263,7 +7263,7 @@ reference "fig:Results-for-network"
 \end_inset
 
 .
- The Price of Stability plot in Figure 
+ The price of stability plot in Figure 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "fig:Price-of-Stability"
@@ -7361,7 +7361,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Price of Stability vs.
+Price of stability vs.
  demand (cars/minute) for different compliance rates.
 \begin_inset CommandInset label
 LatexCommand label
@@ -7401,7 +7401,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Value of Altruism vs.
+Value of altruism vs.
  demand (cars/minute) for different compliance rates.
 \begin_inset CommandInset label
 LatexCommand label
@@ -7447,10 +7447,10 @@ name "fig:Results-for-network"
 \end_layout
 
 \begin_layout Standard
-While Price of Stability describes how inefficient the best Nash equilibrium
+While price of stability describes how inefficient the best Nash equilibrium
  is with respect to the social optimal strategy, another metric, 
 \emph on
-Value of Altruism
+value of altruism
 \emph default
  
 \emph on
@@ -7465,7 +7465,7 @@ key "aswani2011game"
 \emph default
 , was introduced to show how performant a particular Stackelberg strategy
  is with respect to a 0% compliance strategy (or Nash equilibrium).
- Value of Altruism is defined by:
+ Value of altruism is defined by:
 \end_layout
 
 \begin_layout Standard
@@ -7518,7 +7518,7 @@ delaying
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -7533,7 +7533,7 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Price of Stability profile (3d)
+Price of stability profile (3d)
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:POS3d"
@@ -7558,12 +7558,13 @@ name "fig:POS3d"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
-	filename ../figures/POSContour.pdf
-	width 3in
+	filename ../figures/POSContour-cropped.pdf
+	width 2.7in
 	clip
 
 \end_inset
@@ -7572,7 +7573,7 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Price of Stability profile (contour) 
+Price of stability profile (contour) 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:POSContour"
@@ -7842,7 +7843,7 @@ reference "theorem:minsupport"
 \end_inset
 
 .
- We then derived Price of Stability results for an example network that
+ We then derived price of stability results for an example network that
  illustrates the inefficiency of the best Nash equilibrium.
 \end_layout
 
@@ -7865,7 +7866,7 @@ asing latencies is NP-hard.
 \end_inset
 
 , optimal Stackelberg routing can achieve a significant increase of efficiency
- (that we measured using both Price of Stability and Value of Altruism)
+ (that we measured using both price of stability and value of altruism)
  even for small values of compliance rate 
 \begin_inset Formula $\compRate$
 \end_inset
@@ -7876,6 +7877,11 @@ asing latencies is NP-hard.
 \begin_layout Standard
 These encouraging results show that careful routing of a small compliant
  population can dramatically improve the efficiency of the network.
+ It is also worth noting that these results indicate that for certain demand
+ and compliance ranges, Stackelberg routing can be completely ineffective.
+ Therefore identifying the ranges where optimal Stackelberg routing does
+ improve the efficiency of the network is crucial for effective planning
+ and control.
 \end_layout
 
 \begin_layout Standard
