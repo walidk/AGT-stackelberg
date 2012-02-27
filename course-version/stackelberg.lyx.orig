@@ -7290,11 +7290,7 @@ key "aswani2011game"
 \begin_layout Standard
 \begin_inset Formula 
 \[
-<<<<<<< HEAD
-VOA\left(\NLinks,\qdemand,\compRate\right)=\frac{\min_{s\in\StackSet}C\left(s+\ncFlow(\cFlow),m(\cFlow)\right)}{C\left(\BestNashEquilibrium{\NLinks}{\qdemand}\right)}
-=======
 VOA\left(\NLinks,\qdemand,\compRate\right)=\frac{\min_{s\in\StackSet}C\left(s+\ncFlow(\cFlow),m(\cFlow)\right)}{C\left(\flow[\BestNashEquilibrium{\NLinks}{\qdemand}],m_{\BestNashEquilibrium{\NLinks}{\qdemand}}\right)}
->>>>>>> 83aa550e24ef26d6b0c38c807dbce6bc6abb80ec
 \]
 
 \end_inset

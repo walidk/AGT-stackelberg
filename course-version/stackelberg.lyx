@@ -7519,7 +7519,7 @@ Computation time of optimal Stackelberg strategy relative to network size.
 \end_layout
 
 \begin_layout Standard
-The relationship appears to be quadratic, as demonstrated by the time fit
+The relationship appears to be quadratic, as demonstrated by the tight fit
  of the quadratic function.
  This result is as anticipated, since the optimal Stackelberg strategy algorithm
 's complexity comes from the computation of best Nash equilibrium, which
