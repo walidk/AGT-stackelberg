@@ -63,17 +63,17 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\vect}[1]{\boldsymbol{#1}}
+\newcommand{\vect}[1]{\boldsymbol{#1}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\lonenorm}[1]{\left|\left|#1\right|\right|_{1}}
+\newcommand{\lonenorm}[1]{\left|\left|#1\right|\right|_{1}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\dotT}[2]{\vect{#1^{\mathrm{T}}} \vect{#2} }
+\newcommand{\dotT}[2]{\vect{#1^{\mathrm{T}}} \vect{#2} }
 \end_inset
 
 
@@ -81,22 +81,22 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\mass}[1][]{\rho_{#1}}
+\newcommand{\mass}[1][]{\rho_{#1}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\massmax}[1][]{\mass[#1]^{\max}}
+\newcommand{\massmax}[1][]{\mass[#1]^{\max}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\masscrit}[1][]{\mass[#1]^{\text{crit}}}
+\newcommand{\masscrit}[1][]{\mass[#1]^{\text{crit}}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\vmass}{\vect{\mass}}
+\newcommand{\vmass}{\vect{\mass}}
 \end_inset
 
 
@@ -104,17 +104,17 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\Junctions}{V}
+\newcommand{\Junctions}{V}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\Cells}{E}
+\newcommand{\Cells}{E}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\Graph}{(\Junctions,\Cells)}
+\newcommand{\Graph}{(\Junctions,\Cells)}
 \end_inset
 
 
@@ -122,12 +122,12 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\junction}[1][]{v_{#1}}
+\newcommand{\junction}[1][]{v_{#1}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\jcn}[1][]{\junction[#1]}
+\newcommand{\jcn}[1][]{\junction[#1]}
 \end_inset
 
 
@@ -135,12 +135,12 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\cell}[1][]{e_{#1}}
+\newcommand{\cell}[1][]{e_{#1}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\vcell}[1][]{\vect{\cell[#1]}}
+\newcommand{\vcell}[1][]{\vect{\cell[#1]}}
 \end_inset
 
 
@@ -148,12 +148,12 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\Incoming}{I}
+\newcommand{\Incoming}{I}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\inCells}[1][]{\Incoming_{#1}}
+\newcommand{\inCells}[1][]{\Incoming_{#1}}
 \end_inset
 
 
@@ -161,12 +161,12 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\Outgoing}{O}
+\newcommand{\Outgoing}{O}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\outCells}[1][]{\Outgoing_{#1}}
+\newcommand{\outCells}[1][]{\Outgoing_{#1}}
 \end_inset
 
 
@@ -174,35 +174,12 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\speedff}{v^{f}}
+\newcommand{\speedff}{v^{f}}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\renewcommand{\speedCong}{v^{c}}
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset FormulaMacro
-\renewcommand{\minify}[1]{#1^{\text{min}}}
-\end_inset
-
- 
-\begin_inset FormulaMacro
-\renewcommand{\maxify}[1]{#1^{\text{\max}}}
-\end_inset
-
- 
-\begin_inset FormulaMacro
-\renewcommand{\inify}[1]{#1^{\text{in}}}
-\end_inset
-
- 
-\begin_inset FormulaMacro
-\renewcommand{\outify}[1]{#1^{\text{out}}}
+\newcommand{\speedCong}{v^{c}}
 \end_inset
 
 
@@ -210,22 +187,22 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\flow}[1][]{x_{#1}}
+\newcommand{\minify}[1]{#1^{\text{min}}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\flowMax}[1][]{\maxify{\flow[#1]}}
+\newcommand{\maxify}[1]{#1^{\text{\max}}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\flowIn}[1][]{\inify{\flow[#1]}}
+\newcommand{\inify}[1]{#1^{\text{in}}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\flowOut}[1][]{\outify{\flow[#1]}}
+\newcommand{\outify}[1]{#1^{\text{out}}}
 \end_inset
 
 
@@ -233,22 +210,22 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\vflow}{\vect q}
+\newcommand{\flow}[1][]{x_{#1}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\vflowMax}{\maxify{\vect{\flow}}}
+\newcommand{\flowMax}[1][]{\maxify{\flow[#1]}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\vflowIn}{\inify{\vect{\flow}}}
+\newcommand{\flowIn}[1][]{\inify{\flow[#1]}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\vflowOut}{\outify{\vect{\flow}}}
+\newcommand{\flowOut}[1][]{\outify{\flow[#1]}}
 \end_inset
 
 
@@ -256,22 +233,22 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\demand}[1][]{\Delta_{#1}}
+\newcommand{\vflow}{\vect q}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\dem}[1][]{\demand[#1]}
+\newcommand{\vflowMax}{\maxify{\vect{\flow}}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\supply}[1][]{\Sigma_{#1}}
+\newcommand{\vflowIn}{\inify{\vect{\flow}}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\supp}[1][]{\supply[#1]}
+\newcommand{\vflowOut}{\outify{\vect{\flow}}}
 \end_inset
 
 
@@ -279,13 +256,36 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\fa}[1]{\forall\,#1}
+\newcommand{\demand}[1][]{\Delta_{#1}}
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\dem}[1][]{\demand[#1]}
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\supply}[1][]{\Sigma_{#1}}
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\supp}[1][]{\supply[#1]}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\fa}[1]{\forall\,#1}
 {\forall#1}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\fain}[2]{\fa{#1\,\in\,#2}}
+\newcommand{\fain}[2]{\fa{#1\,\in\,#2}}
 {\fa{#1\in#2}}
 \end_inset
 
@@ -294,12 +294,12 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\totaltraveltime}[1][]{TTT_{#1}}
+\newcommand{\totaltraveltime}[1][]{TTT_{#1}}
 \end_inset
 
  
 \begin_inset FormulaMacro
-\renewcommand{\ttt}[1][]{\totaltraveltime[#1]}
+\newcommand{\ttt}[1][]{\totaltraveltime[#1]}
 \end_inset
 
 
@@ -555,12 +555,12 @@ nash eq
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\BestNashEquilibrium}[2]{\textup{BNE}\left(#1,#2\right)}
+\renewcommand{\BestNashEquilibrium}[2]{\textup{BNE}\left(#1,#2\right)}
 \end_inset
 
 
 \begin_inset FormulaMacro
-\newcommand{\NashEquilibrium}[3]{\textup{NE}_{#3}\left(#1,#2\right)}
+\renewcommand{\NashEquilibrium}[3]{\textup{NE}_{#3}\left(#1,#2\right)}
 \end_inset
 
 
@@ -581,7 +581,7 @@ congestion matches free flow flow
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\cffFlow}[2]{\hat{\flow}_{#1}\left(#2\right)}
+\renewcommand{\cffFlow}[2]{\hat{\flow}_{#1}\left(#2\right)}
 \end_inset
 
 
@@ -602,7 +602,7 @@ optimal NE flow
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\opneFlow}[3][]{\bar{\flow}_{#1}^{#2,#3}}
+\renewcommand{\opneFlow}[3][]{\bar{\flow}_{#1}^{#2,#3}}
 \end_inset
 
 
@@ -623,7 +623,7 @@ super script j = (1 through j-1 in congestion) and j in free flow (if exists)
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\cffMode}[2][]{\bar{\Mode}_{#1}^{#2}}
+\renewcommand{\cffMode}[2][]{\bar{\Mode}_{#1}^{#2}}
 \end_inset
 
 
@@ -631,7 +631,7 @@ super script j = (1 through j-1 in congestion) and j in free flow (if exists)
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\Supp}[1]{\textup{Supp}\left(#1\right)}
+\renewcommand{\Supp}[1]{\textup{Supp}\left(#1\right)}
 \end_inset
 
 
@@ -639,7 +639,7 @@ super script j = (1 through j-1 in congestion) and j in free flow (if exists)
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\POS}[2]{\textup{POS}\left(#1,#2\right)}
+\renewcommand{\POS}[2]{\textup{POS}\left(#1,#2\right)}
 \end_inset
 
 
@@ -647,7 +647,7 @@ super script j = (1 through j-1 in congestion) and j in free flow (if exists)
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\Cost}[2]{C_{#1}\left(#1,#2\right)}
+\renewcommand{\Cost}[2]{C_{#1}\left(#1,#2\right)}
 \end_inset
 
 
@@ -655,7 +655,7 @@ super script j = (1 through j-1 in congestion) and j in free flow (if exists)
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\compRate}{\alpha}
+\renewcommand{\compRate}{\alpha}
 \end_inset
 
 
@@ -663,7 +663,15 @@ super script j = (1 through j-1 in congestion) and j in free flow (if exists)
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\StackSet}{\textup{S}(\NLinks,\qdemand,\compRate)}
+\renewcommand{\StackSet}{\textup{S}(\NLinks,\qdemand,\compRate)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\maxDemand}[1]{\qdemand^{\textup{NE}}\left(#1\right)}
 \end_inset
 
 
