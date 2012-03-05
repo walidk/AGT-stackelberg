@@ -589,7 +589,7 @@ Congestion Games on on Parallel Edge Network
 \begin_layout Standard
 We consider a non-atomic
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 When fractional flows are allowed, the players are said to be non-atomic
@@ -622,7 +622,18 @@ key "roughgarden2001stackelberg"
 
 \end_inset
 
-, shown in Figure 
+, shown in Figure
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+~
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:nparlink"
@@ -685,13 +696,13 @@ reference "fig:nparlink"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename ../figures/nparlink.pdf
-	width 3.5in
+	height 0.8in
 
 \end_inset
 
@@ -950,7 +961,17 @@ x_{n}^{\rho}:D_{n} & \rightarrow & \Rea_{+}\\
 \begin_inset Formula $\rho_{n}$
 \end_inset
 
- on the link, and the latency is given by a function 
+ on the link.
+ The domain of 
+\begin_inset Formula $\mass[\link]$
+\end_inset
+
+, 
+\begin_inset Formula $D_{\link}$
+\end_inset
+
+, is non-negative and potentially unbounded.
+ The latency is given by a function 
 \begin_inset Formula 
 \begin{eqnarray*}
 \latency[\link]^{\rho}:D_{n} & \rightarrow & \Rea_{+}\\
@@ -1101,7 +1122,7 @@ We define the free-flow region as
 .
  From Equation 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand eqref
 reference "eq:latency-relation"
 
 \end_inset
@@ -1137,7 +1158,7 @@ reference "fig:example-rho-latency"
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Standard
@@ -1328,6 +1349,8 @@ reference "sub:Deriving-a-Class"
 \end_layout
 
 \begin_layout Example
+
+\emph on
 Triangular fundamental diagrams
 \end_layout
 
@@ -1617,7 +1640,7 @@ reference "fig:example-flow-latency"
 \begin_inset Formula 
 \begin{eqnarray*}
 \latency[\triangle]\left(x,0\right) & = & \frac{\Length}{\speedff}\\
-\latency[\triangle]\left(\flow,1\right) & = & L\left(\frac{\massmax}{\flow}+\left(\speedCong\right)^{-1}\right)
+\latency[\triangle]\left(\flow,1\right) & = & L\left(\frac{\massmax}{\flow}+\frac{1}{\speedCong}\right)
 \end{eqnarray*}
 
 \end_inset
@@ -1690,7 +1713,8 @@ name "sec:Nash-Equilibria"
 
 \begin_layout Standard
 In this section, we characterize pure non-atomic Nash equilibria of the
- network (also called Wardrop equilibria in the traffic literature 
+ network (also called Wardrop equilibria in the transportation literature
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Etudes1985"
@@ -1896,21 +1920,11 @@ name "sub:Traffic-Networks-Have"
 \end_inset
 
  Horizontal queueing networks have multiple Nash equilibria
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Sketch out the whole process
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
 Let 
-\begin_inset Formula $\NashEquilibrium{\NLinks}{\qdemand}$
+\begin_inset Formula $\NashEquilibrium{\NLinks}{\qdemand}{}$
 \end_inset
 
  denote the set of Nash Equilibria for network instance 
@@ -2181,7 +2195,7 @@ name "lem:filluplower"
 \end_inset
 
 Let 
-\begin_inset Formula $\left(\flow,\Mode\right)\in\NashEquilibrium{\NLinks}{\qdemand}$
+\begin_inset Formula $\left(\flow,\Mode\right)\in\NashEquilibrium{\NLinks}{\qdemand}{}$
 \end_inset
 
 .
@@ -2235,7 +2249,7 @@ name "cor:atmost1ff"
 \end_inset
 
  Let 
-\begin_inset Formula $\left(\flow,\Mode\right)\in\NashEquilibrium{\NLinks}{\qdemand}$
+\begin_inset Formula $\left(\flow,\Mode\right)\in\NashEquilibrium{\NLinks}{\qdemand}{}$
 \end_inset
 
 .
@@ -2547,7 +2561,7 @@ reference "lem:filluplower"
 \end_layout
 
 \begin_layout Proof
-Now partition the set of Nash Equilibria in two sets 
+Now we partition the set of Nash Equilibria in two sets 
 \begin_inset Formula $\NashEquilibrium{\NLinks}r=\text{NE}_{\text{f}}(\NLinks,r)\sqcup\text{NE}_{\text{c}}(\NLinks,r)$
 \end_inset
 
@@ -2566,8 +2580,8 @@ Now partition the set of Nash Equilibria in two sets
 \begin_layout Proof
 \begin_inset Formula 
 \begin{eqnarray*}
-\text{NE}_{\text{f}}(\NLinks,r) & = & \left\{ (\flow,m)\in\NashEquilibrium Nr|m_{\max\Supp{\flow}}=0\right\} \\
-\text{NE}_{\text{c}}(\NLinks,r) & = & \left\{ (\flow,m)\in\NashEquilibrium Nr|m_{\max\Supp{\flow}}=1\right\} 
+\NashEquilibrium{\NLinks}{\qdemand}f & = & \left\{ (\flow,m)\in\NashEquilibrium Nr|m_{\max\Supp{\flow}}=0\right\} \\
+\NashEquilibrium{\NLinks}{\qdemand}c & = & \left\{ (\flow,m)\in\NashEquilibrium Nr|m_{\max\Supp{\flow}}=1\right\} 
 \end{eqnarray*}
 
 \end_inset
@@ -2586,7 +2600,7 @@ Now we show that for a given congestion state vector
 \begin_deeper
 \begin_layout Paragraph
 Suppose 
-\begin_inset Formula $(\flow,m),(\flow',m)\in\text{NE}_{\text{f}}(N,r)$
+\begin_inset Formula $(\flow,m),(\flow',m)\in\NashEquilibrium{\NLinks}{\qdemand}f$
 \end_inset
 
 , where 
@@ -2649,7 +2663,7 @@ reference "eq:contradiction"
 \end_inset
 
  such that 
-\begin_inset Formula $(x,m)\in\text{NE}_{\text{c}}(N,r)$
+\begin_inset Formula $(x,m)\in\NashEquilibrium{\NLinks}{\qdemand}f$
 \end_inset
 
 .
@@ -2657,7 +2671,7 @@ reference "eq:contradiction"
 
 \begin_layout Paragraph
 Suppose 
-\begin_inset Formula $(\flow,m),(\flow',m)\in\text{NE}_{\text{c}}(N,r)$
+\begin_inset Formula $(\flow,m),(\flow',m)\in\NashEquilibrium{\NLinks}{\qdemand}c$
 \end_inset
 
 , where 
@@ -2673,7 +2687,7 @@ then since
 \end_inset
 
  and every link in the support is congested (by definition of 
-\begin_inset Formula $\text{NE}_{\text{c}}(N,r)$
+\begin_inset Formula $\NashEquilibrium{\NLinks}{\qdemand}c$
 \end_inset
 
 ), then 
@@ -2707,7 +2721,7 @@ then since
 \end_inset
 
  such that 
-\begin_inset Formula $(x,m)\in\text{NE}_{\text{c}}(N,r)$
+\begin_inset Formula $(x,m)\in\NashEquilibrium{\NLinks}{\qdemand}c$
 \end_inset
 
 .
@@ -2866,7 +2880,7 @@ Congestion Flows are decreasing
  
 \begin_inset Formula 
 \begin{equation}
-\cffFlow{\link}k=l_{n}(.,1)^{-1}(a_{k})\label{eq:x_hat_alt_def}
+\cffFlow{\link}k=l_{n}(\cdot,1)^{-1}(a_{k})\label{eq:x_hat_alt_def}
 \end{equation}
 
 \end_inset
@@ -2884,7 +2898,7 @@ Congestion Flows are decreasing
 \end_inset
 
  and 
-\begin_inset Formula $l_{n}(.,1)^{-1}$
+\begin_inset Formula $l_{n}(\cdot,1)^{-1}$
 \end_inset
 
  is decreasing.
@@ -2958,7 +2972,7 @@ reference "eq:x_bar"
 
  are shown in Figure 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand ref
 reference "fig:xbar-and-hat-defns"
 
 \end_inset
@@ -3230,7 +3244,7 @@ Consider instance
 \noun off
 \color none
 
-\begin_inset Formula $\left(\opneFlow j{\qdemand},\cffMode j\right)\in\NashEquilibrium{\NLinks}{\qdemand}$
+\begin_inset Formula $\left(\opneFlow j{\qdemand},\cffMode j\right)\in\NashEquilibrium{\NLinks}{\qdemand}{}$
 \end_inset
 
  for some 
@@ -3414,7 +3428,7 @@ normalsize
 \end_inset
 
  then we can show that 
-\begin_inset Formula $\left(\opneFlow{N+1}{\qdemand},\cffMode{N+1}\right)\in\NashEquilibrium{\NLinks+1}{\qdemand}$
+\begin_inset Formula $\left(\opneFlow{N+1}{\qdemand},\cffMode{N+1}\right)\in\NashEquilibrium{\NLinks+1}{\qdemand}{}$
 \end_inset
 
 .
@@ -3629,7 +3643,7 @@ name "cor:ff_eq_better_than_cong_eq"
 
 \begin_layout Corollary
 If there exists a congested equilibrium 
-\begin_inset Formula $(x,m)\in\NashEquilibrium{\NLinks}r$
+\begin_inset Formula $(x,m)\in\NashEquilibrium{\NLinks}r{}$
 \end_inset
 
 , then there exists a single-link free-flow equilibrium 
@@ -3641,7 +3655,7 @@ If there exists a congested equilibrium
 
 \begin_layout Proof
 Let 
-\begin_inset Formula $(\flow,\Mode)\in\NashEquilibrium{\NLinks}r$
+\begin_inset Formula $(\flow,\Mode)\in\NashEquilibrium{\NLinks}r{}$
 \end_inset
 
  be a congested equilibrium, i.e.
@@ -3663,7 +3677,7 @@ Let
 \end_inset
 
 , there exists a single-link free-flow equilibrium 
-\begin_inset Formula $(\tilde{x},\tilde{m})\in\NashEquilibrium kr$
+\begin_inset Formula $(\tilde{x},\tilde{m})\in\NashEquilibrium kr{}$
 \end_inset
 
 , and the cost of this equilibrium is 
@@ -3694,7 +3708,7 @@ Let
 .
  To conclude, we simply note that the cost of the congested equilibrium
  is 
-\begin_inset Formula $C(x,m)=l_{k}(x_{k},1).r>a_{k}r$
+\begin_inset Formula $C(x,m)=l_{k}(x_{k},1)r>a_{k}r$
 \end_inset
 
 , thus 
@@ -3754,7 +3768,7 @@ name "def:bne"
 
 \begin_inset Formula 
 \[
-\BestNashEquilibrium{\NLinks}{\qdemand}=\underset{\left(\flow,\Mode\right)\in\NashEquilibrium{\NLinks}{\qdemand}}{\arg\min}\Latency\left(\flow,\Mode\right)
+\BestNashEquilibrium{\NLinks}{\qdemand}=\underset{\left(\flow,\Mode\right)\in\NashEquilibrium{\NLinks}{\qdemand}{}}{\arg\min}\Latency\left(\flow,\Mode\right)
 \]
 
 \end_inset
@@ -3833,7 +3847,7 @@ reference "cor:ff_eq_better_than_cong_eq"
 \end_inset
 
  we have that if 
-\begin_inset Formula $(x,m)\in\NashEquilibrium{\NLinks}r$
+\begin_inset Formula $(x,m)\in\NashEquilibrium{\NLinks}r{}$
 \end_inset
 
  is a congested equilibrium, then these exists a single-link free-flow equilibri
@@ -3980,23 +3994,10 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-footnotesize
-\end_layout
-
-\end_inset
-
-
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "../algo.raw"
-lstparams "basicstyle={\\ttfamily},mathescape"
+lstparams "basicstyle={\\ttfamily \\footnotesize},mathescape"
 
 \end_inset
 
@@ -4028,19 +4029,7 @@ name "alg:bestNE"
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-normalsize
-\end_layout
-
-\end_inset
-
- We first note from Algorithm 
+We first note from Algorithm 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "alg:bestNE"
@@ -4065,7 +4054,7 @@ reference "alg:bestNE"
 \end_inset
 
 
-\begin_inset Formula $freeFlowConfig$
+\begin_inset Formula $\texttt{freeFlowConfig}$
 \end_inset
 
  runs in 
@@ -4074,7 +4063,7 @@ reference "alg:bestNE"
 
  time.
  Finally, for each loop of the 
-\begin_inset Formula $bestNE$
+\begin_inset Formula $\texttt{bestNE}$
 \end_inset
 
  outer routine (with 
@@ -4082,7 +4071,7 @@ reference "alg:bestNE"
 \end_inset
 
  iterations), the running time is a constant plus the running time of 
-\begin_inset Formula $freeFlowConfig$
+\begin_inset Formula $\texttt{freeFlowConfig}$
 \end_inset
 
 .
@@ -4373,19 +4362,6 @@ reference "eq:so"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Alex: is it contingent on 
-\begin_inset Formula $r\leq\sum\flowMax[n]$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
 From the expression 
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -4409,7 +4385,7 @@ Case 1:
 \begin_inset Formula $0\le\qdemand\le\flowMax[1]$
 \end_inset
 
-:
+
 \end_layout
 
 \begin_layout Standard
@@ -4448,7 +4424,7 @@ Case 2:
 \begin_inset Formula $\flowMax[1]<\qdemand\leq\flowMax[2]+\cffFlow 12$
 \end_inset
 
-:
+
 \end_layout
 
 \begin_layout Standard
@@ -5146,15 +5122,10 @@ We will denote by
 \noun default
 \color inherit
 .
-\end_layout
+\begin_inset Foot
+status collapsed
 
-\begin_layout Example
-
-\series bold
-A feasible assignment that is not a Stackelberg strategy
-\end_layout
-
-\begin_layout Example
+\begin_layout Plain Layout
 Note that a feasible flow assignment 
 \begin_inset Formula $s$
 \end_inset
@@ -5166,7 +5137,7 @@ Note that a feasible flow assignment
  and therefore is not considered to be a Stackelberg strategy.
 \end_layout
 
-\begin_layout Example
+\begin_layout Plain Layout
 To see this, consider the following 2-link network such that link 
 \begin_inset Formula $1$
 \end_inset
@@ -5196,7 +5167,7 @@ To see this, consider the following 2-link network such that link
 .
 \end_layout
 
-\begin_layout Example
+\begin_layout Plain Layout
 Assuming that the assignment of compliant agents is not affected by introducing
  the non-compliant flow, we have for any assignment 
 \begin_inset Formula $t$
@@ -5224,6 +5195,11 @@ Assuming that the assignment of compliant agents is not affected by introducing
 \end_inset
 
  (non compliant agents are forced to use less efficient link 2).
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -6987,8 +6963,8 @@ Example network
 \end_layout
 
 \begin_layout Standard
-To illustrate the theory developed here-within, we consider an example network
- that represents freeway traffic in the San Francisco Bay Area.
+The previous results have been applied to a scenario of freeway traffic
+ from the San Francisco Bay Area.
  Four parallel highways are chosen starting in San Francisco and ending
  in San Jose: I-101, I-280, I-880 and I-580 (shown in Figure
 \begin_inset ERT
@@ -7020,7 +6996,7 @@ reference "fig:Map-of-parallel"
 placement h
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -7037,7 +7013,8 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Map of parallel highway network
+Map of parallel highway network showing four parallel highway choices leading
+ from San Francisco to San Jose.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Map-of-parallel"
@@ -7077,11 +7054,20 @@ reference "fig:Latency-functions-for"
 \end_inset
 
  shows the latency functions for the highway network, which were generated
- assuming a triangular fundamental diagram (constant positive slope in free-flow
- regime, and constant negative slope in congestion regime).
+ assuming a triangular fundamental diagram uniform for the full highway
+ stretch.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+This simplifying assumption will be removed in future studies.
+\end_layout
+
+\end_inset
+
  Under free-flow conditions, I-101 is the fastest route available between
  San Francisco and San Jose.
- But when I-101 becomes congested, other routes become viable.
+ But when I-101 becomes congested, other routes represent viable alternatives.
  To analyze how congestion increases with demand, we compute total network
  latency profiles (Equation 
 \begin_inset CommandInset ref
@@ -7144,15 +7130,39 @@ name "fig:Latency-functions-for"
 \begin_layout Standard
 The numerical results are summarized in Figure 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand ref
 reference "fig:Results-for-network"
+
+\end_inset
+
+.
+ In this figure, 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ represents the fraction of compliant drivers on the network, as explained
+ in Section
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+~
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Stackelberg-routing"
 
 \end_inset
 
 .
  The price of stability plot in Figure 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand ref
 reference "fig:Price-of-Stability"
 
 \end_inset
@@ -7168,9 +7178,9 @@ reference "fig:Price-of-Stability"
 \end_inset
 
 .
- This shows the dramatic benefits of Stackelberg routing, especially around
- the critical regions of flow demand where the support of the best Nash
- equilibrium changes.
+ This shows the significant benefits of Stackelberg routing, especially
+ around the critical regions of flow demand where the support of the best
+ Nash equilibrium changes.
  
 \end_layout
 
@@ -7179,7 +7189,8 @@ We also note that for a fixed compliance rate
 \begin_inset Formula $\compRate$
 \end_inset
 
-, Stackelberg routing can delay the congestion of a particular link 
+, Stackelberg routing can delay (as a function of increased demand over
+ the network) the congestion of a particular link 
 \begin_inset Formula $n$
 \end_inset
 
@@ -7227,7 +7238,7 @@ We also note that for a fixed compliance rate
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -7398,19 +7409,15 @@ delaying
 \end_inset
 
 ) resulting in a value of altruism value of 1.
-\end_layout
-
-\begin_layout Standard
-\align center
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../figures/POS3d.pdf
+	filename ../figures/POS3dannote.pdf
 	width 3.5in
 	clip
 
@@ -7420,50 +7427,10 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Price of stability profile (3d)
+Price of stability profile
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:POS3d"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../figures/POSContour-cropped.pdf
-	width 2.7in
-	clip
-
-\end_inset
-
-
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Price of stability profile (contour) 
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:POSContour"
 
 \end_inset
 
@@ -7485,7 +7452,7 @@ The importance of efficient computation of optimal Stackelberg strategies
  can be seen by the complete demand-compliance fraction profile generated
  in Figure 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand ref
 reference "fig:POS3d"
 
 \end_inset
@@ -7494,7 +7461,7 @@ reference "fig:POS3d"
  If the amount of compliance is viewed as a cost to some central controller,
  then the tiers visible in Figure 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand ref
 reference "fig:POS3d"
 
 \end_inset
@@ -7526,24 +7493,21 @@ To demonstrate the performance of the algorithm as the size of the network
  The number of links in a network was chosen to be between 3 and 1500 where
  the latency properties of each link were generated from randomly chosen
  triangular fundamental diagrams.
- The compliance rate was constant at 40% and the demand was chosen to be
- 70% that of the maximum capacity of the network at best Nash equilibrium.
+ The compliance rate was arbitrarily chosen to be 40% and the demand was
+ chosen to be 70% that of the maximum capacity of the network at best Nash
+ equilibrium.
  The results are shown in Figure 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand ref
 reference "fig:Computation-time-as"
 
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-\align center
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -7603,7 +7567,7 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Computation time increases with demand
+Increase of computational time with demand.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Computation-time-increases"
@@ -7641,24 +7605,40 @@ Computation time of optimal Stackelberg strategy relative to network size.
 \end_layout
 
 \begin_layout Standard
-The relationship appears to be quadratic, as demonstrated by the tight fit
- of the quadratic function.
- This result is as anticipated, since the optimal Stackelberg strategy algorithm
-'s complexity comes from the computation of best Nash equilibrium, which
- was shown to be quadratic in worst case analysis (Section 
+As was derived earlier (Section 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand ref
 reference "sub:Computational-complexity-of"
 
 \end_inset
 
-).
+), the worst case complexity of computing optimal Stackelberg assignments
+ is quadratic with the size of the network, which is verified experimentally
+ as shown in Figure
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+~
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Computation-time-as"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
 Figure 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand ref
 reference "fig:Computation-time-increases"
 
 \end_inset
@@ -7668,7 +7648,7 @@ reference "fig:Computation-time-increases"
  This is due to the sequential search of the best Nash equilibrium algorithm
  (Algorithm 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand ref
 reference "alg:bestNE"
 
 \end_inset
@@ -7708,12 +7688,12 @@ We introduced a new class of latency functions that better models congestion
 .
  We then classified these equilibria into single link free-flow equilibria
  
-\begin_inset Formula $\text{NE}_{\text{f}}(\NLinks,r)$
+\begin_inset Formula $\NashEquilibrium{\NLinks}{\qdemand}f$
 \end_inset
 
 , for which one link in the support is in free-flow, and congested equilibria
  
-\begin_inset Formula $\text{NE}_{\text{c}}(\NLinks,r)$
+\begin_inset Formula $\NashEquilibrium{\NLinks}{\qdemand}c$
 \end_inset
 
 , for which all links in the support are congested.

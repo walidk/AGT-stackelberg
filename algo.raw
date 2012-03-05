@@ -17,7 +17,7 @@ $\textbf{Outputs:}$ assignment $(x, m)=(\bar{x}^{r, i},\bar{m}^{r,i})$
 
 for $i \in \{ 1, \dots, N \}$:
     if $i < j$:
-       $x_i = \hat{x}_i(j)$, $m_i = 1$   $\mathbf{\quad \quad \hat{x}_i(j)} \textbf{ in Eq. (5)}$
+       $x_i = \hat{x}_i(j)$, $m_i = 1$   $\mathbf{\quad \quad \quad \quad \quad \quad \quad  \hat{x}_i(j)} \textbf{ in Eq. (5)}$
     elseif $i$ == $j$:
        $x_i = r - \sum_{k=1}^j x_k$, $m_i = 0$
     else:

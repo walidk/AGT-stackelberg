@@ -192,7 +192,7 @@
 
  
 \begin_inset FormulaMacro
-\renewcommand{\maxify}[1]{#1^{\text{max}}}
+\renewcommand{\maxify}[1]{#1^{\text{\max}}}
 \end_inset
 
  
@@ -307,7 +307,7 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\qdemand}[1][]{r_{#1}}
+\newcommand{\qdemand}[1][]{r_{#1}}
 \end_inset
 
 
@@ -315,7 +315,7 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\delay}[1][]{D_{#1}}
+\newcommand{\delay}[1][]{D_{#1}}
 \end_inset
 
 
@@ -323,7 +323,7 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\lenCell}[1][]{L_{#1}}
+\newcommand{\lenCell}[1][]{L_{#1}}
 \end_inset
 
 
@@ -560,7 +560,7 @@ nash eq
 
 
 \begin_inset FormulaMacro
-\newcommand{\NashEquilibrium}[2]{\textup{NE}\left(#1,#2\right)}
+\newcommand{\NashEquilibrium}[3]{\textup{NE}_{#3}\left(#1,#2\right)}
 \end_inset
 
 
