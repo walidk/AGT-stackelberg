@@ -1673,7 +1673,35 @@ key "Etudes1985"
  with different costs, and that the set of Nash equilibria can be computed
  in polynomial time (with respect to the number of parallel links).
  Then we characterize the best Nash equilibrium and focus our attention
- on studying the inefficiency of the best Nash equilibrium.
+ on studying the inefficiency of the best Nash equilibrium in Section
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+~
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Inefficiency"
+
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+J: we don't really cover that in this section
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1745,7 +1773,8 @@ In particular, every non-atomic agent cannot improve her/his latency by
 \begin_inset Formula $\latency[0]$
 \end_inset
 
-, and links that are not in the support have latency greater than 
+, and links that are not in the support have latency greater than or equal
+ to 
 \begin_inset Formula $\latency[0]$
 \end_inset
 
@@ -1803,7 +1832,7 @@ name "lem:nash_eq"
 \end_inset
 
  is a Nash equilibrium if and only if 
-\begin_inset Formula $\exists l_{0}>0$
+\begin_inset Formula $\exists\: l_{0}>0$
 \end_inset
 
  such that 
@@ -1816,35 +1845,10 @@ name "lem:nash_eq"
 \end_inset
 
  The total latency incurred by the network is 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: where is 
-\begin_inset Formula $m$
-\end_inset
-
- a vector defined? 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-J: I believe it is in definition 2
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \begin_inset Formula $\Latency(\flow,\Mode)=\qdemand\latency[0]$
 \end_inset
 
 .
- 
 \end_layout
 
 \begin_layout Standard
@@ -1895,7 +1899,7 @@ key "roughgarden2002bad,Dafermos1969"
 
  does not hold.
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Note that essential uniqueness of Nash Equilibria holds for the class of
@@ -2017,7 +2021,7 @@ Note that essential uniqueness of Nash Equilibria holds for the class of
 \end_inset
 
  To see this, consider for example a network instance 
-\begin_inset Formula $(2,1)$
+\begin_inset Formula $(\mbox{\NLinks=}2,\mbox{\qdemand=}1)$
 \end_inset
 
  where 
@@ -3410,7 +3414,7 @@ normalsize
 \end_inset
 
 .
- From 
+ From Proposition 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "prop:xbar"

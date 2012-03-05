@@ -16,7 +16,7 @@ alphas = [0., .05,  .15, .5]
 profiles = network_profile(network,alphas + [1.],N_POINTS)
 latencies = profile_latencies(network,profiles)
 styles = ['-','g--','r-.', 'm:']
-names = ['I-101','I-280','I-580','I-880']
+names = ['I-101','I-280','I-880','I-580']
 plot_network(network,names, styles)
 pylab.ylim([55,140])
 pylab.xlim([0,900])
@@ -41,3 +41,4 @@ ne = latencies[0]
                                   alphas[1:])]
 pylab.legend(loc='lower left')
 pylab.savefig(fig_path('VOASim'))
+#pylab.show()
