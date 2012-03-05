@@ -67,7 +67,7 @@
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand input
-filename "lyx_commands.lyx"
+filename "../common-files/lyx_commands.lyx"
 
 \end_inset
 
@@ -1446,28 +1446,6 @@ name "sub:latency_class"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: With an abuse of notation and keeping the notation l for latency, 
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-J: I think we have cleared this up the superscript notation preceding.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
 While expressing latency as a function of density is intuitive and succinct
  for horizontal queues, expressing it as a function of flow proves to be
  more convenient in the study of congestion games and Stackelberg routing.
@@ -1585,11 +1563,7 @@ reference "sub:Deriving-a-Class"
 \end_inset
 
 .
-<<<<<<< HEAD
  Here 
-=======
- Here, 
->>>>>>> blue edits from friday
 \begin_inset Formula $a_{n}$
 \end_inset
 
@@ -2584,13 +2558,8 @@ Now we partition the set of Nash Equilibria in two sets
 \begin_layout Proof
 \begin_inset Formula 
 \begin{eqnarray*}
-<<<<<<< HEAD
-\text{NE}_{\text{f}}(\NLinks,r) & = & \left\{ (\flow,m)\in\NashEquilibrium Nr|m_{\max\Supp{\flow}}=0\right\} \\
-\text{NE}_{\text{c}}(\NLinks,r) & = & \left\{ (\flow,m)\in\NashEquilibrium Nr|m_{\max\Supp{\flow}}=1\right\} 
-=======
 \NashEquilibrium{\NLinks}{\qdemand}f & = & \left\{ (\flow,m)\in\NashEquilibrium Nr|m_{\max\Supp{\flow}}=0\right\} \\
 \NashEquilibrium{\NLinks}{\qdemand}c & = & \left\{ (\flow,m)\in\NashEquilibrium Nr|m_{\max\Supp{\flow}}=1\right\} 
->>>>>>> blue edits from friday
 \end{eqnarray*}
 
 \end_inset
@@ -3237,7 +3206,7 @@ Consider instance
 
 .
  If the set of Nash equilibria is non empty, 
-\begin_inset Formula $\NashEquilibrium{\NLinks}{\qdemand}{\neq}\emptyset$
+\begin_inset Formula $\NashEquilibrium{\NLinks}{\qdemand}{}\neq\emptyset$
 \end_inset
 
 , then there exists a single link free-flow Nash equilibrium 
@@ -3269,7 +3238,7 @@ We first observe that the maximum demand
 \end_inset
 
  such that 
-\begin_inset Formula $\NashEquilibrium{\NLinks}r{\neq}\emptyset$
+\begin_inset Formula $\NashEquilibrium{\NLinks}r{}\neq\emptyset$
 \end_inset
 
  is 
@@ -4005,7 +3974,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "../algo.raw"
+filename "../common-files/algo.raw"
 lstparams "basicstyle={\\ttfamily \\footnotesize},mathescape"
 
 \end_inset
@@ -7783,7 +7752,7 @@ We believe this work offers several directions of future research: the work
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
-bibfiles "bibliography"
+bibfiles "../common-files/bibliography"
 options "plain"
 
 \end_inset
