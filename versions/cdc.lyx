@@ -2700,7 +2700,7 @@ status open
 
 \begin_layout Plain Layout
 Examples of congestion flows 
-\begin_inset Formula $\hat{x_{n}(k)}$
+\begin_inset Formula $\cffFlow nk$
 \end_inset
 
 .
@@ -4574,34 +4574,15 @@ Let
 \end_inset
 
  its induced best Nash equilibrium.
- Then 
+ Then the last link in the support of 
+\begin_inset Formula $t(s)$
+\end_inset
+
+ is in free-flow 
 \begin_inset Formula $\Mode[\max\Supp{t(s)}]=0$
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-In other words, the last link in the support of 
-\begin_inset Formula $t(s)$
-\end_inset
-
- is in free-flow.
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Proof
@@ -4629,11 +4610,7 @@ reference "theorem:minsupport"
 
 \end_inset
 
-, we immediately have 
-\begin_inset Formula $\Mode[\max\Supp{t(s)}]=0$
-\end_inset
-
-.
+, we immediately have the result.
 \end_layout
 
 \begin_layout Subsection
@@ -4724,7 +4701,7 @@ At least
 \end_layout
 
 \begin_layout Definition
-Consider a network under feasible flow assignment 
+Consider a network under feasible assignment 
 \begin_inset Formula $(\flow,\Mode)$
 \end_inset
 
@@ -5211,23 +5188,94 @@ and the corresponding latencies are
 
 
 \begin_inset Float figure
-placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \begin_inset Graphics
-	filename ../figures/optimal_stackelberg2.png
-	width 3in
+	filename ../figures/optimal_stackelberg1.png
+	width 1.7in
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Best Nash equilibrium 
+\begin_inset Formula $(\bar{t},\bar{\Mode})$
+\end_inset
+
+ of non-compliant flow 
+\begin_inset Formula $(1-\compRate)r$
+\end_inset
+
+.
+ All links in the support 
+\begin_inset Formula $\left\{ 1,\dots,k\right\} $
+\end_inset
+
+ have the same latency 
+\begin_inset Formula $a_{k}$
+\end_inset
+
+.
+ Links 
+\begin_inset Formula $\left\{ 1,\dots k-1\right\} $
+\end_inset
+
+ are exactly 
+\begin_inset Formula $k$
+\end_inset
+
+-congested, and link 
+\begin_inset Formula $k$
+\end_inset
+
+ is in free-flow.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:optimal_stackelberg_nc"
 
 \end_inset
 
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\quad$
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
 \begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../figures/optimal_stackelberg2.png
+	width 1.7in
+
+\end_inset
+
+
 \begin_inset Caption
 
 \begin_layout Plain Layout
@@ -5241,9 +5289,14 @@ Equilibrium induced by candidate Stackelberg strategy
 \end_inset
 
  are highlighted.
- In this example, latencies are taken to be affine in congestion for simplicity,
- the results hold for the general class of horizontal queuing latencies.
  
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:optimal_stackelberg_total"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -5251,10 +5304,23 @@ Equilibrium induced by candidate Stackelberg strategy
 
 \end_layout
 
+\end_inset
+
+
+\begin_inset Formula $\quad$
+\end_inset
+
+
+\end_layout
+
 \begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:optimal_stackelberg_total"
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Non-compliant first (NCF) strategy.
+ In this example, latencies are taken to be affine in congestion for simplicity,
+ the results hold for the general class of horizontal queuing latencies.
+\end_layout
 
 \end_inset
 
@@ -5395,22 +5461,7 @@ The proof proceeds as follows: we first show that links
 \begin_inset Formula $(\bar{x},\bar{m})$
 \end_inset
 
-, in the following sense: these links have worse latency 
-\begin_inset Formula 
-\begin{align*}
-\latency[n](x_{n},m_{n}) & \geq\latency[n](\bar{x}_{n},\bar{m}_{n}) & \forall n\in\{1,\dots,l-1\}
-\end{align*}
-
-\end_inset
-
- and hold less flow 
-\begin_inset Formula 
-\begin{align*}
-x_{n} & \leq\bar{x}_{n} & \forall n\in\{1,\dots,l-1\}
-\end{align*}
-
-\end_inset
-
+, in the following sense: these links have worse latency and hold less flow.
  Then we conclude by lower bounding the cost 
 \begin_inset Formula $C(x,m)$
 \end_inset
@@ -5584,21 +5635,11 @@ reference "def:stack"
 
 .
  Therefore we have 
-\end_layout
-
-\begin_layout Proof
-\begin_inset Formula 
-\[
-\sum_{n=1}^{k'}s_{n}+t_{n}(s)\leq\sum_{n=1}^{k'-1}\cffFlow n{k'}+\flowMax[k']
-\]
-
+\begin_inset Formula $\sum_{n=1}^{k'}s_{n}+t_{n}(s)\leq\sum_{n=1}^{k'-1}\cffFlow n{k'}+\flowMax[k']$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Proof
-But 
+.
+ But 
 \begin_inset Formula $\sum_{n=1}^{k'}(s_{n}+t_{n}(s))\geq\sum_{n\in\Supp t}t_{n}(s)=(1-\compRate)r$
 \end_inset
 
@@ -5607,7 +5648,7 @@ But
 \end_inset
 
 .
- Therefore we have 
+ Therefore
 \end_layout
 
 \begin_layout Proof
@@ -5669,7 +5710,7 @@ reference "lemma:slff"
 \end_layout
 
 \begin_layout Proof
-The assignment 
+Then 
 \begin_inset Formula $((\tilde{t}_{1},\dots,\tilde{t}_{k'},0,\dots,0),(\tilde{m}_{1},\dots,\tilde{m}_{k'},0,\dots,0)$
 \end_inset
 
@@ -5698,22 +5739,11 @@ The assignment
 \begin_inset Formula $(1-\compRate)ra_{k}$
 \end_inset
 
-, we must have
-\end_layout
-
-\begin_layout Proof
-\begin_inset Formula 
-\[
-(1-\compRate)ra_{k}\leq(1-\compRate)ra_{k'}
-\]
-
+, we must have 
+\begin_inset Formula $(1-\compRate)ra_{k}\leq(1-\compRate)ra_{k'}$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Proof
-i.e.
+, i.e.
  
 \begin_inset Formula $a_{k}\leq a_{k'}$
 \end_inset
@@ -5815,26 +5845,70 @@ reference "eq:opt_stack_latencies"
 \begin_inset Formula $k'\geq k$
 \end_inset
 
- 
-\begin_inset Formula 
-\begin{align*}
-l_{n}(x_{n},m_{n}) & \geq a_{k'}\geq a_{k}=l_{n}(\bar{x}_{n},\bar{m}_{n}) & \forall n\in\{1,\dots,k-1\}
-\end{align*}
+, we have 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
 
+\begin_inset Formula $\forall n\in\{1,\dots,k-1\}$
 \end_inset
 
 
-\end_layout
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+, 
+\begin_inset Formula $l_{n}(x_{n},m_{n})\geq a_{k'}\geq a_{k}=l_{n}(\bar{x}_{n},\bar{m}_{n})$
+\end_inset
 
-\begin_layout Proof
-and, inverting the latency function 
+, and 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $x_{n}\leq\cffFlow n{k'}\leq\cffFlow nk=\bar{x}_{n}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+, obtained by inverting the latency function 
 \begin_inset Formula $l_{n}(.,m_{n})$
 \end_inset
 
-, we have in terms of flow
-\end_layout
-
-\begin_layout Proof
 
 \family roman
 \series medium
@@ -5847,14 +5921,7 @@ and, inverting the latency function
 \uwave off
 \noun off
 \color none
-\begin_inset Formula 
-\[
-x_{n}\leq\cffFlow n{k'}\leq\cffFlow nk=\bar{x}_{n}\forall n\in\{1,\dots,k-1\}
-\]
-
-\end_inset
-
-
+.
 \end_layout
 
 \begin_layout Proof
@@ -5888,41 +5955,51 @@ reference "eq:opt_stack_flows"
 
 ).
  Thus 
-\begin_inset Formula 
-\begin{align*}
-l_{n}(x_{n},m_{n}) & \geq a_{n}=l_{n}(\bar{x}_{n},\bar{m}_{n}) & \forall n\in\{k,\dots,l-1\}\\
-x_{n} & \leq\flowMax[n]=\bar{x}_{n} & \forall n\in\{k,\dots,l-1\}
-\end{align*}
-
+\begin_inset Formula $\forall n\in\{k,\dots,l-1\}$
 \end_inset
 
+, 
+\begin_inset Formula $l_{n}(x_{n},m_{n})\geq a_{n}=l_{n}(\bar{x}_{n},\bar{m}_{n})$
+\end_inset
 
-\end_layout
+ and 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
 
-\begin_layout Proof
-Therefore we have
+\begin_inset Formula $x_{n}\leq\flowMax[n]=\bar{x}_{n}$
+\end_inset
+
+.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ Therefore we have
 \end_layout
 
 \begin_layout Proof
 \begin_inset Formula 
 \begin{align}
-l_{n}(x_{n},m_{n}) & \geq l_{n}(\bar{x}_{n},\bar{m}_{n}) & \forall n\in\{1,\dots,l-1\}\label{eq:cong_latency}
+l_{n}(x_{n},m_{n}) & \geq l_{n}(\bar{x}_{n},\bar{m}_{n}) & \forall n\in\{1,\dots,l-1\}\label{eq:cong_latency}\\
+x_{n} & \leq\bar{x}_{n} & \forall n\in\{1,\dots,l-1\}\label{eq:cong_flow}
 \end{align}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Proof
-and in terms of flow
-\end_layout
-
-\begin_layout Proof
-\begin_inset Formula 
-\begin{equation}
-x_{n}\leq\bar{x}_{n}\forall n\in\{1,\dots,l-1\}\label{eq:cong_flow}
-\end{equation}
 
 \end_inset
 
@@ -6022,9 +6099,9 @@ small
 \begin_layout Proof
 \begin_inset Formula 
 \begin{align*}
- & C(x,m)-C(\bar{x},\bar{m})\\
- & =\sum_{n=1}^{N}x_{n}l_{n}(x_{n},m_{n})-\sum_{n=1}^{l}\bar{x}_{n}l_{n}(\bar{x}_{n},\bar{m}_{n})\\
- & =\sum_{n=1}^{l-1}(x_{n}l_{n}(x_{n},m_{n})-\bar{x}_{n}l_{n}(\bar{x}_{n},\bar{m}_{n}))+\sum_{n=l}^{N}x_{n}l_{n}(x_{n},m_{n})-\bar{x}_{l}a_{l}
+C(x,m) & =\sum_{n=1}^{N}x_{n}l_{n}(x_{n},m_{n})\\
+ & =\sum_{n=1}^{l-1}x_{n}l_{n}(x_{n},m_{n})+\sum_{n=l}^{N}x_{n}l_{n}(x_{n},m_{n})\\
+ & \geq\sum_{n=1}^{l-1}x_{n}l_{n}(\bar{x}_{n},\bar{m}_{n})+\sum_{n=l}^{N}x_{n}a_{l}
 \end{align*}
 
 \end_inset
@@ -6054,7 +6131,7 @@ normalsize
 \uwave off
 \noun off
 \color none
-since 
+using
 \family default
 \series default
 \shape default
@@ -6066,11 +6143,14 @@ since
 \uwave default
 \noun default
 \color inherit
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:cong_latency"
 
-\begin_inset Formula $\Supp{\bar{x}}=\{1,\dots,l\}$
 \end_inset
 
- and 
+ and
 \family roman
 \series medium
 \shape up
@@ -6082,8 +6162,11 @@ since
 \uwave off
 \noun off
 \color none
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ff_latency"
 
-\begin_inset Formula $l_{l}(\bar{x}_{l},\bar{m}_{l})=a_{l}$
 \end_inset
 
 
@@ -6099,87 +6182,7 @@ since
 \noun default
 \color inherit
 .
- Then using 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:ff_latency"
-
-\end_inset
-
-, we have 
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-small
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Proof
-\begin_inset Formula 
-\begin{align*}
- & C(x,m)-C(\bar{x},\bar{m})\\
- & \geq\sum_{n=1}^{l-1}(x_{n}-\bar{x}_{n})l_{n}(\bar{x}_{n},\bar{m}_{n})+\sum_{n=1}^{l-1}x_{n}(l_{n}(x_{n},m_{n})-l_{n}(\bar{x}_{n},\bar{m}_{n}))\\
- & \ \ +\sum_{n=l}^{N}x_{n}a_{l}-\bar{x}_{l}a_{l}
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Proof
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-normalsize
-\end_layout
-
-\end_inset
-
- and using 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:cong_latency"
-
-\end_inset
-
- we get 
+ Then rearranging the terms we have 
 \begin_inset ERT
 status open
 
@@ -6198,7 +6201,7 @@ small
 \begin_layout Proof
 \begin_inset Formula 
 \[
-C(x,m)-C(\bar{x},\bar{m})\geq\sum_{n=1}^{l-1}(x_{n}-\bar{x}_{n})l_{n}(\bar{x}_{n},\bar{m}_{n})+\sum_{n=l}^{N}x_{n}a_{l}-\bar{x}_{l}a_{l}
+C(x,m)\geq\sum_{n=1}^{l-1}(x_{n}-\bar{x}_{n})l_{n}(\bar{x}_{n},\bar{m}_{n})+\sum_{n=1}^{l-1}\bar{x}_{n}l_{n}(\bar{x}_{n},\bar{m}_{n})+\sum_{n=l}^{N}x_{n}a_{l}
 \]
 
 \end_inset
@@ -6240,19 +6243,89 @@ normalsize
 \end_inset
 
 , thus 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Proof
-\begin_inset Formula $\sum_{n=1}^{l-1}(x_{n}-\bar{x}_{n})l_{n}(x_{n},m_{n})\geq\sum_{n=1}^{l-1}(x_{n}-\bar{x}_{n})a_{l}$
+\begin_inset Formula 
+\begin{eqnarray*}
+C(x,m) & \geq & \sum_{n=1}^{l-1}(x_{n}-\bar{x}_{n})a_{l}+\sum_{n=1}^{l-1}\bar{x}_{n}l_{n}(\bar{x}_{n},\bar{m}_{n})+\sum_{n=l}^{N}x_{n}a_{l}\\
+ & = & a_{l}\left(\sum_{n=1}^{N}x_{n}-\sum_{n=1}^{l-1}\bar{x}_{n}\right)+\sum_{n=1}^{l-1}\bar{x}_{n}l_{n}(\bar{x}_{n},\bar{m}_{n})\\
+ & = & a_{l}\left(r-\sum_{n=1}^{l-1}\bar{x}_{n}\right)+\sum_{n=1}^{l-1}\bar{x}_{n}l_{n}(\bar{x}_{n},\bar{m}_{n})
+\end{eqnarray*}
+
 \end_inset
 
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+normalsize
+\end_layout
+
+\end_inset
+
+ But 
+\begin_inset Formula $a_{l}\left(r-\sum_{n=1}^{l-1}\bar{x}_{n}\right)=\bar{x}_{l}l_{l}(\bar{x}_{l},\bar{m}_{l})$
+\end_inset
+
+ since 
+\begin_inset Formula $\Supp{\bar{x}}=\{1,\dots,l\}$
+\end_inset
+
+ and 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $l_{l}(\bar{x}_{l},\bar{m}_{l})=a_{l}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
 .
  Therefore 
 \begin_inset Formula 
 \begin{align*}
-C(x,m)-C(\bar{x},\bar{m}) & \geq\sum_{n=1}^{l-1}(x_{n}-\bar{x}_{n})a_{l}+\sum_{n=l}^{N}x_{n}a_{l}-\bar{x}_{l}a_{l}\\
- & =\left(\sum_{n=1}^{N}x_{n}-\sum_{n=1}^{l}\bar{x}_{n}\right)a_{l}\\
- & =0
+C(x,m) & \geq\bar{x}_{l}l_{l}(\bar{x}_{l},\bar{m}_{l})+\sum_{n=1}^{l-1}\bar{x}_{n}l_{n}(\bar{x}_{n},\bar{m}_{n})\\
+ & =C(\bar{x},\bar{m})
 \end{align*}
 
 \end_inset
@@ -6261,12 +6334,13 @@ C(x,m)-C(\bar{x},\bar{m}) & \geq\sum_{n=1}^{l-1}(x_{n}-\bar{x}_{n})a_{l}+\sum_{n
 \end_layout
 
 \begin_layout Standard
-This shows in particular the the Non-compliant First strategy (denoted 
+Therefore the Non-compliant First strategy (denoted 
 \begin_inset Formula $\text{NCF}(\NLinks,r,\compRate)$
 \end_inset
 
-), can be computed in polynomial time: computing this strategy only requires
- computing the best Nash equilibrium 
+) is an optimal Stackelberg strategy, and it can be computed in polynomial
+ time since it is generated in linear time from the best Nash equilibrium
+ 
 \begin_inset Formula $\BestNashEquilibrium{\NLinks}{(1-\compRate)r}$
 \end_inset
 
@@ -6280,7 +6354,8 @@ This shows in particular the the Non-compliant First strategy (denoted
 \begin_layout Standard
 Finally, we note that the Non-compliant First strategy is, in general, not
  the unique optimal Stackelberg strategy, but the set of optimal Stackelberg
- strategy can be easily generated from the Non-compliant First strategy.
+ strategies can be easily generated from the Non-compliant First strategy.
+ We do not describe this procedure for brevity.
 \end_layout
 
 \begin_layout Section
