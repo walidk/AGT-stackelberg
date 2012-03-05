@@ -35,7 +35,7 @@ pylab.savefig(fig_path('POSSim'))
 
 pylab.clf()
 ne = latencies[0]
-[pylab.plot(ne/latency,style,label='$\\alpha=$%s' % str(alpha)) 
+[pylab.plot(latency/ne,style,label='$\\alpha=$%s' % str(alpha)) 
  for latency, style, alpha in zip(latencies[1:-1],
                                   styles[1:],
                                   alphas[1:])]
