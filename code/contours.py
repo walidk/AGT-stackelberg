@@ -6,7 +6,7 @@ import numpy as np
 from visual import *
 import pylab
 
-fig_width_pt = 350.0  # Get this from LaTeX using \showthe\columnwidth
+fig_width_pt = 180.0  # Get this from LaTeX using \showthe\columnwidth
 inches_per_pt = 1.0/72.27               # Convert pt to inch
 golden_mean = (pylab.sqrt(5)-1.0)/2.0         # Aesthetic ratio
 fig_width = fig_width_pt*inches_per_pt  # width in inches
@@ -36,7 +36,7 @@ X, Y = np.meshgrid(demands, alphas)
 profiles = network_profile(network,alphas+[1.],demands=demands)
 latencies = profile_latencies(network,profiles)
 latencies = [lat/latencies[-1] for lat in latencies[:-1]]
-if True:
+if False:
     pylab.clf()
     ax = pylab.contourf(X, Y, latencies,40,cmap=cm.hot)
     ax.ax.set_xlabel('Demand (cars/min)')
@@ -44,7 +44,7 @@ if True:
     pylab.colorbar(ax)
     pylab.subplots_adjust(bottom=.13, right=.75)
     pylab.savefig('../figures/POSContour.pdf')
-if False:
+if True:
     pylab.clf()
     fig = plt.figure()
     ax = fig.gca(projection='3d')
@@ -54,5 +54,5 @@ if False:
     ax.set_zlabel('Price of Stability')
     ax.zaxis.set_major_locator(LinearLocator(10))
     ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))
-
-    plt.savefig('../figures/POS3d.pdf')
+    pylab.show()    
+    #plt.savefig('../figures/POS3d.pdf')
