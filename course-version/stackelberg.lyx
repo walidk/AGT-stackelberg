@@ -1484,8 +1484,8 @@ We can now define a general class of latency functions
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray*}
-\latency[\link]:\left[0,\flowMax[\link]\right]\times\left\{ 0,1\right\}  & \rightarrow & \Rea_{+}\\
-\left(\flow[\link],\Mode[\link]\right) & \rightarrow & \latency[\link]\left(\flow[\link],\Mode[\link]\right),
+\latency[\link]:\left[0,\flowMax[\link]\right]\times\left\{ 0\right\} \cup(0,\flowMax[n])\times\left\{ 1\right\}  & \rightarrow & \Rea_{+}\\
+\left(\flow[\link],\Mode[\link]\right) & \mapsto & \latency[\link]\left(\flow[\link],\Mode[\link]\right),
 \end{eqnarray*}
 
 \end_inset
@@ -1494,11 +1494,40 @@ We can now define a general class of latency functions
 \end_layout
 
 \begin_layout Standard
-We also assume that 
+Note that the latency in congestion 
+\begin_inset Formula $l_{n}(.,1)$
+\end_inset
+
+ is defined on the open interval 
+\begin_inset Formula $(0,\flowMax[n])$
+\end_inset
+
+.
+ In particular, if 
+\begin_inset Formula $\flow[n]=0$
+\end_inset
+
+ then 
+\begin_inset Formula $m_{n}=0$
+\end_inset
+
+ (a link that is not in the support is considered in free-flow) and if 
+\begin_inset Formula $\flow[n]=\flowMax[n]$
+\end_inset
+
+ then 
+\begin_inset Formula $\Mode[n]=0$
+\end_inset
+
+ (if a link is at maximum capacity, it is considered, by convention, to
+ be in free-flow.
+ It is in fact on the boundary of the free-flow and congestion regions,
+ and we choose this convention for simplicity of notation).
+ We also assume that 
 \begin_inset Formula $\latency[\link]$
 \end_inset
 
- satisfies the following properties, which can are equivalent to the assumptions
+ satisfies the following properties, which are equivalent to the assumptions
  in Section
 \begin_inset ERT
 status open
@@ -1533,7 +1562,7 @@ reference "sub:Deriving-a-Class"
 \end_inset
 
 .
- 
+ Here 
 \begin_inset Formula $a_{n}$
 \end_inset
 
@@ -1553,7 +1582,7 @@ reference "sub:Deriving-a-Class"
 \uwave off
 \noun off
 \color none
-\begin_inset Formula $\latency[\link]\left(\flowMax[\link],1\right)=\latency[\link]\left(\flowMax[\link],0\right)=a_{n}$
+\begin_inset Formula $\lim_{\flow[n]\rightarrow\flowMax[\link]}\latency[\link]\left(\flow[n],1\right)=\latency[\link]\left(\flowMax[\link],0\right)=a_{n}$
 \end_inset
 
 
@@ -1564,7 +1593,7 @@ reference "sub:Deriving-a-Class"
 \end_inset
 
  is decreasing on 
-\begin_inset Formula $[0,\flowMax[n]]$
+\begin_inset Formula $(0,\flowMax[n])$
 \end_inset
 
 .
@@ -2228,31 +2257,6 @@ name "cor:atmost1ff"
 \end_inset
 
 .
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-A: I do not understand this cor.
- if i pick such a k, the prop is stil ltrue for k + 1, so how do i know
- this was the smallest?
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-J: the key is that k is in the support, which means that there is flow on
- k.
- k+1 mustnt be in the support.
- this part may not be clear (and therefore maybe shouldn't be a corollary).
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Proof
@@ -2562,8 +2566,8 @@ Now partition the set of Nash Equilibria in two sets
 \begin_layout Proof
 \begin_inset Formula 
 \begin{eqnarray*}
-\text{NE}_{\text{f}}(\NLinks,r) & = & \left\{ (\flow,m)\in\NashEquilibrium Nr|m_{\max\Supp{\flow}}=1\right\} \\
-\text{NE}_{\text{c}}(\NLinks,r) & = & \left\{ (\flow,m)\in\NashEquilibrium Nr|m_{\max\Supp{\flow}}=0\right\} 
+\text{NE}_{\text{f}}(\NLinks,r) & = & \left\{ (\flow,m)\in\NashEquilibrium Nr|m_{\max\Supp{\flow}}=0\right\} \\
+\text{NE}_{\text{c}}(\NLinks,r) & = & \left\{ (\flow,m)\in\NashEquilibrium Nr|m_{\max\Supp{\flow}}=1\right\} 
 \end{eqnarray*}
 
 \end_inset
@@ -2837,7 +2841,7 @@ For
 \end_inset
 
  is defined as the unique flow in 
-\begin_inset Formula $[0,\flowMax[n]]$
+\begin_inset Formula $(0,\flowMax[n])$
 \end_inset
 
  that satisfies
@@ -3167,7 +3171,7 @@ reference "eq:x_bar"
 \begin_inset Formula $\forall\link\notin\Supp{\opneFlow k{\qdemand}}$
 \end_inset
 
- 
+, 
 \begin_inset Formula $l_{n}(\opneFlow[n]k{\qdemand},\bar{\Mode}_{n}^{k})>a_{k}$
 \end_inset
 
@@ -4218,7 +4222,7 @@ This follows immediately from the fact the latency on a link in congestion
 \end_inset
 
  
-\begin_inset Formula $\forall\flow[n]\in[0,\flowMax[n]]$
+\begin_inset Formula $\forall\flow[n]\in(0,\flowMax[n])$
 \end_inset
 
 .
