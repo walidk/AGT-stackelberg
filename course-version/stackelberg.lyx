@@ -82,20 +82,6 @@ Stackelberg Routing on Horizontal Queueing Networks
 Walid Krichene, Jack Reilly, Saurabh Amin, Alexandre Bayen
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-writing best Nash Equilibrium as BNE: Alex suggested changing it to BNE
- in commentary, but we have not done so, we should discuss.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Abstract
 We study inefficiencies of capacity constrained networks due to the selfish
  behavior and lack of coordination of agents, by comparing social optima
@@ -425,83 +411,6 @@ d cities (the Northern California bay area has numerous examples of such
  in particular traffic networks.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Advances in technology enabled a central agency to have influence over the
- driving habits of individual users on a road network.
- Contact could be made via a GPS-enabled smartphone application or before
- and after-market vehicular navigation systems.
- Given that the central agency has a contact point with only a fraction
- of the entire network, game theoretic effects, such as Stackelberg equilibria,
- cannot be neglected when providing routing advice to users.
- 
-\end_layout
-
-\begin_layout Plain Layout
-This article views the fraction of centrally controlled flow as the 
-\emph on
-compliant flow
-\emph default
-, and all other flow as the 
-\emph on
-non-compliant flow.
-
-\emph default
- This terminology was chosen to reflect the assumption that there is a populatio
-n of drivers with individual contact points to central control that will
- comply with the requests of the central control, while all other users
- are assumed to either neglect the advice of the central control, or simply
- not have a contact point and chooses paths independently.
- The remainder of the article does not concern itself with the distinction
- between the two different cases of 
-\emph on
-non-compliant flow
-\emph default
- and treats the two cases identically.
-\end_layout
-
-\begin_layout Plain Layout
-In many networks, drivers have a number of alternative disjoint paths to
- reach their destination.
- For example, parallel highway networks often exist between two heavily-populate
-d cities (the Northern California bay area has numerous examples of such
- networks).
- Therefore, Stackelberg routing strategies on parallel networks becomes
- a matter of practical importance to traffic planners in the near future.
- However, due to the limitations of congestion models discussed above, the
- existing literature on Stackelberg routing is not readily applicable to
- implementation on a real traffic network.
- Besides, existing models do not have a tractable 
-\end_layout
-
-\begin_layout Plain Layout
-Firstly, as discussed in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:A-New-Class"
-
-\end_inset
-
-, game theoretic analysis of these class of problems do not capture some
- of the important features of congestion in highway traffic networks.
- Secondly, there do not exist tractable algorithms for calculating the optimal
- assignment of 
-\emph on
-compliant flow
-\emph default
-, as the number of alternate paths increases.
- To enable the creation of a full-scale system that optimally routes a fraction
- of users on a highway, these problems must first be addressed.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
 Contributions of This Article
 \end_layout
@@ -511,15 +420,11 @@ We introduce a new class of latency functions that is expressive enough
  to model congestion on horizontal queuing networks, and study, under this
  new class of latency, the Nash equilibria of the congestion game on parallel
  networks, as well as optimal strategies for the Stackelberg routing game.
+ We consider a congestion game on a parallel network, where each link has
+ a dual-mode latency function: latency is constant in free-flow, and a decreasin
+g function of flow in congestion.
  This leads to novel theoretical and algorithmic results for characterizing
- and computing Nash equilibria and optimal Stackelberg strategies.
-\end_layout
-
-\begin_layout Standard
-Consider a congestion game on a parallel link network.
- Each link has a dual-mode latency function where latency in constant in
- free-flow and latency is decreasing in congestion with respect to flow.
- From these assumptions, we show the following results:
+ and computing Nash equilibria and optimal Stackelberg strategies:
 \end_layout
 
 \begin_layout Itemize
@@ -586,7 +491,7 @@ key "roughgarden2001stackelberg"
 \begin_layout Standard
 These results are an encouraging and necessary step towards a scalable,
  accurate model for optimal route assignment on horizontal queueing networks
- with fractional compliance.
+ with partial compliance.
 \end_layout
 
 \begin_layout Subsection
@@ -863,33 +768,6 @@ key "wardrop1952some"
 \end_inset
 
 .
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Nash equilibria (in particular pure Nash equilibria, which do not allow
- randomized strategies 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "nisan2007algorithmic"
-
-\end_inset
-
-) in congestion games have been the focus of significant amount of work
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "aswani2011game,babaioff2009congestion,friesz1985transportation,harker1988multiple,papadimitriou2010new,roughgarden2002bad,roughgarden2005selfish"
-
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
@@ -1782,18 +1660,8 @@ name "sec:Nash-Equilibria"
 \end_layout
 
 \begin_layout Standard
-In this section, we characterize pure non-atomic Nash equilibria
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: again, this nonatomic business needs to be explained
-\end_layout
-
-\end_inset
-
- of the network (also called Wardrop equilibria in the traffic literature
- 
+In this section, we characterize pure non-atomic Nash equilibria of the
+ network (also called Wardrop equilibria in the traffic literature 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Etudes1985"
@@ -1977,20 +1845,6 @@ J: I believe it is in definition 2
 
 .
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: C is already defined previously in terms of 
-\begin_inset Formula $\rho$
-\end_inset
-
-, need to manage notation.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -4118,6 +3972,19 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotesize
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "../algo.raw"
@@ -4153,7 +4020,19 @@ name "alg:bestNE"
 \end_layout
 
 \begin_layout Standard
-We first note from Algorithm 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+normalsize
+\end_layout
+
+\end_inset
+
+ We first note from Algorithm 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "alg:bestNE"
