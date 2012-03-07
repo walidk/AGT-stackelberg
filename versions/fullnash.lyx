@@ -75,17 +75,66 @@ filename "../common-files/lyx_commands.lyx"
 \end_layout
 
 \begin_layout Title
-Nash Equilibria on Horizontal Queueing Networks
+Characterization and Computation of Nash Equilibria in Horizontal Queueing
+ Networks
 \end_layout
 
 \begin_layout Author
-Walid Krichene, Jack Reilly, Saurabh Amin, Alexandre Bayen
+Walid Krichene
+ 
+\lang english
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+and
+\end_layout
+
+\end_inset
+
+ Jack Reilly
+ 
+\lang english
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+and
+\end_layout
+
+\end_inset
+
+ Saurabh Amin
+ 
+\lang english
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+and
+\end_layout
+
+\end_inset
+
+ Alexandre M.
+ Bayen
 \end_layout
 
 \begin_layout Abstract
 We study inefficiencies of horizontal queueing networks due to the selfish
- behavior and lack of coordination of agents, by comparing social optima
- to Nash equilibria.
+ behavior of agents, by comparing social optima to Nash equilibria.
  While routing games traditionally model congestion with latency functions
  that increase with the flow on a particular link, this particular model
  cannot capture congestion effects on horizontal queueing networks.
@@ -96,15 +145,14 @@ We study inefficiencies of horizontal queueing networks due to the selfish
  For static analysis of horizontal queuing on parallel-link networks, we
  show that there are multiple Nash equilibria with different total costs,
  which stands in contrast to results for increasing latency functions.
- We demonstrate a novel algorithm for computing the Nash equilibrium that
- minimizes total cost (best Nash equilibrium).
- This algorithm is quadratic in the number of links.
+ We introduce a novel algorithm, quadratic in the number of links, for computing
+ the Nash equilibrium that minimizes total cost (best Nash equilibrium).
  The relative inefficiencies of best Nash equilibria are evaluated through
  analysis of the price of stability, and analytical results are presented
  for two-link networks.
- Price of stability is shown to be very sensitive to changes in demand under
- certain conditions, and congestion mitigation strategies for horizontal
- queueing networks are discussed.
+ Price of stability is shown to be very sensitive to changes in demand when
+ links near capacity, and congestion mitigation strategies are discussed,
+ motivated by our results.
 \end_layout
 
 \begin_layout Section
@@ -161,7 +209,7 @@ key "babaioff2009congestion,morgan2003spite"
 \end_layout
 
 \begin_layout Subsection
-A New Class of Latency Functions
+A new class of latency functions
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:A-New-Class"
@@ -225,8 +273,8 @@ or few cars moving quickly (low density), in which case the latency is small.
 \end_layout
 
 \begin_layout Standard
-This means that the latency is not uniquely determined by the flow, and
- depends on the congestion state of the link.
+Due to this phenomenon, we later show that the latency is not uniquely determine
+d by the flow, and depends on the congestion state of the link.
  One simple way of modeling this phenomenon is to have an additional binary
  argument 
 \begin_inset Formula $m$
@@ -298,7 +346,7 @@ on.
 \end_layout
 
 \begin_layout Subsection
-Contributions of This Article
+Contributions of this article
 \end_layout
 
 \begin_layout Standard
@@ -314,8 +362,27 @@ g function of flow in congestion.
 \end_layout
 
 \begin_layout Itemize
-We show that there is no essential uniqueness of Nash equilibria (there
- may exist Nash equilibria with different total costs), unlike point-queueing
+We show that there is no essential uniqueness of Nash equilibria (not all
+ Nash equilibria have equal total costs), unlike 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+get rid of this phrase
+\end_layout
+
+\end_inset
+
+point-queueing
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+or put reference to roughgarden
+\end_layout
+
+\end_inset
+
  models usually considered in congestion games 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -339,17 +406,12 @@ We show that for a given instance
 \begin_inset Formula $\qdemand$
 \end_inset
 
-, the set of all pure Nash equilibria can be computed in time polynomial
- in 
-\begin_inset Formula $\NLinks$
-\end_inset
-
-, and we characterize the 
+, we characterize the structure of the flow in the 
 \emph on
 best Nash equilibrium 
 \emph default
 (the Nash equilibrium that minimizes the total network latency) and show
- that it can be computed in 
+ that the equilibrium can be computed in 
 \begin_inset Formula $O\left(\NLinks^{2}\right)$
 \end_inset
 
@@ -361,8 +423,9 @@ We give analytical solution to the price of stability on a two-link parallel
  network.
  This gives insight into the qualitative behavior of congestion caused by
  Nash equilibria on horizontal queueing networks.
- In particular, when a preferable link in a network nears capacity, diverting
- only a small amount of flow to a slower link can avert congestion completely.
+ In particular, when the lowest-latency link in a network nears capacity,
+ diverting only a small amount of flow to a slower link can avert congestion
+ completely.
 \end_layout
 
 \begin_layout Standard
@@ -370,17 +433,18 @@ These results provide a framework for efficient computation of Nash equilibria
  on parallel link networks, which, in turn, give a high-level explanation
  of congestion patterns on such networks.
  While the assumption of parallel-link networks may seem an overly-limiting
- assumption, there are many examples of highway networks in populous areas,
- where such networks can model congestion via horizontal queueing and the
- parallel link structure is an accurate description.
+ assumption, there are many examples of highway networks in populous areas
+ (such as the California bay area), where such networks can model congestion
+ via horizontal queueing and the parallel link structure is an accurate
+ description.
  Additionally, highway networks often suffer from congestion due to selfish
- routing and would benefit from the analysis of horizontal queueing Nash
+ routing, and would benefit from the analysis of horizontal queueing Nash
  equilibria.
  
 \end_layout
 
 \begin_layout Subsection
-Organization of Article
+Organization
 \end_layout
 
 \begin_layout Standard
@@ -578,7 +642,7 @@ reference "fig:nparlink"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -606,11 +670,11 @@ Network instance
 \begin_inset Formula $N$
 \end_inset
 
- links between 
+ links from 
 \begin_inset Formula $O$
 \end_inset
 
- and 
+ to 
 \begin_inset Formula $D$
 \end_inset
 
@@ -709,7 +773,7 @@ key "aswani2011game,babaioff2009congestion,roughgarden2002bad"
 \begin_inset Formula $\flow[n]$
 \end_inset
 
- may correspond to two different scenarios : few vehicles on the road are
+ may correspond to two different scenarios: few vehicles on the road are
  moving quickly (the road is in 
 \emph on
 free-flow
@@ -720,8 +784,27 @@ free-flow
 congested
 \emph default
 ), in which case the latency on the road is high.
- It is clear that this phenomenon is not captured if the latency is only
- a function of flow.
+ This phenomenon is not captured if the latency is only a function of flow,
+ as such functions do not allow capacity to decrease as latencies increase
+ (Figure
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+~
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:example-flow-latency"
+
+\end_inset
+
+ shows how mapping flow to latency is not unique).
  One way to address this limitation is to have two latency functions: one
  describes the latency on a link 
 \emph on
@@ -778,8 +861,8 @@ reference "fig:permfds"
 
 \end_inset
 
- depicts a triangular relationship between density and flow on a link, while
- similarly shaped diagrams have been developed for certain applications.
+ depicts a triangular flux function, while similarly shaped diagrams have
+ been developed for certain applications.
 \end_layout
 
 \begin_layout Standard
@@ -788,8 +871,9 @@ While such flow models have been popular for many decades in specific domains
  these models in the literature studying congestion games, which focuses
  on modeling latency as a non-decreasing function of flow, and assumes flow
  and density to have a one-to-one relation.
- This article describes the required theoretical work to characterize Nash
- equilibria for this class of horizontal queuing latency functions.
+ In order to characterize Nash equilibria on horizontal queueing networks,
+ we develop a novel approach based on the unique structure of the latency
+ functions.
 \end_layout
 
 \begin_layout Standard
@@ -805,7 +889,20 @@ Consider a link
 \begin_inset Formula $\flow[n]$
 \end_inset
 
- on the link is given by a function 
+ on the link is given by a function:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.10in}
+\end_layout
+
+\end_inset
+
+ 
 \begin_inset Formula 
 \begin{eqnarray*}
 x_{n}^{\rho}:D_{n} & \rightarrow & \Rea_{+}\\
@@ -814,7 +911,7 @@ x_{n}^{\rho}:D_{n} & \rightarrow & \Rea_{+}\\
 
 \end_inset
 
- of the density 
+ of a given density 
 \begin_inset Formula $\rho_{n}$
 \end_inset
 
@@ -828,7 +925,23 @@ x_{n}^{\rho}:D_{n} & \rightarrow & \Rea_{+}\\
 \end_inset
 
 , is non-negative and potentially unbounded.
- The latency is given by a function 
+ The latency is given by a function
+:
+\lang english
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.10in}
+\end_layout
+
+\end_inset
+
+ 
 \begin_inset Formula 
 \begin{eqnarray*}
 \latency[\link]^{\rho}:D_{n} & \rightarrow & \Rea_{+}\\
@@ -879,7 +992,20 @@ key "papageorgiou1989macroscopic"
 
 .
  First, we observe that latency is related to flow and density through the
- relation
+ relation:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.10in}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -955,10 +1081,23 @@ The latency function
 \end_inset
 
 , is continuous, non-decreasing.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.05in}
+\end_layout
+
+\end_inset
+
+
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1131,11 +1270,19 @@ reference "sub:Deriving-a-Class"
 \end_layout
 
 \begin_layout Standard
-We define the free-flow region as 
+We define the 
+\emph on
+free-flow region
+\emph default
+ as 
 \begin_inset Formula $\mass[\link]\in\left[0,\masscrit[\link]\right]$
 \end_inset
 
- and congested region as 
+ and 
+\emph on
+congested region
+\emph default
+ as 
 \begin_inset Formula $\mass[\link]>\masscrit[\link]$
 \end_inset
 
@@ -1190,7 +1337,20 @@ reference "fig:example-rho-latency"
 
 .
  Note that from these assumptions, we can write the latency function for
- the horizontal queueing model as
+ the horizontal queueing model as:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.10in}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1266,6 +1426,19 @@ reference "fig:Fundamental-diagram-examples."
 
  shows a triangular fundamental diagram.
  The latency function is then given by:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.10in}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Example
@@ -1321,6 +1494,19 @@ While expressing latency as a function of density is intuitive and succinct
 \end_inset
 
  be defined as:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.10in}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1339,6 +1525,19 @@ We can now define a general class of latency functions
 \end_inset
 
  as a function of both flow and congestion state:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.20in}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1410,10 +1609,8 @@ reference "sub:Deriving-a-Class"
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $\exists a_{n}>0$
-\end_inset
-
- such that 
+The latency in free-flow is constant.
+ Equivalently, 
 \begin_inset Formula $\forall\flow[n]\in[0,\flowMax[n]]$
 \end_inset
 
@@ -1421,8 +1618,7 @@ reference "sub:Deriving-a-Class"
 \begin_inset Formula $\latency[\link]\left(\flow[\link],0\right)=\parA[\link]$
 \end_inset
 
-.
- Here 
+, where 
 \begin_inset Formula $a_{n}$
 \end_inset
 
@@ -1471,6 +1667,19 @@ reference "fig:example-flow-latency"
 .
  Again, the latency function corresponding to a triangular fundamental diagram
  can be readily expressed in this form:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.15in}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1479,6 +1688,19 @@ reference "fig:example-flow-latency"
 \latency[\triangle]\left(x,0\right) & = & \frac{\Length}{\speedff}\\
 \latency[\triangle]\left(\flow,1\right) & = & L\left(\frac{\massmax}{\flow}+\frac{1}{\speedCong}\right)
 \end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.20in}
+\end_layout
 
 \end_inset
 
@@ -1723,7 +1945,20 @@ name "lem:nash_eq"
 \begin_inset Formula $\exists\: l_{0}>0$
 \end_inset
 
- such that 
+ such that
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.10in}
+\end_layout
+
+\end_inset
+
+ 
 \begin_inset Formula 
 \begin{align*}
 \flow[\link]>0 & \Rightarrow\latency[\link](\flow[\link],\Mode[\link])=\latency[0]\\
@@ -2185,12 +2420,12 @@ s the congestion state vector of the equilibrium: links
 \end_inset
 
  are not in the support.
- We will call such a Nash equilibrium (where a single link in the support
- is in free-flow) a 
+ We will call such Nash equilibria (where a single link in the support is
+ in free-flow) 
 \emph on
-single link free-flow equilibrium
+single link free-flow equilibri
 \emph default
-.
+a.
  In general a Nash equilibrium does not necessarily have a link in free-flow:
  this defines a second type of equilibria where all links in the support
  are congested, i.e.
@@ -2323,7 +2558,11 @@ We start by noting that since
 \end_inset
 
  cannot be zero since every link in the support of a Nash equilibrium has
- latency less than or equal to the latency on any other link.
+ latency 
+\begin_inset Formula $\le$
+\end_inset
+
+ the latency on any other link.
  
 \end_layout
 
@@ -2384,6 +2623,19 @@ reference "lem:filluplower"
 
  is decreasing.
  Combining the above, we have
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.20in}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Proof
@@ -2391,6 +2643,19 @@ reference "lem:filluplower"
 \begin{equation}
 \latency[i](x'_{i},m_{i})<l_{i}(x_{i},m_{i})=\latency[j](x_{j},m_{j})\leq\latency[j](x'_{j},m_{j})\label{eq:contradiction}
 \end{equation}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.20in}
+\end_layout
 
 \end_inset
 
@@ -2412,6 +2677,19 @@ Now we partition the set of Nash Equilibria in two sets
 \end_inset
 
 .
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.20in}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Proof
@@ -2420,6 +2698,19 @@ Now we partition the set of Nash Equilibria in two sets
 \NashEquilibrium{\NLinks}{\qdemand}f & = & \left\{ (\flow,m)\in\NashEquilibrium Nr|m_{\max\Supp{\flow}}=0\right\} \\
 \NashEquilibrium{\NLinks}{\qdemand}c & = & \left\{ (\flow,m)\in\NashEquilibrium Nr|m_{\max\Supp{\flow}}=1\right\} 
 \end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.20in}
+\end_layout
 
 \end_inset
 
@@ -2434,8 +2725,7 @@ Now we show that for a given congestion state vector
 , each set contains at most one element.
 \end_layout
 
-\begin_deeper
-\begin_layout Standard
+\begin_layout Proof
 
 \series bold
 Suppose 
@@ -2447,10 +2737,9 @@ Suppose
 \end_inset
 
  are as defined above
-\end_layout
-
-\begin_layout Standard
-then since 
+\series default
+.
+ Then since 
 \begin_inset Formula $j\in\Supp{\flow}$
 \end_inset
 
@@ -2508,7 +2797,7 @@ reference "eq:contradiction"
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 
 \series bold
 Suppose 
@@ -2520,10 +2809,9 @@ Suppose
 \end_inset
 
  are as defined above
-\end_layout
-
-\begin_layout Standard
-then since 
+\series default
+.
+ Then since 
 \begin_inset Formula $j\in\Supp{\flow}$
 \end_inset
 
@@ -2568,7 +2856,6 @@ then since
 .
 \end_layout
 
-\end_deeper
 \begin_layout Standard
 This shows that there are at most 
 \begin_inset Formula $2N$
@@ -2700,6 +2987,19 @@ For
 \end_inset
 
  that satisfies
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.10in}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Definition
@@ -2764,6 +3064,31 @@ We can now characterize single link free-flow equilibria.
 \end_inset
 
  where
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.25in}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2772,17 +3097,23 @@ We can now characterize single link free-flow equilibria.
 
 
 \begin_inset Formula 
-\begin{equation}
-\bar{\Mode}^{k}\coloneqq(\stackrel{1}{1},\dots,\stackrel{k-1}{1},\stackrel{k}{0},\dots,\stackrel{N}{0})\label{eq:m_bar}
-\end{equation}
+\begin{eqnarray}
+\bar{\Mode}^{k}\coloneqq(\stackrel{1}{1},\dots,\stackrel{k-1}{1},\stackrel{k}{0},\dots,\stackrel{N}{0})\label{eq:m_bar}\\
+\opneFlow k{\qdemand}:=(\overset{1}{\cffFlow 1k},\dots,\overset{k-1}{\cffFlow{k-1}k},r-\sum_{\link=1}^{k-1}\cffFlow{\link}k,0,\dots,\stackrel{\NLinks}{0})\label{eq:x_bar}
+\end{eqnarray}
 
 \end_inset
 
- 
-\begin_inset Formula 
-\begin{equation}
-\opneFlow k{\qdemand}:=(\overset{1}{\cffFlow 1k},\dots,\overset{k-1}{\cffFlow{k-1}k},r-\sum_{\link=1}^{k-1}\cffFlow{\link}k,0,\dots,\stackrel{\NLinks}{0})\label{eq:x_bar}
-\end{equation}
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.15in}
+\end_layout
 
 \end_inset
 
@@ -2822,7 +3153,7 @@ reference "fig:xbar-and-hat-defns"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -3259,7 +3590,20 @@ reference "prop:xbar"
 
 \end_inset
 
-, we only need to show that 
+, we only need to show that
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.10in}
+\end_layout
+
+\end_inset
+
+ 
 \begin_inset Formula 
 \begin{equation}
 0\leq\qdemand-\sum_{\link=1}^{N}\cffFlow{\link}{N+1}\leq\flowMax[N+1].\label{eq:ff_existence_need_to_show}
@@ -3512,6 +3856,19 @@ name "def:bne"
 \end_inset
 
 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.10in}
+\end_layout
+
+\end_inset
+
+
 \begin_inset Formula 
 \[
 \BestNashEquilibrium{\NLinks}{\qdemand}=\underset{\left(\flow,\Mode\right)\in\NashEquilibrium{\NLinks}{\qdemand}{}}{\arg\min}\Latency\left(\flow,\Mode\right)
@@ -3576,7 +3933,20 @@ For a parallel network instance
 \end_inset
 
 , the unique best Nash equilibrium is the single-link free-flow equilibrium
- that has smallest support
+ that has smallest support:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.10in}
+\end_layout
+
+\end_inset
+
+
 \begin_inset Formula 
 \[
 \BestNashEquilibrium{\NLinks}{\qdemand}=\underset{\left(\flow,\Mode\right)\in\text{NE}_{\text{f}}(\NLinks,r)}{\arg\min}\left\{ \max\left[\Supp{\flow}\right]\right\} 
@@ -3933,6 +4303,19 @@ key "fullversion"
 \end_inset
 
  is given by
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.25in}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3940,6 +4323,19 @@ key "fullversion"
 \begin{align}
 \flow^{*}=(\flowMax[1],\dots,\flowMax[k_{0}],\qdemand-\sum_{n=1}^{k_{0}}\flowMax[n],0,\dots,0)\label{eq:so}
 \end{align}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.30in}
+\end_layout
 
 \end_inset
 
@@ -4467,32 +4863,16 @@ We introduced a new class of latency functions that better models congestion
 \end_inset
 
 .
- We then classified these equilibria into single link free-flow equilibria
- 
-\begin_inset Formula $\NashEquilibrium{\NLinks}{\qdemand}f$
-\end_inset
-
-, for which one link in the support is in free-flow, and congested equilibria
- 
-\begin_inset Formula $\NashEquilibrium{\NLinks}{\qdemand}c$
-\end_inset
-
-, for which all links in the support are congested.
  Then we focused our attention on the best Nash equilibrium 
 \begin_inset Formula $\BestNashEquilibrium{\NLinks}r$
 \end_inset
 
-, which we proved is a single link free-flow equilibrium, and further characteri
-zed using Theorem 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "theorem:minsupport"
-
-\end_inset
-
-.
- We then derived price of stability results for an example network that
- illustrates the inefficiency of the best Nash equilibrium.
+, which we proved is a single link free-flow equilibrium that minimizes
+ the support, and then presented a constructive, quadratic time algorithm
+ for finding this equilibrium.
+ Finally, we derived price of stability results for an example network,
+ then showed that if a link is anticipated to be near capacity, congestion
+ can be completely averted by diverting only a small fraction of the demand.
 \end_layout
 
 \begin_layout Standard
