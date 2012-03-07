@@ -95,7 +95,10 @@ We study Stackelberg routing for a new class of latency functions, that
  models congestion on horizontal queuing networks.
  We show that in this setting, optimal Stackelberg strategies can be computed
  in polynomial time in the size of the network.
- We introduce a candidate Stackelberg strategy, the Non-compliant First
+ We introduce a candidate Stackelberg strategy, the 
+\emph on
+non-compliant first
+\emph default
  strategy, and prove it to be optimal.
  We apply these results by modeling a transportation network in which a
  coordinator can choose the routes of fraction of compliant agents, while
@@ -301,7 +304,7 @@ non-compliant first
 We then apply these results to model a real transportation network, and
  identify ranges of the flow demand and compliance rates where optimal Stackelbe
 rg routing are most efficient, and quantify the decrease in inefficiency
- achieved by the Non-compliant First strategy.
+ achieved by the non-compliant first strategy.
 \end_layout
 
 \begin_layout Standard
@@ -611,7 +614,7 @@ The latency is constant in free-flow:
 \end_layout
 
 \begin_layout Standard
-This defines the class of Horizontal Queuing latencies, introduced in 
+This defines the class of horizontal queuing latencies, introduced in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "fullversion"
@@ -668,7 +671,7 @@ name "fig:example-flow-latency"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Examples of Horizontal Queuing latency functions, defined in 
+Examples of horizontal queuing latency functions, defined in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:latency_class"
@@ -809,7 +812,7 @@ Nash Equilibria
 
 \begin_layout Standard
 In this section, we briefly review some properties of Nash equilibria for
- congestion games on parallel networks for the class of Horizontal Queuing
+ congestion games on parallel networks for the class of horizontal queuing
  latencies.
  These properties will be useful in studying the Stackelberg routing game.
  For a more detailed discussion and proofs, we refer the reader to 
@@ -900,7 +903,7 @@ Single link free-flow equilibria:
 \end_inset
 
 .
- For the class of Horizontal Queuing latency functions, there may exist
+ For the class of horizontal queuing latency functions, there may exist
  multiple Nash equilibria with different costs.
  For an example of a network instance where this is the case, see 
 \begin_inset CommandInset citation
@@ -1313,7 +1316,7 @@ key "fullversion"
  better models horizontal queuing.
  In this section, we setup the problem and introduce useful definitions.
  In the next section, we show that optimal Stackelberg strategies for the
- class of Horizontal Queuing latency can be computed in polynomial time,
+ class of horizontal queuing latency can be computed in polynomial time,
  and give a constructive algorithm for computing such an optimal strategy.
 \end_layout
 
@@ -1736,7 +1739,7 @@ Latencies
 \begin_inset Formula $\tilde{l}_{n}$
 \end_inset
 
- satisfy the assumptions of the Horizontal Queuing latencies class.
+ satisfy the assumptions of the horizontal queuing latencies class.
  Therefore, by Theorem 
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -4131,14 +4134,14 @@ name "sec:Discussion"
 \end_layout
 
 \begin_layout Standard
-In order to address the inefficiency of Nash equilibria on Horizontal Queuing
+In order to address the inefficiency of Nash equilibria on horizontal queuing
  networks, we considered the Stackelberg routing game where a central coordinato
 r has control over a fraction 
 \begin_inset Formula $\compRate$
 \end_inset
 
  of compliant agents.
- We proved that for the class of Horizontal Queuing congestion latencies
+ We proved that for the class of horizontal queuing congestion latencies
  introduced in 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -4146,8 +4149,11 @@ key "fullversion"
 
 \end_inset
 
-, the Non-compliant First (NCF) strategy is optimal, and that it can be
- computed in polynomial time.
+, the 
+\emph on
+non-compliant first
+\emph default
+ (NCF) strategy is optimal, and that it can be computed in polynomial time.
  We illustrated these results using an example network for which we computed
  the decrease in inefficiency that can be achieved using optimal Stackelberg
  routing.
@@ -4189,10 +4195,10 @@ We believe this work offers several directions of future research: the work
 \end_layout
 
 \begin_layout Standard
-Another question is how robust are the Non-compliant First strategy results?
- Do they hold for general network topologies? We believe that some of our
- results extend to general network topologies, but we can see technical
- challenges for these extensions.
+Another question is how robust are the NCF strategy results? Do they hold
+ for general network topologies? We believe that some of our results extend
+ to general network topologies, but we can see technical challenges for
+ these extensions.
 \end_layout
 
 \begin_layout Standard
