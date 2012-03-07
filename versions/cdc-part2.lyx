@@ -91,16 +91,27 @@ In order to address inefficiencies of Nash equilibria for horizontal queuing
 \end_layout
 
 \begin_layout Abstract
-We study Stackelberg routing for a recent class of latency functions, that
- accurately models congestion on horizontal queuing networks.
- This class of latencies arises in transportation networks for example.
- We show that in this setting, optimal Stackelberg strategies can in fact
- be computed in polynomial time, and we give one such optimal strategy:
- the Non-Compliant First strategy, and provide a constructive algorithm
- to compute it.
- These results are applied to modeling transportation networks in which
- a coordinator can choose the routes of fraction of compliant agents, while
+We study Stackelberg routing for a new class of latency functions, that
+ models congestion on horizontal queuing networks.
+ We show that in this setting, optimal Stackelberg strategies can be computed
+ in polynomial time in the size of the network.
+ We introduce a candidate Stackelberg strategy, the Non-compliant First
+ strategy, and prove it to be optimal.
+ We apply these results by modeling a transportation network in which a
+ coordinator can choose the routes of fraction of compliant agents, while
  the rest of the agents choose their routes selfishly.
+\end_layout
+
+\begin_layout Standard
+Some proofs are omitted for brevity, and are available for the reviewer's
+ convenience in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "fullversion"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -112,45 +123,29 @@ Congestion Games and Stackelberg Routing
 \end_layout
 
 \begin_layout Standard
-Congestion games form an important class of non-atomic games that is used
- to model the interaction of agents who are sharing resources on a network,
- where the cost on each edge depends on the fraction of agents using that
- edge.
- Extensive work has been dedicated to studying Nash equilibria (or user
- optimal assignments) of congestion games 
+Nash equilibria of congestion games (or user optimal assignments) have been
+ extensively studied 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "lo2002cell,papadimitriou2010new,roughgarden2002bad"
 
 \end_inset
 
-, where all players are assumed to choose the routes that minimize their
- respective individual costs.
- Under some assumptions on the latency functions, Nash equilibria can be
- computed as a solution of a convex optimization problem 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "kelly2001mathematical"
-
-\end_inset
-
-.
- Nash equilibria of congestion games are known to be inefficient compared
- to the system optimal assignments, where a coordinator, or a central authority,
- assigns flow as to minimize a cost function over all players 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "aswani2011game,roughgarden2004bounding,zheng2011network,ziliaskopoulos2000linear"
-
-\end_inset
-
-.
+ and are known to be inefficient compared to the system optimal assignments,
+ where a coordinator assigns flow as to minimize a system-wide cost function
  
+\begin_inset CommandInset citation
+LatexCommand cite
+key "aswani2011game,ziliaskopoulos2000linear"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
 In order to address this inefficiency, Stackelberg routing games have been
- proposed, where a fraction of the agents is centrally controlled, while
+ proposed, in which a fraction of the agents is centrally controlled, while
  the rest is free to act selfishly 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -159,52 +154,16 @@ key "aswani2011game,roughgarden2001stackelberg"
 \end_inset
 
 .
- The objective of the coordinator in the Stackelberg game is to route the
- compliant flow in a manner that minimizes a system-wide cost function in
- anticipation of the rest of the flow's selfish response.
- Other variants of congestion games exist in the game theory literature
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "babaioff2009congestion,morgan2003spite"
-
-\end_inset
-
-.
+ The objective of the coordinator is to assign the compliant flow in a manner
+ that minimizes a system-wide cost function in anticipation of the rest
+ of the flow's selfish response.
 \end_layout
 
 \begin_layout Standard
 Congestion games and Stackelberg routing on parallel networks have been
  studied extensively for the class of non-decreasing latency functions,
  and it is known that computing the optimal Stackelberg strategy is NP-hard
- in the number of links.
- This led to considering polynomial time approximate strategies such as
- Largest Latency First and Scale (see 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "roughgarden2001stackelberg"
-
-\end_inset
-
-), and several bounds have been shown on the efficiency of these strategies.
- Latency functions that have been studied so far in Stackelberg routing
- literature rely on the following assumptions: if 
-\begin_inset Formula $l(\flow)$
-\end_inset
-
- is the latency on a link, where 
-\begin_inset Formula $\flow$
-\end_inset
-
- is the flow, then 
-\begin_inset Formula $l$
-\end_inset
-
- is assumed to be non-decreasing, and 
-\begin_inset Formula $\flow\longmapsto\flow l(\flow)$
-\end_inset
-
- is assumed to be convex 
+ in the number of links 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "roughgarden2001stackelberg"
@@ -212,13 +171,22 @@ key "roughgarden2001stackelberg"
 \end_inset
 
 .
+ This led to considering polynomial time approximate strategies such as
+ Largest Latency First and Scale 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "roughgarden2001stackelberg"
+
+\end_inset
+
+, and several bounds have been shown on the efficiency of these strategies.
  While this class of latency functions provides a good model of congestion
  for a considerable range of networks, such as communication networks, it
  does not accurately model horizontal queueing congestion, such as congestion
  on transportation networks 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "lebacque1996godunov,daganzo1994cell,work2010traffic,lighthill1955kinematic,richards1956shock"
+key "daganzo1994cell,lighthill1955kinematic"
 
 \end_inset
 
@@ -231,8 +199,8 @@ key "fullversion"
 \end_inset
 
  to model congestion on horizontal queuing networks.
- We study Stackelberg routing for this new class of latency, which results
- in interesting novel theoretic and algorithmic results.
+ We study Stackelberg routing for this new class of latency, which leads
+ to novel theoretic and algorithmic results.
 \end_layout
 
 \begin_layout Subsection
@@ -255,17 +223,11 @@ Advances in technology have made it possible to interact with individual
  traffic information and collect anonymized data that help improve traffic
  estimation, but also to provide routing advice that can improve the overall
  efficiency of the network by relieving congestion.
- 
-\end_layout
-
-\begin_layout Standard
-However, when providing routing advice, one needs to take into account the
- possible impact of rerouting drivers on the traffic conditions of the network,
- and the response of other drivers to this change in traffic conditions.
- Failing to account for the response of the system may possibly result in
- creating congestion.
- This fits into the framework of Stackelberg routing, where a fraction of
- the population of drivers is assumed to be 
+ However, when providing routing advice, one needs to take into account
+ the possible impact of rerouting drivers on the traffic conditions of the
+ network, and the response of other drivers to this change in traffic conditions.
+ This fits into the framework of Stackelberg routing, in which a fraction
+ of the population of drivers is assumed to be 
 \emph on
 compliant
 \emph default
@@ -275,48 +237,50 @@ compliant
 non-compliant
 \emph default
 .
- 
-\end_layout
-
-\begin_layout Standard
-We call compliant a driver who is connected to a central coordinator, through
+ We call compliant a driver who is connected to a central coordinator, through
  a smartphone application or a navigation system, and is willing (or has
  an external incentive) to follow routing suggestions provided by the coordinato
 r.
- Other drivers (drivers who are not connected or who are simply not willing
- to follow alternative routes) are described as non-compliant.
+ Other drivers (not connected or who simply not willing to follow alternative
+ routes) are described as non-compliant.
  These two populations form respectively the leader and the followers in
  the Stackelberg routing game.
 \end_layout
 
 \begin_layout Standard
-In many networks, drivers have a number of alternative disjoint paths to
- reach their destination.
- For example, parallel highway networks often exist between two heavily-populate
-d cities (the Northern California bay area has numerous examples of such
- networks).
- Therefore, Stackelberg routing strategies on simple parallel networks becomes
- a matter of practical importance to traffic planners in the near future.
+In numerous transportation networks, two highly populated areas can be connected
+ by disjoint highways (we consider one such example in the numerical results
+ section).
+ Therefore, Stackelberg routing strategies on simple parallel networks are
+ of practical importance to traffic planners in the near future .
  However, due to the limitations of congestion models discussed above, the
  existing literature on Stackelberg routing is not readily applicable to
- real traffic networks.
- We start to address these limitations by considering a new class of latency
- functions that better models congestion for horizontal queuing network,
- in particular traffic networks.
+ practical traffic networks.
+ The present work addresses these limitations by considering a new class
+ of latency functions that better models congestion for horizontal queuing
+ network, in particular traffic networks.
 \end_layout
 
 \begin_layout Subsection
-Contributions of This Article
+Contributions
 \end_layout
 
 \begin_layout Standard
-We study the Stackelberg routing game on a parallel networks for the class
- of Horizontal Queuing congestion latencies, and show that optimal Stackelberg
- strategies can be computed in 
+We study the Stackelberg routing game on parallel networks for the class
+ of 
+\emph on
+horizontal queuing congestion
+\emph default
+ latencies, and show that optimal Stackelberg strategies can be computed
+ in 
 \begin_inset Formula $O\left(\NLinks^{2}\right)$
 \end_inset
 
- time.
+ time, where 
+\begin_inset Formula $\NLinks$
+\end_inset
+
+ is the number of links in the network.
  This result contrasts with the class of non-decreasing latency functions,
  for which computing the optimal Stackelberg strategy is NP-hard 
 \begin_inset CommandInset citation
@@ -326,8 +290,11 @@ key "roughgarden2001stackelberg"
 \end_inset
 
 .
- We define in particular the Non-compliant First (NCF) strategy and prove
- it to be optimal.
+ We define in particular the 
+\emph on
+non-compliant first
+\emph default
+ (NCF) strategy and prove it to be optimal.
 \end_layout
 
 \begin_layout Standard
@@ -425,31 +392,10 @@ name "sub:latency_class"
 \end_layout
 
 \begin_layout Standard
-We consider a non-atomic
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-When fractional flows are allowed, the players are said to be non-atomic
- 
+We consider a non-atomic 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "roughgarden2004bounding,schmeidler1973equilibrium"
-
-\end_inset
-
-.
- The choice of atomic versus non-atomic players in congestion games is similar
- to the modeling choice of microscopic versus macroscopic flow framework
- in traffic modeling 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "lighthill1955kinematic,richards1956shock"
-
-\end_inset
-
-.
-\end_layout
+key "schmeidler1973equilibrium"
 
 \end_inset
 
@@ -623,23 +569,15 @@ We further require the latency function to satisfy the following properties:
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $\exists a_{n}>0$
-\end_inset
-
- such that 
+The latency is constant in free-flow: 
 \begin_inset Formula $\forall\flow[n]\in[0,\flowMax[n]]$
 \end_inset
 
 , 
-\begin_inset Formula $\latency[\link]\left(\flow[\link],0\right)=\parA[\link]$
+\begin_inset Formula $\latency[\link]\left(\flow[\link],0\right)=\parA[\link]>0$
 \end_inset
 
 .
- Here 
-\begin_inset Formula $a_{n}$
-\end_inset
-
- is a constant free-flow latency.
 \end_layout
 
 \begin_layout Itemize
@@ -681,48 +619,9 @@ key "fullversion"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-The last property can be justified intuitively by the following argument:
+ The last property can be justified intuitively by the following argument:
  as the density on the link increases, the agents slow down (to avoid collision)
 , therefore the flow decreases and the latency increases.
-\end_layout
-
-\begin_layout Standard
-Note that the latency in congestion 
-\begin_inset Formula $l_{n}(.,1)$
-\end_inset
-
- is defined on the open interval 
-\begin_inset Formula $(0,\flowMax[n])$
-\end_inset
-
-.
- In particular, if 
-\begin_inset Formula $\flow[n]=0$
-\end_inset
-
- then 
-\begin_inset Formula $m_{n}=0$
-\end_inset
-
- (a link that is not in the support of 
-\begin_inset Formula $x$
-\end_inset
-
- is considered in free-flow) and if 
-\begin_inset Formula $\flow[n]=\flowMax[n]$
-\end_inset
-
- then 
-\begin_inset Formula $\Mode[n]=0$
-\end_inset
-
- (if a link is at maximum capacity, it is considered, by convention, to
- be in free-flow.
- It is in fact on the boundary of the free-flow and congestion regions,
- and we choose this convention to simplify the analysis).
 \end_layout
 
 \begin_layout Standard
@@ -742,13 +641,19 @@ reference "fig:example-flow-latency"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \begin_inset Graphics
 	filename ../figures/LatencyasFunctionofFlowModeMatched.pdf
-	width 2in
+	width 1.5in
 
 \end_inset
 
@@ -771,6 +676,70 @@ reference "sub:latency_class"
 \end_inset
 
 .
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\quad$
+\end_inset
+
+
+\begin_inset Formula $\quad$
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../figures/presentation/DefinitionXBar.pdf
+	width 1.6in
+	clip
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Example of a single link free-flow equilibrium 
+\begin_inset Formula $(\opneFlow 3r,\bar{m}^{3})$
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:xbar-and-hat-defns"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Example highway network connecting San Francisco to San Jose.
 \end_layout
 
 \end_inset
@@ -917,19 +886,12 @@ In particular, all links in the support of
 .
 \end_layout
 
-\begin_layout Subsubsection
-Single link free-flow equilibria
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:Traffic-Networks-Have"
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
-Let 
+
+\series bold
+Single link free-flow equilibria:
+\series default
+ Let 
 \begin_inset Formula $\NashEquilibrium{\NLinks}{\qdemand}{}$
 \end_inset
 
@@ -938,17 +900,8 @@ Let
 \end_inset
 
 .
- For the class of Horizontal Queuing latency functions, the essential uniqueness
- property of Nash equilibrium 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "roughgarden2002bad,Dafermos1969"
-
-\end_inset
-
- does not hold.
- In other words, there may exist multiple Nash equilibria with different
- costs.
+ For the class of Horizontal Queuing latency functions, there may exist
+ multiple Nash equilibria with different costs.
  For an example of a network instance where this is the case, see 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1082,17 +1035,9 @@ l_{n}(\cffFlow nk,1)=a_{k}\label{eq:x_hat}
 
 \end_layout
 
-\begin_layout Proposition
-
-\series bold
-Congestion Flows are decreasing
-\series default
- 
-\begin_inset Formula 
-\begin{equation}
-\cffFlow{\link}k=l_{n}(\cdot,1)^{-1}(a_{k})\label{eq:x_hat_alt_def}
-\end{equation}
-
+\begin_layout Standard
+Note that the congestion flow 
+\begin_inset Formula $\cffFlow{\link}k=l_{n}(\cdot,1)^{-1}(a_{k})$
 \end_inset
 
  is a decreasing function of 
@@ -1194,53 +1139,6 @@ reference "fig:xbar-and-hat-defns"
 .
 \end_layout
 
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../figures/presentation/DefinitionXBar.pdf
-	width 2.2in
-	clip
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Example of a single link free-flow equilibrium 
-\begin_inset Formula $(\opneFlow 3r,\bar{m}^{3})$
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:xbar-and-hat-defns"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Lemma
 
 \series bold
@@ -1303,34 +1201,12 @@ key "Anshelevich2004"
 
 ).
  A best Nash equilibrium (BNE) is defined to be a Nash equilibrium of least
- total latency.
-\end_layout
-
-\begin_layout Definition
-
-\series bold
-Best Nash Equilibrium
-\series default
-
-\begin_inset CommandInset label
-LatexCommand label
-name "def:bne"
-
+ total latency 
+\begin_inset Formula $\BestNashEquilibrium{\NLinks}{\qdemand}=\underset{\left(\flow,\Mode\right)\in\NashEquilibrium{\NLinks}{\qdemand}{}}{\arg\min}\Latency\left(\flow,\Mode\right)$
 \end_inset
 
-
-\begin_inset Formula 
-\[
-\BestNashEquilibrium{\NLinks}{\qdemand}=\underset{\left(\flow,\Mode\right)\in\NashEquilibrium{\NLinks}{\qdemand}{}}{\arg\min}\Latency\left(\flow,\Mode\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The following theorem characterizes best Nash equilibria.
+.
+ The following theorem characterizes best Nash equilibria.
 \end_layout
 
 \begin_layout Theorem
@@ -1342,7 +1218,7 @@ Characterization of Best Nash Equilibria
 \begin_layout Theorem
 \begin_inset CommandInset label
 LatexCommand label
-name "theorem:minsupport"
+name "theorem:bne"
 
 \end_inset
 
@@ -1366,7 +1242,7 @@ name "theorem:minsupport"
 Theorem 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "theorem:minsupport"
+reference "theorem:bne"
 
 \end_inset
 
@@ -1418,13 +1294,6 @@ In order to address the inefficiency of Nash equilibria due to selfish routing
  for improving the equilibria of the network.
  Leader-follower routing games have been considered in the transportation
  literature 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "harker1988multiple,haurie1985relationship"
-
-\end_inset
-
- and more recently 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "aswani2011game,joksimovicdifferent"
@@ -1871,7 +1740,7 @@ Latencies
  Therefore, by Theorem 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "theorem:minsupport"
+reference "theorem:bne"
 
 \end_inset
 
@@ -1892,33 +1761,12 @@ name "sec:Optimal-Stackelberg-strategies"
 \begin_layout Standard
 In this section we solve for optimal Stackelberg strategies, i.e.
  Stackelberg strategies that induce Nash equilibria of minimal cost.
- This is described by the following optimization problem 
-\begin_inset Formula 
-\begin{align*}
-\min_{s\in\StackSet}C\left(s+\ncFlow(\cFlow),m(\cFlow)\right)
-\end{align*}
-
-\end_inset
-
- where 
-\begin_inset Formula $s$
-\end_inset
-
- is a Stackelberg strategy and 
-\begin_inset Formula $(\ncFlow(\cFlow),m(\cFlow))$
-\end_inset
-
- is the non-compliant flow assignment at the equilibrium induced by 
-\begin_inset Formula $s$
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Definition
 
 \series bold
-Stackelberg Equilibrium
+Optimal Stackelberg strategy
 \end_layout
 
 \begin_layout Definition
@@ -1940,12 +1788,16 @@ s^{*}=\arg\min_{s\in\StackSet}C\left(s+\ncFlow(\cFlow),m(\cFlow)\right)
 
 \end_inset
 
- and a Stackelberg equilibrium is the equilibrium 
-\begin_inset Formula $(s^{*}+\ncFlow(s^{*}),m(s^{*}))$
+
+\end_layout
+
+\begin_layout Standard
+Here 
+\begin_inset Formula $(\ncFlow(\cFlow),m(\cFlow))$
 \end_inset
 
- induced by optimal strategy 
-\begin_inset Formula $s*$
+ is the equilibrium induced by 
+\begin_inset Formula $s$
 \end_inset
 
 .
@@ -2190,18 +2042,25 @@ Let
 \end_inset
 
 .
- Then we have by (??)
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\bar{m}=(1,\dots,1,\stackrel{k}{0},\dots,0)
-\]
+ Then we have from Equations 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:x_bar"
 
 \end_inset
 
- and
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:m_bar"
+
+\end_inset
+
+, 
+\begin_inset Formula $\bar{m}=(1,\dots,1,\stackrel{k}{0},\dots,0)$
+\end_inset
+
+ and 
 \begin_inset ERT
 status open
 
@@ -2214,10 +2073,7 @@ small
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
+ 
 \begin_inset Formula 
 \[
 \bar{t}=\left(\cffFlow 1k,\dots,\cffFlow{k-1}k,(1-\compRate)\qdemand-\sum_{n=1}^{k-1}\cffFlow nk,0,\dots,0\right)
@@ -2390,6 +2246,18 @@ and the corresponding latencies are
 \end_layout
 
 \begin_layout Standard
+We will denote by 
+\begin_inset Formula $\text{NCF}(\NLinks,r,\compRate)=\bar{s}$
+\end_inset
+
+ the non-compliant first strategy for the Stackelberg instance 
+\begin_inset Formula $(\NLinks,r,\compRate)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -2400,12 +2268,12 @@ status open
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ../figures/optimal_stackelberg1.png
-	width 1.7in
+	filename ../figures/optimal_stackelberg1.pdf
+	width 1.6in
 
 \end_inset
 
@@ -2431,19 +2299,6 @@ Best Nash equilibrium
 \end_inset
 
 .
- Links 
-\begin_inset Formula $\left\{ 1,\dots k-1\right\} $
-\end_inset
-
- are exactly 
-\begin_inset Formula $k$
-\end_inset
-
--congested, and link 
-\begin_inset Formula $k$
-\end_inset
-
- is in free-flow.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -2473,8 +2328,8 @@ status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ../figures/optimal_stackelberg2.png
-	width 1.7in
+	filename ../figures/optimal_stackelberg2.pdf
+	width 1.6in
 
 \end_inset
 
@@ -2586,36 +2441,14 @@ The Non-Compliant First strategy is optimal
 Optimal Stackelberg Strategy
 \series default
  
-\begin_inset Formula 
-\begin{eqnarray*}
-\bar{s} & = & (0,\dots,\stackrel{k-1}{0},\flowMax[k]-\bar{t}_{k},\flowMax[k+1],\dots,\flowMax[l-1],\\
- &  & \compRate\qdemand-(\sum_{n=k}^{l-1}\flowMax[n]-\bar{t_{k}}),\stackrel{l+1}{0},\dots,0)
-\end{eqnarray*}
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Theorem
-is an optimal Stackelberg strategy for the Stackelberg instance 
+\begin_inset Formula $\bar{s}=\text{NCF}(\NLinks,r,\compRate)$
+\end_inset
+
+ is an optimal Stackelberg strategy for the Stackelberg instance 
 \begin_inset Formula $(\NLinks,r,\compRate)$
-\end_inset
-
-, where 
-\begin_inset Formula $\bar{t}$
-\end_inset
-
- is the best Nash equilibrium for the instance 
-\begin_inset Formula $(\NLinks,(1-\compRate)r)$
-\end_inset
-
-, and 
-\begin_inset Formula $k$
-\end_inset
-
- is the last link in the support of 
-\begin_inset Formula $\bar{t}$
 \end_inset
 
 .
@@ -2665,21 +2498,14 @@ The proof proceeds as follows: we first show that links
 \end_inset
 
 , in the following sense: these links have worse latency 
-\begin_inset Formula 
-\begin{align*}
-\latency[n](x_{n},m_{n}) & \geq\latency[n](\bar{x}_{n},\bar{m}_{n}) & \forall n\in\{1,\dots,l-1\}
-\end{align*}
-
+\begin_inset Formula $\latency[n](x_{n},m_{n})\geq\latency[n](\bar{x}_{n},\bar{m}_{n})$
 \end_inset
 
- and hold less flow 
-\begin_inset Formula 
-\begin{align*}
-x_{n} & \leq\bar{x}_{n} & \forall n\in\{1,\dots,l-1\}
-\end{align*}
-
+, and hold less flow 
+\begin_inset Formula $x_{n}\leq\bar{x}_{n}$
 \end_inset
 
+.
  Then we conclude by lower bounding the cost 
 \begin_inset Formula $C(x,m)$
 \end_inset
@@ -2853,14 +2679,11 @@ reference "def:stack"
 
 .
  Therefore we have 
-\begin_inset Formula 
-\[
-\sum_{n=1}^{k'}s_{n}+t_{n}(s)\leq\sum_{n=1}^{k'-1}\cffFlow n{k'}+\flowMax[k']
-\]
-
+\begin_inset Formula $\sum_{n=1}^{k'}s_{n}+t_{n}(s)\leq\sum_{n=1}^{k'-1}\cffFlow n{k'}+\flowMax[k']$
 \end_inset
 
-But 
+.
+ But 
 \begin_inset Formula $\sum_{n=1}^{k'}(s_{n}+t_{n}(s))\geq\sum_{n\in\Supp t}t_{n}(s)=(1-\compRate)r$
 \end_inset
 
@@ -3555,13 +3378,9 @@ C(x,m) & \geq\bar{x}_{l}l_{l}(\bar{x}_{l},\bar{m}_{l})+\sum_{n=1}^{l-1}\bar{x}_{
 \end_layout
 
 \begin_layout Standard
-Therefore the Non-compliant First strategy (denoted 
-\begin_inset Formula $\text{NCF}(\NLinks,r,\compRate)$
-\end_inset
-
-) is an optimal Stackelberg strategy, and it can be computed in polynomial
- time since it is generated in linear time from the best Nash equilibrium
- 
+Therefore the Non-compliant First strategy is an optimal Stackelberg strategy,
+ and it can be computed in polynomial time since it is generated in linear
+ time from the best Nash equilibrium 
 \begin_inset Formula $\BestNashEquilibrium{\NLinks}{(1-\compRate)r}$
 \end_inset
 
@@ -3584,106 +3403,6 @@ Numerical Results
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Numerical-Results"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Example
-
-\emph on
-Triangular fundamental diagrams
-\end_layout
-
-\begin_layout Example
-One particular class of fundamental diagrams 
-\begin_inset Formula $x^{\rho}$
-\end_inset
-
- that satisfy the above assumptions are triangular fundamental diagrams
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "daganzo1994cell,daganzo1995cell"
-
-\end_inset
-
-, which are linear with positive slope 
-\begin_inset Formula $\speedff$
-\end_inset
-
- in the free-flow region, affine with negative slope 
-\begin_inset Formula $\speedCong$
-\end_inset
-
- in the congestion region, and have maximum flow 
-\begin_inset Formula $\flowMax=\masscrit\speedff$
-\end_inset
-
-.
- Assumptions 1 and 2 are satisfied by definition, and Assumption 3 is satisfied
- since 
-\begin_inset Formula $\frac{d\flow\left(\mass\right)}{d\mass}=\speedff=\frac{x\left(\mass\right)}{\mass}$
-\end_inset
-
- 
-\begin_inset Formula $\forall\rho\in[0,\masscrit]$
-\end_inset
-
- and 
-\begin_inset Formula $\frac{d\flow\left(\mass\right)}{d\mass}=\speedCong\le0\le\frac{x\left(\mass\right)}{\mass}$
-\end_inset
-
- 
-\begin_inset Formula $\forall\rho\geq\masscrit$
-\end_inset
-
-.
- The dotted line in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Fundamental-diagram-examples."
-
-\end_inset
-
- shows a triangular fundamental diagram.
- The latency function is then given by:
-\end_layout
-
-\begin_layout Example
-\begin_inset Formula 
-\[
-\latency[\triangle]^{\mass}\left(\mass\right)=\begin{cases}
-\frac{\Length}{\speedff} & 0\le\mass\le\frac{\flowMax}{\speedff}\\
-\frac{\Length\mass}{\speedCong\left(\mass-\massmax\right)} & \frac{\flowMax}{\speedff}<\mass\le\massmax
-\end{cases}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Example
-where 
-\begin_inset Formula $\massmax=\flowMax\left(\frac{1}{\speedff}-\frac{1}{\speedCong}\right)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-The latency function corresponding to a triangular fundamental diagram can
- be readily expressed in this form:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\latency[\triangle]\left(x,0\right) & = & \frac{\Length}{\speedff}\\
-\latency[\triangle]\left(\flow,1\right) & = & L\left(\frac{\massmax}{\flow}+\frac{1}{\speedCong}\right)
-\end{eqnarray*}
 
 \end_inset
 
@@ -3720,22 +3439,112 @@ reference "fig:Map-of-parallel"
  We analyze the inefficiency of Nash equilibria due to selfish routing and
  lack of coordination, and show how optimal Stackelberg routing strategies
  (Non-compliant First strategy) can improve these conditions.
+ We first use price of stability 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Anshelevich2004"
+
+\end_inset
+
+ to measure the improvement in performance achieved by optimal Stackelberg
+ routing.
+ Price of Stability is defined as the ratio between the cost of the best
+ Nash equilibrium, and the cost of the social optimum: 
+\begin_inset Formula $\POS Nr=\frac{\Latency\left(\BestNashEquilibrium{\NLinks}r\right)}{\Latency^{*}}$
+\end_inset
+
+ where 
+\begin_inset Formula $C^{*}=\min_{(x,m)}C(x,m)$
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Standard
-\align center
 \begin_inset Float figure
-placement h
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
 \align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \begin_inset Graphics
 	filename ../figures/ParallelHighwayMap.pdf
-	width 2.5in
+	width 1.7in
 
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Map of parallel highway network showing four parallel highways connecting
+ San Francisco to San Jose.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Map-of-parallel"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\quad$
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../figures/LatenciesSim.pdf
+	width 1.7in
+	clip
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Latency (minutes) vs.
+ demand (cars/minute) for parallel highway routes.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Latency-functions-for"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\quad$
 \end_inset
 
 
@@ -3745,15 +3554,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Map of parallel highway network showing four parallel highway choices leading
- from San Francisco to San Jose.
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Map-of-parallel"
-
-\end_inset
-
-
+Example highway network connecting San Francisco to San Jose.
 \end_layout
 
 \end_inset
@@ -3786,16 +3587,17 @@ reference "fig:Latency-functions-for"
 \end_inset
 
  shows the latency functions for the highway network, which we derived assuming
- a triangular fundamental diagram for each highway stretch.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-This simplifying assumption will be removed in future studies.
-\end_layout
+ a triangular fundamental diagram for each highway stretch (the resulting
+ latency functions are decreasing harmonic in congestion.
+ See 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "fullversion"
 
 \end_inset
 
+ for a detailed derivation of latency functions from a triangular fundamental
+ diagram).
  Under free-flow conditions, I-101 is the fastest route available between
  San Francisco and San Jose.
  But when I-101 becomes congested, other routes represent viable alternatives.
@@ -3817,76 +3619,10 @@ reference "eq:total-cost"
 \end_layout
 
 \begin_layout Standard
-\align center
-\begin_inset Float figure
-placement h
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../figures/LatenciesSim.pdf
-	width 2.5in
-	clip
-
-\end_inset
-
-
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Latency (minutes) vs.
- demand (cars/minute) for parallel highway routes.
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Latency-functions-for"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 The numerical results are summarized in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Results-for-network"
-
-\end_inset
-
-.
- In this figure, 
-\begin_inset Formula $\alpha$
-\end_inset
-
- represents the fraction of compliant drivers on the network, as explained
- in Section
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-~
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Stackelberg-routing"
 
 \end_inset
 
@@ -3903,8 +3639,8 @@ reference "fig:Price-of-Stability"
 \begin_inset Formula $n$
 \end_inset
 
- for a fixed flow demand, when the Nash equilibrium assignment is slightly
- above maximum capacity on link 
+ for a fixed flow demand, when the Nash equilibrium is slightly above maximum
+ capacity on link 
 \begin_inset Formula $n$
 \end_inset
 
@@ -3920,8 +3656,7 @@ We also note that for a fixed compliance rate
 \begin_inset Formula $\compRate$
 \end_inset
 
-, Stackelberg routing can delay (as a function of increased demand over
- the network) the congestion of a particular link 
+, Stackelberg routing can delay the congestion of a particular link 
 \begin_inset Formula $n$
 \end_inset
 
@@ -3934,7 +3669,7 @@ We also note that for a fixed compliance rate
 \begin_inset Formula $n$
 \end_inset
 
- becomes congested (
+ becomes congested (formally, 
 \begin_inset Formula $r^{(n)}=\inf_{r}\left\{ r|n\text{ is congested under }\BestNashEquilibrium{\NLinks}r\right\} $
 \end_inset
 
@@ -3957,7 +3692,7 @@ We also note that for a fixed compliance rate
 \begin_inset Formula $r^{(n,\compRate)}-r^{(n)}$
 \end_inset
 
-) is proportional to the fractional compliance.
+) is proportional to the compliance rate.
  Observing the behavior around the 600-800 cars/minute, it takes about 30
  extra cars/minute to congest the second link with 5% compliance, about
  100 cars/minute for 15% compliance, while for 50% compliance, the second
@@ -4093,7 +3828,7 @@ key "aswani2011game"
 
 \emph default
 , was introduced to show how performant a particular Stackelberg strategy
- is with respect to a 0% compliance strategy (or Nash equilibrium).
+ is with respect to the best Nash equilibrium (0% compliance).
  Value of altruism is defined by:
 \end_layout
 
@@ -4139,7 +3874,7 @@ delaying
 \begin_inset Formula $r\geq r^{(n,\compRate)}$
 \end_inset
 
-) resulting in a value of altruism value of 1.
+) resulting in a value of altruism of 1.
 \begin_inset Float figure
 wide false
 sideways false
@@ -4221,9 +3956,9 @@ Scaling of optimal Stackelberg strategy algorithm on size of network
 To illustrate the performance of the algorithm as the size of the network
  scales up, the computation time of the optimal Stackelberg strategy was
  measured for 500 randomly generated networks.
- The number of links in a network was chosen to be between 3 and 1500 where
- the latency properties of each link were generated from randomly chosen
- triangular fundamental diagrams.
+ The number of links in a network was chosen between 3 and 1500 and the
+ latency functions of each link correspond to randomly generated triangular
+ fundamental diagrams.
  The compliance rate was arbitrarily chosen to be 40% and the demand was
  chosen to be 70% that of the maximum capacity of the network at best Nash
  equilibrium.
@@ -4344,7 +4079,7 @@ reference "sec:Optimal-Stackelberg-strategies"
 \end_inset
 
 , the worst-case complexity of computing optimal Stackelberg assignments
- is quadratic with the size of the network, which is verified experimentally
+ is quadratic in the size of the network, which is verified experimentally
  as shown in Figure
 \begin_inset ERT
 status open
@@ -4397,17 +4132,22 @@ name "sec:Discussion"
 
 \begin_layout Standard
 In order to address the inefficiency of Nash equilibria on Horizontal Queuing
- networks, we considered the Stackelberg routing problem where a central
- coordinator has control over a fraction 
+ networks, we considered the Stackelberg routing game where a central coordinato
+r has control over a fraction 
 \begin_inset Formula $\compRate$
 \end_inset
 
  of compliant agents.
  We proved that for the class of Horizontal Queuing congestion latencies
- introduced in [??], the Non-compliant First (NCF) strategy is optimal,
- and that it can be computed in polynomial time.
- This stands in contrast with the class of non-decreasing latencies, where
- computing the optimal Stackelberg strategy is NP-hard.
+ introduced in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "fullversion"
+
+\end_inset
+
+, the Non-compliant First (NCF) strategy is optimal, and that it can be
+ computed in polynomial time.
  We illustrated these results using an example network for which we computed
  the decrease in inefficiency that can be achieved using optimal Stackelberg
  routing.
@@ -4415,8 +4155,7 @@ In order to address the inefficiency of Nash equilibria on Horizontal Queuing
 \begin_inset Formula $r^{(n)}$
 \end_inset
 
-, optimal Stackelberg routing can achieve a significant increase of efficiency
- (that we measured using both price of stability and value of altruism)
+, optimal Stackelberg routing can achieve a significant increase in efficiency
  even for small values of compliance rate 
 \begin_inset Formula $\compRate$
 \end_inset
@@ -4441,14 +4180,12 @@ We believe this work offers several directions of future research: the work
 \begin_inset Formula $r$
 \end_inset
 
-, and static equilibria) and one question is whether these equilibria are
- stable in the dynamic sense, and how one may steer the system from one
- equilibrium to a better one: consider for example the case where the agents
- are stuck in a congested equilibrium, and assume a coordinator has control
- over a fraction of the flow.
- Can the coordinator steer the system to a single link free-flow equilibrium
- by decongesting a link? And what is the minimal compliance rate needed
- to achieve this? 
+, and static equilibria) and one question is how one may dynamically steer
+ the system from one equilibrium to a better one: consider for example the
+ case where the agents are stuck in a congested equilibrium, and assume
+ a coordinator has control over a fraction of the flow.
+ Can the coordinator steer the system to a single link free-flow equilibrium?
+ And what is the minimal compliance rate needed to achieve this? 
 \end_layout
 
 \begin_layout Standard
