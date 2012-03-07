@@ -80,10 +80,7 @@ Characterization and Computation of Nash Equilibria in Horizontal Queueing
 \end_layout
 
 \begin_layout Author
-Walid Krichene
- 
-\lang english
-
+Walid Krichene 
 \begin_inset ERT
 status open
 
@@ -96,10 +93,7 @@ and
 
 \end_inset
 
- Jack Reilly
- 
-\lang english
-
+ Jack Reilly 
 \begin_inset ERT
 status open
 
@@ -112,10 +106,7 @@ and
 
 \end_inset
 
- Saurabh Amin
- 
-\lang english
-
+ Saurabh Amin 
 \begin_inset ERT
 status open
 
@@ -133,26 +124,27 @@ and
 \end_layout
 
 \begin_layout Abstract
-We study inefficiencies of horizontal queueing networks due to the selfish
+We study inefficiencies in horizontal queueing networks due to the selfish
  behavior of agents, by comparing social optima to Nash equilibria.
- While routing games traditionally model congestion with latency functions
- that increase with the flow on a particular link, this particular model
- cannot capture congestion effects on horizontal queueing networks.
- Rather, latencies on horizontal queueing networks increase as a function
- of density, and flow can even decrease with increasing latencies.
- This class of latency functions arises in transportation networks for example,
- and better models congestion on horizontal queuing networks.
+ The article expands studies on routing games which traditionally model
+ congestion with latency functions that increase with the flow on a particular
+ link.
+ This type of latency function cannot capture congestion effects on horizontal
+ queueing networks.
+ Latencies on horizontal queueing networks increase as a function of density,
+ and flow can decrease with increasing latencies.
+ For example, this class of latency functions arises in transportation networks.
  For static analysis of horizontal queuing on parallel-link networks, we
  show that there are multiple Nash equilibria with different total costs,
- which stands in contrast to results for increasing latency functions.
- We introduce a novel algorithm, quadratic in the number of links, for computing
+ which contrasts results for increasing latency functions.
+ We present a novel algorithm, quadratic in the number of links, for computing
  the Nash equilibrium that minimizes total cost (best Nash equilibrium).
  The relative inefficiencies of best Nash equilibria are evaluated through
  analysis of the price of stability, and analytical results are presented
  for two-link networks.
- Price of stability is shown to be very sensitive to changes in demand when
- links near capacity, and congestion mitigation strategies are discussed,
- motivated by our results.
+ Price of stability is shown to be sensitive to changes in demand when links
+ near capacity, and congestion mitigation strategies are discussed, motivated
+ by our results.
 \end_layout
 
 \begin_layout Section
@@ -166,8 +158,8 @@ Routing games and Nash equilibria
 \begin_layout Standard
 Routing games (or congestion games) form an important class of non-atomic
  games that is used to model the interaction of agents who are using resources
- on a network, where the cost on each edge depends on the fraction of agents
- using that edge.
+ on a network, in which the cost on each edge depends on the fraction of
+ agents using that edge.
  Extensive work has been dedicated to studying Nash equilibria (or user
  optimal assignments) of congestion games 
 \begin_inset CommandInset citation
@@ -176,7 +168,7 @@ key "lo2002cell,papadimitriou2010new,roughgarden2002bad"
 
 \end_inset
 
-, where all players are assumed to choose the routes that minimize their
+, in which all players are assumed to choose the routes that minimize their
  respective individual costs.
  Under some assumptions on the latency functions, Nash equilibria can be
  computed as a solution of a convex optimization problem 
@@ -188,7 +180,7 @@ key "kelly2001mathematical"
 
 .
  Nash equilibria of congestion games are known to be inefficient compared
- to the system optimal assignments, where a coordinator, or a central authority,
+ to system optimal assignments, in which a coordinator, or a central authority,
  assigns flow as to minimize a cost function over all players 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -293,9 +285,9 @@ d by the flow, and depends on the congestion state of the link.
 \end_inset
 
 .
- We show for example that in transportation networks, latency functions
- derived from a macroscopic model of traffic flow developed by Lighthill
- and Whitham 
+ For example, in transportation networks, latency functions derived from
+ a macroscopic model of traffic flow developed by Lighthill and Whitham
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "lighthill1955kinematic"
@@ -346,14 +338,14 @@ on.
 \end_layout
 
 \begin_layout Subsection
-Contributions of this article
+Contributions of the article
 \end_layout
 
 \begin_layout Standard
 We introduce a new class of latency functions that is expressive enough
- to model congestion on horizontal queuing networks, and study, under this
- new class of latency, the Nash equilibria of the congestion game on parallel
- networks.
+ to model congestion on horizontal queuing networks, and study, for this
+ new class of latency functions, the Nash equilibria of the congestion game
+ on parallel networks.
  We consider a congestion game on a parallel network, where each link has
  a dual-mode latency function: latency is constant in free-flow, and a decreasin
 g function of flow in congestion.
@@ -434,7 +426,7 @@ These results provide a framework for efficient computation of Nash equilibria
  of congestion patterns on such networks.
  While the assumption of parallel-link networks may seem an overly-limiting
  assumption, there are many examples of highway networks in populous areas
- (such as the California bay area), where such networks can model congestion
+ (such as the California bay area), in which such networks can model congestion
  via horizontal queueing and the parallel link structure is an accurate
  description.
  Additionally, highway networks often suffer from congestion due to selfish
@@ -555,7 +547,7 @@ key "schmeidler1973equilibrium"
  in traffic modeling 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "lighthill1955kinematic,richards1956shock"
+key "lighthill1955kinematic"
 
 \end_inset
 
@@ -925,10 +917,7 @@ x_{n}^{\rho}:D_{n} & \rightarrow & \Rea_{+}\\
 \end_inset
 
 , is non-negative and potentially unbounded.
- The latency is given by a function
-:
-\lang english
-
+ The latency is given by a function:
 \begin_inset ERT
 status open
 
@@ -974,18 +963,18 @@ name "fn:papa"
 \end_inset
 
 Note, this allows for fundamental diagrams with unbounded density support,
- for example as in Papageorgiou 
-\begin_inset Formula $\flow\left(\mass\right)=\mass e^{-\mass}$
-\end_inset
-
- 
+ for example as in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "papageorgiou1989macroscopic"
 
 \end_inset
 
+: 
+\begin_inset Formula $\flow\left(\mass\right)=\mass e^{-\mass}$
+\end_inset
 
+ 
 \end_layout
 
 \end_inset
@@ -1554,7 +1543,7 @@ vspace{-0.20in}
 
 \begin_layout Standard
 Note that the latency in congestion 
-\begin_inset Formula $l_{n}(.,1)$
+\begin_inset Formula $l_{n}(\cdot,1)$
 \end_inset
 
  is defined on the open interval 
@@ -1837,8 +1826,6 @@ We first recall the fundamental notion of Nash equilibrium for the network
 \end_layout
 
 \begin_layout Definition
-
-\series bold
 Nash Equilibrium
 \end_layout
 
@@ -1921,8 +1908,6 @@ Note that to fully describe the equilibrium, one needs to specify the congestion
 \end_layout
 
 \begin_layout Lemma
-
-\series bold
 Characterization of a Nash Equilibrium
 \end_layout
 
@@ -2254,8 +2239,6 @@ We start by deriving properties that the congestion state vector
 \end_layout
 
 \begin_layout Lemma
-
-\series bold
 Congestion of lower links
 \end_layout
 
@@ -2308,8 +2291,6 @@ reference "lem:nash_eq"
 \end_layout
 
 \begin_layout Corollary
-
-\series bold
 Congestion states under equilibrium
 \end_layout
 
@@ -2454,8 +2435,6 @@ The following Lemma shows that given a congestion state vector
 \end_layout
 
 \begin_layout Lemma
-
-\series bold
 Enumerating Nash Equilibria
 \end_layout
 
@@ -2726,8 +2705,6 @@ Now we show that for a given congestion state vector
 \end_layout
 
 \begin_layout Proof
-
-\series bold
 Suppose 
 \begin_inset Formula $(\flow,m),(\flow',m)\in\NashEquilibrium{\NLinks}{\qdemand}f$
 \end_inset
@@ -2737,8 +2714,10 @@ Suppose
 \end_inset
 
  are as defined above
-\series default
+\series bold
 .
+
+\series default
  Then since 
 \begin_inset Formula $j\in\Supp{\flow}$
 \end_inset
@@ -2798,8 +2777,6 @@ reference "eq:contradiction"
 \end_layout
 
 \begin_layout Proof
-
-\series bold
 Suppose 
 \begin_inset Formula $(\flow,m),(\flow',m)\in\NashEquilibrium{\NLinks}{\qdemand}c$
 \end_inset
@@ -2809,8 +2786,10 @@ Suppose
 \end_inset
 
  are as defined above
-\series default
+\series bold
 .
+
+\series default
  Then since 
 \begin_inset Formula $j\in\Supp{\flow}$
 \end_inset
@@ -2968,8 +2947,6 @@ reference "cor:atmost1ff"
 \end_layout
 
 \begin_layout Definition
-
-\series bold
 Congestion flow
 \end_layout
 
@@ -3014,11 +2991,7 @@ l_{n}(\cffFlow nk,1)=a_{k}\label{eq:x_hat}
 \end_layout
 
 \begin_layout Proposition
-
-\series bold
-Congestion Flows are decreasing
-\series default
- 
+Congestion Flows are decreasing 
 \begin_inset Formula 
 \begin{equation}
 \cffFlow{\link}k=l_{n}(\cdot,1)^{-1}(a_{k})\label{eq:x_hat_alt_def}
@@ -3160,7 +3133,7 @@ status collapsed
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -3177,7 +3150,7 @@ status collapsed
 
 \size footnotesize
 Examples of congestion flows 
-\begin_inset Formula $\hat{x_{n}(k)}$
+\begin_inset Formula $\cffFlow{\link}k$
 \end_inset
 
 .
@@ -3266,8 +3239,6 @@ name "fig:xbar-and-hat-defns"
 \end_layout
 
 \begin_layout Proposition
-
-\series bold
 Single link free-flow Nash Equilibria
 \end_layout
 
@@ -3389,8 +3360,6 @@ reference "prop:xbar"
 \end_layout
 
 \begin_layout Lemma
-
-\series bold
 Existence of a single link free-flow Nash equilibrium
 \end_layout
 
@@ -3839,16 +3808,15 @@ key "Anshelevich2004"
 \end_inset
 
 ).
- A best Nash equilibrium (BNE) is defined to be a Nash equilibrium of least
- total latency.
+ A 
+\emph on
+best Nash equilibrium
+\emph default
+ (BNE) is defined to be a Nash equilibrium of least total latency.
 \end_layout
 
 \begin_layout Definition
-
-\series bold
 Best Nash Equilibrium
-\series default
-
 \begin_inset CommandInset label
 LatexCommand label
 name "def:bne"
@@ -3913,11 +3881,7 @@ These properties are summarized in the following theorem.
 \end_layout
 
 \begin_layout Theorem
-
-\series bold
 Characterization of Best Nash Equilibria
-\series default
-
 \begin_inset CommandInset label
 LatexCommand label
 name "theorem:minsupport"
@@ -4225,11 +4189,11 @@ key "Anshelevich2004"
 .
  Price of stability is defined as the ratio between the cost of the best
  Nash Equilibrium and the social optimal cost.
- We first compute the cost of the social optimum, then consider a simple
- two link parallel network and derive the price of stability for a triangular
- fundamental diagram.
- This example network will be useful for illustrating the dependency of
- the price of stability on the flow demand and the free-flow latencies.
+ First we give an overview of social optimum for our model.
+ Then we consider a simple two link parallel network and derive the price
+ of stability for a triangular fundamental diagram.
+ We show how this example illustrates the dependency of the price of stability
+ on the flow demand and the free-flow latencies.
 \end_layout
 
 \begin_layout Subsection
@@ -4288,7 +4252,7 @@ key "fullversion"
 \end_inset
 
 .
- Then since the links are ordered by increasing free-flow latency 
+ Then, since the links are ordered by increasing free-flow latency 
 \begin_inset Formula $a_{1}<\dots<a_{N}$
 \end_inset
 
@@ -4354,10 +4318,8 @@ name "sec:Price-of-Stability"
 \end_layout
 
 \begin_layout Standard
-In this section, we characterize the loss of efficiency of Nash equilibria
- by comparing them to the social optimum on a simple two-link parallel network.
- To characterize the loss of efficiency of Nash equilibria several metrics
- have been used including Price of Anarchy 
+To characterize the loss of efficiency of Nash equilibria several metrics
+ have been used including price of anarchy 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "roughgarden2002bad"
@@ -4372,11 +4334,11 @@ key "Anshelevich2004"
 \end_inset
 
 .
- The Price of Anarchy is defined as the ratio between the cost of the worst
+ The price of anarchy is defined as the ratio between the cost of the worst
  Nash equilibrium and the the social optimum cost, while the price of stability
  is defined as the ratio between the best Nash equilibrium and the social
  optimal cost.
- For the case of non-decreasing latency functions, the Price of Anarchy
+ For the case of non-decreasing latency functions, the price of anarchy
  and the price of stability coincide since all Nash equilibria have the
  same cost by the essential uniqueness property 
 \begin_inset CommandInset citation
@@ -4704,8 +4666,21 @@ reference "fig:Nash-equilibrium"
 \end_inset
 
 .
- The area of the shaded regions in are the total costs attributed to each
- link.
+ The area of the shaded regions in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Social-optimum"
+
+\end_inset
+
+,
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Nash-equilibrium"
+
+\end_inset
+
+ are the total costs attributed to each link.
  In 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4713,8 +4688,15 @@ reference "fig:POS-plot"
 
 \end_inset
 
-, the flat region corresponds to Case 1 and the decreasing region to Case
- 2.
+, the flat region corresponds to 
+\begin_inset Formula $\qdemand\le\flowMax[1]$
+\end_inset
+
+ (Case 1) and the decreasing region to 
+\begin_inset Formula $\qdemand>\flowMax[1]$
+\end_inset
+
+ (Case 2).
 \end_layout
 
 \end_inset
@@ -4839,7 +4821,7 @@ This also shows that selfish routing is most costly when a free-flow link
 \end_layout
 
 \begin_layout Section
-Discussion and Open Problems
+Conclusion
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Discussion"
@@ -4850,8 +4832,8 @@ name "sec:Discussion"
 \end_layout
 
 \begin_layout Standard
-We introduced a new class of latency functions that better models congestion
- on horizontal queuing networks, and we studied the resulting Nash equilibria
+We introduced a new class of latency functions that models congestion in
+ horizontal queuing networks, and we studied the resulting Nash equilibria
  for non-atomic congestion games on parallel networks.
  We showed that the essential uniqueness property does not hold for this
  new class, and that there may be up to 
