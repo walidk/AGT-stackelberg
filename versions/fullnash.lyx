@@ -75,12 +75,16 @@ filename "../common-files/lyx_commands.lyx"
 \end_layout
 
 \begin_layout Title
-Characterization and Computation of Nash Equilibria in Horizontal Queueing
- Networks
+On the Characterization and Computation of Nash Equilibria in Horizontal
+ Queueing Networks
 \end_layout
 
 \begin_layout Author
-Walid Krichene 
+Walid Krichene
+\begin_inset Newline newline
+\end_inset
+
+walid@berkeley.edu 
 \begin_inset ERT
 status open
 
@@ -93,7 +97,11 @@ and
 
 \end_inset
 
- Jack Reilly 
+ Jack Reilly
+\begin_inset Newline newline
+\end_inset
+
+jackdreilly@berkeley.edu 
 \begin_inset ERT
 status open
 
@@ -106,7 +114,11 @@ and
 
 \end_inset
 
- Saurabh Amin 
+ Saurabh Amin
+\begin_inset Newline newline
+\end_inset
+
+amins@mit.edu 
 \begin_inset ERT
 status open
 
@@ -121,6 +133,10 @@ and
 
  Alexandre M.
  Bayen
+\begin_inset Newline newline
+\end_inset
+
+bayen@berkeley.edu
 \end_layout
 
 \begin_layout Abstract
@@ -349,33 +365,14 @@ We introduce a new class of latency functions that is expressive enough
  We consider a congestion game on a parallel network, where each link has
  a dual-mode latency function: latency is constant in free-flow, and a decreasin
 g function of flow in congestion.
- This leads to novel theoretical and algorithmic results for characterizing
+ This leads to novel theoretical and computational results for characterizing
  and computing Nash equilibria:
 \end_layout
 
 \begin_layout Itemize
 We show that there is no essential uniqueness of Nash equilibria (not all
- Nash equilibria have equal total costs), unlike 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-get rid of this phrase
-\end_layout
-
-\end_inset
-
-point-queueing
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-or put reference to roughgarden
-\end_layout
-
-\end_inset
-
- models usually considered in congestion games 
+ Nash equilibria have equal total costs), unlike point-queueing models usually
+ considered in congestion games 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "roughgarden2002bad"
@@ -383,6 +380,24 @@ key "roughgarden2002bad"
 \end_inset
 
 .
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Under different modeling assumptions, similar non-uniqueness results exist
+ for capacitated networks.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Schulz_Stier-Moses_2003"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -524,7 +539,7 @@ name "sec:The-Model"
 \end_layout
 
 \begin_layout Subsection
-Congestion Games on on Parallel Edge Network
+Routing Games on on Parallel Edge Network
 \end_layout
 
 \begin_layout Standard
@@ -721,6 +736,15 @@ key "roughgarden2001stackelberg"
 \end_inset
 
  in the case of traffic assignment.
+ A routing game studies how an infinitesimal amount of flow routes itself
+ on the network in order to minimize individual cost 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "papadimitriou2010new,roughgarden2002bad"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
