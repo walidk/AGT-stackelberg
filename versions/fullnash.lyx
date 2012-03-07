@@ -172,8 +172,8 @@ name "sub:A-New-Class"
 \end_layout
 
 \begin_layout Standard
-The class of latency functions that have been studied so far in Stackelberg
- routing literature rely on the following assumptions: if 
+The class of latency functions that have been studied so far in routing
+ games literature rely on the following assumptions: if 
 \begin_inset Formula $l(\flow)$
 \end_inset
 
@@ -310,7 +310,7 @@ We introduce a new class of latency functions that is expressive enough
  a dual-mode latency function: latency is constant in free-flow, and a decreasin
 g function of flow in congestion.
  This leads to novel theoretical and algorithmic results for characterizing
- and computing Nash equilibria and optimal Stackelberg strategies:
+ and computing Nash equilibria:
 \end_layout
 
 \begin_layout Itemize
@@ -405,8 +405,46 @@ reference "sec:Nash-Equilibria"
  and show that the essential uniqueness property does not hold.
  We then bound the number of Nash equilibria and give a tractable algorithm
  for computing the set of Nash equilibria.
- Then we characterize in particular the best Nash equilibrium to study its
- inefficiency using price of stability as the measure.
+ In Section
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+~
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Best-Nash-Equilibria"
+
+\end_inset
+
+ we characterize in particular the best Nash equilibrium and give an explicit
+ algorithm for its computation.
+ In Section
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+~
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Price-of-Stability"
+
+\end_inset
+
+, we study the inefficiency of best Nash equilibria using price of stability
+ as the measure.
  We conclude with a summary of our results and directions for future work
  in Section 
 \begin_inset CommandInset ref
@@ -537,19 +575,16 @@ reference "fig:nparlink"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename ../figures/ParLinkNetwork.pdf
-	height 0.8in
+	height 0.5in
 
 \end_inset
 
@@ -560,6 +595,8 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Network instance 
 \begin_inset Formula $(\NLinks,r)$
 \end_inset
@@ -569,7 +606,7 @@ Network instance
 \begin_inset Formula $N$
 \end_inset
 
- parallel links between 
+ links between 
 \begin_inset Formula $O$
 \end_inset
 
@@ -751,9 +788,8 @@ While such flow models have been popular for many decades in specific domains
  these models in the literature studying congestion games, which focuses
  on modeling latency as a non-decreasing function of flow, and assumes flow
  and density to have a one-to-one relation.
- This article describes the required theoretical work required to characterize
- Nash equilibria and their extensions to Stackelberg framework for this
- class of horizontal queuing latency functions.
+ This article describes the required theoretical work to characterize Nash
+ equilibria for this class of horizontal queuing latency functions.
 \end_layout
 
 \begin_layout Standard
@@ -919,6 +955,179 @@ The latency function
 \end_inset
 
 , is continuous, non-decreasing.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Graphics
+	filename ../figures/AnnotatedFundamentalDiagramMatched.pdf
+	height 0.75in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Fundamental diagram examples.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Fundamental-diagram-examples."
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:permfds"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\quad$
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Graphics
+	filename ../figures/LatencyasFunctionofDensityMatched.pdf
+	height 0.75in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Latency as a function of density examples.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:example-rho-latency"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\quad$
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Graphics
+	filename ../figures/LatencyasFunctionofFlowModeMatched.pdf
+	height 0.75in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align right
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Latency as a function of flow and state.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:example-flow-latency"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Examples of flux functions and derived relationships that satisfy the assumption
+s in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Deriving-a-Class"
+
+\end_inset
+
+.
+ The dotted line describes a flux function which reacts less severely to
+ increasing density than the dashed and dot-dashed lines.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -980,10 +1189,7 @@ reference "fig:example-rho-latency"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-Note that from these assumptions, we can write the latency function for
+ Note that from these assumptions, we can write the latency function for
  the horizontal queueing model as
 \end_layout
 
@@ -995,174 +1201,6 @@ Note that from these assumptions, we can write the latency function for
 \frac{\Length[\link]\mass[\link]}{\flow[\link]\left(\mass[\link]\right)} & \textup{otherwise}
 \end{cases}
 \]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../figures/AnnotatedFundamentalDiagramMatched.pdf
-	height 3.5cm
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Fundamental diagram examples.
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Fundamental-diagram-examples."
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:permfds"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align left
-\begin_inset Graphics
-	filename ../figures/LatencyasFunctionofDensityMatched.pdf
-	width 1.5in
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align left
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Latency as a function of density examples.
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:example-rho-latency"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Formula $\,\,\,$
-\end_inset
-
-
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align right
-\begin_inset Graphics
-	filename ../figures/LatencyasFunctionofFlowModeMatched.pdf
-	width 1.5in
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align right
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Examples of latency as a function of flow and congestion state.
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:example-flow-latency"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Examples of flux functions and derived relationships that satisfy the assumption
-s in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Deriving-a-Class"
-
-\end_inset
-
-.
- The dotted line describes a flux function which reacts less severely to
- increasing density than the dashed and dot-dashed lines.
-\end_layout
-
-\end_inset
-
-
-\end_layout
 
 \end_inset
 
@@ -1269,7 +1307,7 @@ name "sub:latency_class"
 \begin_layout Standard
 While expressing latency as a function of density is intuitive and succinct
  for horizontal queues, expressing it as a function of flow proves to be
- more convenient in the study of congestion games and Stackelberg routing.
+ more convenient in the study of congestion games.
  This is largely due to the fact that total flow must be conserved in traffic
  assignment problems, and not density.
  For this reason, we introduce an equivalent formulation of latency using
@@ -2397,7 +2435,9 @@ Now we show that for a given congestion state vector
 \end_layout
 
 \begin_deeper
-\begin_layout Paragraph
+\begin_layout Standard
+
+\series bold
 Suppose 
 \begin_inset Formula $(\flow,m),(\flow',m)\in\NashEquilibrium{\NLinks}{\qdemand}f$
 \end_inset
@@ -2468,7 +2508,9 @@ reference "eq:contradiction"
 .
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Standard
+
+\series bold
 Suppose 
 \begin_inset Formula $(\flow,m),(\flow',m)\in\NashEquilibrium{\NLinks}{\qdemand}c$
 \end_inset
@@ -2777,9 +2819,6 @@ reference "fig:xbar-and-hat-defns"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -2795,7 +2834,7 @@ status collapsed
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename ../figures/presentation/DefinitionXHat.pdf
-	width 1.7in
+	width 1.6in
 	clip
 
 \end_inset
@@ -2804,6 +2843,8 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Examples of congestion flows 
 \begin_inset Formula $\hat{x_{n}(k)}$
 \end_inset
@@ -2838,7 +2879,7 @@ status collapsed
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename /Users/jdr/Documents/github-projects/AGT-stackelberg/figures/presentation/DefinitionXBar.pdf
-	width 1.7in
+	width 1.6in
 	clip
 
 \end_inset
@@ -2847,6 +2888,8 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Example of a single link free-flow assignment 
 \begin_inset Formula $(\bar{x}^{3,\qdemand},\bar{m}^{3})$
 \end_inset
@@ -2869,6 +2912,8 @@ Example of a single link free-flow assignment
 \begin_inset Caption
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Graphical illustration of single link free-flow Nash equilibria.
 \begin_inset CommandInset label
 LatexCommand label
@@ -3410,8 +3455,19 @@ Let
 .
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Best Nash Equilibria
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Best-Nash-Equilibria"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Determining minimum cost Nash equilibria
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:Best-Nash-Equilibria"
@@ -3422,9 +3478,7 @@ name "sub:Best-Nash-Equilibria"
 \end_layout
 
 \begin_layout Standard
-In order to study the inefficiency of Nash equilibria, and the improvement
- of performance that we can achieve using a Stackelberg game (where a fraction
- of the total flow is controlled by a central authority), we focus our attention
+In order to study the inefficiency of Nash equilibria, we focus our attention
  on 
 \emph on
 best Nash equilibria
@@ -3505,16 +3559,19 @@ These properties are summarized in the following theorem.
 
 \series bold
 Characterization of Best Nash Equilibria
-\end_layout
+\series default
 
-\begin_layout Theorem
 \begin_inset CommandInset label
 LatexCommand label
 name "theorem:minsupport"
 
 \end_inset
 
- For a parallel network instance 
+
+\end_layout
+
+\begin_layout Theorem
+For a parallel network instance 
 \begin_inset Formula $(\NLinks,r)$
 \end_inset
 
@@ -3571,7 +3628,7 @@ um with lower cost.
 \begin_inset Formula $m=m'$
 \end_inset
 
-, coincide by Lemma 
+, coincide by 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "lem:enumerate_nash_eq"
@@ -3595,7 +3652,8 @@ reference "theorem:minsupport"
 \end_inset
 
 .
- This characterization results in a simple 
+ This characterization results in a simple algorithm to compute the best
+ Nash equilibrium for any network and any feasible demand.
 \end_layout
 
 \begin_layout Subsection
@@ -3676,20 +3734,17 @@ reference "eq:x_bar"
 \end_inset
 
 , in which case no Nash equilibrium exists.
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float algorithm
 placement h
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "../common-files/algo.raw"
-lstparams "basicstyle={\\ttfamily \\footnotesize},mathescape"
+lstparams "basicstyle={\\ttfamily \\scriptsize},mathescape"
 
 \end_inset
 
@@ -3700,6 +3755,8 @@ lstparams "basicstyle={\\ttfamily \\footnotesize},mathescape"
 \begin_inset Caption
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Best Nash Equilibrium
 \end_layout
 
@@ -3834,103 +3891,34 @@ Consider an instance
 \begin_inset Formula $C(\flow,\Mode)=\sum_{n=1}^{\NLinks}\flow[n]l_{n}(\flow[n],\Mode[n])$
 \end_inset
 
-, the social optimum of the network is a solution to the following optimization
- problem, 
-\begin_inset Formula $\textit{Social Optimum }(SO)$
-\end_inset
-
+, the social optimum of the network is a solution to the optimization problem:
  
-\begin_inset Formula 
-\begin{flalign*}
-\underset{\flow\in\Rea[\NLinks],\Mode\in\left\{ 0,1\right\} ^{\NLinks}}{\text{minimize}} & \sum_{n=1}^{\NLinks}\flow[n]l_{n}(\flow[n],\Mode[n])\\
-\text{subject to} & \sum_{n=1}^{\NLinks}\flow[\link]=r\\
- & \flow[n]\in[0,\flowMax[n]]
-\end{flalign*}
-
+\begin_inset Formula $\underset{\flow,\Mode}{\min}\sum\flow\latency[\link]\left(\flow[\link],\Mode[\link]\right)$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-This problem is non-convex since its feasible set is not convex (integer
- constraint on 
-\begin_inset Formula $m$
-\end_inset
-
-).
- However, we prove that the solutions to this optimization problem are necessari
-ly in free-flow (
-\begin_inset Formula $\Mode=0$
-\end_inset
-
-), thus the social optimum can be computed by solving an equivalent linear
- program.
-\end_layout
-
-\begin_layout Lemma
-
-\series bold
-Social optima are in free-flow
-\end_layout
-
-\begin_layout Lemma
-\begin_inset CommandInset label
-LatexCommand label
-name "lemma:socialOpt_is_ff"
-
-\end_inset
-
- 
-\begin_inset Formula $(x^{*},\Mode^{*})$
-\end_inset
-
- is optimal for 
-\begin_inset Formula $(SO)$
-\end_inset
-
- only if 
-\begin_inset Formula $\Mode[i]{}^{*}=0\quad\forall i\in\left\{ 1,\ldots,\NLinks\right\} $
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Proof
-This follows immediately from the fact the latency on a link in congestion
- is always greater than the latency of the link in free-flow 
-\begin_inset Formula $l_{n}(\flow[n],1)>l_{n}(\flow[n],0)$
-\end_inset
-
- 
-\begin_inset Formula $\forall\flow[n]\in(0,\flowMax[n])$
+ such that 
+\begin_inset Formula $\sum_{\link}\flow[\link]=\qdemand$
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-As a consequence of the previous Lemma, and using the fact that the latency
- is constant in free-flow 
-\begin_inset Formula $l_{n}(\flow[n],0)=\parA[n]$
-\end_inset
-
-, the social optimum can be computed by solving the following equivalent
- linear program 
-\begin_inset Formula 
-\begin{alignat*}{1}
-\underset{\flow\in\Rea[\NLinks]}{\text{minimize}} & \sum_{n=1}^{\NLinks}\flow[n]\parA[n]\\
-\text{subject to } & \sum_{n=1}^{\NLinks}\flow[\link]=r\\
- & \flow[n]\in[0,\flowMax[n]]
-\end{alignat*}
+ It is shown in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "fullversion"
 
 \end_inset
 
+ that a socially optimal flow is necessarily in free flow on all links,
+ which leads to an equivalent linear program: 
+\begin_inset Formula $\underset{\flow,\Mode}{\min}\sum_{\link}\flow[\link]\parA[\link]$
+\end_inset
 
-\end_layout
+ such that 
+\begin_inset Formula $\sum_{\link}\flow[\link]=\qdemand$
+\end_inset
 
-\begin_layout Standard
-Then since the links are ordered by increasing free-flow latency 
+.
+ Then since the links are ordered by increasing free-flow latency 
 \begin_inset Formula $a_{1}<\dots<a_{N}$
 \end_inset
 
@@ -4036,22 +4024,12 @@ reference "eq:so"
 \end_inset
 
 .
- The price of stability is then defined as
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\POS Nr=\frac{\Latency\left(\flow[\text{BNE}](r),\Mode[\text{BNE}](r)\right)}{\Latency\left(\flow[\text{SO}],0\right)}
-\]
-
+ The price of stability is then defined as 
+\begin_inset Formula $\POS Nr=\frac{\Latency\left(\flow[\text{BNE}](r),\Mode[\text{BNE}](r)\right)}{\Latency\left(\flow[\text{SO}],0\right)}$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-From the expression 
+.
+ From the expression 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:so"
@@ -4189,25 +4167,22 @@ reference "fig:sone"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
 \begin_inset Graphics
 	filename ../figures/TwoLinkPOSSO.pdf
-	width 1.7in
+	height 0.9in
 	clip
 
 \end_inset
@@ -4216,6 +4191,8 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Social optimum
 \begin_inset CommandInset label
 LatexCommand label
@@ -4237,12 +4214,12 @@ name "fig:Social-optimum"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename ../figures/TwoLinkPOSBNE.pdf
-	width 1.7in
+	height 0.9in
 	clip
 
 \end_inset
@@ -4251,6 +4228,8 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Nash equilibrium
 \begin_inset CommandInset label
 LatexCommand label
@@ -4269,19 +4248,16 @@ name "fig:Nash-equilibrium"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
-\align center
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
+\align left
 \begin_inset Graphics
 	filename ../figures/POSTwoLink.pdf
-	height 1.2in
+	width 1.1in
 	clip
 
 \end_inset
@@ -4290,6 +4266,8 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
+
+\size footnotesize
 POS as a function of demand.
 \begin_inset CommandInset label
 LatexCommand label
@@ -4311,6 +4289,8 @@ name "fig:POS-plot"
 \begin_inset Caption
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Visualization of POS on two-link network.
  Differences in flow assignments between social optimum and Nash equilibrium
  are shown in 
@@ -4363,24 +4343,20 @@ Computing the price of stability when
 \begin_inset Formula $\qdemand>\flowMax[1]$
 \end_inset
 
- reveals where the inefficiencies lie in the Nash equilibrium
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\POS 2r & = & \frac{\parA[2]\cffFlow 12+\parA[2]\left(\qdemand-\cffFlow 12\right)}{\parA[1]\flowMax[1]+\parA[2]\left(\qdemand-\flowMax[1]\right)}\\
- & = & \frac{\parA[2]\qdemand}{\qdemand\parA[2]-\flowMax[1]\left(\parA[2]-\parA[1]\right)}\\
- & = & \frac{1}{1-\frac{\flowMax[1]}{\qdemand}\left(1-\frac{\parA[1]}{\parA[2]}\right)}
-\end{eqnarray*}
+ reveals where the inefficiencies lie in the Nash equilibrium.
+ It is shown in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "fullversion"
 
 \end_inset
 
+ that 
+\begin_inset Formula $\POS 2{r>\flowMax[1]}=\left(1-\frac{\flowMax[1]}{\qdemand}\left(1-\frac{\parA[1]}{\parA[2]}\right)\right)^{-1}$
+\end_inset
 
-\end_layout
-
-\begin_layout Standard
-In this simple two-link parallel network, the price of stability is maximal
+.
+ In this simple two-link parallel network, the price of stability is maximal
  at 
 \begin_inset Formula $r=\flowMax[1]$
 \end_inset
@@ -4464,9 +4440,6 @@ This also shows that selfish routing is most costly when a free-flow link
  above this capacity, they could dramatically reduce the inefficiency of
  the Nash equilibrium by rerouting a small fraction of the flow and keeping
  the link in free-flow.
- This leads to defining a Stackelberg game where a leader, or a central
- authority, controls a fraction of the flow in order to improve the total
- latency on the network.
 \end_layout
 
 \begin_layout Section
@@ -4520,26 +4493,6 @@ reference "theorem:minsupport"
 .
  We then derived price of stability results for an example network that
  illustrates the inefficiency of the best Nash equilibrium.
-\end_layout
-
-\begin_layout Standard
-We believe this work offers several directions of future research: the work
- presented here only considers parallel networks under static assumptions
- (constant flow demand 
-\begin_inset Formula $r$
-\end_inset
-
-, and steady state equilibria) and one question is whether these equilibria
- are stable in the dynamic sense, and how one may steer the system from
- one equilibrium to a better one: consider for example the case where the
- agents are stuck in a congested equilibrium, and assume a coordinator has
- control over a fraction of the flow.
- Can the coordinator steer the system to a single link free-flow equilibrium
- by decongesting a link? And what is the minimal compliance rate needed
- to achieve this? Another question is how robust are these results? Do they
- hold for general network topologies? We believe that some of our results
- extend to general network topologies, but we can see technical challenges
- for these extensions.
 \end_layout
 
 \begin_layout Standard
