@@ -244,8 +244,8 @@ non-compliant
  a smartphone application or a navigation system, and is willing (or has
  an external incentive) to follow routing suggestions provided by the coordinato
 r.
- Other drivers (not connected or who simply not willing to follow alternative
- routes) are described as non-compliant.
+ Other drivers (drivers who are not connected or who are simply not willing
+ to follow alternative routes) are described as non-compliant.
  These two populations form respectively the leader and the followers in
  the Stackelberg routing game.
 \end_layout
@@ -255,7 +255,14 @@ In numerous transportation networks, two highly populated areas can be connected
  by disjoint highways (we consider one such example in the numerical results
  section).
  Therefore, Stackelberg routing strategies on simple parallel networks are
- of practical importance to traffic planners in the near future .
+ of practical importance to traffic planners 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "caltrans_101s"
+
+\end_inset
+
+.
  However, due to the limitations of congestion models discussed above, the
  existing literature on Stackelberg routing is not readily applicable to
  practical traffic networks.
@@ -304,7 +311,7 @@ non-compliant first
 We then apply these results to model a real transportation network, and
  identify ranges of the flow demand and compliance rates where optimal Stackelbe
 rg routing are most efficient, and quantify the decrease in inefficiency
- achieved by the non-compliant first strategy.
+ achieved by the NCF strategy.
 \end_layout
 
 \begin_layout Standard
@@ -343,8 +350,8 @@ reference "sec:Computing-the-optimal"
 
 \end_inset
 
-, where a tractable algorithm is presented for computing a provably optimal
- Stackelberg strategy on 
+, where a polynomial time algorithm is presented for computing a provably
+ optimal Stackelberg strategy on 
 \begin_inset Formula $\NLinks$
 \end_inset
 
@@ -513,7 +520,7 @@ congested
 
 \begin_layout Itemize
 either few agents moving fast (the density is low and the link is in free-flow),
- in which case the latency is low
+ in which case the latency is low,
 \end_layout
 
 \begin_layout Itemize
@@ -603,7 +610,7 @@ The latency is constant in free-flow:
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $x\mapsto\latency[\link]\left(x,1\right)$
+\begin_inset Formula $\flow[n]\mapsto\latency[\link]\left(\flow[n],1\right)$
 \end_inset
 
  is decreasing on 
@@ -644,7 +651,7 @@ reference "fig:example-flow-latency"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -742,7 +749,7 @@ name "fig:xbar-and-hat-defns"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Example highway network connecting San Francisco to San Jose.
+Horizontal queuing congestion latencies and single link free-flow equilibria.
 \end_layout
 
 \end_inset
@@ -772,11 +779,7 @@ We further assume, to simplify our discussion, that the free-flow latencies
 \end_layout
 
 \begin_layout Standard
-
-\series bold
-Total System Cost:
-\series default
- Every non-atomic agent on link 
+Total System Cost: Every non-atomic agent on link 
 \begin_inset Formula $n$
 \end_inset
 
@@ -798,7 +801,7 @@ Total System Cost:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-C\left(\flow,\Mode\right)=\sum_{i=1}^{\NLinks}C_{i}\left(\flow[i],\Mode[i]\right)\label{eq:total-cost}
+C\left(\flow,\Mode\right)=\sum_{n=1}^{\NLinks}C_{n}\left(\flow[n],\Mode[n]\right)\label{eq:total-cost}
 \end{equation}
 
 \end_inset
@@ -838,7 +841,7 @@ Consider a network instance
 
 \begin_layout Definition
 
-\series bold
+\emph on
 Nash Equilibrium
 \end_layout
 
@@ -890,11 +893,7 @@ In particular, all links in the support of
 \end_layout
 
 \begin_layout Standard
-
-\series bold
-Single link free-flow equilibria:
-\series default
- Let 
+Single link free-flow equilibria: Let 
 \begin_inset Formula $\NashEquilibrium{\NLinks}{\qdemand}{}$
 \end_inset
 
@@ -927,7 +926,7 @@ We now focus our attention on single link free-flow equilibria.
 
 \begin_layout Lemma
 
-\series bold
+\emph on
 Congestion states under single link free-flow equilibrium
 \end_layout
 
@@ -1007,7 +1006,7 @@ congestion flow
 
 \begin_layout Definition
 
-\series bold
+\emph on
 Congestion flow
 \end_layout
 
@@ -1144,7 +1143,7 @@ reference "fig:xbar-and-hat-defns"
 
 \begin_layout Lemma
 
-\series bold
+\emph on
 Existence of a single link free-flow Nash equilibrium
 \end_layout
 
@@ -1185,9 +1184,9 @@ name "sub:Best-Nash-Equilibria"
 
 \begin_layout Standard
 In order to study the inefficiency of Nash equilibria, and the improvement
- of performance that we can achieve using a Stackelberg game (where a fraction
- of the total flow is controlled by a central authority), we focus our attention
- on 
+ of performance that we can achieve using a Stackelberg game (in which a
+ fraction of the total flow is controlled by a central authority), we focus
+ our attention on 
 \emph on
 best Nash equilibria
 \emph default
@@ -1203,8 +1202,11 @@ key "Anshelevich2004"
 \end_inset
 
 ).
- A best Nash equilibrium (BNE) is defined to be a Nash equilibrium of least
- total latency 
+ A 
+\emph on
+best Nash equilibrium
+\emph default
+ (BNE) is defined to be a Nash equilibrium of least total latency 
 \begin_inset Formula $\BestNashEquilibrium{\NLinks}{\qdemand}=\underset{\left(\flow,\Mode\right)\in\NashEquilibrium{\NLinks}{\qdemand}{}}{\arg\min}\Latency\left(\flow,\Mode\right)$
 \end_inset
 
@@ -1214,8 +1216,15 @@ key "Anshelevich2004"
 
 \begin_layout Theorem
 
-\series bold
-Characterization of Best Nash Equilibria
+\emph on
+Characterization of Best Nash Equilibria 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "fullversion"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Theorem
@@ -1273,7 +1282,55 @@ reference "theorem:bne"
 \end_inset
 
 ).
+ There are 
+\begin_inset Formula $N$
+\end_inset
+
+ such candidate equilibria, corresponding to the congestion states 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $(0,\dots,0)$
+\end_inset
+
  
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+up to 
+\begin_inset Formula $(1,\dots,1,0)$
+\end_inset
+
+, and each candidate equilibrium is a vector in 
+\begin_inset Formula $\Rea[\NLinks]$
+\end_inset
+
+ that can be computed in 
+\begin_inset Formula $O(\NLinks)$
+\end_inset
+
+, which corresponds to a worst-case time complexity of 
+\begin_inset Formula $O(N^{2})$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -1409,10 +1466,10 @@ Since
 \begin_inset Formula $(t(s),m(s))$
 \end_inset
 
- to be the best such equilibrium (as defined by Definition 
+ to be the best such equilibrium (as defined in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "def:bne"
+reference "sub:Best-Nash-Equilibria"
 
 \end_inset
 
@@ -1486,7 +1543,7 @@ This can be summarized in the following definition of a Stackelberg strategy.
 
 \begin_layout Definition
 
-\series bold
+\emph on
 Stackelberg Strategy
 \end_layout
 
@@ -1514,14 +1571,18 @@ Consider an instance
 \begin_inset Formula $(\NLinks,\compRate\qdemand)$
 \end_inset
 
-, and which induces Best Nash Equilibrium 
+, and which induces 
+\emph on
+best Nash equilibrium
+\emph default
+ 
 \begin_inset Formula $(\ncFlow(\cFlow),m(\cFlow))$
 \end_inset
 
- of the non-compliant flow, as defined by Definition 
+ of the non-compliant flow, as defined in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "def:bne"
+reference "sub:Best-Nash-Equilibria"
 
 \end_inset
 
@@ -1681,7 +1742,7 @@ We next show that the induced Nash equilibrium has one link in free-flow:
 
 \begin_layout Lemma
 
-\series bold
+\emph on
 Characterization of the induced Nash Equilibrium
 \end_layout
 
@@ -1768,7 +1829,7 @@ In this section we solve for optimal Stackelberg strategies, i.e.
 
 \begin_layout Definition
 
-\series bold
+\emph on
 Optimal Stackelberg strategy
 \end_layout
 
@@ -1812,7 +1873,7 @@ We also introduce a definition that will be useful in proving the main result.
 
 \begin_layout Definition
 
-\series bold
+\emph on
 At least 
 \begin_inset Formula $i$
 \end_inset
@@ -2031,7 +2092,11 @@ Let
 \begin_inset Formula $(\bar{t},\bar{m})$
 \end_inset
 
- denote the Best Nash Equilibrium for the instance 
+ denote the 
+\emph on
+best Nash equilibrium
+\emph default
+ for the instance 
 \begin_inset Formula $(\NLinks,(1-\compRate)\qdemand)$
 \end_inset
 
@@ -2253,7 +2318,11 @@ We will denote by
 \begin_inset Formula $\text{NCF}(\NLinks,r,\compRate)=\bar{s}$
 \end_inset
 
- the non-compliant first strategy for the Stackelberg instance 
+ the 
+\emph on
+non-compliant first
+\emph default
+ strategy for the Stackelberg instance 
 \begin_inset Formula $(\NLinks,r,\compRate)$
 \end_inset
 
@@ -2264,7 +2333,7 @@ We will denote by
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2440,10 +2509,8 @@ The Non-Compliant First strategy is optimal
 
 \begin_layout Theorem
 
-\series bold
+\emph on
 Optimal Stackelberg Strategy
-\series default
- 
 \end_layout
 
 \begin_layout Theorem
@@ -2558,7 +2625,7 @@ reference "lemma:inducedNCeq"
 \begin_deeper
 \begin_layout Lemma
 
-\series bold
+\emph on
 Comparing the supports of induced equilibria
 \end_layout
 
@@ -2584,9 +2651,12 @@ Intuitively, since
 \begin_inset Formula $(\bar{t},\bar{m})$
 \end_inset
 
- is the best Nash equilibrium of the non-compliant agents when they are
- not sharing the network with any other flow, the cost of this assignment
- 
+ is the 
+\emph on
+best Nash equilibrium
+\emph default
+ of the non-compliant agents when they are not sharing the network with
+ any other flow, the cost of this assignment 
 \begin_inset Formula $(\bar{t},\bar{\Mode})$
 \end_inset
 
@@ -2778,7 +2848,11 @@ Then
 \begin_inset Formula $(\bar{t},\bar{m})$
 \end_inset
 
- is the best Nash equilibrium for the instance 
+ is the 
+\emph on
+best Nash equilibrium
+\emph default
+ for the instance 
 \begin_inset Formula $((1-\compRate)r,N)$
 \end_inset
 
@@ -3122,7 +3196,11 @@ We can now lower-bound the cost of the assignment
 \begin_inset Formula $(t,m)$
 \end_inset
 
- is the best Nash equilibrium induced by 
+ is the 
+\emph on
+best Nash equilibrium
+\emph default
+ induced by 
 \begin_inset Formula $s$
 \end_inset
 
@@ -3278,7 +3356,7 @@ normalsize
 \end_inset
 
  we have 
-\begin_inset Formula $\forall n\in\{k,\dots,l-1\}$
+\begin_inset Formula $\forall n\in\{1,\dots,l-1\}$
 \end_inset
 
 , 
@@ -3381,9 +3459,9 @@ C(x,m) & \geq\bar{x}_{l}l_{l}(\bar{x}_{l},\bar{m}_{l})+\sum_{n=1}^{l-1}\bar{x}_{
 \end_layout
 
 \begin_layout Standard
-Therefore the Non-compliant First strategy is an optimal Stackelberg strategy,
- and it can be computed in polynomial time since it is generated in linear
- time from the best Nash equilibrium 
+Therefore the NCF strategy is an optimal Stackelberg strategy, and it can
+ be computed in polynomial time since it is generated in linear time after
+ computing the best Nash equilibrium 
 \begin_inset Formula $\BestNashEquilibrium{\NLinks}{(1-\compRate)r}$
 \end_inset
 
@@ -3395,9 +3473,9 @@ Therefore the Non-compliant First strategy is an optimal Stackelberg strategy,
 \end_layout
 
 \begin_layout Standard
-Finally, we note that the Non-compliant First strategy is, in general, not
- the unique optimal Stackelberg strategy, but the set of optimal Stackelberg
- strategies can be easily generated from the Non-compliant First strategy.
+Finally, we note that the NCF strategy is, in general, not the unique optimal
+ Stackelberg strategy, but the set of optimal Stackelberg strategies can
+ be easily generated from the NCF strategy.
  We do not describe this procedure for brevity.
 \end_layout
 
@@ -3441,7 +3519,7 @@ reference "fig:Map-of-parallel"
 ).
  We analyze the inefficiency of Nash equilibria due to selfish routing and
  lack of coordination, and show how optimal Stackelberg routing strategies
- (Non-compliant First strategy) can improve these conditions.
+ (non-compliant first strategy) can improve these conditions.
  We first use price of stability 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -4153,8 +4231,9 @@ key "fullversion"
 \emph on
 non-compliant first
 \emph default
- (NCF) strategy is optimal, and that it can be computed in polynomial time.
- We illustrated these results using an example network for which we computed
+ (NCF) strategy is optimal, and that it can be computed in quadratic time
+ in the size of the network.
+ We illustrated these results using a benchmark network for which we computed
  the decrease in inefficiency that can be achieved using optimal Stackelberg
  routing.
  This example showed that when the demand is near critical flows 
@@ -4170,35 +4249,35 @@ non-compliant first
 \end_layout
 
 \begin_layout Standard
-These encouraging results show that careful routing of a small compliant
- population can dramatically improve the efficiency of the network.
- It is also worth noting that these results indicate that for certain demand
+These results show that careful routing of a small compliant population
+ can significantly improve the efficiency of the network.
+ It is also worth noting that these results indicate that for specific demand
  and compliance ranges, Stackelberg routing can be completely ineffective.
- Therefore identifying the ranges where optimal Stackelberg routing does
- improve the efficiency of the network is crucial for effective planning
+ Therefore identifying the ranges for which optimal Stackelberg routing
+ does improve the efficiency of the network is crucial for effective planning
  and control.
 \end_layout
 
 \begin_layout Standard
-We believe this work offers several directions of future research: the work
- presented here only considers parallel networks under static conditions
- (constant flow demand 
+This work offers several directions of future research: the work presented
+ here only considers parallel networks under static conditions (constant
+ flow demand 
 \begin_inset Formula $r$
 \end_inset
 
-, and static equilibria) and one question is how one may dynamically steer
- the system from one equilibrium to a better one: consider for example the
- case where the agents are stuck in a congested equilibrium, and assume
- a coordinator has control over a fraction of the flow.
+, and static equilibria): one question is how one may dynamically steer
+ the system from one equilibrium to a better one.
+ For example, consider the case in which the agents are stuck in a congested
+ equilibrium, and assume a coordinator has control over a fraction of the
+ flow.
  Can the coordinator steer the system to a single link free-flow equilibrium?
  And what is the minimal compliance rate needed to achieve this? 
 \end_layout
 
 \begin_layout Standard
 Another question is how robust are the NCF strategy results? Do they hold
- for general network topologies? We believe that some of our results extend
- to general network topologies, but we can see technical challenges for
- these extensions.
+ for general network topologies? The extension of our results to general
+ network topologies is still an open problem.
 \end_layout
 
 \begin_layout Standard
