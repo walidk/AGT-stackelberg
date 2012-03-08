@@ -79,7 +79,77 @@ Stackelberg Routing on Horizontal Queueing Networks
 \end_layout
 
 \begin_layout Author
-Walid Krichene, Jack Reilly, Saurabh Amin, Alexandre Bayen
+Walid Krichene
+\begin_inset Newline newline
+\end_inset
+
+walid@eecs.berkeley.edu
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Ph.D.
+ student, Electrical Engineering and Computer Sciences, UC Berkeley, CA.
+ walid@eecs.berkeley.edu
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+and
+\end_layout
+
+\end_inset
+
+ Jack Reilly
+\begin_inset Newline newline
+\end_inset
+
+jackdreilly@berkeley.edu 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+and
+\end_layout
+
+\end_inset
+
+ Saurabh Amin
+\begin_inset Newline newline
+\end_inset
+
+amins@mit.edu
+ 
+\lang english
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+and
+\end_layout
+
+\end_inset
+
+ Alexandre Bayen
+\begin_inset Newline newline
+\end_inset
+
+bayen@berkeley.edu
 \end_layout
 
 \begin_layout Abstract
@@ -2305,7 +2375,7 @@ and the corresponding latencies are
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\bar{l}=\left(\parA[k],\dots,\parA[k],\parA[k+1],\dots,\parA[l],\stackrel{l+1}{0},\dots,0\right)\label{eq:opt_stack_latencies}
+\bar{l}=(\parA[k],\dots,\parA[k],\parA[k+1],\dots,\parA[l],\stackrel{l+1}{0},\dots,0)\label{eq:opt_stack_latencies}
 \end{equation}
 
 \end_inset
@@ -3797,7 +3867,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename ../figures/POSSim.pdf
-	width 1.7in
+	width 1.6in
 	clip
 
 \end_inset
@@ -3837,7 +3907,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename ../figures/VOASim.pdf
-	width 1.7in
+	width 1.6in
 	clip
 
 \end_inset
