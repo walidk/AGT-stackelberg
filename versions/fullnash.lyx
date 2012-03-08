@@ -268,7 +268,7 @@ key "daganzo1994cell,work2010traffic,lighthill1955kinematic"
 \begin_inset Formula $x$
 \end_inset
 
- on a road segment can correspond to
+ on a road can correspond to
 \end_layout
 
 \begin_layout Itemize
@@ -1869,6 +1869,8 @@ key "roughgarden2002bad,papadimitriou2010new"
 \end_layout
 
 \begin_layout Definition
+
+\emph on
 Nash Equilibrium
 \end_layout
 
@@ -1951,6 +1953,8 @@ Note that to fully describe the equilibrium, one needs to specify the congestion
 \end_layout
 
 \begin_layout Lemma
+
+\emph on
 Characterization of a Nash Equilibrium
 \end_layout
 
@@ -2269,6 +2273,8 @@ We start by deriving properties that the congestion state vector
 \end_layout
 
 \begin_layout Lemma
+
+\emph on
 Congestion of lower links
 \end_layout
 
@@ -2321,6 +2327,8 @@ reference "lem:nash_eq"
 \end_layout
 
 \begin_layout Corollary
+
+\emph on
 Congestion states under equilibrium
 \end_layout
 
@@ -2465,6 +2473,8 @@ The following Lemma shows that given a congestion state vector
 \end_layout
 
 \begin_layout Lemma
+
+\emph on
 Enumerating Nash Equilibria
 \end_layout
 
@@ -2686,48 +2696,7 @@ Now we partition the set of Nash Equilibria in two sets
 \end_inset
 
 .
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-vspace{-0.20in}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Proof
-\begin_inset Formula 
-\begin{eqnarray*}
-\NashEquilibrium{\NLinks}{\qdemand}f & = & \left\{ (\flow,m)\in\NashEquilibrium Nr{}|m_{\max\Supp{\flow}}=0\right\} \\
-\NashEquilibrium{\NLinks}{\qdemand}c & = & \left\{ (\flow,m)\in\NashEquilibrium Nr{}|m_{\max\Supp{\flow}}=1\right\} 
-\end{eqnarray*}
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-vspace{-0.20in}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Proof
-Now we show that for a given congestion state vector 
+ Now we show that for a given congestion state vector 
 \begin_inset Formula $m$
 \end_inset
 
@@ -2977,6 +2946,8 @@ reference "cor:atmost1ff"
 \end_layout
 
 \begin_layout Definition
+
+\emph on
 Congestion flow
 \end_layout
 
@@ -3021,7 +2992,11 @@ l_{n}(\cffFlow nk,1)=a_{k}\label{eq:x_hat}
 \end_layout
 
 \begin_layout Proposition
-Congestion Flows are decreasing 
+
+\emph on
+Congestion Flows are decreasing
+\emph default
+ 
 \begin_inset Formula 
 \begin{equation}
 \cffFlow{\link}k=l_{n}(\cdot,1)^{-1}(a_{k})\label{eq:x_hat_alt_def}
@@ -3269,6 +3244,8 @@ name "fig:xbar-and-hat-defns"
 \end_layout
 
 \begin_layout Proposition
+
+\emph on
 Single link free-flow Nash Equilibria
 \end_layout
 
@@ -3390,6 +3367,8 @@ reference "prop:xbar"
 \end_layout
 
 \begin_layout Lemma
+
+\emph on
 Existence of a single link free-flow Nash equilibrium
 \end_layout
 
@@ -3844,7 +3823,11 @@ best Nash equilibrium
 \end_layout
 
 \begin_layout Definition
+
+\emph on
 Best Nash Equilibrium
+\emph default
+
 \begin_inset CommandInset label
 LatexCommand label
 name "def:bne"
@@ -3909,7 +3892,11 @@ These properties are summarized in the following theorem.
 \end_layout
 
 \begin_layout Theorem
+
+\emph on
 Characterization of Best Nash Equilibria
+\emph default
+
 \begin_inset CommandInset label
 LatexCommand label
 name "theorem:minsupport"
