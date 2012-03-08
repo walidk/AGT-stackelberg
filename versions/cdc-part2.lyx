@@ -221,14 +221,7 @@ key "aswani2011game,roughgarden2001stackelberg"
 Congestion games and Stackelberg routing on parallel networks have been
  studied extensively for the class of non-decreasing latency functions,
  and it is known that computing the optimal Stackelberg strategy is NP-hard
- in the number of links 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "roughgarden2001stackelberg"
-
-\end_inset
-
-.
+ in the number of links.
  This led to considering polynomial time approximate strategies such as
  Largest Latency First and Scale 
 \begin_inset CommandInset citation
@@ -367,12 +360,6 @@ We then apply these results to model a real transportation network, and
  identify ranges of the flow demand and compliance rates where optimal Stackelbe
 rg routing are most efficient, and quantify the decrease in inefficiency
  achieved by the NCF strategy.
-\end_layout
-
-\begin_layout Standard
-These results are an encouraging and necessary step towards a scalable,
- accurate model for optimal route assignment on horizontal queueing networks
- with partial compliance.
 \end_layout
 
 \begin_layout Subsection
@@ -632,10 +619,15 @@ The latency is constant in free-flow:
 \end_inset
 
 , 
-\begin_inset Formula $\latency[\link]\left(\flow[\link],0\right)=\parA[\link]>0$
+\begin_inset Formula $\latency[\link]\left(\flow[\link],0\right)=\parA[\link]$
 \end_inset
 
 .
+ Here 
+\begin_inset Formula $\parA[n]$
+\end_inset
+
+ is the constant positive free-flow latency.
 \end_layout
 
 \begin_layout Itemize
@@ -696,7 +688,7 @@ reference "fig:example-flow-latency"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -707,7 +699,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ../figures/LatencyasFunctionofFlowModeMatched.pdf
+	filename ../figures/LatencyasFunctionofFlowModeMatchedFullName.pdf
 	width 1.5in
 
 \end_inset
@@ -1125,6 +1117,19 @@ One can then show that all single link free-flow equilibria are of the form
 \end_inset
 
  where
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1133,25 +1138,27 @@ One can then show that all single link free-flow equilibria are of the form
 
 
 \begin_inset Formula 
-\begin{equation}
-\bar{\Mode}^{k}\coloneqq(\stackrel{1}{1},\dots,\stackrel{k-1}{1},\stackrel{k}{0},\dots,\stackrel{N}{0})\label{eq:m_bar}
-\end{equation}
-
-\end_inset
-
- 
-\begin_inset Formula 
-\begin{equation}
-\opneFlow kr:=(\overset{1}{\cffFlow 1k},\dots,\overset{k-1}{\cffFlow{k-1}k},r-\sum_{\link=1}^{k-1}\cffFlow{\link}k,0,\dots,\stackrel{\NLinks}{0})\label{eq:x_bar}
-\end{equation}
+\begin{eqnarray}
+\bar{\Mode}^{k} & \coloneqq & (\stackrel{1}{1},\dots,\stackrel{k-1}{1},\stackrel{k}{0},\dots,\stackrel{N}{0})\label{eq:m_bar}\\
+\opneFlow kr & \coloneqq & (\overset{1}{\cffFlow 1k},\dots,\overset{k-1}{\cffFlow{k-1}k},r-\sum_{\link=1}^{k-1}\cffFlow{\link}k,0,\dots,\stackrel{\NLinks}{0})\label{eq:x_bar}
+\end{eqnarray}
 
 \end_inset
 
 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+normalsize
 \end_layout
 
-\begin_layout Standard
-and 
+\end_inset
+
+ and 
 \family roman
 \series medium
 \shape up
@@ -2076,10 +2083,7 @@ key "roughgarden2001stackelberg"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-The optimal Stackelberg strategy in our case corresponds to:
+ The optimal Stackelberg strategy in our setting corresponds to:
 \end_layout
 
 \begin_layout Itemize
@@ -2308,7 +2312,7 @@ We now define Stackelberg strategy
 
  and so on.
  Let 
-\begin_inset Formula $l=\min\{n|\compRate\qdemand-(\sum_{n=\bar{k}}^{l-1}\flowMax[n]-t_{\bar{k}})\geq0\}$
+\begin_inset Formula $l=\min\{i|\compRate\qdemand-(\sum_{n=\bar{k}}^{i-1}\flowMax[n]-t_{\bar{k}})\geq0\}$
 \end_inset
 
  be the least efficient link used by the Stackelberg assignment.
@@ -2358,7 +2362,7 @@ and the corresponding latencies are
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\bar{l}=(\parA[\bar{k}],\dots,\stackrel{\bar{k}+1}{\parA[\bar{k}]},\parA[\bar{k}+1],\dots,\parA[l],\stackrel{l+1}{0},\dots,0)\label{eq:opt_stack_latencies}
+(\parA[\bar{k}],\dots,\stackrel{\bar{k}+1}{\parA[\bar{k}]},\parA[\bar{k}+1],\dots,\parA[l],\stackrel{l+1}{0},\dots,0)\label{eq:opt_stack_latencies}
 \end{equation}
 
 \end_inset
@@ -2587,7 +2591,7 @@ Let
 \end_inset
 
  and 
-\begin_inset Formula $(t,\Mode)$
+\begin_inset Formula $(t,\Mode)=(t(s),m(s))$
 \end_inset
 
  be the best induced Nash equilibrium for the non-compliant flow.
@@ -2643,7 +2647,18 @@ Let
 
  be the link with largest free-flow latency, in the support of the non-compliant
  flow.
- By Lemma 
+ By Lemma
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+~
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "lemma:inducedNCeq"
@@ -2814,7 +2829,7 @@ reference "def:stack"
 \end_inset
 
  since 
-\begin_inset Formula $\Supp t\subset\left\{ 1,\dots,k\right\} $
+\begin_inset Formula $\Supp t\subseteq\left\{ 1,\dots,k\right\} $
 \end_inset
 
 .
@@ -2851,7 +2866,7 @@ m for the network instance
 
 .
  Let 
-\begin_inset Formula $(\tilde{t},\tilde{m})\in\Rea[k']\times\left\{ 0,1\right\} ^{k'}$
+\begin_inset Formula $(\tilde{t},\tilde{m})\in\Rea[k]\times\left\{ 0,1\right\} ^{k}$
 \end_inset
 
  be such an equilibrium.
@@ -3803,12 +3818,17 @@ We also note that for a fixed compliance rate
 \begin_inset Formula $n$
 \end_inset
 
- becomes congested (formally, 
+ becomes congested, i.e.
+ 
 \begin_inset Formula $r^{(n)}=\inf_{r}\left\{ r|n\text{ is congested under }\BestNashEquilibrium{\NLinks}r\right\} $
 \end_inset
 
-).
- Let 
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Let 
 \begin_inset Formula $r^{(n,\compRate)}$
 \end_inset
 
@@ -4003,16 +4023,12 @@ While price of stability describes how inefficient the best Nash equilibrium
 value of altruism
 \emph default
  
-\emph on
-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "aswani2011game"
 
 \end_inset
 
-
-\emph default
 , was introduced to show how performant a particular Stackelberg strategy
  is with respect to the best Nash equilibrium (0% compliance).
  Value of altruism is defined by:
@@ -4064,37 +4080,79 @@ delaying
 \end_layout
 
 \begin_layout Standard
-The importance of efficient computation of optimal Stackelberg strategies
- can be seen by the complete demand-compliance fraction profile generated
- in Figure 
+Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:POS3d"
 
+\end_inset
+
+ shows the dependency of price of stability on the demand 
+\begin_inset Formula $r$
+\end_inset
+
+ and compliance rate 
+\begin_inset Formula $\compRate$
 \end_inset
 
 .
- If the amount of compliance is viewed as a cost to some central controller,
- then the tiers visible in Figure 
+ It shows in particular the congestion delay 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $r^{(n,\compRate)}-r^{(n)}$
+\end_inset
+
+ for each link 
+\begin_inset Formula $n$
+\end_inset
+
+.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ It also shows that being able to compute price of stability can be important
+ for efficient planning and control.
+ If the amount of compliance is viewed as a cost to a central controller,
+ then the regions of constant price of stability, visible in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:POS3d"
 
 \end_inset
 
- (take 
-\begin_inset Formula $\qdemand=1000$
+ can be seen as regions of potential waste that can be avoided: if the controlle
+r can predict a demand around 1000 cars/minute for example, and the maximum
+ compliance rate is known to be less than .5, then she/he can choose 
+\begin_inset Formula $\alpha=0.3$
 \end_inset
 
-, 
-\begin_inset Formula $.3\le\compRate\le.5$
+ to avoid incurring additional cost, since from Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:POS3d"
+
 \end_inset
 
-) can be seen as regions of potential waste.
- If a central controller can predict a demand in a range around 1000 cars/minute
- and a maximum compliance fraction of .5, then the controller can reference
- the two-dimensional profile and reduce the compliance fraction down to
- .3, since any compliance rate 
+, for a demand of 1000 cars/minute, any compliance rate 
 \begin_inset Formula $\alpha\in[0.3,0.5]$
 \end_inset
 
@@ -4237,7 +4295,7 @@ reference "sec:Optimal-Stackelberg-strategies"
 
 , the worst-case complexity of computing optimal Stackelberg assignments
  is quadratic in the size of the network, which is verified experimentally
- as shown in Figure
+ as illustrated in Figure
 \begin_inset ERT
 status open
 
