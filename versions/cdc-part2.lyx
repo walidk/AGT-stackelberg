@@ -2155,7 +2155,7 @@ best Nash equilibrium
 
 .
  Let 
-\begin_inset Formula $k=\max\Supp{\bar{t}}$
+\begin_inset Formula $\bar{k}=\max\Supp{\bar{t}}$
 \end_inset
 
  be the last link in the support of 
@@ -2178,7 +2178,7 @@ reference "eq:m_bar"
 \end_inset
 
 , 
-\begin_inset Formula $\bar{m}=(1,\dots,1,\stackrel{k}{0},\dots,0)$
+\begin_inset Formula $\bar{m}=(1,\dots,1,\stackrel{\bar{k}}{0},\dots,0)$
 \end_inset
 
  and 
@@ -2197,7 +2197,7 @@ small
  
 \begin_inset Formula 
 \[
-\bar{t}=\left(\cffFlow 1k,\dots,\cffFlow{k-1}k,(1-\compRate)\qdemand-\sum_{n=1}^{k-1}\cffFlow nk,0,\dots,0\right)
+\bar{t}=\left(\cffFlow 1{\bar{k}},\dots,\cffFlow{\bar{k}-1}{\bar{k}},(1-\compRate)\qdemand-\sum_{n=1}^{\bar{k}-1}\cffFlow n{\bar{k}},0,\dots,0\right)
 \]
 
 \end_inset
@@ -2224,15 +2224,15 @@ normalsize
 \begin_layout Standard
 i.e.
  links 
-\begin_inset Formula $\{1,\dots,k-1\}$
+\begin_inset Formula $\{1,\dots,\bar{k}-1\}$
 \end_inset
 
  are 
-\begin_inset Formula $k$
+\begin_inset Formula $\bar{k}$
 \end_inset
 
 -congested, and link 
-\begin_inset Formula $k$
+\begin_inset Formula $\bar{k}$
 \end_inset
 
  is in free-flow.
@@ -2274,7 +2274,7 @@ We now define Stackelberg strategy
 \end_inset
 
  is simply given by assigning the compliant flow to remaining links 
-\begin_inset Formula $\{k,k+1,\dots,\NLinks\}$
+\begin_inset Formula $\{\bar{k},\bar{k}+1,\dots,\NLinks\}$
 \end_inset
 
  successively, each up to maximum capacity.
@@ -2283,32 +2283,32 @@ We now define Stackelberg strategy
 \end_inset
 
  will assign 
-\begin_inset Formula $\flowMax[k]-\bar{t}_{k}$
+\begin_inset Formula $\flowMax[\bar{k}]-\bar{t}_{\bar{k}}$
 \end_inset
 
  on link 
-\begin_inset Formula $k$
+\begin_inset Formula $\bar{k}$
 \end_inset
 
 , then 
-\begin_inset Formula $\flowMax[k+1]$
+\begin_inset Formula $\flowMax[\bar{k}+1]$
 \end_inset
 
  on link 
-\begin_inset Formula $k+1$
+\begin_inset Formula $\bar{k}+1$
 \end_inset
 
 , 
-\begin_inset Formula $\flowMax[k+2]$
+\begin_inset Formula $\flowMax[\bar{k}+2]$
 \end_inset
 
  on link 
-\begin_inset Formula $k+2$
+\begin_inset Formula $\bar{k}+2$
 \end_inset
 
  and so on.
  Let 
-\begin_inset Formula $l=\min\{n|\compRate\qdemand-(\sum_{n=k}^{l-1}\flowMax[n]-t_{k})\geq0\}$
+\begin_inset Formula $l=\min\{n|\compRate\qdemand-(\sum_{n=\bar{k}}^{l-1}\flowMax[n]-t_{\bar{k}})\geq0\}$
 \end_inset
 
  be the least efficient link used by the Stackelberg assignment.
@@ -2322,8 +2322,8 @@ We now define Stackelberg strategy
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray}
-\bar{s} & = & (0,\dots,\stackrel{k-1}{0},\flowMax[k]-\bar{t}_{k},\flowMax[k+1],\dots,\flowMax[l-1],\nonumber \\
- &  & \compRate\qdemand-(\sum_{n=k}^{l-1}\flowMax[n]-\bar{t_{k}}),\stackrel{l+1}{0},\dots,0)\label{eq:opt_stack_strategy}
+\bar{s} & = & (0,\dots,\stackrel{\bar{k}-1}{0},\flowMax[\bar{k}]-\bar{t}_{\bar{k}},\flowMax[\bar{k}+1],\dots,\flowMax[l-1],\nonumber \\
+ &  & \compRate\qdemand-(\sum_{n=\bar{k}}^{l-1}\flowMax[n]-\bar{t}_{\bar{k}}),\stackrel{l+1}{0},\dots,0)\label{eq:opt_stack_strategy}
 \end{eqnarray}
 
 \end_inset
@@ -2342,8 +2342,8 @@ Equivalently, the total assignment
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray}
-\bar{x} & = & (\cffFlow 1k,\dots,\cffFlow{k-1}k,\flowMax[k],\flowMax[k+1],\dots,\flowMax[l-1],\nonumber \\
- &  & \qdemand-\sum_{n=1}^{k-1}\cffFlow nk-\sum_{n=k}^{l-1}\flowMax[n],\stackrel{l+1}{0},\dots,0)\label{eq:opt_stack_flows}
+\bar{x} & = & (\cffFlow 1{\bar{k}},\dots,\cffFlow{\bar{k}-1}{\bar{k}},\flowMax[\bar{k}],\flowMax[\bar{k}+1],\dots,\flowMax[l-1],\nonumber \\
+ &  & \qdemand-\sum_{n=1}^{\bar{k}-1}\cffFlow n{\bar{k}}-\sum_{n=\bar{k}}^{l-1}\flowMax[n],\stackrel{l+1}{0},\dots,0)\label{eq:opt_stack_flows}
 \end{eqnarray}
 
 \end_inset
@@ -2358,7 +2358,7 @@ and the corresponding latencies are
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\bar{l}=(\parA[k],\dots,\parA[k],\parA[k+1],\dots,\parA[l],\stackrel{l+1}{0},\dots,0)\label{eq:opt_stack_latencies}
+\bar{l}=(\parA[\bar{k}],\dots,\stackrel{\bar{k}+1}{\parA[\bar{k}]},\parA[\bar{k}+1],\dots,\parA[l],\stackrel{l+1}{0},\dots,0)\label{eq:opt_stack_latencies}
 \end{equation}
 
 \end_inset
@@ -2529,15 +2529,15 @@ reference "fig:optimal_stackelberg_total"
 
  on each link.
  Links 
-\begin_inset Formula $\left\{ 1,\dots,k-1\right\} $
+\begin_inset Formula $\left\{ 1,\dots,\bar{k}-1\right\} $
 \end_inset
 
  are exactly 
-\begin_inset Formula $k$
+\begin_inset Formula $\bar{k}$
 \end_inset
 
 -congested, links 
-\begin_inset Formula $\left\{ k,\dots,l-1\right\} $
+\begin_inset Formula $\left\{ \bar{k},\dots,l-1\right\} $
 \end_inset
 
  are in free-flow and at maximum capacity, and the remaining flow goes on
@@ -2638,7 +2638,7 @@ The proof proceeds as follows: we first show that links
 
 \begin_layout Proof
 Let 
-\begin_inset Formula $k'=\max\Supp t$
+\begin_inset Formula $k=\max\Supp t$
 \end_inset
 
  be the link with largest free-flow latency, in the support of the non-compliant
@@ -2651,12 +2651,12 @@ reference "lemma:inducedNCeq"
 \end_inset
 
 , we have 
-\begin_inset Formula $\Mode[k']=0$
+\begin_inset Formula $\Mode[k]=0$
 \end_inset
 
 , i.e.
  link 
-\begin_inset Formula $k'$
+\begin_inset Formula $k$
 \end_inset
 
  is in free-flow under assignment 
@@ -2665,11 +2665,11 @@ reference "lemma:inducedNCeq"
 
 .
  We start by showing that 
-\begin_inset Formula $k'\geq k$
+\begin_inset Formula $k\geq\bar{k}$
 \end_inset
 
  where 
-\begin_inset Formula $k=\max\Supp{\bar{t}}$
+\begin_inset Formula $\bar{k}=\max\Supp{\bar{t}}$
 \end_inset
 
 .
@@ -2692,7 +2692,7 @@ The last link in the support of
 \end_inset
 
 : 
-\begin_inset Formula $k'\geq k$
+\begin_inset Formula $k\geq\bar{k}$
 \end_inset
 
 .
@@ -2748,7 +2748,7 @@ First note that
 
  is at Nash equilibrium.
  Then since link 
-\begin_inset Formula $k'$
+\begin_inset Formula $k$
 \end_inset
 
  is in free-flow we have 
@@ -2764,7 +2764,7 @@ First note that
 \noun off
 \color none
 
-\begin_inset Formula $l_{k'}(s_{k'}+t_{k'}(s),m_{k'})=a_{k'}$
+\begin_inset Formula $l_{k}(s_{k}+t_{k}(s),m_{k})=a_{k}$
 \end_inset
 
 ,
@@ -2780,7 +2780,7 @@ First note that
 \noun default
 \color inherit
  and since 
-\begin_inset Formula $k'\in\Supp{t(s)}$
+\begin_inset Formula $k\in\Supp{t(s)}$
 \end_inset
 
 , we have by Definition 
@@ -2792,29 +2792,29 @@ reference "def:stack"
 
  that any other link has higher latency.
  In particular, 
-\begin_inset Formula $\forall i\in\left\{ 1,\dots k'-1\right\} $
+\begin_inset Formula $\forall i\in\left\{ 1,\dots k-1\right\} $
 \end_inset
 
 , 
-\begin_inset Formula $l_{i}(s_{i}+t_{i}(s),m_{i})\geq a_{k'}$
+\begin_inset Formula $l_{i}(s_{i}+t_{i}(s),m_{i})\geq a_{k}$
 \end_inset
 
 , thus 
-\begin_inset Formula $s_{i}+t_{i}(s)\leq\cffFlow i{k'}$
+\begin_inset Formula $s_{i}+t_{i}(s)\leq\cffFlow ik$
 \end_inset
 
 .
  Therefore we have 
-\begin_inset Formula $\sum_{n=1}^{k'}s_{n}+t_{n}(s)\leq\sum_{n=1}^{k'-1}\cffFlow n{k'}+\flowMax[k']$
+\begin_inset Formula $\sum_{n=1}^{k}s_{n}+t_{n}(s)\leq\sum_{n=1}^{k-1}\cffFlow nk+\flowMax[k]$
 \end_inset
 
 .
  But 
-\begin_inset Formula $\sum_{n=1}^{k'}(s_{n}+t_{n}(s))\geq\sum_{n\in\Supp t}t_{n}(s)=(1-\compRate)r$
+\begin_inset Formula $\sum_{n=1}^{k}(s_{n}+t_{n}(s))\geq\sum_{n\in\Supp t}t_{n}(s)=(1-\compRate)r$
 \end_inset
 
  since 
-\begin_inset Formula $\Supp t\subset\left\{ 1,\dots,k'\right\} $
+\begin_inset Formula $\Supp t\subset\left\{ 1,\dots,k\right\} $
 \end_inset
 
 .
@@ -2824,7 +2824,7 @@ reference "def:stack"
 \begin_layout Proof
 \begin_inset Formula 
 \[
-(1-\compRate)r\leq\sum_{n=1}^{k'-1}\cffFlow n{k'}+\flowMax[k']
+(1-\compRate)r\leq\sum_{n=1}^{k-1}\cffFlow nk+\flowMax[k]
 \]
 
 \end_inset
@@ -2841,12 +2841,12 @@ reference "lemma:slff"
 \end_inset
 
  applied to a network with 
-\begin_inset Formula $k'$
+\begin_inset Formula $k$
 \end_inset
 
  links, this guarantees the existence of a single-link free-flow Nash Equilibriu
 m for the network instance 
-\begin_inset Formula $(k',(1-\compRate)r)$
+\begin_inset Formula $(k,(1-\compRate)r)$
 \end_inset
 
 .
@@ -2864,7 +2864,7 @@ m for the network instance
 \end_inset
 
  where 
-\begin_inset Formula $l_{0}\leq a_{k'}$
+\begin_inset Formula $l_{0}\leq a_{k}$
 \end_inset
 
  is the free-flow latency of the last link in the support of 
@@ -2873,7 +2873,7 @@ m for the network instance
 
 .
  Thus 
-\begin_inset Formula $C(\tilde{t},\tilde{m})\leq(1-\compRate)ra_{k'}$
+\begin_inset Formula $C(\tilde{t},\tilde{m})\leq(1-\compRate)ra_{k}$
 \end_inset
 
 .
@@ -2881,7 +2881,7 @@ m for the network instance
 
 \begin_layout Proof
 Then 
-\begin_inset Formula $((\tilde{t}_{1},\dots,\tilde{t}_{k'},0,\dots,0),(\tilde{m}_{1},\dots,\tilde{m}_{k'},0,\dots,0)$
+\begin_inset Formula $((\tilde{t}_{1},\dots,\tilde{t}_{k},0,\dots,0),(\tilde{m}_{1},\dots,\tilde{m}_{k},0,\dots,0)$
 \end_inset
 
  
@@ -2893,7 +2893,7 @@ Then
 \end_inset
 
 , and has the same cost 
-\begin_inset Formula $C(\tilde{t},\tilde{m})\leq(1-\compRate)ra_{k'}$
+\begin_inset Formula $C(\tilde{t},\tilde{m})\leq(1-\compRate)ra_{k}$
 \end_inset
 
 .
@@ -2910,16 +2910,16 @@ best Nash equilibrium
 \end_inset
 
  and has cost 
-\begin_inset Formula $(1-\compRate)ra_{k}$
+\begin_inset Formula $(1-\compRate)ra_{\bar{k}}$
 \end_inset
 
 , we must have 
-\begin_inset Formula $(1-\compRate)ra_{k}\leq(1-\compRate)ra_{k'}$
+\begin_inset Formula $(1-\compRate)ra_{\bar{k}}\leq(1-\compRate)ra_{k}$
 \end_inset
 
 , i.e.
  
-\begin_inset Formula $a_{k}\leq a_{k'}$
+\begin_inset Formula $a_{\bar{k}}\leq a_{k}$
 \end_inset
 
 .
@@ -2945,7 +2945,7 @@ Using the lemma, we can now show that links
 
 \begin_layout Proof
 Since 
-\begin_inset Formula $k'\in\Supp t$
+\begin_inset Formula $k\in\Supp t$
 \end_inset
 
 , we have from Definition 
@@ -2957,21 +2957,21 @@ reference "def:stack"
 
  of a Stackelberg strategy and its induced equilibrium, that the latency
  on 
-\begin_inset Formula $k'$
+\begin_inset Formula $k$
 \end_inset
 
  is smaller than the latency on any other link.
  Thus 
-\begin_inset Formula $\forall n\in\{1,\dots,k'-1\}$
+\begin_inset Formula $\forall n\in\{1,\dots,k-1\}$
 \end_inset
 
 , 
-\begin_inset Formula $l_{n}(x_{n},m_{n})\geq l_{k'}(x_{k'},m_{k'})\geq a_{k'}$
+\begin_inset Formula $l_{n}(x_{n},m_{n})\geq l_{k}(x_{k},m_{k})\geq a_{k}$
 \end_inset
 
 , i.e.
  
-\begin_inset Formula $\forall n\in\{1,\dots,k'-1\}$
+\begin_inset Formula $\forall n\in\{1,\dots,k-1\}$
 \end_inset
 
 , 
@@ -2979,7 +2979,7 @@ reference "def:stack"
 \end_inset
 
  is at least 
-\begin_inset Formula $k'$
+\begin_inset Formula $k$
 \end_inset
 
 -congested under assignment 
@@ -2999,7 +2999,7 @@ reference "eq:opt_stack_latencies"
 \end_inset
 
 , 
-\begin_inset Formula $\forall n\in\{1,\dots,k-1\}$
+\begin_inset Formula $\forall n\in\{1,\dots,\bar{k}-1\}$
 \end_inset
 
 , 
@@ -3007,7 +3007,7 @@ reference "eq:opt_stack_latencies"
 \end_inset
 
  is exactly 
-\begin_inset Formula $k$
+\begin_inset Formula $\bar{k}$
 \end_inset
 
 -congested under assignment 
@@ -3016,7 +3016,7 @@ reference "eq:opt_stack_latencies"
 
 .
  Thus using the fact that 
-\begin_inset Formula $k'\geq k$
+\begin_inset Formula $k\geq\bar{k}$
 \end_inset
 
 , we have 
@@ -3032,7 +3032,7 @@ reference "eq:opt_stack_latencies"
 \noun off
 \color none
 
-\begin_inset Formula $\forall n\in\{1,\dots,k-1\}$
+\begin_inset Formula $\forall n\in\{1,\dots,\bar{k}-1\}$
 \end_inset
 
 
@@ -3048,7 +3048,7 @@ reference "eq:opt_stack_latencies"
 \noun default
 \color inherit
 , 
-\begin_inset Formula $l_{n}(x_{n},m_{n})\geq a_{k'}\geq a_{k}=l_{n}(\bar{x}_{n},\bar{m}_{n})$
+\begin_inset Formula $l_{n}(x_{n},m_{n})\geq a_{k}\geq a_{\bar{k}}=l_{n}(\bar{x}_{n},\bar{m}_{n})$
 \end_inset
 
 , and 
@@ -3064,7 +3064,7 @@ reference "eq:opt_stack_latencies"
 \noun off
 \color none
 
-\begin_inset Formula $x_{n}\leq\cffFlow n{k'}\leq\cffFlow nk=\bar{x}_{n}$
+\begin_inset Formula $x_{n}\leq\cffFlow nk\leq\cffFlow n{\bar{k}}=\bar{x}_{n}$
 \end_inset
 
 
@@ -3107,7 +3107,7 @@ reference "eq:opt_stack_flows"
 \end_inset
 
  that 
-\begin_inset Formula $\forall n\in\{k,\dots,l-1\}$
+\begin_inset Formula $\forall n\in\{\bar{k},\dots,l-1\}$
 \end_inset
 
 , 
@@ -3129,7 +3129,7 @@ reference "eq:opt_stack_flows"
 
 ).
  Thus 
-\begin_inset Formula $\forall n\in\{k,\dots,l-1\}$
+\begin_inset Formula $\forall n\in\{\bar{k},\dots,l-1\}$
 \end_inset
 
 , 
@@ -3182,15 +3182,15 @@ x_{n} & \leq\bar{x}_{n} & \forall n\in\{1,\dots,l-1\}\label{eq:cong_flow}
 
 \begin_layout Proof
 Note that 
-\begin_inset Formula $\forall n\in\{1,\dots,k\}$
+\begin_inset Formula $\forall n\in\{1,\dots,\bar{k}\}$
 \end_inset
 
 , 
-\begin_inset Formula $l_{n}(\bar{x}_{n},\bar{m}_{n})=a_{k}\leq a_{l}$
+\begin_inset Formula $l_{n}(\bar{x}_{n},\bar{m}_{n})=a_{\bar{k}}\leq a_{l}$
 \end_inset
 
 , and 
-\begin_inset Formula $\forall n\in\{k,\dots,l-1\}$
+\begin_inset Formula $\forall n\in\{\bar{k},\dots,l-1\}$
 \end_inset
 
 , 
@@ -3818,7 +3818,7 @@ We also note that for a fixed compliance rate
 
 , i.e.
  
-\begin_inset Formula $r^{(n,\compRate)}=\inf_{r}\left\{ r|n\text{ is congested under }(t(\bar{s}),m(\bar{s})),\ \bar{s}=\text{NCF}(\NLinks,r,\compRate)\right\} $
+\begin_inset Formula $r^{(n,\compRate)}=\inf_{r}\left\{ r|n\text{ congested under }(t(\bar{s}),m(\bar{s})),\ \bar{s}=\text{NCF}(\NLinks,r,\compRate)\right\} $
 \end_inset
 
 .
@@ -3828,9 +3828,9 @@ We also note that for a fixed compliance rate
 
 ) is proportional to the compliance rate.
  Observing the behavior around the 600-800 cars/minute, it takes about 30
- extra cars/minute to congest the second link with 5% compliance, about
- 100 cars/minute for 15% compliance, while for 50% compliance, the second
- link appears to only congest near network capacity.
+ extra cars/minute to congest the second link for a 5% compliance rate,
+ about 100 cars/minute for 15% compliance, while for 50% compliance, the
+ second link appears to only congest near network capacity.
 \end_layout
 
 \begin_layout Standard
@@ -3921,10 +3921,62 @@ name "fig:Value-of-Altruism"
 \end_layout
 
 \begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.1in}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../figures/POS3dannote.pdf
+	width 3in
+	clip
+
+\end_inset
+
+
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Results for network efficiency on parallel highway link example.
+Price of stability profile as a function of compliance rate and demand.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:POS3d"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Numerical results for network efficiency on a parallel highway network example.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Results-for-network"
@@ -4009,42 +4061,6 @@ delaying
 \end_inset
 
 ) resulting in a value of altruism of 1.
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../figures/POS3dannote.pdf
-	width 3.5in
-	clip
-
-\end_inset
-
-
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Price of stability profile
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:POS3d"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -4077,9 +4093,16 @@ reference "fig:POS3d"
 ) can be seen as regions of potential waste.
  If a central controller can predict a demand in a range around 1000 cars/minute
  and a maximum compliance fraction of .5, then the controller can reference
- the two-dimensional profile and reduce the compliance fraction to about
- .4, since any compliance above 30% and less than 50% does not improve the
- performance of the network.
+ the two-dimensional profile and reduce the compliance fraction down to
+ .3, since any compliance rate 
+\begin_inset Formula $\alpha\in[0.3,0.5]$
+\end_inset
+
+ does not improve the performance of the network compared to 
+\begin_inset Formula $\compRate=0.3$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
