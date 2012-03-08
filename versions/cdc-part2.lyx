@@ -83,19 +83,7 @@ Walid Krichene
 \begin_inset Newline newline
 \end_inset
 
-walid@eecs.berkeley.edu
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-Ph.D.
- student, Electrical Engineering and Computer Sciences, UC Berkeley, CA.
- walid@eecs.berkeley.edu
-\end_layout
-
-\end_inset
-
- 
+walid@eecs.berkeley.edu 
 \begin_inset ERT
 status open
 
@@ -129,10 +117,7 @@ and
 \begin_inset Newline newline
 \end_inset
 
-amins@mit.edu
- 
-\lang english
-
+amins@mit.edu 
 \begin_inset ERT
 status open
 
@@ -153,7 +138,7 @@ bayen@berkeley.edu
 \end_layout
 
 \begin_layout Abstract
-In order to address inefficiencies of Nash equilibria for horizontal queuing
+In order to address inefficiencies of Nash equilibria for horizontal queueing
  congestion networks, we study the Stackelberg routing game on parallel
  networks: assuming a coordinator has control over a fraction of the flow,
  what is a good way of routing that compliant flow so that the induced Nash
@@ -162,7 +147,7 @@ In order to address inefficiencies of Nash equilibria for horizontal queuing
 
 \begin_layout Abstract
 We study Stackelberg routing for a new class of latency functions, that
- models congestion on horizontal queuing networks.
+ models congestion on horizontal queueing networks.
  We show that in this setting, optimal Stackelberg strategies can be computed
  in polynomial time in the size of the network.
  We introduce a candidate Stackelberg strategy, the 
@@ -271,7 +256,7 @@ key "fullversion"
 
 \end_inset
 
- to model congestion on horizontal queuing networks.
+ to model congestion on horizontal queueing networks.
  We study Stackelberg routing for this new class of latency, which leads
  to novel theoretic and algorithmic results.
 \end_layout
@@ -310,10 +295,10 @@ compliant
 non-compliant
 \emph default
 .
- We call compliant a driver who is connected to a central coordinator, through
- a smartphone application or a navigation system, and is willing (or has
- an external incentive) to follow routing suggestions provided by the coordinato
-r.
+ A driver who is connected to a central coordinator, through a smartphone
+ application or a navigation system, and is willing (or has an external
+ incentive) to follow routing suggestions provided by the coordinator, is
+ described as compliant.
  Other drivers (drivers who are not connected or who are simply not willing
  to follow alternative routes) are described as non-compliant.
  These two populations form respectively the leader and the followers in
@@ -337,7 +322,7 @@ key "caltrans_101s"
  existing literature on Stackelberg routing is not readily applicable to
  practical traffic networks.
  The present work addresses these limitations by considering a new class
- of latency functions that better models congestion for horizontal queuing
+ of latency functions that better models congestion for horizontal queueing
  network, in particular traffic networks.
 \end_layout
 
@@ -349,7 +334,7 @@ Contributions
 We study the Stackelberg routing game on parallel networks for the class
  of 
 \emph on
-horizontal queuing congestion
+horizontal queueing congestion
 \emph default
  latencies, and show that optimal Stackelberg strategies can be computed
  in 
@@ -395,16 +380,9 @@ Organization of the Article
 \end_layout
 
 \begin_layout Standard
-In Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Preliminaries"
-
-\end_inset
-
-, we start by defining the congestion game and the class of horizontal queuing
- congestion latencies, then review some properties of Nash equilibria for
- horizontal queuing networks.
+In the Preliminaries section, we start by defining the routing game and
+ the class of horizontal queueing congestion latencies, then review some
+ properties of Nash equilibria for horizontal queueing networks.
  The main results on optimal Stackelberg routing are presented in Sections
  
 \begin_inset CommandInset ref
@@ -420,8 +398,8 @@ reference "sec:Computing-the-optimal"
 
 \end_inset
 
-, where a polynomial time algorithm is presented for computing a provably
- optimal Stackelberg strategy on 
+, where we give a polynomial time algorithm for computing a provably optimal
+ Stackelberg strategy on 
 \begin_inset Formula $\NLinks$
 \end_inset
 
@@ -458,7 +436,7 @@ name "sec:Preliminaries"
 \end_layout
 
 \begin_layout Subsection
-The Model: Congestion games and the class of Horizontal Queuing Latencies
+The Model: Routing Games and the class of Horizontal Queueing Latencies
 \end_layout
 
 \begin_layout Standard
@@ -479,7 +457,7 @@ key "schmeidler1973equilibrium"
 
 \end_inset
 
- congestion game on a parallel network with a single source, a single sink
+ routing game on a parallel network with a single source, a single sink
  (or destination) and 
 \begin_inset Formula $\NLinks$
 \end_inset
@@ -571,8 +549,8 @@ key "fullversion"
 
 \end_inset
 
-, in the case of horizontal queuing networks, the latency also depends on
- whether the link is in 
+, in the case of horizontal queueing networks, the latency also depends
+ on whether the link is in 
 \emph on
 free-flow
 \emph default
@@ -691,7 +669,7 @@ The latency is constant in free-flow:
 \end_layout
 
 \begin_layout Standard
-This defines the class of horizontal queuing latencies, introduced in 
+This defines the class of horizontal queueing latencies, introduced in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "fullversion"
@@ -702,10 +680,7 @@ key "fullversion"
  The last property can be justified intuitively by the following argument:
  as the density on the link increases, the agents slow down (to avoid collision)
 , therefore the flow decreases and the latency increases.
-\end_layout
-
-\begin_layout Standard
-Some examples of latency functions in this class are illustrated in Figure
+ Some examples of latency functions in this class are illustrated in Figure
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -748,7 +723,7 @@ name "fig:example-flow-latency"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Examples of horizontal queuing latency functions, defined in 
+Examples of horizontal queueing latency functions, defined in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:latency_class"
@@ -819,7 +794,7 @@ name "fig:xbar-and-hat-defns"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Horizontal queuing congestion latencies and single link free-flow equilibria.
+Horizontal queueing congestion latencies and single link free-flow equilibria.
 \end_layout
 
 \end_inset
@@ -885,7 +860,7 @@ Nash Equilibria
 
 \begin_layout Standard
 In this section, we briefly review some properties of Nash equilibria for
- congestion games on parallel networks for the class of horizontal queuing
+ routing games on parallel networks for the class of horizontal queueing
  latencies.
  These properties will be useful in studying the Stackelberg routing game.
  For a more detailed discussion and proofs, we refer the reader to 
@@ -972,7 +947,7 @@ Single link free-flow equilibria: Let
 \end_inset
 
 .
- For the class of horizontal queuing latency functions, there may exist
+ For the class of horizontal queueing latency functions, there may exist
  multiple Nash equilibria with different costs.
  For an example of a network instance where this is the case, see 
 \begin_inset CommandInset citation
@@ -1440,10 +1415,10 @@ key "fullversion"
 
 \end_inset
 
- better models horizontal queuing.
+ better models horizontal queueing.
  In this section, we setup the problem and introduce useful definitions.
  In the next section, we show that optimal Stackelberg strategies for the
- class of horizontal queuing latency can be computed in polynomial time,
+ class of horizontal queueing latency can be computed in polynomial time,
  and give a constructive algorithm for computing such an optimal strategy.
 \end_layout
 
@@ -1624,12 +1599,11 @@ name "def:stack"
 
 \end_inset
 
-Consider an instance 
+ A Stackelberg strategy for the instance 
 \begin_inset Formula $(\NLinks,r,\compRate)$
 \end_inset
 
- of the Stackelberg routing game.
- A Stackelberg strategy for this instance is an assignment 
+ is an assignment 
 \begin_inset Formula $s$
 \end_inset
 
@@ -1860,17 +1834,22 @@ Note that
  and latencies
 \begin_inset Formula 
 \begin{align*}
-\tilde{{l}}_{n}:[0,\flowMax[n]-s_{n}]\times\left\{ 0,1\right\}  & \longrightarrow\Rea_{+}\\
+\tilde{{l}}_{n}:[0,\tilde{x}_{n}^{\max}]\times\left\{ 0\right\} \cup(0,\tilde{x}_{n}^{\max})\times\left\{ 1\right\}  & \longrightarrow\Rea_{+}\\
 (\flow[n],\Mode[n]) & \longmapsto l_{n}(s_{n}+\flow[n],\Mode[n])
 \end{align*}
 
 \end_inset
 
-Latencies 
+where 
+\begin_inset Formula $\tilde{x}_{n}^{\max}=\flowMax[n]-s_{n}$
+\end_inset
+
+.
+ Latencies 
 \begin_inset Formula $\tilde{l}_{n}$
 \end_inset
 
- satisfy the assumptions of the horizontal queuing latencies class.
+ satisfy the assumptions of the horizontal queueing latencies class.
  Therefore, by Theorem 
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -2031,26 +2010,30 @@ Note that if
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-And if 
+ And if 
 \begin_inset Formula $(t,\Mode)$
 \end_inset
 
  is a single link free-flow equilibrium, and 
-\begin_inset Formula $i=\max\Supp t$
+\begin_inset Formula $k=\max\Supp t$
 \end_inset
 
 , then all links 
-\begin_inset Formula $n\in\{1,\dots,i-1\}$
+\begin_inset Formula $n\in\{1,\dots,k-1\}$
 \end_inset
 
  are exactly 
-\begin_inset Formula $i$
+\begin_inset Formula $k$
 \end_inset
 
--congested.
+-congested from Equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:x_bar"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -2070,7 +2053,7 @@ In this section, we show the following result: the optimal Stackelberg strategy
 \begin_inset Formula $N$
 \end_inset
 
- links for the class of horizontal queuing congestion functions defined
+ links for the class of horizontal queueing congestion functions defined
  in 
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -2114,7 +2097,7 @@ Then assigning the compliant flow by filling the remaining links (i.e.
 \begin_inset Formula $(\bar{t},\bar{m})$
 \end_inset
 
-), up to maximum capacity, starting with the faster links.
+), up to maximum capacity, starting with the lower free-flow latencies.
  
 \end_layout
 
@@ -2519,7 +2502,7 @@ name "fig:optimal_stackelberg_total"
 \begin_layout Plain Layout
 Non-compliant first (NCF) strategy.
  In this example, latencies are taken to be affine in congestion for simplicity,
- the results hold for the general class of horizontal queuing latencies.
+ the results hold for the general class of horizontal queueing latencies.
 \end_layout
 
 \end_inset
@@ -4094,9 +4077,9 @@ reference "fig:POS3d"
 ) can be seen as regions of potential waste.
  If a central controller can predict a demand in a range around 1000 cars/minute
  and a maximum compliance fraction of .5, then the controller can reference
- the two-dimensional profile and reduce the compliance fraction to a region
- around .4, since any compliance above 30% and less than 50% does not improve
- the performance of the network.
+ the two-dimensional profile and reduce the compliance fraction to about
+ .4, since any compliance above 30% and less than 50% does not improve the
+ performance of the network.
 \end_layout
 
 \begin_layout Subsection
@@ -4282,14 +4265,14 @@ name "sec:Discussion"
 \end_layout
 
 \begin_layout Standard
-In order to address the inefficiency of Nash equilibria on horizontal queuing
+In order to address the inefficiency of Nash equilibria on horizontal queueing
  networks, we considered the Stackelberg routing game where a central coordinato
 r has control over a fraction 
 \begin_inset Formula $\compRate$
 \end_inset
 
  of compliant agents.
- We proved that for the class of horizontal queuing congestion latencies
+ We proved that for the class of horizontal queueing congestion latencies
  introduced in 
 \begin_inset CommandInset citation
 LatexCommand cite
