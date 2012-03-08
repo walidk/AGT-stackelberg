@@ -439,9 +439,9 @@ These results provide a framework for efficient computation of Nash equilibria
  on parallel networks, which, in turn, give a high-level explanation of
  congestion patterns on such networks.
  While the assumption of a parallel network may seem restrictive, there
- are many examples of highway networks in populous areas (such as the California
- bay area), in which such networks can model congestion via horizontal queueing
- and the parallel link structure is an accurate description.
+ are many examples of highway networks in populous areas (such as the San
+ Francisco bay area), in which such networks can model congestion via horizontal
+ queueing and the parallel link structure is an accurate description.
  Additionally, highway networks often suffer from congestion due to selfish
  routing, and would benefit from the analysis of horizontal queueing Nash
  equilibria.
@@ -3685,6 +3685,8 @@ normalsize
 
 \end_deeper
 \begin_layout Corollary
+
+\emph on
 Cost of single link free-flow Equilibria
 \end_layout
 
@@ -4281,7 +4283,7 @@ key "fullversion"
 \begin_inset Formula $x^{*}$
 \end_inset
 
- is given by
+ is:
 \begin_inset ERT
 status open
 
@@ -4412,15 +4414,14 @@ reference "eq:so"
 \end_inset
 
 .
- From the expression 
+ From social optimum 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:so"
 
 \end_inset
 
- of the social optimum and the characterization of the best Nash equilibrium
- in Theorem 
+ and the characterization of the best Nash equilibrium in Theorem 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "theorem:minsupport"
@@ -4858,10 +4859,10 @@ name "sec:Discussion"
 
 \begin_layout Standard
 We introduced a new class of latency functions that models congestion in
- horizontal queuing networks, and we studied the resulting Nash equilibria
+ horizontal queuing networks, and studied the resulting Nash equilibria
  for non-atomic congestion games on parallel networks.
- We showed that the essential uniqueness property does not hold for this
- new class, and that there may be up to 
+ We showed the essential uniqueness property does not hold for this new
+ class, and that there may be up to 
 \begin_inset Formula $2N$
 \end_inset
 
