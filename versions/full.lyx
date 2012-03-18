@@ -5305,7 +5305,7 @@ where
  Therefore, by Theorem 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "theorem:bne"
+reference "theorem:minsupport"
 
 \end_inset
 
@@ -6013,6 +6013,13 @@ The Non-Compliant First strategy is optimal
 
 \emph on
 Optimal Stackelberg Strategy
+\begin_inset CommandInset label
+LatexCommand label
+name "theorem:NCFoptimal"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Theorem
@@ -7044,34 +7051,198 @@ reference "eq:opt_stack_strategy"
 \end_inset
 
 ).
+ 
 \end_layout
 
 \begin_layout Standard
-Now define a new Stackelberg strategy 
+To give an example of an optimal Stackelberg strategy other than the NCF
+ strategy, consider a strategy 
 \begin_inset Formula $s$
 \end_inset
 
- such that 
-\begin_inset Formula $s_{\bar{k}}=\left(s_{1},\dots,s_{\bar{k}-1},\flowMax[\bar{k}]-\bar{t}_{\bar{k}}-\sum_{n=1}^{\bar{k}-1}s_{n},\right)$
+ defined as 
+\begin_inset Formula $s=\bar{s}+\epsilon$
+\end_inset
+
+ where 
+\begin_inset Formula $\epsilon=(\epsilon_{1},0,\dots,0,\stackrel{\bar{k}}{-\epsilon_{1}},0,\dots,0)$
+\end_inset
+
+ and is such that 
+\begin_inset Formula $s_{1}=\epsilon_{1}\in[0,\cffFlow 1{\bar{k}}]$
+\end_inset
+
+, and 
+\begin_inset Formula $s_{\bar{k}}=\bar{s}_{\bar{k}}-\epsilon_{1}\geq0$
+\end_inset
+
+.
+ In words, 
+\begin_inset Formula $s$
+\end_inset
+
+ assigns a positive amount of flow 
+\begin_inset Formula $\epsilon_{1}$
+\end_inset
+
+ on link 
+\begin_inset Formula $1$
+\end_inset
+
+, decreases the flow assigned to link 
+\begin_inset Formula $\bar{k}$
+\end_inset
+
+ by the same amount, and agrees with the NCF strategy on remaining links.
+ Strategy 
+\begin_inset Formula $s$
+\end_inset
+
+ will induce 
+\begin_inset Formula $t(s)=\bar{t}-\epsilon$
+\end_inset
+
+, and the resulting cost 
+\begin_inset Formula $C(s+t(s))=C(\bar{s}+\epsilon+\bar{t}-\epsilon)=C(\bar{s}+\bar{t})$
+\end_inset
+
+ is minimal.
+ This shows that 
+\begin_inset Formula $s$
+\end_inset
+
+ is an optimal Stackelberg strategy.
+\end_layout
+
+\begin_layout Standard
+Similarly, it is easy to prove that strategies of the form 
+\begin_inset Formula $s=\bar{s}+\epsilon$
+\end_inset
+
+ where
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\epsilon=\left(\epsilon_{1},\epsilon_{2},\dots,\epsilon_{\bar{k}-1},-\sum_{n=1}^{\bar{k}-1}\epsilon_{n},\stackrel{\bar{k}+1}{0},\dots,0\right)
+\]
+
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-We first note that if 
+and 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ is such that 
+\begin_inset Formula 
+\begin{eqnarray}
+ & \epsilon_{n}\in[0,\cffFlow n{\bar{k}}] & \forall n\in\left\{ 1,\dots,\bar{k}-1\right\} \label{eq:epsilon1}
+\end{eqnarray}
+
+\end_inset
+
+ and 
+\begin_inset Formula 
+\begin{equation}
+\epsilon_{\bar{k}}=\bar{s}_{\bar{k}}-\sum_{n=1}^{\bar{k}-1}\epsilon_{n}\geq0\label{eq:epsilon2}
+\end{equation}
+
+\end_inset
+
+will induce 
+\begin_inset Formula $t(s)=\bar{t}-\epsilon$
+\end_inset
+
+ and are optimal.
+\end_layout
+
+\begin_layout Standard
+We now prove that all optimal strategies are of this form.
+\end_layout
+
+\begin_layout Lemma
+The set of optimal Stackelberg strategies
+\end_layout
+
+\begin_layout Lemma
+Any optimal Stackelberg strategy 
 \begin_inset Formula $s\in S^{\text{opt}}(\NLinks,r,\compRate)$
 \end_inset
 
- is an optimal Stackelberg strategy and 
-\begin_inset Formula $t(s)$
+ is of the form 
+\begin_inset Formula $s=\bar{s}+\epsilon$
 \end_inset
 
- is the induced assignment of non-compliant agents, then 
-\begin_inset Formula $\max\Supp{t(s)}=\bar{k}$
+ where 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ satisfies Equations 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:epsilon1"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:epsilon2"
+
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $s\in S^{\text{opt}}(\NLinks,r,\compRate)$
+\end_inset
+
+ be an optimal Stackelberg strategy and 
+\begin_inset Formula $t(s)$
+\end_inset
+
+ the induced assignment of non-compliant agents.
+ We have from the proof of Theorem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+~
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "theorem:NCFoptimal"
+
+\end_inset
+
+ 
+\begin_inset Formula $\max\Supp{t(s)}\geq\bar{k}$
+\end_inset
+
+.
+ We first show that since 
+\begin_inset Formula $s$
+\end_inset
+
+ is optimal, we must have equality.
+ Assume by contradiction that 
+\begin_inset Formula $\max\Supp{t(s)}>\bar{k}$
+\end_inset
+
+.
+ Then we have 
 \end_layout
 
 \begin_layout Section
