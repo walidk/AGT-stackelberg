@@ -156,7 +156,7 @@ non-compliant first
 \emph default
  strategy, and prove it to be optimal.
  We apply these results by modeling a transportation network in which a
- coordinator can choose the routes of fraction of compliant agents, while
+ coordinator can choose the routes of a fraction of compliant agents, while
  the rest of the agents choose their routes selfishly.
 \end_layout
 
@@ -2975,7 +2975,7 @@ reference "def:stack"
 \begin_inset Formula $k$
 \end_inset
 
- is smaller than the latency on any other link.
+ is less than or equal to the latency on any other link.
  Thus 
 \begin_inset Formula $\forall n\in\{1,\dots,k-1\}$
 \end_inset
