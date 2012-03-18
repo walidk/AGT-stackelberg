@@ -186,12 +186,11 @@ Congestion Games and Stackelberg Routing
 \end_layout
 
 \begin_layout Standard
-Congestion games form an important class of non-atomic games that is used
- to model the interaction of agents who are using resources on a network,
- where the cost on each edge depends on the fraction of agents using that
- edge.
+Routing games form an important class of non-atomic games that is used to
+ model the interaction of agents who are using resources on a network, where
+ the cost on each edge depends on the fraction of agents using that edge.
  Extensive work has been dedicated to studying Nash equilibria (or user
- optimal assignments) of congestion games 
+ optimal assignments) of routing games 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "lo2002cell,papadimitriou2010new,roughgarden2002bad"
@@ -209,8 +208,8 @@ key "kelly2001mathematical"
 \end_inset
 
 .
- Nash equilibria of congestion games are known to be inefficient compared
- to the system optimal assignments, where a coordinator, or a central authority,
+ Nash equilibria of routing games are known to be inefficient compared to
+ the system optimal assignments, where a coordinator, or a central authority,
  assigns flow as to minimize a cost function over all players 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -236,8 +235,7 @@ key "aswani2011game,roughgarden2001stackelberg"
  The objective of the coordinator in the Stackelberg game is to route the
  compliant flow in a manner that minimizes a system-wide cost function in
  anticipation of the rest of the flow's selfish response.
- Other variants of congestion games exist in the game theory literature
- 
+ Other variants of routing games exist in the game theory literature 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "babaioff2009congestion,morgan2003spite"
@@ -248,10 +246,10 @@ key "babaioff2009congestion,morgan2003spite"
 \end_layout
 
 \begin_layout Standard
-Congestion games and Stackelberg routing on parallel networks have been
- studied extensively for the class of non-decreasing latency functions,
- and it is known that computing the optimal Stackelberg strategy is NP-hard
- in the number of links.
+Routing games and Stackelberg routing on parallel networks have been studied
+ extensively for the class of non-decreasing latency functions, and it is
+ known that computing the optimal Stackelberg strategy is NP-hard in the
+ number of links.
  This led to considering polynomial time approximate strategies such as
  Largest Latency First and Scale (see 
 \begin_inset CommandInset citation
@@ -473,11 +471,11 @@ Contributions of This Article
 \begin_layout Standard
 We introduce a new class of latency functions that is expressive enough
  to model congestion on horizontal queuing networks, and study, under this
- new class of latency, the Nash equilibria of the congestion game on parallel
+ new class of latency, the Nash equilibria of the routing game on parallel
  networks, as well as optimal strategies for the Stackelberg routing game.
- We consider a congestion game on a parallel network, where each link has
- a dual-mode latency function: latency is constant in free-flow, and a decreasin
-g function of flow in congestion.
+ We consider a routing game on a parallel network, where each link has a
+ dual-mode latency function: latency is constant in free-flow, and a decreasing
+ function of flow in congestion.
  This leads to novel theoretical and algorithmic results for characterizing
  and computing Nash equilibria and optimal Stackelberg strategies:
 \end_layout
@@ -485,7 +483,7 @@ g function of flow in congestion.
 \begin_layout Itemize
 We show that there is no essential uniqueness of Nash equilibria (there
  may exist Nash equilibria with different total costs), unlike point-queueing
- models usually considered in congestion games 
+ models usually considered in routing games 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "roughgarden2002bad"
@@ -571,7 +569,7 @@ reference "sec:Nash-Equilibria"
 
 \end_inset
 
-, we study Nash equilibria of congestion games for this new class of latency,
+, we study Nash equilibria of routing games for this new class of latency,
  and show that the essential uniqueness property does not hold.
  We then bound the number of Nash equilibria and give a tractable algorithm
  for computing the set of Nash equilibria, then characterize in particular
@@ -656,7 +654,7 @@ key "roughgarden2004bounding,schmeidler1973equilibrium"
 \end_inset
 
 .
- The choice of atomic versus non-atomic players in congestion games is similar
+ The choice of atomic versus non-atomic players in routing games is similar
  to the modeling choice of microscopic versus macroscopic flow framework
  in traffic modeling 
 \begin_inset CommandInset citation
@@ -670,7 +668,7 @@ key "lighthill1955kinematic,richards1956shock"
 
 \end_inset
 
- congestion game on a parallel network similar to the one studied in 
+ routing game on a parallel network similar to the one studied in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "roughgarden2001stackelberg"
@@ -745,19 +743,16 @@ reference "fig:nparlink"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../figures/nparlink.pdf
-	height 0.8in
+	filename ../figures/ParLinkNetwork.pdf
+	height 0.5in
 
 \end_inset
 
@@ -768,15 +763,26 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Network instance 
 \begin_inset Formula $(\NLinks,r)$
 \end_inset
 
-, with 
+.
+ 
 \begin_inset Formula $N$
 \end_inset
 
- parallel links and demand 
+ links from 
+\begin_inset Formula $O$
+\end_inset
+
+ to 
+\begin_inset Formula $D$
+\end_inset
+
+ with demand 
 \begin_inset Formula $\qdemand$
 \end_inset
 
@@ -983,8 +989,8 @@ J: how do we motivate the generality of the approach beyond traffic? Sources
 \end_inset
 
 ), less attention has been given to these models in the literature studying
- congestion games, which focuses on modeling latency as a non-decreasing
- function of flow, and assumes flow and density to have a one-to-one relation.
+ routing games, which focuses on modeling latency as a non-decreasing function
+ of flow, and assumes flow and density to have a one-to-one relation.
  This article describes the required theoretical work required to characterize
  Nash equilibria and their extensions to Stackelberg framework for this
  class of horizontal queuing latency functions.
@@ -1503,7 +1509,7 @@ name "sub:latency_class"
 \begin_layout Standard
 While expressing latency as a function of density is intuitive and succinct
  for horizontal queues, expressing it as a function of flow proves to be
- more convenient in the study of congestion games and Stackelberg routing.
+ more convenient in the study of routing games and Stackelberg routing.
  This is largely due to the fact that total flow must be conserved in traffic
  assignment problems, and not density.
  For this reason, we introduce an equivalent formulation of latency using
@@ -1778,16 +1784,6 @@ reference "sec:Inefficiency"
 \end_inset
 
 .
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-J: we don't really cover that in this section
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
@@ -1795,15 +1791,6 @@ Characterization of Nash Equilibria
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-A: One sentence to explain what the section is about
-\end_layout
-
-\end_inset
-
 We first recall the fundamental notion of Nash equilibrium for the network
  instance 
 \begin_inset Formula $(\NLinks,r)$
@@ -3024,7 +3011,7 @@ status collapsed
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -3063,7 +3050,7 @@ name "fig:xhat"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -3244,7 +3231,7 @@ reference "prop:xbar"
 
 \begin_layout Lemma
 
-\series bold
+\emph on
 Existence of a single link free-flow Nash equilibrium
 \end_layout
 
@@ -3288,7 +3275,11 @@ Consider instance
 \end_layout
 
 \begin_layout Proof
-We first observe that the maximum demand 
+We first observe that for a network of 
+\begin_inset Formula $\NLinks$
+\end_inset
+
+ links, the maximum demand 
 \begin_inset Formula $r$
 \end_inset
 
@@ -3298,6 +3289,11 @@ We first observe that the maximum demand
 
  is 
 \begin_inset Formula $\max_{k\in\left\{ 1,\dots,\NLinks\right\} }\left\{ \flowMax[k]+\sum_{\link=1}^{k-1}\cffFlow{\link}k\right\} $
+\end_inset
+
+.
+ We denote this quantity with 
+\begin_inset Formula $\maxDemand{\NLinks}$
 \end_inset
 
 .
@@ -3316,7 +3312,7 @@ reference "lem:filluplower"
 \end_inset
 
 : 
-\begin_inset Formula $\forall r\in\left[0,\max_{1\leq k\leq\NLinks}\left\{ \flowMax[k]+\sum_{\link=1}^{k-1}\cffFlow{\link}k\right\} \right]$
+\begin_inset Formula $\forall r\in\left[0,\maxDemand{\NLinks}\right]$
 \end_inset
 
 , there exists a single link free-flow Nash equilibrium for the instance
@@ -3368,7 +3364,7 @@ Now let
 
 .
  Let 
-\begin_inset Formula $0\leq\qdemand\le\max_{1\leq k\leq\NLinks+1}\left\{ \flowMax[k]+\sum_{\link=1}^{k-1}\cffFlow{\link}k\right\} $
+\begin_inset Formula $0\leq\qdemand\le\maxDemand{\NLinks+1}$
 \end_inset
 
  and consider a network instance 
@@ -3382,15 +3378,11 @@ Now let
 \begin_deeper
 \begin_layout Case
 If 
-\begin_inset Formula $\qdemand\le\max_{1\leq k\leq\NLinks}\left\{ \flowMax[k]+\sum_{\link=1}^{k-1}\cffFlow{\link}k\right\} $
+\begin_inset Formula $\qdemand\le\maxDemand{\NLinks}$
 \end_inset
 
-,
-\end_layout
-
-\begin_layout Standard
-then by the induction hypothesis there exists a single link free-flow Nash
- equilibrium 
+, then by the induction hypothesis there exists a single link free-flow
+ Nash equilibrium 
 \begin_inset Formula $(x,m)$
 \end_inset
 
@@ -3418,46 +3410,13 @@ then by the induction hypothesis there exists a single link free-flow Nash
 .
 \end_layout
 
+\begin_layout --Separator--
+
+\end_layout
+
 \begin_layout Case
 If 
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-small
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray}
-\max_{1\leq k\leq\NLinks}\left\{ \flowMax[k]+\sum_{\link=1}^{k-1}\cffFlow{\link}k\right\} \nonumber \\
-<r\le\max_{1\leq k\leq\NLinks+1} &  & \left\{ \flowMax[k]+\sum_{\link=1}^{k-1}\cffFlow{\link}k\right\} \label{eq:induction_2}
-\end{eqnarray}
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-normalsize
-\end_layout
-
+\begin_inset Formula $\maxDemand{\NLinks}<\qdemand\le\maxDemand{\NLinks+1}$
 \end_inset
 
  then we can show that 
@@ -3472,7 +3431,20 @@ reference "prop:xbar"
 
 \end_inset
 
-, we only need to show that 
+, we only need to show that
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.10in}
+\end_layout
+
+\end_inset
+
+ 
 \begin_inset Formula 
 \begin{equation}
 0\leq\qdemand-\sum_{\link=1}^{N}\cffFlow{\link}{N+1}\leq\flowMax[N+1].\label{eq:ff_existence_need_to_show}
@@ -3485,81 +3457,18 @@ reference "prop:xbar"
 
 \begin_layout Standard
 First, we note that since 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-small
-\end_layout
-
+\begin_inset Formula $\maxDemand{\NLinks}<\maxDemand{\NLinks+1}$
 \end_inset
 
- 
-\begin_inset Formula 
-\[
-\max_{1\leq k\leq\NLinks+1}\left\{ \flowMax[k]+\sum_{\link=1}^{k-1}\cffFlow{\link}k\right\} >\max_{1\leq k\leq\NLinks}\left\{ \flowMax[k]+\sum_{\link=1}^{k-1}\cffFlow{\link}k\right\} 
-\]
-
+, then 
+\begin_inset Formula $\maxDemand{\NLinks+1}=\flowMax[N+1]+\sum_{\link=1}^{N}\cffFlow{\link}{N+1}$
 \end_inset
 
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-normalsize
-\end_layout
-
+, thus from 
+\begin_inset Formula $\qdemand<\maxDemand{\NLinks+1}$
 \end_inset
 
- then 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-small
-\end_layout
-
-\end_inset
-
- 
-\begin_inset Formula 
-\[
-\max_{1\leq k\leq\NLinks+1}\left\{ \flowMax[k]+\sum_{\link=1}^{k-1}\cffFlow{\link}k\right\} =\flowMax[N+1]+\sum_{\link=1}^{N}\cffFlow{\link}{N+1}
-\]
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-normalsize
-\end_layout
-
-\end_inset
-
- thus from 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:induction_2"
-
-\end_inset
-
- we have 
+, we have 
 \begin_inset Formula $r\leq\flowMax[N+1]+\sum_{\link=1}^{N}\cffFlow{\link}{N+1}$
 \end_inset
 
@@ -3611,10 +3520,9 @@ small
 
 \begin_inset Formula 
 \begin{align*}
-r & \ge\flowMax[N]+\sum_{\link=1}^{N-1}\cffFlow{\link}N & \text{using \eqref{eq:induction_2}}\\
+r & \ge\flowMax[N]+\sum_{\link=1}^{N-1}\cffFlow{\link}N & \text{since \maxDemand{\NLinks}<\qdemand}\\
  & \ge\flowMax[N]+\sum_{\link=1}^{N-1}\cffFlow{\link}{N+1} & \text{since }\text{\cffFlow nN\geq\cffFlow n{N+1}}\\
- & \geq\cffFlow N{N+1}+\sum_{\link=1}^{N-1}\cffFlow{\link}{N+1} & \text{since }\text{\flowMax[N]\geq\cffFlow N{N+1}}\\
- & =\sum_{\link=1}^{N}\cffFlow{\link}{N+1}
+ & \geq\cffFlow N{N+1}+\sum_{\link=1}^{N-1}\cffFlow{\link}{N+1} & \text{since }\text{\flowMax[N]\geq\cffFlow N{N+1}}
 \end{align*}
 
 \end_inset
@@ -3635,27 +3543,159 @@ normalsize
 
 \end_inset
 
- thus we obtain the desired inequality
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $\qdemand-\sum_{\link=1}^{N}\cffFlow{\link}{N+1}\geq0$
-\end_inset
-
- and 
-\begin_inset Formula $\left(\opneFlow{N+1}{\qdemand},\cffMode{N+1}\right)$
-\end_inset
-
- is a single link free-flow equilibrium for the instance 
-\begin_inset Formula $(\NLinks+1,r)$
-\end_inset
-
-.
+ which achieves the induction.
 \end_layout
 
 \end_deeper
-\begin_layout Proof
-This achieves the induction.
+\begin_layout Standard
+Another way to interpret Lemma
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+~
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lemma:slff"
+
+\end_inset
+
+ is that the existence of a completely congested Nash equilibria implies
+ the existence of a single link free-flow Nash equilibria.
+ To show this, one can start from the existence of a completely congested
+ Nash equilibria with 
+\begin_inset Formula $\NLinks$
+\end_inset
+
+ links in the support.
+ One can then check the feasibility of 
+\begin_inset Formula $\left(\opneFlow i{\qdemand},\cffMode i\right)$
+\end_inset
+
+, with 
+\begin_inset Formula $i$
+\end_inset
+
+ decreasing and starting from 
+\begin_inset Formula $i=\NLinks$
+\end_inset
+
+.
+ The inductive argument tells us that, while 
+\begin_inset Formula $\left(\opneFlow{\NLinks}{\qdemand},\cffMode{\NLinks}\right)$
+\end_inset
+
+ is not guaranteed to be feasible, there will exist some 
+\begin_inset Formula $i\in\left\{ 1,\ldots,\NLinks\right\} $
+\end_inset
+
+ such that 
+\begin_inset Formula $\left(\opneFlow i{\qdemand},\cffMode i\right)$
+\end_inset
+
+ is a feasible Nash equilibrium.
+ In Figure
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+~
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Illustration-of-SLFF"
+
+\end_inset
+
+, a completely congested Nash equilibrium is shown with 3 links in the support.
+ Sequentially checking single-link free flow Nash equilibria shows that
+ while 
+\begin_inset Formula $i=3$
+\end_inset
+
+ turns out to be infeasible in this case (link 3 has negative flow), 
+\begin_inset Formula $i=2$
+\end_inset
+
+ is able to accommodate all the flow.
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /Users/jdr/Documents/github-projects/AGT-stackelberg/figures/presentation/ExistenceofFreeFlowNashEquilibrium.pdf
+	width 2.5in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Alternative interpretation of Lemma
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+~
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lemma:slff"
+
+\end_inset
+
+.
+ Starting from a completely congested equilibrium with 
+\begin_inset Formula $\NLinks$
+\end_inset
+
+ links in support, one can always discover a single link free-flow equilibrium
+ with fewer or equal links in the support.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Illustration-of-SLFF"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Corollary
@@ -4024,7 +4064,7 @@ reference "eq:x_bar"
 placement h
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset CommandInset include
@@ -4142,8 +4182,8 @@ key "Anshelevich2004"
  We first compute the cost of the social optimum, then consider a simple
  two link parallel network and derive the price of stability for a triangular
  fundamental diagram.
- This example network will be useful for illustrating the dependency of
- the price of stability on the flow demand and the free-flow latencies.
+ We show how this example illustrates the dependency of the price of stability
+ on the flow demand and the free-flow latencies.
 \end_layout
 
 \begin_layout Subsection
@@ -4300,7 +4340,7 @@ Then since the links are ordered by increasing free-flow latency
 \end_layout
 
 \begin_layout Subsection
-Price of Stability on a Two-Link Network
+Price of stability on a two-link network
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Price-of-Stability"
@@ -4314,7 +4354,7 @@ name "sec:Price-of-Stability"
 In this section, we characterize the loss of efficiency of Nash equilibria
  by comparing them to the social optimum on a simple two-link parallel network.
  To characterize the loss of efficiency of Nash equilibria several metrics
- have been used including Price of Anarchy 
+ have been used including price of anarchy 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "roughgarden2004bounding,roughgarden2002bad"
@@ -4329,11 +4369,11 @@ key "Anshelevich2004"
 \end_inset
 
 .
- The Price of Anarchy is defined as the ratio between the cost of the worst
+ The price of anarchy is defined as the ratio between the cost of the worst
  Nash equilibrium and the the social optimum cost, while the price of stability
  is defined as the ratio between the best Nash equilibrium and the social
  optimal cost.
- For the case of non-decreasing latency functions, the Price of Anarchy
+ For the case of non-decreasing latency functions, the price of anarchy
  and the price of stability coincide since all Nash equilibria have the
  same cost by the essential uniqueness property
 \begin_inset Note Note
@@ -4539,14 +4579,14 @@ reference "fig:sone"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -4581,7 +4621,7 @@ name "fig:Social-optimum"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -4620,7 +4660,7 @@ name "fig:Nash-equilibrium"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -5107,7 +5147,7 @@ reference "sub:Best-Nash-Equilibria"
 \end_layout
 
 \begin_layout Standard
-This extends the definition usually used in the congestion games literature,
+This extends the definition usually used in the routing games literature,
  see for example 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -7973,7 +8013,7 @@ name "sec:Discussion"
 \begin_layout Standard
 We introduced a new class of latency functions that better models congestion
  on horizontal queuing networks, and we studied the resulting Nash equilibria
- for non-atomic congestion games on parallel networks.
+ for non-atomic routing games on parallel networks.
  We showed that the essential uniqueness property does not hold for this
  new class, and that there may be up to 
 \begin_inset Formula $2N$

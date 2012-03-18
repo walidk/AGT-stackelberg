@@ -13,11 +13,11 @@ $\textbf{procedure freeFlowConfig(}N, r, i\textbf{)}$
 $\textbf{Inputs:}$ Size of the network $N$, 
 	demand $r$, free-flow link index $i$
 $\textbf{Outputs:}$ assignment $(x, m)=(\bar{x}^{r, i},\bar{m}^{r,i})$ 
-	 as defined in Eq's (5) and (6)
+	 as defined in Eq's (6) and (7)
 
 for $i \in \{ 1, \dots, N \}$:
     if $i < j$:
-       $x_i = \hat{x}_i(j)$, $m_i = 1$                                  $\hat{x}_i (j)$ $\textbf{in Eq. (4)}$
+       $x_i = \hat{x}_i(j)$, $m_i = 1$                           $\hat{x}_i (j)$ $\textbf{in Eq. (5)}$
     elseif $i$ == $j$:
        $x_i = r - \sum_{k=1}^j x_k$, $m_i = 0$
     else:
