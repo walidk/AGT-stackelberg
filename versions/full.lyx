@@ -3761,12 +3761,12 @@ reference "fig:Illustration-of-SLFF"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /Users/jdr/Documents/github-projects/AGT-stackelberg/figures/presentation/ExistenceofFreeFlowNashEquilibrium.pdf
+	filename ../figures/presentation/ExistenceofFreeFlowNashEquilibrium.pdf
 	width 2.5in
 
 \end_inset
@@ -7213,7 +7213,13 @@ In this section, we show that the set of optimal Stackelberg strategies,
 \end_inset
 
 , can be generated from the NCF strategy.
- Let 
+ Computing the entire set of optimal strategies can be useful for the coordinato
+r as it gives more flexibility as explained below.
+ 
+\end_layout
+
+\begin_layout Standard
+Let 
 \begin_inset Formula $\bar{s}=\text{NCF}(\NLinks,r,\compRate)$
 \end_inset
 
@@ -7770,20 +7776,28 @@ reference "eq:epsilon3"
 \end_layout
 
 \begin_layout Proof
-First, since 
-\begin_inset Formula $x=\bar{x}$
-\end_inset
-
-, we have 
+First, we have 
 \begin_inset Formula $\forall n\in\left\{ 1,\dots,\bar{k}-1\right\} $
 \end_inset
 
  
-\begin_inset Formula $x_{n}=\bar{x}_{n}=\cffFlow n{\bar{k}}$
+\begin_inset Formula $\bar{t}_{n}=\cffFlow n{\bar{k}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{s}_{n}=0$
 \end_inset
 
 , thus 
-\begin_inset Formula $\epsilon_{n}=s_{n}-\bar{s}_{n}=x_{n}-t_{n}-\bar{s}_{n}\leq x_{n}=\cffFlow n{\bar{k}}$
+\begin_inset Formula $\epsilon_{n}=s_{n}-\bar{s}_{n}=s_{n}$
+\end_inset
+
+, and 
+\begin_inset Formula $0\leq s_{n}\leq x_{n}=\bar{x}_{n}=\cffFlow n{\bar{k}}$
+\end_inset
+
+, therefore 
+\begin_inset Formula $0\leq\epsilon_{n}\leq\cffFlow n{\bar{k}}$
 \end_inset
 
 .
