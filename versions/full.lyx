@@ -452,8 +452,7 @@ r.
 In many networks, drivers have a number of alternative disjoint paths to
  reach their destination.
  For example, parallel highway networks often exist between two heavily-populate
-d cities (the Northern California bay area has numerous examples of such
- networks).
+d cities (the San Francisco bay area has numerous examples of such networks).
  Therefore, Stackelberg routing strategies on simple parallel networks becomes
  a matter of practical importance to traffic planners in the near future.
  However, due to the limitations of congestion models discussed above, the
@@ -3210,6 +3209,143 @@ reference "eq:x_bar"
 \end_inset
 
 , which satisfies the definition of a Nash equilibrium.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Formula $2\NLinks$
+\end_inset
+
+ Nash equilibria is a tight upper bound
+\end_layout
+
+\begin_layout Standard
+With the definition of single link free-flow, we can now show that the upper
+ bound of 
+\begin_inset Formula $2\NLinks$
+\end_inset
+
+ Nash equilibria is a tight upper bound by giving an example of a network
+ that attains the upper bound.
+ Let 
+\begin_inset Formula $\epsilon=\frac{1}{\NLinks}\underset{\link\in\left\{ 1,\ldots\NLinks\right\} }{\min}\flowMax[\link]$
+\end_inset
+
+, 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+.
+ Then define the latencies of each link 
+\begin_inset Formula $i\in\NLinks$
+\end_inset
+
+ in congestion:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\latency[\link]\left(\flow,1\right)=\begin{cases}
+\frac{\parA[\link+1]-\parA[\link]}{\flowMax[\link]-\epsilon}\left(\flowMax[\link]-\flow\right)+\parA[\link] & \epsilon\le\flow\le\flowMax[\link]\\
+-\frac{\parA[\NLinks]+\delta-\parA[\link+1]}{\epsilon}x+\left(\parA[\NLinks]+\delta\right) & 0\le\flow\le\epsilon
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This constructed example satisfies all requirements stated in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:The-Model"
+
+\end_inset
+
+ and gives us the property: 
+\begin_inset Formula $\forall i<j,0<\cffFlow ij\le\epsilon$
+\end_inset
+
+.
+ We now show that when 
+\begin_inset Formula $r=\NLinks\epsilon$
+\end_inset
+
+, there exists 
+\begin_inset Formula $\NLinks$
+\end_inset
+
+ single-link free flow Nash equilibria.
+ Using Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:xbar"
+
+\end_inset
+
+, we need only to show 
+\begin_inset Formula $\forall\link\in\left\{ 1,\ldots,\NLinks\right\} $
+\end_inset
+
+, 
+\begin_inset Formula $0\le\opneFlow[\link]{\link}{\qdemand}\le\flowMax[\link]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\flowMax[\link] & \ge & \NLinks\epsilon\ge\NLinks\epsilon-\sum_{i=1}^{\link-1}\cffFlow i{\link}=\opneFlow[\link]{\link}{\qdemand}\\
+ & \ge & \NLinks\epsilon-\epsilon\left(\link-1\right)=\epsilon\left(\NLinks-n+1\right)\\
+ & \ge & \epsilon\left(\NLinks-\NLinks+1\right)\ge0
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Next, we show that there exists 
+\begin_inset Formula $\NLinks$
+\end_inset
+
+ completely congested Nash equilibria.
+ It is clear that the feasible set of demands for a completely congested
+ equilibrium with 
+\begin_inset Formula $\link$
+\end_inset
+
+ links in the support is 
+\begin_inset Formula $\left[\sum_{i=1}^{\link}\cffFlow i{\link+1},\sum_{i=1}^{\link-1}\cffFlow i{\link}+\flowMax[\link]\right]$
+\end_inset
+
+.
+ Therefore we can conclude by showing 
+\begin_inset Formula $\qdemand$
+\end_inset
+
+ is within these bounds 
+\begin_inset Formula $\forall\link$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\sum_{i=1}^{\link-1}\cffFlow i{\link}+\flowMax[\link] & \ge & \flowMax[\link]\ge\NLinks\epsilon=\qdemand\\
+\sum_{i=1}^{\link}\cffFlow i{\link+1} & \le & \link\epsilon\le\NLinks\epsilon=\qdemand
+\end{eqnarray*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
