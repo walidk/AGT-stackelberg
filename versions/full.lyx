@@ -3219,26 +3219,29 @@ reference "eq:x_bar"
 \end_layout
 
 \begin_layout Standard
-To show that 
+We now show that given an instance 
+\begin_inset Formula $\left(\NLinks,\qdemand\right)$
+\end_inset
+
+, 
 \begin_inset Formula $2\NLinks$
 \end_inset
 
- Nash equilibria is a tight upper bound, we consider a class of latencies
- for which the bound is attained.
+ is a tight upper bound for the number of Nash equilibria.
  Let 
 \begin_inset Formula $\epsilon=\frac{1}{\NLinks}\underset{\link\in\left\{ 1,\ldots\NLinks\right\} }{\min}\flowMax[\link]$
 \end_inset
 
 .
- Then any network that satisfies 
+ Then if 
 \begin_inset Formula $\forall i<j,0<\cffFlow ij\le\epsilon$
 \end_inset
 
-, the upper bound is attained with demand 
-\begin_inset Formula $\qdemand=\NLinks\epsilon$
+, the instance 
+\begin_inset Formula $\left(\NLinks,\NLinks\epsilon\right)$
 \end_inset
 
-.
+ attains the bound.
 \end_layout
 
 \begin_layout Standard
@@ -3316,7 +3319,8 @@ Next, we show
 \end_layout
 
 \begin_layout Standard
-An example of a set of latency functions that satisfies the assumption are:
+A piecewise-linear latency function can be constructed to satisfy the above
+ assumptions:
 \end_layout
 
 \begin_layout Standard
