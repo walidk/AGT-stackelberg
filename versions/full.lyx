@@ -150,15 +150,9 @@ We study inefficiencies of capacity constrained networks due to the selfish
 
 \begin_layout Abstract
 Stackelberg routing on parallel networks has been studied extensively for
- the class of non-decreasing latency functions, and it is shown in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "roughgarden2001stackelberg"
-
-\end_inset
-
- that computing the optimal Stackelberg strategy is NP-hard in the number
- of links for linear latency functions.
+ the class of non-decreasing latency functions, and it is shown in that
+ computing the optimal Stackelberg strategy is NP-hard in the number of
+ links for linear latency functions.
  
 \end_layout
 
@@ -182,7 +176,7 @@ Introduction
 \end_layout
 
 \begin_layout Subsection
-Congestion Games and Stackelberg Routing
+Routing Games and Stackelberg Routing
 \end_layout
 
 \begin_layout Standard
@@ -390,8 +384,15 @@ key "zheng2011network,ziliaskopoulos2000linear"
 \end_inset
 
 .
- However, to the knowledge of the authors, optimal Stackelberg routing on
- horizontal queuing networks has not been addressed so far.
+ Due to the complexities of modeling horizontal queueing, approaches to
+ solving the user equilibrium on general networks usually involve non-linear
+ optimization techniques that limit the size of networks that can be considered.
+ By restricting our analysis to parallel-link networks, we exploit the structure
+ of the network to improve upon previous approaches to user equilibria computati
+on.
+ While Stackelberg routing has been studied extensively for non-decreasing
+ latency functions, optimal Stackelberg routing on horizontal queuing networks
+ has not been addressed so far to the knowledge of the authors.
 \end_layout
 
 \begin_layout Subsection
@@ -505,17 +506,12 @@ We show that for a given instance
 \begin_inset Formula $\qdemand$
 \end_inset
 
-, the set of all pure Nash equilibria can be computed in time polynomial
- in 
-\begin_inset Formula $\NLinks$
-\end_inset
-
-, and we characterize the 
+, we characterize the structure of the flow in the 
 \emph on
 best Nash equilibrium 
 \emph default
 (the Nash equilibrium that minimizes the total network latency) and show
- that it can be computed in 
+ that the equilibrium can be computed in 
 \begin_inset Formula $O\left(\NLinks^{2}\right)$
 \end_inset
 
