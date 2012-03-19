@@ -6817,7 +6817,22 @@ x_{n} & \leq\bar{x}_{n} & \forall n\in\{1,\dots,l-1\}\label{eq:cong_flow}
 \end_layout
 
 \begin_layout Proof
-Note that 
+By definition of 
+\begin_inset Formula $\bar{s}$
+\end_inset
+
+ and the resulting latencies 
+\begin_inset Formula $l_{n}(\bar{x}_{n},\bar{m}_{n})$
+\end_inset
+
+ given by Equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:opt_stack_latencies"
+
+\end_inset
+
+, we have 
 \begin_inset Formula $\forall n\in\{1,\dots,\bar{k}\}$
 \end_inset
 
@@ -6845,7 +6860,7 @@ l_{n}(\bar{x}_{n},\bar{m}_{n}) & \leq a_{l} & \forall n\in\{1,\dots,l-1\}\label{
 \end_layout
 
 \begin_layout Proof
-Also note that each link 
+We also note that each link 
 \begin_inset Formula $n\in\{l,\dots,N\}$
 \end_inset
 
@@ -6912,11 +6927,11 @@ small
 
 \begin_layout Proof
 \begin_inset Formula 
-\begin{align*}
-C(x,m) & =\sum_{n=1}^{N}x_{n}l_{n}(x_{n},m_{n})\\
- & =\sum_{n=1}^{l-1}x_{n}l_{n}(x_{n},m_{n})+\sum_{n=l}^{N}x_{n}l_{n}(x_{n},m_{n})\\
- & \geq\sum_{n=1}^{l-1}x_{n}l_{n}(\bar{x}_{n},\bar{m}_{n})+\sum_{n=l}^{N}x_{n}a_{l}
-\end{align*}
+\begin{align}
+C(x,m) & =\sum_{n=1}^{N}x_{n}l_{n}(x_{n},m_{n})\nonumber \\
+ & =\sum_{n=1}^{l-1}x_{n}l_{n}(x_{n},m_{n})+\sum_{n=l}^{N}x_{n}l_{n}(x_{n},m_{n})\nonumber \\
+ & \geq\sum_{n=1}^{l-1}x_{n}l_{n}(\bar{x}_{n},\bar{m}_{n})+\sum_{n=l}^{N}x_{n}a_{l}\label{eq:opt_stack_proof_ineq1}
+\end{align}
 
 \end_inset
 
@@ -7036,7 +7051,7 @@ normalsize
 
 \end_inset
 
- Then by 
+ Then by Equations 
 \begin_inset Formula $\eqref{eq:cong_flow}$
 \end_inset
 
@@ -7045,18 +7060,38 @@ normalsize
 \end_inset
 
  we have 
+\end_layout
+
+\begin_layout Proof
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ 
 \begin_inset Formula $\forall n\in\{1,\dots,l-1\}$
 \end_inset
 
 , 
-\begin_inset Formula $x_{n}-\bar{x}_{n}\leq0$
-\end_inset
-
- and 
-\begin_inset Formula $l_{n}(\bar{x}_{n},\bar{m}_{n})\leq a_{l}$
+\begin_inset Formula $(x_{n}-\bar{x}_{n})(l_{n}(\bar{x}_{n},\bar{m}_{n})-a_{l})\geq0$
 \end_inset
 
 , thus 
+\begin_inset Formula 
+\begin{equation}
+\sum_{n=1}^{l-1}(x_{n}-\bar{x}_{n})l_{n}(\bar{x}_{n},\bar{m}_{n})\geq\sum_{n=1}^{l-1}(x_{n}-\bar{x}_{n})a_{l}\label{eq:opt_stack_proof_ineq2}
+\end{equation}
+
+\end_inset
+
+and we have 
 \begin_inset ERT
 status open
 
@@ -7190,7 +7225,7 @@ non-compliant first
 \begin_inset Formula $\bar{t}=\BestNashEquilibrium{\NLinks}{(1-\compRate)r}$
 \end_inset
 
- be the induced equilibrium, and 
+ be its induced assignment of non-compliant agents, and 
 \begin_inset Formula $\bar{k}=\max\Supp{\bar{t}}$
 \end_inset
 
@@ -7214,7 +7249,7 @@ non-compliant first
 
  (see Equation 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand eqref
 reference "eq:opt_stack_strategy"
 
 \end_inset
@@ -7262,7 +7297,7 @@ To give an example of an optimal Stackelberg strategy other than the NCF
 \begin_inset Formula $\bar{k}$
 \end_inset
 
- by the same amount, and agrees with the NCF strategy on remaining links.
+ by the same amount, and matches the NCF strategy on remaining links.
  Strategy 
 \begin_inset Formula $s$
 \end_inset
@@ -7284,7 +7319,7 @@ To give an example of an optimal Stackelberg strategy other than the NCF
 \end_layout
 
 \begin_layout Standard
-Similarly, it is easy to prove that strategies of the form 
+Similarly, it is easy to show that strategies of the form 
 \begin_inset Formula $s=\bar{s}+\epsilon$
 \end_inset
 
@@ -7293,9 +7328,9 @@ Similarly, it is easy to prove that strategies of the form
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-\epsilon=\left(\epsilon_{1},\epsilon_{2},\dots,\epsilon_{\bar{k}-1},-\sum_{n=1}^{\bar{k}-1}\epsilon_{n},\stackrel{\bar{k}+1}{0},\dots,0\right)
-\]
+\begin{equation}
+\epsilon=\left(\epsilon_{1},\epsilon_{2},\dots,\epsilon_{\bar{k}-1},-\sum_{n=1}^{\bar{k}-1}\epsilon_{n},\stackrel{\bar{k}+1}{0},\dots,0\right)\label{eq:epsilon1}
+\end{equation}
 
 \end_inset
 
@@ -7310,7 +7345,7 @@ and
  is such that 
 \begin_inset Formula 
 \begin{eqnarray}
- & \epsilon_{n}\in[0,\cffFlow n{\bar{k}}] & \forall n\in\left\{ 1,\dots,\bar{k}-1\right\} \label{eq:epsilon1}
+s_{n}= & \epsilon_{n}\in[0,\cffFlow n{\bar{k}}] & \forall n\in\left\{ 1,\dots,\bar{k}-1\right\} \label{eq:epsilon2}
 \end{eqnarray}
 
 \end_inset
@@ -7318,7 +7353,7 @@ and
  and 
 \begin_inset Formula 
 \begin{equation}
-\epsilon_{\bar{k}}=\bar{s}_{\bar{k}}-\sum_{n=1}^{\bar{k}-1}\epsilon_{n}\geq0\label{eq:epsilon2}
+s_{\bar{k}}=\bar{s}_{\bar{k}}+\epsilon_{\bar{k}}=\bar{s}_{\bar{k}}-\sum_{n=1}^{\bar{k}-1}\epsilon_{n}\geq0\label{eq:epsilon3}
 \end{equation}
 
 \end_inset
@@ -7328,14 +7363,44 @@ will induce
 \end_inset
 
  and are optimal.
+ In other words, the coordinator can modify the NCF strategy 
+\begin_inset Formula $\bar{s}$
+\end_inset
+
+ by assigning positive flows on links 
+\begin_inset Formula $\left\{ 1,\dots,\bar{k}-1\right\} $
+\end_inset
+
+ as long as there is enough room for the induced equilibrium (
+\begin_inset Formula $s_{n}\leq\cffFlow nk\ \forall n\in\left\{ 1,\dots,\bar{k}-1\right\} $
+\end_inset
+
+) and the flow 
+\begin_inset Formula $s_{\bar{k}}=\bar{s}_{\bar{k}}-\sum_{n=1}^{\bar{k}-1}\epsilon_{n}$
+\end_inset
+
+ assigned to link 
+\begin_inset Formula $\bar{k}$
+\end_inset
+
+ is decreased to balance the increase in flow on links 
+\begin_inset Formula $\left\{ 1,\dots,\bar{k}-1\right\} $
+\end_inset
+
+.
+ This shows that the coordinator has some flexibility in general while optimally
+ assigning the compliant flow, and can use this flexibility to accommodate
+ preferences of compliant agents, if any.
 \end_layout
 
 \begin_layout Standard
-We now prove that all optimal strategies are of this form.
+We now prove that all optimal strategies are of the above form.
 \end_layout
 
 \begin_layout Lemma
-The set of optimal Stackelberg strategies
+
+\emph on
+Optimal Stackelberg strategies
 \end_layout
 
 \begin_layout Lemma
@@ -7358,10 +7423,17 @@ reference "eq:epsilon1"
 
 \end_inset
 
- and 
+, 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:epsilon2"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:epsilon3"
 
 \end_inset
 
@@ -7373,45 +7445,427 @@ Let
 \begin_inset Formula $s\in S^{\text{opt}}(\NLinks,r,\compRate)$
 \end_inset
 
- be an optimal Stackelberg strategy and 
-\begin_inset Formula $t(s)$
+ be an optimal Stackelberg strategy, 
+\begin_inset Formula $(t,m)=(t(s),m(s))$
 \end_inset
 
- the induced assignment of non-compliant agents.
- We have from the proof of Theorem
+ the induced assignment of non-compliant agents, and 
+\begin_inset Formula $x=s+t$
+\end_inset
+
+ the total flow assignment.
+ As previously, let 
+\begin_inset Formula $k=\max\Supp t$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+We first show that 
+\begin_inset Formula $x=\bar{x}$
+\end_inset
+
+.
+ By optimality of both 
+\begin_inset Formula $s$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{s}$
+\end_inset
+
+, we have 
+\begin_inset Formula $C(x,m)=C(\bar{x},\bar{m})$
+\end_inset
+
+, therefore inequalities 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:opt_stack_proof_ineq1"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:opt_stack_proof_ineq2"
+
+\end_inset
+
+ in the previous proof must hold with equality.
+ In particular, to have equality in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:opt_stack_proof_ineq1"
+
+\end_inset
+
+ we need to have 
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
 
-~
+
+\backslash
+small
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{align}
+x_{n}(l_{n}(x_{n},m_{n})-l_{n}(\bar{x}_{n},\bar{m}_{n})) & =0 & \forall n\in\{1,\dots,l-1\}\label{eq:opt_set_proof1}\\
+x_{n}(l_{n}(x_{n},m_{n})-a_{l}) & =0 & \forall n\in\{l,\dots,\NLinks\}\label{eq:opt_set_proof2}
+\end{align}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+normalsize
+\end_layout
+
+\end_inset
+
+ and to have equality in 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand eqref
+reference "eq:opt_stack_proof_ineq2"
+
+\end_inset
+
+ we need to have 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{align}
+(x_{n}-\bar{x}_{n})(l_{n}(\bar{x}_{n},\bar{m}_{n})-a_{l}) & =0 & \forall n\in\{1,\dots,l-1\}\label{eq:opt_set_proof3}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+normalsize
+\end_layout
+
+\end_inset
+
+ We have 
+\begin_inset Formula $\forall n\in\left\{ l+1,\dots\NLinks\right\} $
+\end_inset
+
+, 
+\begin_inset Formula $l_{n}(x_{n},m_{n})\geq a_{n}>a_{l}$
+\end_inset
+
+ by definition of the latency functions.
+ Thus from equality 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:opt_set_proof2"
+
+\end_inset
+
+, we have 
+\begin_inset Formula $x_{n}=0=\bar{x}_{n}$
+\end_inset
+
+ 
+\begin_inset Formula $\forall n\in\left\{ l+1,\dots\NLinks\right\} $
+\end_inset
+
+.
+ For 
+\begin_inset Formula $n\in\left\{ 1,\dots l-1\right\} $
+\end_inset
+
+, we have by definition of 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+, 
+\begin_inset Formula $l_{n}(\bar{x}_{n},\bar{m}_{n})<a_{l}$
+\end_inset
+
+.
+ Thus from equality 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:opt_set_proof3"
+
+\end_inset
+
+ we have 
+\begin_inset Formula $x_{n}-\bar{x}_{n}=0$
+\end_inset
+
+ 
+\begin_inset Formula $\forall n\in\left\{ 1,\dots l-1\right\} $
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $x_{n}=\bar{x}_{n}$
+\end_inset
+
+ 
+\begin_inset Formula $\forall n\neq l$
+\end_inset
+
+, but since 
+\begin_inset Formula $x_{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{x}_{n}$
+\end_inset
+
+ are both assignments of the same total flow 
+\begin_inset Formula $r$
+\end_inset
+
+, we also have 
+\begin_inset Formula $x_{l}=\bar{x}_{l}$
+\end_inset
+
+, which proves 
+\begin_inset Formula $x=\bar{x}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Next we show that 
+\begin_inset Formula $k=\bar{k}$
+\end_inset
+
+.
+ We have from the proof of Theorem 
+\begin_inset CommandInset ref
+LatexCommand eqref
 reference "theorem:NCFoptimal"
 
 \end_inset
 
- 
-\begin_inset Formula $\max\Supp{t(s)}\geq\bar{k}$
+ that 
+\begin_inset Formula $k\geq\bar{k}$
 \end_inset
 
 .
- We first show that since 
+ Assume by contradiction that 
+\begin_inset Formula $k>\bar{k}$
+\end_inset
+
+.
+ Then since 
+\begin_inset Formula $k\in\Supp t$
+\end_inset
+
+, all links have latency at least 
+\begin_inset Formula $l_{k}(x_{k},m_{k})\geq a_{k}>a_{\bar{k}}$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $l_{n}(x_{n},m_{n})>a_{\bar{k}}$
+\end_inset
+
+ 
+\begin_inset Formula $\forall n$
+\end_inset
+
+.
+ This implies in particular that 
+\begin_inset Formula $x_{1}>0$
+\end_inset
+
+ (otherwise 
+\begin_inset Formula $l_{1}(x_{1},m_{1})=a_{1}<a_{\bar{k}}$
+\end_inset
+
+), therefore 
+\begin_inset Formula $x_{1}(l_{1}(x_{1},m_{1})-a_{\bar{k}})>0$
+\end_inset
+
+ which contradicts Equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:opt_stack_proof_ineq2"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Now let 
+\begin_inset Formula $\epsilon=s-\bar{s}$
+\end_inset
+
+.
+ We want to show that 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ satisfies equations 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:epsilon1"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:epsilon2"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:epsilon3"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+First, since 
+\begin_inset Formula $x=\bar{x}$
+\end_inset
+
+, we have 
+\begin_inset Formula $\forall n\in\left\{ 1,\dots,\bar{k}-1\right\} $
+\end_inset
+
+ 
+\begin_inset Formula $x_{n}=\bar{x}_{n}=\cffFlow n{\bar{k}}$
+\end_inset
+
+, thus 
+\begin_inset Formula $\epsilon_{n}=s_{n}-\bar{s}_{n}=x_{n}-t_{n}-\bar{s}_{n}\leq x_{n}=\cffFlow n{\bar{k}}$
+\end_inset
+
+.
+ This shows 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:epsilon2"
+
+\end_inset
+
+.
+ Second, since 
+\begin_inset Formula $k=\bar{k}$
+\end_inset
+
+, we have 
+\begin_inset Formula $\forall n\in\left\{ \bar{k}+1,\dots,\NLinks\right\} $
+\end_inset
+
+, 
+\begin_inset Formula $t_{n}=0=\bar{t}_{n}$
+\end_inset
+
+, thus from 
+\begin_inset Formula $x=\bar{x}$
+\end_inset
+
+, we have 
+\begin_inset Formula $s_{n}=\bar{s}_{n}$
+\end_inset
+
+ i.e.
+ 
+\begin_inset Formula $\epsilon_{n}=0$
+\end_inset
+
+.
+ Note that 
+\begin_inset Formula $\sum_{n=1}^{\NLinks}\epsilon_{n}=0$
+\end_inset
+
+ since 
 \begin_inset Formula $s$
 \end_inset
 
- is optimal, we must have equality.
- Assume by contradiction that 
-\begin_inset Formula $\max\Supp{t(s)}>\bar{k}$
+ and 
+\begin_inset Formula $\bar{s}$
+\end_inset
+
+ are assignments of the same compliant flow 
+\begin_inset Formula $\compRate r$
 \end_inset
 
 .
- Then we have 
+ Thus it follows that 
+\begin_inset Formula $\epsilon_{\bar{k}}=-\sum_{n\neq\bar{k}}\epsilon_{n}=-\sum_{n=1}^{\bar{k}-1}\epsilon_{n}$
+\end_inset
+
+ which proves Equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:epsilon1"
+
+\end_inset
+
+.
+ Finally, we readily have Equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:epsilon3"
+
+\end_inset
+
+ since 
+\begin_inset Formula $s_{\bar{k}}\geq0$
+\end_inset
+
+ by definition of 
+\begin_inset Formula $s$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -7685,7 +8139,33 @@ We also note that for a fixed compliance rate
 
 , i.e.
  
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\end_inset
+
+ 
 \begin_inset Formula $r^{(n,\compRate)}=\min_{r}\left\{ r|n\text{ is congested under }(t(\bar{s}),m(\bar{s})),\ \bar{s}=\text{NCF}(\NLinks,r,\compRate)\right\} $
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+normalsize
+\end_layout
+
 \end_inset
 
 .
