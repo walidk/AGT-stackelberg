@@ -2,7 +2,7 @@
 \lyxformat 413
 \begin_document
 \begin_header
-\textclass IEEEconf
+\textclass IEEEtran
 \begin_preamble
 \overrideIEEEmargins
 \end_preamble
@@ -86,10 +86,14 @@ Walid Krichene, Jack Reilly, Saurabh Amin, Alexandre Bayen
 We study congestion games on parallel networks for a new class of latency
  functions that arise in transportation networks for example, and better
  model congestion on horizontal queuing networks.
- In particular, we investigate possible strategies to reduce the inefficiencies
- of Nash equilibria in congestion games by studying the Stackelberg routing
- game: assuming only partial control of the flow, how should one route that
- flow in order to move the network closer to social optimum.
+ In particular, we investigate possible strategies to 
+\series medium
+reduce
+\series default
+ the inefficiencies of Nash equilibria in congestion games by studying the
+ Stackelberg routing game: assuming only partial control of the flow, how
+ should one route that flow in order to move the network closer to social
+ optimum.
  We show that in our setting, there are multiple Nash equilibria, and we
  characterize the best Nash equilibrium.
  Then we study the Stackelberg routing game and show that the optimal Stackelber
@@ -2277,7 +2281,6 @@ Now we partition the set of Nash Equilibria in two sets
 , each set contains at most one element.
 \end_layout
 
-\begin_deeper
 \begin_layout Paragraph
 Suppose 
 \begin_inset Formula $(\flow,m),(\flow',m)\in\NashEquilibrium{\NLinks}{\qdemand}f$
@@ -2407,7 +2410,6 @@ then since
 .
 \end_layout
 
-\end_deeper
 \begin_layout Standard
 This shows that there are at most 
 \begin_inset Formula $2N$
@@ -2959,7 +2961,6 @@ Now let
  
 \end_layout
 
-\begin_deeper
 \begin_layout Case
 If 
 \begin_inset Formula $\qdemand\le\maxDemand{\NLinks}$
@@ -3117,7 +3118,6 @@ normalsize
  which achieves the induction.
 \end_layout
 
-\end_deeper
 \begin_layout Corollary
 
 \series bold
@@ -5422,7 +5422,6 @@ reference "lemma:inducedNCeq"
 .
 \end_layout
 
-\begin_deeper
 \begin_layout Lemma
 
 \series bold
@@ -5666,7 +5665,6 @@ Then
  This completes the proof of the Lemma.
 \end_layout
 
-\end_deeper
 \begin_layout Proof
 Using the lemma, we can now show that links 
 \begin_inset Formula $\{1,\dots,l-1\}$

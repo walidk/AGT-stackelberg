@@ -2,9 +2,15 @@
 \lyxformat 413
 \begin_document
 \begin_header
-\textclass IEEEconf
+\textclass ieeeconf
 \begin_preamble
+
+\IEEEoverridecommandlockouts                              % This command is only
+                                                          % needed if you want to
+                                                          % use the \thanks command
 \overrideIEEEmargins
+% See the \addtolength command later in the file to balance the column lengths
+% on the last page of the document
 \end_preamble
 \options letterpaper, 10 pt, conference
 \use_default_options false
@@ -75,8 +81,8 @@ filename "../common-files/lyx_commands.lyx"
 \end_layout
 
 \begin_layout Title
-On the Characterization and Computation of Nash Equilibria in Horizontal
- Queueing Networks
+On the Characterization and Computation of Nash Equilibria in Networks with
+ Horizontal Queues
 \end_layout
 
 \begin_layout Author
@@ -140,19 +146,20 @@ bayen@berkeley.edu
 \end_layout
 
 \begin_layout Abstract
-We study inefficiencies in horizontal queueing networks due to the selfish
+We study inefficiencies in networks with horizontal queues due to the selfish
  behavior of agents, by comparing social optima to Nash equilibria.
  The article expands studies on routing games which traditionally model
  congestion with latency functions that increase with the flow on a particular
  link.
  This type of latency function cannot capture congestion effects on horizontal
- queueing networks.
- Latencies on horizontal queueing networks increase as a function of density,
- and flow can decrease with increasing latencies.
- For example, this class of latency functions arises in transportation networks.
- For static analysis of horizontal queuing on parallel-link networks, we
- show that there are multiple Nash equilibria with different total costs,
- which contrasts results for increasing latency functions.
+ queues.
+ Latencies on horizontal queues increase as a function of density, and flow
+ can decrease with increasing latencies.
+ This class of latency functions arises in transportation networks.
+ For static analysis of horizontal queues on parallel-link networks with
+ distinct free-flow latencies, we show that there are multiple Nash equilibria
+ with different total costs, which contrasts results for increasing latency
+ functions.
  We present a novel algorithm, quadratic in the number of links, for computing
  the Nash equilibrium that minimizes total cost (best Nash equilibrium).
  The relative inefficiencies of best Nash equilibria are evaluated through
@@ -526,7 +533,7 @@ reference "sec:Discussion"
 \end_layout
 
 \begin_layout Section
-The Model
+The model
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:The-Model"
@@ -537,7 +544,7 @@ name "sec:The-Model"
 \end_layout
 
 \begin_layout Subsection
-Routing Games on on Parallel Edge Network
+Routing games on on parallel edge network
 \end_layout
 
 \begin_layout Standard
@@ -747,7 +754,7 @@ key "papadimitriou2010new,roughgarden2002bad"
 \end_layout
 
 \begin_layout Subsection
-Modeling congestion with Latency Functions
+Modeling congestion with latency functions
 \end_layout
 
 \begin_layout Standard
@@ -844,7 +851,7 @@ We next show that such latency functions can be derived from macroscopic
 \end_layout
 
 \begin_layout Subsection
-Deriving Latency Functions for Horizontal Queuing Networks
+Deriving latency functions for horizontal queuing networks
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:Deriving-a-Class"
@@ -1489,7 +1496,7 @@ where
 \end_layout
 
 \begin_layout Subsection
-A new class of Latency functions: Horizontal Queuing Latency
+A class of latency functions for horizontal queues
 \end_layout
 
 \begin_layout Standard
@@ -1681,7 +1688,16 @@ The latency in free-flow is constant.
 \end_layout
 
 \begin_layout Standard
-Some examples of latency functions in this class are illustrated in Figure
+When 
+\begin_inset Formula $\Mode[\link]=1$
+\end_inset
+
+, the latency 
+\begin_inset Formula $\latency[\link]$
+\end_inset
+
+ may be unbounded as the flow decreases to zero.
+ Some examples of latency functions in this class are illustrated in Figure
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2241,7 +2257,30 @@ Note that essential uniqueness of Nash Equilibria holds for the class of
  To simplify the discussion, we assume without loss of generality, that
  the links are ordered by increasing free-flow latencies, and that free-flow
  latencies are different to avoid degenerate cases where the set of Nash
- equilibria is infinite (
+ equilibria is infinite
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+:
+\end_layout
+
+\begin_layout Quote
+
+\emph on
+Assumption:
+\series bold
+\emph default
+ 
+\series default
+(
 \family roman
 \series medium
 \shape up
@@ -2377,7 +2416,7 @@ reference "lem:filluplower"
 \end_inset
 
 , 
-\begin_inset Formula $m_{i}=0$
+\begin_inset Formula $m_{i}=1$
 \end_inset
 
 .
@@ -3354,7 +3393,11 @@ Existence of a single-link free-flow Nash Equilibrium
 \end_layout
 
 \begin_layout Standard
-From property 
+From Proposition
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "prop:xbar"
@@ -3512,7 +3555,6 @@ Now let
  
 \end_layout
 
-\begin_deeper
 \begin_layout Case
 If 
 \begin_inset Formula $\qdemand\le\maxDemand{\NLinks}$
@@ -3683,7 +3725,6 @@ normalsize
  which achieves the induction.
 \end_layout
 
-\end_deeper
 \begin_layout Corollary
 
 \emph on
@@ -4878,7 +4919,7 @@ We introduced a new class of latency functions that models congestion in
 , which we proved is the single link free-flow equilibrium with smallest
  support, and then presented a constructive, quadratic time algorithm for
  finding this equilibrium.
- Finally, we derived price of stability results for an example network,
+ Finally, we derived price of stability results for a two-link network,
  then showed that if a link is anticipated to be near capacity, congestion
  can be completely averted by diverting only a small fraction of the demand.
 \end_layout
