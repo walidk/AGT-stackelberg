@@ -1,0 +1,177 @@
+\global\long\def\vect#1{\boldsymbol{#1}}
+ \global\long\def\lonenorm#1{\left|\left|#1\right|\right|_{1}}
+\global\long\def\dotT#1#2{\vect{#1^{\mathrm{T}}} \vect{#2} }
+
+
+\newcommandx\mass[1][usedefault, addprefix=\global, 1=]{\rho_{#1}}
+ \newcommandx\massmax[1][usedefault, addprefix=\global, 1=]{\mass[#1]^{\max}}
+ \newcommandx\masscrit[1][usedefault, addprefix=\global, 1=]{\mass[#1]^{\text{crit}}}
+\global\long\def\vmass{\vect{\mass}}
+
+
+\global\long\def\Junctions{V}
+ \global\long\def\Cells{E}
+ \global\long\def\Graph{(\Junctions,\Cells)}
+
+
+\newcommandx\junction[1][usedefault, addprefix=\global, 1=]{v_{#1}}
+ \newcommandx\jcn[1][usedefault, addprefix=\global, 1=]{\junction[#1]}
+
+
+\newcommandx\cell[1][usedefault, addprefix=\global, 1=]{e_{#1}}
+ \newcommandx\vcell[1][usedefault, addprefix=\global, 1=]{\vect{\cell[#1]}}
+
+
+\global\long\def\Incoming{I}
+ \newcommandx\inCells[1][usedefault, addprefix=\global, 1=]{\Incoming_{#1}}
+
+
+\global\long\def\Outgoing{O}
+ \newcommandx\outCells[1][usedefault, addprefix=\global, 1=]{\Outgoing_{#1}}
+
+
+\global\long\def\speedff{v^{f}}
+\global\long\def\speedCong{v^{c}}
+
+
+\global\long\def\minify#1{#1^{\text{min}}}
+ \global\long\def\maxify#1{#1^{\text{\ensuremath{\max}}}}
+ \global\long\def\inify#1{#1^{\text{in}}}
+ \global\long\def\outify#1{#1^{\text{out}}}
+
+
+\newcommandx\flow[1][usedefault, addprefix=\global, 1=]{x_{#1}}
+ \newcommandx\flowMax[1][usedefault, addprefix=\global, 1=]{\maxify{\flow[#1]}}
+ \newcommandx\flowIn[1][usedefault, addprefix=\global, 1=]{\inify{\flow[#1]}}
+ \newcommandx\flowOut[1][usedefault, addprefix=\global, 1=]{\outify{\flow[#1]}}
+
+
+\global\long\def\vflow{\vect q}
+ \global\long\def\vflowMax{\maxify{\vect{\flow}}}
+ \global\long\def\vflowIn{\inify{\vect{\flow}}}
+ \global\long\def\vflowOut{\outify{\vect{\flow}}}
+
+
+\newcommandx\demand[1][usedefault, addprefix=\global, 1=]{\Delta_{#1}}
+ \newcommandx\dem[1][usedefault, addprefix=\global, 1=]{\demand[#1]}
+ \newcommandx\supply[1][usedefault, addprefix=\global, 1=]{\Sigma_{#1}}
+ \newcommandx\supp[1][usedefault, addprefix=\global, 1=]{\supply[#1]}
+
+
+\global\long\def\fa#1{\forall\,#1}
+ \global\long\def\fain#1#2{\fa{#1\,\in\,#2}}
+
+
+\newcommandx\totaltraveltime[1][usedefault, addprefix=\global, 1=]{TTT_{#1}}
+ \newcommandx\ttt[1][usedefault, addprefix=\global, 1=]{\totaltraveltime[#1]}
+
+
+\newcommandx\qdemand[1][usedefault, addprefix=\global, 1=]{r_{#1}}
+
+
+\newcommandx\delay[1][usedefault, addprefix=\global, 1=]{D_{#1}}
+
+
+\newcommandx\lenCell[1][usedefault, addprefix=\global, 1=]{L_{#1}}
+
+
+\newcommandx\Rea[1][usedefault, addprefix=\global, 1=]{\mathcal{R}^{#1}}
+
+
+\newcommandx\Routes[1][usedefault, addprefix=\global, 1=]{R_{#1}}
+
+
+\global\long\def\cellRoute#1#2{\gamma_{#1.#2}}
+\global\long\def\odRoute#1#2{\psi_{#1.#2}}
+
+
+\global\long\def\degradeRatio{}
+
+
+
+
+\renewcommandx\mass[1][usedefault, addprefix=\global, 1=]{\rho_{#1}}
+ \renewcommandx\massmax[1][usedefault, addprefix=\global, 1=]{\mass[#1]^{\max}}
+ \renewcommandx\masscrit[1][usedefault, addprefix=\global, 1=]{\mass[#1]^{\text{crit}}}
+\global\long\def\vmass{\vect{\mass}}
+
+
+\renewcommandx\qdemand[1][usedefault, addprefix=\global, 1=]{r_{#1}}
+
+
+\renewcommandx\flow[1][usedefault, addprefix=\global, 1=]{x_{#1}}
+ \renewcommandx\flowMax[1][usedefault, addprefix=\global, 1=]{\maxify{\flow[#1]}}
+ \renewcommandx\flowIn[1][usedefault, addprefix=\global, 1=]{\inify{\flow[#1]}}
+ \renewcommandx\flowOut[1][usedefault, addprefix=\global, 1=]{\outify{\flow[#1]}}
+
+
+
+
+\global\long\def\Network{\mathscr{N}}
+\global\long\def\NLinks{N}
+\global\long\def\Graph{G}
+
+
+\newcommandx\Mode[1][usedefault, addprefix=\global, 1=]{m_{#1}}
+
+
+\newcommandx\latency[1][usedefault, addprefix=\global, 1=]{l_{#1}}
+\global\long\def\Latency{C}
+
+
+\global\long\def\link{n}
+
+
+\newcommandx\Length[1][usedefault, addprefix=\global, 1=]{\lenCell[#1]}
+
+
+\newcommandx\cFlow[1][usedefault, addprefix=\global, 1=]{s_{#1}}
+\newcommandx\ncFlow[1][usedefault, addprefix=\global, 1=]{t_{#1}}
+
+
+\newcommandx\parA[1][usedefault, addprefix=\global, 1=]{a_{#1}}
+\newcommandx\parB[1][usedefault, addprefix=\global, 1=]{b_{#1}}
+\newcommandx\parC[1][usedefault, addprefix=\global, 1=]{c_{#1}}
+
+
+\global\long\def\coloneqq{:=}
+
+
+
+
+\global\long\def\BestNashEquilibrium#1#2{\textup{BNE}\left(#1,#2\right)}
+\global\long\def\NashEquilibrium#1#2#3{\textup{NE}_{#3}\left(#1,#2\right)}
+
+
+
+
+\global\long\def\cffFlow#1#2{\hat{\flow}_{#1}\left(#2\right)}
+
+
+
+
+\newcommandx\opneFlow[3][usedefault, addprefix=\global, 1=]{\bar{\flow}_{#1}^{#2,#3}}
+
+
+
+
+\newcommandx\cffMode[2][usedefault, addprefix=\global, 1=]{\bar{\Mode}_{#1}^{#2}}
+
+
+\global\long\def\Supp#1{\textup{Supp}\left(#1\right)}
+
+
+\global\long\def\POS#1#2{\textup{POS}\left(#1,#2\right)}
+
+
+\global\long\def\Cost#1#2{C_{#1}\left(#1,#2\right)}
+
+
+\global\long\def\compRate{\alpha}
+
+
+\global\long\def\StackSet{\textup{S}(\NLinks,\qdemand,\compRate)}
+
+
+\global\long\def\maxDemand#1{\qdemand^{\textup{NE}}\left(#1\right)}
+

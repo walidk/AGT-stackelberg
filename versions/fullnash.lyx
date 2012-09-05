@@ -262,7 +262,7 @@ key "roughgarden2001stackelberg"
 .
  While this class of latency functions provides a good model of congestion
  for a considerable range of networks, such as communication networks, it
- does not accurately model horizontal queueing congestion, such as congestion
+ does not accurately model congestion in horizontal queues, such as congestion
  on transportation networks 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -435,7 +435,7 @@ best Nash equilibrium
 We give an analytical solution to the price of stability on a two-link parallel
  network.
  This gives insight into the qualitative behavior of congestion caused by
- Nash equilibria on horizontal queueing networks.
+ Nash equilibria on networks of horizontal queues.
  In particular, when the lowest-latency link in a network nears capacity,
  diverting only a small amount of flow to a slower link can avert congestion
  completely.
@@ -448,10 +448,10 @@ These results provide a framework for efficient computation of Nash equilibria
  While the assumption of a parallel network may seem restrictive, there
  are many examples of highway networks in populous areas (such as the San
  Francisco bay area), in which such networks can model congestion via horizontal
- queueing and the parallel link structure is an accurate description.
+ queues and the parallel link structure is an accurate description.
  Additionally, highway networks often suffer from congestion due to selfish
- routing, and would benefit from the analysis of horizontal queueing Nash
- equilibria.
+ routing, and would benefit from the analysis of Nash equilibria on horizontal
+ queues.
  
 \end_layout
 
@@ -893,9 +893,8 @@ While such flow models have been popular for many decades in specific domains
  these models in the literature studying routing games, which focuses on
  modeling latency as a non-decreasing function of flow, and assumes flow
  and density to have a one-to-one relation.
- In order to characterize Nash equilibria on horizontal queueing networks,
- we develop a novel approach based on the unique structure of the latency
- functions.
+ In order to characterize Nash equilibria on horizontal queues, we develop
+ a novel approach based on the unique structure of the latency functions.
 \end_layout
 
 \begin_layout Standard
@@ -926,10 +925,10 @@ vspace{-0.10in}
 
  
 \begin_inset Formula 
-\begin{eqnarray*}
-x_{n}^{\rho}:D_{n} & \rightarrow & \Rea_{+}\\
-\rho_{n} & \mapsto & x_{n}=x_{n}^{\rho}(\rho_{n})
-\end{eqnarray*}
+\begin{align*}
+x_{n}^{\rho}:D_{n} & \rightarrow\Rea_{+}\\
+\rho_{n} & \mapsto x_{n}=x_{n}^{\rho}(\rho_{n})
+\end{align*}
 
 \end_inset
 
@@ -1013,10 +1012,10 @@ vspace{-0.10in}
 
  
 \begin_inset Formula 
-\begin{eqnarray*}
-\latency[\link]^{\rho}:D_{n} & \rightarrow & \Rea_{+}\\
-\rho_{n} & \mapsto & l_{n}^{\rho}(\rho_{n})
-\end{eqnarray*}
+\begin{align*}
+\latency[\link]^{\rho}:D_{n} & \rightarrow\Rea_{+}\\
+\rho_{n} & \mapsto l_{n}^{\rho}(\rho_{n})
+\end{align*}
 
 \end_inset
 
@@ -1574,10 +1573,10 @@ vspace{-0.20in}
 
 \begin_layout Standard
 \begin_inset Formula 
-\begin{eqnarray*}
-\latency[\link]:\left[0,\flowMax[\link]\right]\times\left\{ 0\right\} \cup(0,\flowMax[n])\times\left\{ 1\right\}  & \rightarrow & \Rea_{+}\\
-\left(\flow[\link],\Mode[\link]\right) & \mapsto & \latency[\link]\left(\flow[\link],\Mode[\link]\right),
-\end{eqnarray*}
+\begin{align*}
+\latency[\link]:\left[0,\flowMax[\link]\right]\times\left\{ 0\right\} \cup(0,\flowMax[n])\times\left\{ 1\right\}  & \rightarrow\Rea_{+}\\
+\left(\flow[\link],\Mode[\link]\right) & \mapsto\latency[\link]\left(\flow[\link],\Mode[\link]\right),
+\end{align*}
 
 \end_inset
 
@@ -1725,10 +1724,10 @@ vspace{-0.15in}
 
 \begin_layout Standard
 \begin_inset Formula 
-\begin{eqnarray*}
-\latency[\triangle]\left(x,0\right) & = & \frac{\Length}{\speedff}\\
-\latency[\triangle]\left(\flow,1\right) & = & L\left(\frac{\massmax}{\flow}+\frac{1}{\speedCong}\right)
-\end{eqnarray*}
+\begin{align*}
+\latency[\triangle]\left(x,0\right) & =\frac{\Length}{\speedff}\\
+\latency[\triangle]\left(\flow,1\right) & =L\left(\frac{\massmax}{\flow}+\frac{1}{\speedCong}\right)
+\end{align*}
 
 \end_inset
 
@@ -2037,7 +2036,7 @@ name "sub:Traffic-Networks-Have"
 
 \end_inset
 
- Horizontal queueing networks have multiple Nash equilibria
+ Multiple Nash equilibria on networks with horizontal queues
 \end_layout
 
 \begin_layout Standard
@@ -3109,15 +3108,11 @@ vspace{-0.25in}
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $ $
-\end_inset
-
-
 \begin_inset Formula 
-\begin{eqnarray}
+\begin{align}
 \bar{\Mode}^{k}\coloneqq(\stackrel{1}{1},\dots,\stackrel{k-1}{1},\stackrel{k}{0},\dots,\stackrel{N}{0})\label{eq:m_bar}\\
 \opneFlow k{\qdemand}:=(\overset{1}{\cffFlow 1k},\dots,\overset{k-1}{\cffFlow{k-1}k},r-\sum_{\link=1}^{k-1}\cffFlow{\link}k,0,\dots,\stackrel{\NLinks}{0})\label{eq:x_bar}
-\end{eqnarray}
+\end{align}
 
 \end_inset
 
